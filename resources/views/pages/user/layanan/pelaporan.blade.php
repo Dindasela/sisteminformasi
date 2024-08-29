@@ -25,8 +25,7 @@
         <section id="cover" class="relative items-center justify-center">
             <div class="relative w-full rounded-lg z-10 text-black">
                 <div class="bg-white text-[#4B4646] h-screen flex flex-col justify-center items-center">
-                    <div class="text-center text-xl">Untuk Menggunakan Fitur Pelaporan Silahkan Login Terlebih Dahulu
-                        atau tidak valid</div>
+                    <div class="text-center text-xl font-bold">Untuk Menggunakan Fitur Pelaporan <br> Silahkan Login Terlebih Dahulu</div>
                     <div class="flex justify-center mt-10">
                         <a href="/layanan-form-pelaporan" class="btn border-none bg-[#2B2A4C] text-white">Login</a>
                     </div>

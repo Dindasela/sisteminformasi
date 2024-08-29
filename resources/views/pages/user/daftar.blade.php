@@ -76,20 +76,20 @@
                         <div class="text-black text-left">
                             <div class="mb-2">
                                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
-                                <input type="email" id="email"
+                                <input type="email" id="email" name=""
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="abcdef@gmail.com" required />
                             </div>
                             <div class="mb-2">
                                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Username</label>
-                                <input type="email" id="email"
+                                <input type="email" id="email" name=""
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="abcdef@gmail.com" required />
                             </div>
                             <div class="mb-2 relative">
                                 <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Kata
                                     sandi</label>
-                                <input type="password" id="password" placeholder="********"
+                                <input type="password" id="password" placeholder="********" name=""
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     required />
                                 <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5 mt-6">
@@ -109,27 +109,27 @@
                             <div class="mb-2">
                                 <label for="namaLengkap" class="block mb-2 text-sm font-medium text-gray-900">Nama
                                     Lengkap</label>
-                                <input type="text" id="namaLengkap"
+                                <input type="text" id="namaLengkap" name=""
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="abcdef@gmail.com" required />
                             </div>
                             <div class="mb-2">
                                 <label for="nik" class="block mb-2 text-sm font-medium text-gray-900">NIK</label>
-                                <input type="number" id="nik"
+                                <input type="number" id="nik" name=""
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="12345678" required />
                             </div>
                             <div class="mb-2">
                                 <label for="alamatTinggal" class="block mb-2 text-sm font-medium text-gray-900">Alamat
                                     Tinggal</label>
-                                <input type="text" id="alamatTinggal"
+                                <input type="text" id="alamatTinggal" name=""
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="abcdef@gmail.com" required />
                             </div>
                             <div class="mb-2">
                                 <label for="nomorTelepon" class="block mb-2 text-sm font-medium text-gray-900">Nomor
                                     Telepon</label>
-                                <input type="number" id="nomorTelepon"
+                                <input type="number" id="nomorTelepon" name=""
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="12345678" required />
                             </div>
@@ -154,7 +154,7 @@
                                     <div class="relative">
                                         <input
                                             class="block w-full text-sm text-gray-900 rounded-lg cursor-pointer bg-gray-50 file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700"
-                                            aria-describedby="input_ktp_help" id="input_ktp" type="file" required>
+                                            aria-describedby="input_ktp_help" id="input_ktp" type="file" name="" required>
                                     </div>
                                     <script>
                                         const fileInput = document.getElementById('input_ktp');
@@ -200,7 +200,7 @@
                                     <div class="relative">
                                         <input
                                             class="block w-full text-sm text-gray-900 rounded-lg cursor-pointer bg-gray-50 file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700"
-                                            aria-describedby="input_swafoto_help" id="input_swafoto" type="file"
+                                            aria-describedby="input_swafoto_help" id="input_swafoto" type="file" name=""
                                             required>
                                     </div>
                                     <script>

@@ -19,7 +19,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-white">
     <div>
         <x-nav-user />
         <section id="cover" class="relative items-center justify-center lg:pb-16">
@@ -27,7 +27,7 @@
                 <div class="font-bold text-4xl mb-5 lg:mb-10 mt-20 lg:mt-0 text-[#2B2A4C] underline underline-offset-4">
                     Verifikasi Dokumen
                 </div>
-                <div class="bg-[#2B2A4C] text-white p-5">
+                <div class="bg-[#2B2A4C] text-white p-5 font-bold">
                     Verifikasi Sukses!
                 </div>
                 <div class="bg-[#F5F3F3] text-[#4B4646] p-10">

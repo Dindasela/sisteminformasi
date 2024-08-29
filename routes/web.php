@@ -60,7 +60,33 @@ Route::controller(GeneralPage::class)->group(function () {
     // Akhir User
 
     // Awal Admin
-    Route::get('/login-admin', 'login');
+    Route::get('/login-admin', 'loginadmin');
     Route::get('/dashboard', 'dashboard');
+    Route::get('/manajemen-surat', 'manajemensurat');
+    Route::get('/surat-masuk', 'suratmasuk');
+    Route::get('/tambah-surat-masuk', 'tambahsuratmasuk');
+    Route::get('/lihat-surat-masuk', 'lihatsuratmasuk');
+    Route::get('/arsip-surat', 'arsipsurat');
+    Route::get('/lihat-arsip-surat-masuk', 'lihatarsipsuratmasuk');
+    Route::get('/lihat-arsip-surat-keluar', 'lihatarsipsuratkeluar');
+    Route::get('/tambah-surat-keluar', 'tambahsuratkeluar');
+    Route::get('/lihat-surat-keluar', 'lihatsuratkeluar');
+
+    Route::get('/laporan-masuk', 'laporanmasuk');
+    Route::get('/lihat-laporan', 'lihatlaporan');
+    Route::get('/informasi', 'informasi');
+    Route::get('/daftar-berita', 'daftarberita');
+    Route::get('/tambah-berita', 'tambahberita');
+    Route::get('/edit-berita', 'editberita');
+    Route::get('/daftar-pengumuman', 'daftarpengumuman');
+    Route::get('/tambah-pengumuman', 'tambahpengumuman');
+    Route::get('/edit-pengumuman', 'editpengumuman');
+    Route::get('/list-galeri', 'listgaleri');
+    Route::get('/tambah-foto-video', 'tambahfotovideo');
+    Route::get('/edit-foto-video', 'editfotovideo');
+    Route::get('/daftar-akun', 'daftarakun');
+    Route::get('/lihat-akun', 'lihatakun');
+    Route::get('/permohonan-akun', 'permohonanakun');
+    Route::get('/lihat-permohonan-akun', 'lihatpermohonanakun');
     // Akhir Admin
 });

@@ -20,7 +20,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-white">
     <div>
         <x-nav-user />
         <section id="cover" class="relative items-center justify-center lg:pb-16">
@@ -28,12 +28,12 @@
                 <div class="font-bold text-4xl mb-5 lg:mb-10 mt-20 lg:mt-0 text-[#2B2A4C] underline underline-offset-4">
                     Verifikasi Dokumen
                 </div>
-                <div class="bg-[#2B2A4C] text-white text-center p-5">
+                <div class="bg-[#2B2A4C] text-white text-center p-5 font-bold">
                     Data Tidak Ditemukan
                 </div>
                 <div class="bg-white text-[#4B4646] p-10">
-                    <div class="m-auto text-center text-xl">Mohon Maaf
-                        Data yang Anda cari tidak ada
+                    <div class="m-auto text-center text-xl">Mohon Maaf <br>
+                        Data yang Anda cari tidak ada <br>
                         atau tidak valid</div>
                     <div class="flex justify-center m-auto">
                         <a href="/layanan-verifikasi-dokumen"

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengumuman</title>
-    <link rel="icon" type="image/x-icon" href="/assets/">
+    <link rel="icon" type="image/x-icon" href="/image/icon-logo.ico">
     {{-- Awal Tailwind --}}
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
@@ -27,7 +27,7 @@
         <x-nav-user />
         <section id="cover"
             class="relative bg-center bg-no-repeat bg-cover bg-white bg-blend-multiply min-h-screen flex items-center justify-center">
-            <form class="relative w-full m-5 lg:m-10 p-6 z-10 text-black">
+            <form class="relative w-full m-5 lg:m-20 p-6 z-10 text-black">
                 <div
                     class="font-bold text-2xl lg:text-4xl mb-5 lg:mb-10 mt-10 lg:mt-0 text-[#2B2A4C] underline underline-offset-4">
                     Pengumuman
@@ -44,7 +44,7 @@
                             </svg>
                         </div>
                         <input type="search" id="default-search"
-                            class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Search" required />
                     </div>
                 </div>
@@ -62,21 +62,53 @@
                     </div>
                     <table class="w-full text-sm text-left text-gray-500">
                         @php
-                        $dummyData = [
-                        ['tanggal' => '01-01-2024',
-                        'nama_kegiatan' => 'Sosialisasi Stunting',
-                        'tempat_kegiatan' =>'Kantor Kelurahan',
-                        'dekripsi_singkat' => 'Kegiatan Penyuluhan Stunting yang diikuti ibu-ibu',
-                        'keterangan' => 'Terlaksana'],
-                        ['tanggal' => '01-01-2024',
-                        'nama_kegiatan' => 'Sosialisasi Stunting',
-                        'tempat_kegiatan' =>'Kantor Kelurahan',
-                        'dekripsi_singkat' => 'Kegiatan Penyuluhan Stunting yang diikuti ibu-ibu',
-                        'keterangan' => 'Terlaksana'],
-                        ];
+                            $dummyData = [
+                                [
+                                    'tanggal' => '01-01-2024',
+                                    'nama_kegiatan' => 'Sosialisasi Stunting',
+                                    'tempat_kegiatan' => 'Kantor Kelurahan',
+                                    'dekripsi_singkat' => 'Kegiatan Penyuluhan Stunting yang diikuti ibu-ibu',
+                                    'keterangan' => 'Terlaksana',
+                                ],
+                                [
+                                    'tanggal' => '01-01-2024',
+                                    'nama_kegiatan' => 'Sosialisasi Stunting',
+                                    'tempat_kegiatan' => 'Kantor Kelurahan',
+                                    'dekripsi_singkat' => 'Kegiatan Penyuluhan Stunting yang diikuti ibu-ibu',
+                                    'keterangan' => 'Terlaksana',
+                                ],
+                                [
+                                    'tanggal' => '01-01-2024',
+                                    'nama_kegiatan' => 'Sosialisasi Stunting',
+                                    'tempat_kegiatan' => 'Kantor Kelurahan',
+                                    'dekripsi_singkat' => 'Kegiatan Penyuluhan Stunting yang diikuti ibu-ibu',
+                                    'keterangan' => 'Terlaksana',
+                                ],
+                                [
+                                    'tanggal' => '01-01-2024',
+                                    'nama_kegiatan' => 'Sosialisasi Stunting',
+                                    'tempat_kegiatan' => 'Kantor Kelurahan',
+                                    'dekripsi_singkat' => 'Kegiatan Penyuluhan Stunting yang diikuti ibu-ibu',
+                                    'keterangan' => 'Terlaksana',
+                                ],
+                                [
+                                    'tanggal' => '01-01-2024',
+                                    'nama_kegiatan' => 'Sosialisasi Stunting',
+                                    'tempat_kegiatan' => 'Kantor Kelurahan',
+                                    'dekripsi_singkat' => 'Kegiatan Penyuluhan Stunting yang diikuti ibu-ibu',
+                                    'keterangan' => 'Belum Terlaksana',
+                                ],
+                                [
+                                    'tanggal' => '01-01-2024',
+                                    'nama_kegiatan' => 'Sosialisasi Stunting',
+                                    'tempat_kegiatan' => 'Kantor Kelurahan',
+                                    'dekripsi_singkat' => 'Kegiatan Penyuluhan Stunting yang diikuti ibu-ibu',
+                                    'keterangan' => 'Belum Terlaksana',
+                                ],
+                            ];
                         @endphp
                         <table class="min-w-full">
-                            <thead class="text-xs text-white uppercase bg-[#2B2A4C]">
+                            <thead class="text-xs text-white bg-[#2B2A4C]">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">tanggal</th>
                                     <th scope="col" class="px-6 py-3">Nama Kegiatan</th>
@@ -87,24 +119,23 @@
                             </thead>
                             <tbody>
                                 @foreach ($dummyData as $data)
-                                <tr class="bg-[#DDDBDB] border-b text-black text-center">
-                                    <td scope="row" class="px-6 py-4 font-medium whitespace-nowrap">{{ $data['tanggal']
-                                        }}
-                                    </td>
-                                    <td class="px-6 py-4">{{ $data['nama_kegiatan'] }}</td>
-                                    <td class="px-6 py-4">{{ $data['tempat_kegiatan'] }}</td>
-                                    <td class="px-6 py-4">{{ $data['dekripsi_singkat'] }}</td>
-                                    <td class="px-6 py-4">
-                                        @if($data['keterangan'] == 'Terlaksana')
-                                        <span
-                                            class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">Terlaksana</span>
-                                        @elseif($data['keterangan'] == 'Belum Terlaksana')
-                                        <span
-                                            class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">Belum
-                                            Terlaksana</span>
-                                        @endif
-                                    </td>
-                                </tr>
+                                    <tr class="bg-[#DDDBDB] border-b text-black text-center">
+                                        <td scope="row" class="px-6 py-4">{{ $data['tanggal'] }}
+                                        </td>
+                                        <td class="px-6 py-4">{{ $data['nama_kegiatan'] }}</td>
+                                        <td class="px-6 py-4">{{ $data['tempat_kegiatan'] }}</td>
+                                        <td class="px-6 py-4">{{ $data['dekripsi_singkat'] }}</td>
+                                        <td class="px-6 py-4">
+                                            @if ($data['keterangan'] == 'Terlaksana')
+                                                <span
+                                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">Terlaksana</span>
+                                            @elseif($data['keterangan'] == 'Belum Terlaksana')
+                                                <span
+                                                    class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">Belum
+                                                    Terlaksana</span>
+                                            @endif
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>

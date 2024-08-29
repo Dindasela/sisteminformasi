@@ -113,8 +113,87 @@ class GeneralPage extends Controller
     // Akhur User
 
     // Awal Admin
+    function loginadmin () {
+        return view('pages/admin/login-admin');
+    }
     function dashboard () {
         return view('pages/admin/dashboard');
+    }
+    function manajemensurat () {
+        return view('pages/admin/manajemen-surat');
+    }
+    function suratmasuk () {
+        return view('pages/admin/manajemen-surat/surat-masuk/surat-masuk');
+    }
+    function tambahsuratmasuk () {
+        return view('pages/admin/manajemen-surat/surat-masuk/tambah-surat-masuk');
+    }
+    function lihatsuratmasuk () {
+        return view('pages/admin/manajemen-surat/surat-masuk/lihat-surat-masuk');
+    }
+    function arsipsurat () {
+        return view('pages/admin/manajemen-surat/arsip-surat/arsip-surat');
+    }
+    function lihatarsipsuratmasuk () {
+        return view('pages/admin/manajemen-surat/arsip-surat/lihat-arsip-surat-masuk');
+    }
+    function lihatarsipsuratkeluar () {
+        return view('pages/admin/manajemen-surat/arsip-surat/lihat-arsip-surat-keluar');
+    }
+    function tambahsuratkeluar () {
+        return view('pages/admin/manajemen-surat/surat-keluar/tambah-surat-keluar');
+    }
+    function lihatsuratkeluar () {
+        return view('pages/admin/manajemen-surat/surat-keluar/lihat-surat-keluar');
+    }
+
+    function laporanmasuk () {
+        return view('pages/admin/pelaporan/laporan-masuk');
+    }
+    function lihatlaporan () {
+        return view('pages/admin/pelaporan/lihat-laporan');
+    }
+    function informasi () {
+        return view('pages/admin/informasi/informasi');
+    }
+    function daftarberita () {
+        return view('pages/admin/informasi/daftar-berita');
+    }
+    function tambahberita () {
+        return view('pages/admin/informasi/tambah-berita');
+    }
+    function editberita () {
+        return view('pages/admin/informasi/edit-berita');
+    }
+    function daftarpengumuman () {
+        return view('pages/admin/informasi/daftar-pengumuman');
+    }
+    function tambahpengumuman () {
+        return view('pages/admin/informasi/tambah-pengumuman');
+    }
+    function editpengumuman () {
+        return view('pages/admin/informasi/edit-pengumuman');
+    }
+    function listgaleri () {
+        return view('pages/admin/galeri/list-galeri');
+    }
+    function tambahfotovideo () {
+        return view('pages/admin/galeri/tambah-foto-video');
+    }
+    function editfotovideo () {
+        return view('pages/admin/galeri/edit-foto-video');
+    }
+    function daftarakun () {
+        return view('pages/admin/kelolaakun/daftar-akun');
+    }
+    function lihatakun () {
+        return view('pages/admin/kelolaakun/lihat-akun');
+    }
+    function permohonanakun () {
+        return view('pages/admin/kelolaakun/permohonan-akun');
+    }
+    function lihatpermohonanakun () {
+        return view('pages/admin/kelolaakun/lihat-permohonan-akun');
     }
     // Akhir Admin
 }

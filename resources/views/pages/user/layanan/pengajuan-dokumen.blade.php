@@ -20,7 +20,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-white">
     <div>
         <x-nav-user />
         <section id="cover" class="relative items-center justify-center lg:pb-16">
