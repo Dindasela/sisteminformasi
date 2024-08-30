@@ -159,7 +159,7 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="font-bold text-black mt-10 mb-5 text-lg">Data Diri Istri</div>
+                                <div class="font-bold text-black mt-10 mb-5 text-lg">Data Diri Suami</div>
                                 <div class="mb-2">
                                     <label for="nama-lengkap-suami"
                                         class="block mb-2 text-sm font-medium text-gray-900">Nama

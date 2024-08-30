@@ -14,9 +14,15 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     {{-- Akhir Flowbite --}}
-    {{-- Awal DeasyUi --}}
+    {{-- Awal DaisyUI --}}
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* CSS untuk memastikan video terlihat baik di perangkat mobile */
+        #qr-video {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -34,18 +40,12 @@
                     <div class="lg:flex gap-2 lg:gap-5">
                         <div>
                             <div class="text-sm font-bold">Kamera</div>
-                            <video id="qr-video" width="100%" height="auto" style="max-width: 300px; display: none;"
+                            <video id="qr-video" width="100%" height="auto"
                                 class="flex justify-center m-auto items-center mb-2 rounded-lg"></video>
-                        </div>
-                        <div>
-                            <div class="text-sm font-bold">Hasil Kamera</div>
-                            <canvas id="qr-canvas" width="100%" height="auto"
-                                class="flex justify-center m-auto items-center mb-2 rounded-lg w-full"
-                                style="max-width: 300px; display: none;">Hasil</canvas>
                         </div>
                     </div>
                     <div class="flex justify-center m-auto items-center">
-                        <button onclick="startScan()" class="mt-10">
+                        <button onclick="startScan()" class="mb-40">
                             <svg width="62" height="62" viewBox="0 0 62 62" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_6_528)">
@@ -74,14 +74,6 @@
                             </svg>
                         </button>
                     </div>
-                    <button type="button" onclick="captureImage()"
-                        class="w-full text-white bg-[#2B2A4C] hover:bg-[#191831] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-10">
-                        Tangkap Gambar
-                    </button>
-                    <button type="button" onclick="sendImageToAPI()"
-                        class="w-full text-white bg-[#2B2A4C] hover:bg-[#191831] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-10 mb-10 lg:mb-0">
-                        Kirim Gambar
-                    </button>
                 </div>
             </div>
         </section>
@@ -89,66 +81,41 @@
     </div>
     <script src="https://unpkg.com/@zxing/library@0.18.5"></script>
     <script>
-        const canvas = document.getElementById('qr-canvas');
-        const ctx = canvas.getContext('2d');
+        const codeReader = new ZXing.BrowserQRCodeReader();
         const videoElem = document.getElementById('qr-video');
-        const captureButton = document.getElementById('captureButton');
 
         function startScan() {
             navigator.mediaDevices.getUserMedia({
-                    video: true
+                    video: {
+                        facingMode: "environment",
+                        width: {
+                            ideal: 1280
+                        },
+                        height: {
+                            ideal: 720
+                        }
+                    }
                 })
                 .then(function(stream) {
-                    videoElem.srcObject = stream;
+                    if ('srcObject' in videoElem) {
+                        videoElem.srcObject = stream;
+                    } else {
+                        videoElem.src = URL.createObjectURL(stream);
+                    }
                     videoElem.style.display = 'block';
                     videoElem.play();
-                    captureButton.style.display = 'block';
+
+                    codeReader.decodeFromVideoDevice(null, 'qr-video', (result, err) => {
+                        if (result) {
+                            window.location.href = result.text;
+                        }
+                        if (err && !(err instanceof ZXing.NotFoundException)) {
+                            console.error('QR code scan error:', err);
+                        }
+                    });
                 })
                 .catch(function(err) {
                     console.error('Error accessing camera:', err);
-                });
-        }
-
-        function captureImage() {
-            if (!videoElem.srcObject || videoElem.paused || videoElem.ended) {
-                alert('Hidupkan Kamera Terlebih Dahulu');
-                return;
-            }
-
-            const width = videoElem.videoWidth;
-            const height = videoElem.videoHeight;
-
-            canvas.width = width;
-            canvas.height = height;
-
-            ctx.drawImage(videoElem, 0, 0, width, height);
-
-            canvas.style.display = 'block';
-        }
-    </script>
-    <script>
-        function sendImageToAPI() {
-            const imageData = canvas.toDataURL('image/png');
-
-            fetch('url_api', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        image: imageData
-                    }),
-                })
-                .then(response => {
-                    if (response.ok) {
-                        alert('Gambar berhasil dikirim ke API.');
-                    } else {
-                        throw new Error('Gagal mengirim gambar ke API.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Gambar Tidak Terkirim!!!');
                 });
         }
     </script>

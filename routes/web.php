@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralPage;
+use App\Http\Controllers\PhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,7 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/pengajuan-surat-keterangan-belum-menikah', 'pengajuansuratketeranganbelummenikah');
     Route::get('/pengajuan-surat-keterangan-kelahiran', 'pengajuansuratketerangankelahiran');
     Route::get('/pengajuan-surat-pengantar-skck', 'pengajuansuratpengantarskck');
+    Route::post('/save-photo', [PhotoController::class, 'store'])->name('save-photo');
     // Akhir Pengjuan Surat
     // Akhir User
 

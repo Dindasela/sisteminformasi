@@ -132,7 +132,8 @@
                                     required />
                             </div>
                             <div class="mb-2 relative">
-                                <label for="alamat" class="block mb-2 text-sm font-medium text-gray-900">Alamat</label>
+                                <label for="alamat"
+                                    class="block mb-2 text-sm font-medium text-gray-900">Alamat</label>
                                 <input type="name" id="alamat" placeholder="Alamat" name=""
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     required />
@@ -153,23 +154,42 @@
                                 </select>
                             </div>
                             <div class="mb-2 relative">
-                                <label for="tempat-kematian" class="block mb-2 text-sm font-medium text-gray-900">Tempat
+                                <label for="tanggal-lahir-diri"
+                                    class="block mb-2 text-sm font-medium text-gray-900">Tanggal
+                                    Lahir</label>
+                                <input type="date" id="tanggal-lahir-diri" placeholder="Tanggal Lahir"
+                                    name=""
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                    required />
+                            </div>
+                            <div class="mb-2 relative">
+                                <label for="" class="block mb-2 text-sm font-medium text-gray-900">Jam</label>
+                                <input type="time" id="Jam" placeholder="Jam" name=""
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                    required />
+                            </div>
+                            <div class="mb-2 relative">
+                                <label for="tempat-kematian"
+                                    class="block mb-2 text-sm font-medium text-gray-900">Tempat
                                     Kematian </label>
-                                <input type="name" id="tempat-kematian" placeholder="Tempat Kematian " name=""
+                                <input type="name" id="tempat-kematian" placeholder="Tempat Kematian "
+                                    name=""
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     required />
                             </div>
                             <div class="mb-2 relative">
                                 <label for="penyebab-kematian"
                                     class="block mb-2 text-sm font-medium text-gray-900">Penyebab Kematian</label>
-                                <input type="name" id="penyebab-kematian" placeholder="Penyebab Kematian" name=""
+                                <input type="name" id="penyebab-kematian" placeholder="Penyebab Kematian"
+                                    name=""
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     required />
                             </div>
                             <div class="mb-2 relative">
-                                <label for="tempat-pemakanan"
-                                    class="block mb-2 text-sm font-medium text-gray-900">Tempat Pemakanam</label>
-                                <input type="name" id="tempat-pemakanan" placeholder="Tempat Pemakanam" name=""
+                                <label for="tempat-pemakaman"
+                                    class="block mb-2 text-sm font-medium text-gray-900">Tempat Pemakaman</label>
+                                <input type="name" id="tempat-pemakaman" placeholder="Tempat Pemakaman"
+                                    name=""
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     required />
                             </div>
