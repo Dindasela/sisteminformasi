@@ -62,7 +62,6 @@ Route::controller(GeneralPage::class)->group(function () {
     // Awal Admin
     Route::get('/login-admin', 'loginadmin');
     Route::get('/dashboard', 'dashboard');
-    Route::get('/manajemen-surat', 'manajemensurat');
     Route::get('/surat-masuk', 'suratmasuk');
     Route::get('/tambah-surat-masuk', 'tambahsuratmasuk');
     Route::get('/lihat-surat-masuk', 'lihatsuratmasuk');
@@ -71,7 +70,6 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/lihat-arsip-surat-keluar', 'lihatarsipsuratkeluar');
     Route::get('/tambah-surat-keluar', 'tambahsuratkeluar');
     Route::get('/lihat-surat-keluar', 'lihatsuratkeluar');
-
     Route::get('/laporan-masuk', 'laporanmasuk');
     Route::get('/lihat-laporan', 'lihatlaporan');
     Route::get('/informasi', 'informasi');
@@ -88,5 +86,9 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/lihat-akun', 'lihatakun');
     Route::get('/permohonan-akun', 'permohonanakun');
     Route::get('/lihat-permohonan-akun', 'lihatpermohonanakun');
+    // Awal Pengajuan Surat
+    Route::get('/manajemen-surat', 'manajemensurat');
+    Route::get('/surat-keterangan-domisili', 'suratketerangandomisili');
+    // Akhir Pengajuan Surat
     // Akhir Admin
 });
