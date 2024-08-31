@@ -42,7 +42,7 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/layanan-form-permohonan', 'layananformpermohonan');
     Route::get('/layanan-status-permohonan', 'layananstatuspermohonan');
     Route::get('/layanan-status-ditolak', 'layananstatusditolak');
-    Route::get('/informasi-berita', 'informasiberita');
+    Route::get('/informasi-berita', [BeritaController::class,'indexUser'])->name('informasi-berita.index');
     Route::get('/informasi-detail-berita', 'informasidetailberita');
     Route::get('/informasi-pengumuman', 'informasipengumuman');
     Route::get('/galeri-foto-video', 'galerifotovideo');

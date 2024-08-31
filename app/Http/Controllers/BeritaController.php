@@ -14,6 +14,12 @@ class BeritaController extends Controller
         return view('pages.admin.informasi.daftar-berita', compact('berita'));
     }
 
+    public function indexUser()
+    {
+        $berita = Berita::all();
+        return view('pages.user.informasi.berita', compact('berita'));
+    }
+
     public function edit($id)
     {
         $berita = Berita::findOrFail($id);

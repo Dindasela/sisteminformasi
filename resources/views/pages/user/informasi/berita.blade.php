@@ -32,9 +32,26 @@
                     class="font-bold text-2xl lg:text-4xl mb-5 lg:mb-10 mt-10 lg:mt-0 text-[#2B2A4C] underline underline-offset-4">
                     Berita
                 </div>
+                @foreach ($berita as $item)
+                    <div class="grid grid-cols-1 gap-2 lg:gap-4 mb-4">
+                        <div class="lg:flex gap-10">
+                            <img class="h-auto max-w-full rounded-lg flex m-auto"
+                                src="{{ asset('storage/' . $item->image) }}" alt="">
+                            <div>
+                                <div class="font-bold text-[20px] text-black mt-5 lg:mt-0">{{ $item->title }}</div>
+                                <div class="text-[16px] text-black">{{$item->description}}</div>
+                                <button type="submit"
+                                    class="mt-10 btn border-none w-[50%] text-white bg-[#2B2A4C] hover:bg-[#191831] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                                    Selengkapnya
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
                 <div class="grid grid-cols-1 gap-2 lg:gap-4 mb-4">
                     <div class="lg:flex gap-10">
-                        <img class="h-auto max-w-full rounded-lg flex m-auto" src="./image/berita-terkini.svg" alt="">
+                        <img class="h-auto max-w-full rounded-lg flex m-auto" src="./image/berita-terkini.svg"
+                            alt="">
                         <div>
                             <div class="font-bold text-[20px] text-black mt-5 lg:mt-0">Jalan Diperbaiki, Warga
                                 Sumberejo Sampaikan
@@ -54,7 +71,8 @@
                 </div>
                 <div class="grid grid-cols-1 gap-2 lg:gap-4 mb-4">
                     <div class="lg:flex gap-10">
-                        <img class="h-auto max-w-full rounded-lg flex m-auto" src="./image/berita-terkini.svg" alt="">
+                        <img class="h-auto max-w-full rounded-lg flex m-auto" src="./image/berita-terkini.svg"
+                            alt="">
                         <div>
                             <div class="font-bold text-[20px] text-black mt-5 lg:mt-0">Jalan Diperbaiki, Warga
                                 Sumberejo Sampaikan
@@ -74,7 +92,8 @@
                 </div>
                 <div class="grid grid-cols-1 gap-2 lg:gap-4 mb-4">
                     <div class="lg:flex gap-10">
-                        <img class="h-auto max-w-full rounded-lg flex m-auto" src="./image/berita-terkini.svg" alt="">
+                        <img class="h-auto max-w-full rounded-lg flex m-auto" src="./image/berita-terkini.svg"
+                            alt="">
                         <div>
                             <div class="font-bold text-[20px] text-black mt-5 lg:mt-0">Jalan Diperbaiki, Warga
                                 Sumberejo Sampaikan
