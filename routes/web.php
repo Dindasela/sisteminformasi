@@ -91,6 +91,7 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::delete('/berita/{id}', [BeritaController::class, 'destroy'])->name('berita.destroy');
     //Akhir Berita
 
+    //Start
     Route::get('/daftar-pengumuman', 'daftarpengumuman');
     Route::get('/tambah-pengumuman', 'tambahpengumuman');
     Route::get('/edit-pengumuman', 'editpengumuman');
