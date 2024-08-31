@@ -91,6 +91,9 @@ Route::controller(GeneralPage::class)->group(function () {
     // Awal Pengajuan Surat
     Route::get('/manajemen-surat', 'manajemensurat');
     Route::get('/surat-keterangan-domisili', 'suratketerangandomisili');
+    Route::get('/surat-keterangan-domisili-usaha', 'suratketerangandomisiliusaha');
+    Route::get('/surat-keterangan-tidak-mampu', 'suratketerangantidakmampu');
+    Route::get('/surat-keterangan-kematian', 'suratketerangankematian');
     // Akhir Pengajuan Surat
     // Akhir Admin
 });

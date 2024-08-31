@@ -198,6 +198,15 @@ class GeneralPage extends Controller
     function suratketerangandomisili () {
         return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-domisili');
     }
+    function suratketerangandomisiliusaha () {
+        return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-domisili-usaha');
+    }
+    function suratketerangantidakmampu () {
+        return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-tidak-mampu');
+    }
+    function suratketerangankematian () {
+        return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-kematian');
+    }
     // Akhir Pengajuan Surat 
     // Akhir Admin
 }
