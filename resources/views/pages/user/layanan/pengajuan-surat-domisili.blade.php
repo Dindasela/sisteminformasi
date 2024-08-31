@@ -153,14 +153,16 @@
                                     <label for="alamat-sesuai-kk"
                                         class="block mb-2 text-sm font-medium text-gray-900">Alamat
                                         Sesuai KK</label>
-                                    <input type="name" id="alamat-sesuai-kk" placeholder="Alamat Sesuai KK" name=""
+                                    <input type="name" id="alamat-sesuai-kk" placeholder="Alamat Sesuai KK"
+                                        name=""
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>
                                 <div class="mb-2 relative">
                                     <label for="berlaku-tanggal"
                                         class="block mb-2 text-sm font-medium text-gray-900">Berlaku s.d Tanggal</label>
-                                    <input type="date" id="berlaku-tanggal" placeholder="Berlaku s.d Tanggal" name=""
+                                    <input type="date" id="berlaku-tanggal" placeholder="Berlaku s.d Tanggal"
+                                        name=""
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>
@@ -168,87 +170,25 @@
                                     <label for="alamat-saat-ini"
                                         class="block mb-2 text-sm font-medium text-gray-900">Alamat
                                         Saat Ini</label>
-                                    <input type="name" id="alamat-saat-ini" placeholder="Alamat Saat Ini" name=""
+                                    <input type="name" id="alamat-saat-ini" placeholder="Alamat Saat Ini"
+                                        name=""
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>
                                 <div class="mb-2 relative">
                                     <label for="tanggal-alamat-saat-ini"
                                         class="block mb-2 text-sm font-medium text-gray-900">Tanggal Di Alamat Saat
-                                        Ini</label>
+                                        Ini Sejak</label>
                                     <input type="date" id="tanggal-alamat-saat-ini"
-                                        placeholder="Tanggal Di Alamat Saat Ini" name=""
+                                        placeholder="Tanggal Di Alamat Saat Ini Sejak" name=""
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>
                                 <div class="mb-2 relative">
                                     <label for="keperluan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Keperluan</label>
-                                    <input type="name" id="keperluan" placeholder="Alamat Saat Ini" name=""
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
-                                </div>
-                            </div>
-                            <div>
-                                <div class="font-bold text-black mt-10 mb-5">Data Usaha</div>
-                                <div class="mb-2">
-                                    <label for="nama-lembaga" class="block mb-2 text-sm font-medium text-gray-900">Nama
-                                        Lembaga</label>
-                                    <input type="name" id="nama-lembaga"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        placeholder="Nama Lembaga" required />
-                                </div>
-                                <div class="mb-2">
-                                    <label for="NPSN" class="block mb-2 text-sm font-medium text-gray-900">NPSN</label>
-                                    <input type="number" id="NPSN"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        placeholder="NPSN" required />
-                                </div>
-                                <div class="mb-2 relative">
-                                    <label for="tahun-berdiri"
-                                        class="block mb-2 text-sm font-medium text-gray-900">Tahun Berdiri</label>
-                                    <input type="name" id="tahun-berdiri" placeholder="Tahun Berdiri"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
-                                </div>
-                                <div class="mb-2 relative">
-                                    <label for="alamat-lembaga"
-                                        class="block mb-2 text-sm font-medium text-gray-900">Alamat Lembaga</label>
-                                    <input type="name" id="alamat-lembaga" placeholder="Alamat Lembaga"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
-                                </div>
-                                <div class="mb-2 relative">
-                                    <label for="kelurahan"
-                                        class="block mb-2 text-sm font-medium text-gray-900">Kelurahan</label>
-                                    <input type="name" id="kelurahan" placeholder="Kelurahan"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
-                                </div>
-                                <div class="mb-2 relative">
-                                    <label for="kecamatan"
-                                        class="block mb-2 text-sm font-medium text-gray-900">Kecamatan</label>
-                                    <input type="name" id="kecamatan" placeholder="Kecamatan"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
-                                </div>
-                                <div class="mb-2 relative">
-                                    <label for="kota" class="block mb-2 text-sm font-medium text-gray-900">Kota</label>
-                                    <input type="name" id="kota" placeholder="Kota"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
-                                </div>
-                                <div class="mb-2 relative">
-                                    <label for="provinsi"
-                                        class="block mb-2 text-sm font-medium text-gray-900">Provinsi</label>
-                                    <input type="name" id="provinsi" placeholder="Provinsi"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        required />
-                                </div>
-                                <div class="mb-2 relative">
-                                    <label for="keperluan"
-                                        class="block mb-2 text-sm font-medium text-gray-900">Keperluan</label>
-                                    <input type="name" id="keperluan" placeholder="Keperluan"
+                                    <input type="name" id="keperluan" placeholder="Alamat Saat Ini"
+                                        name=""
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>

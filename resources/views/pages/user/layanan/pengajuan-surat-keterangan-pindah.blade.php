@@ -119,6 +119,13 @@
                                     </div>
                                 </div>
                                 <div class="mb-2">
+                                    <label for="desa-data-kepindahan"
+                                        class="block mb-2 text-sm font-medium text-gray-900">Desa</label>
+                                    <input type="name" id="desa-data-kepindahan" name=""
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="Desa" required />
+                                </div>
+                                <div class="mb-2">
                                     <label for="kecamatan-daerah-asal"
                                         class="block mb-2 text-sm font-medium text-gray-900">Kecamatan</label>
                                     <input type="text" id="kecamatan-daerah-asal" name=""
@@ -177,21 +184,22 @@
                                     </div>
                                     <div class="mb-2" id="lain-lain-container" style="display: none;">
                                         <label for="lain-lain"
-                                            class="block mb-2 text-sm font-medium text-gray-900">Sebutkan Alasan</label>
+                                            class="block mb-2 text-sm font-medium text-gray-900">Sebutkan
+                                            Alasan</label>
                                         <input type="text" id="lain-lain" name=""
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             placeholder="Sebutkan Alasan" />
                                     </div>
                                     <script>
                                         function toggleLainLainInput() {
-                                        var select = document.getElementById("alasan-pindah");
-                                        var lainLainContainer = document.getElementById("lain-lain-container");
-                                        if (select.value === "Lain-lain (Sebutkan)") {
-                                            lainLainContainer.style.display = "block";
-                                        } else {
-                                            lainLainContainer.style.display = "none";
+                                            var select = document.getElementById("alasan-pindah");
+                                            var lainLainContainer = document.getElementById("lain-lain-container");
+                                            if (select.value === "Lain-lain (Sebutkan)") {
+                                                lainLainContainer.style.display = "block";
+                                            } else {
+                                                lainLainContainer.style.display = "none";
+                                            }
                                         }
-                                    }
                                     </script>
                                 </div>
                                 <div class="mb-2">
@@ -265,7 +273,8 @@
                                 </div>
                                 <div class="mb-2">
                                     <label for="kelasifikasi-pindah-data-kepindahan"
-                                        class="block mb-2 text-sm font-medium text-gray-900">Kelasifikasi Pindah</label>
+                                        class="block mb-2 text-sm font-medium text-gray-900">Kelasifikasi
+                                        Pindah</label>
                                     <select id="kelasifikasi-pindah-data-kepindahan" name=""
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
@@ -286,10 +295,12 @@
                                         <option value="" selected disabled>Pilih Jenis Kepindahan</option>
                                         <option value="Kepindahan Kelurga">Kepindahan Kelurga</option>
                                         <option value="Kepindaan Kelurga dan 
-Seluruh Anggota keluarga">Kepindaan Kelurga dan
+Seluruh Anggota keluarga">Kepindaan
+                                            Kelurga dan
                                             Seluruh Anggota keluarga</option>
                                         <option value="Kepindaan Kelurga dan 
-Sebagian Anggota keluarga">Kepindaan Kelurga dan
+Sebagian Anggota keluarga">Kepindaan
+                                            Kelurga dan
                                             Sebagian Anggota keluarga</option>
                                         <option value="Anggota Keluarga">Anggota Keluarga</option>
                                     </select>
@@ -301,14 +312,17 @@ Sebagian Anggota keluarga">Kepindaan Kelurga dan
                                     <select id="status-no-kk-bagi-tak-pindah-data-kepindahan" name=""
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
-                                        <option value="" selected disabled>Pilih Status No KK Bagi yang Tidak Pindah
+                                        <option value="" selected disabled>Pilih Status No KK Bagi yang Tidak
+                                            Pindah
                                         </option>
                                         <option value="Kepala Kelurga">Kepala Kelurga</option>
                                         <option value="Kepindaan Kelurga dan 
-Seluruh Anggota keluarga">Kepindaan Kelurga dan
+Seluruh Anggota keluarga">Kepindaan
+                                            Kelurga dan
                                             Seluruh Anggota keluarga</option>
                                         <option value="Kepindaan Kelurga dan 
-Sebagian Anggota keluarga">Kepindaan Kelurga dan
+Sebagian Anggota keluarga">Kepindaan
+                                            Kelurga dan
                                             Sebagian Anggota keluarga</option>
                                         <option value="Anggota Keluarga">Anggota Keluarga</option>
                                     </select>
@@ -320,11 +334,13 @@ Sebagian Anggota keluarga">Kepindaan Kelurga dan
                                     <select id="status-no-kk-bagi-yg-pindah-data-kepindahan" name=""
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
-                                        <option value="" selected disabled>Pilih Status No KK Bagi yang Pindah</option>
+                                        <option value="" selected disabled>Pilih Status No KK Bagi yang Pindah
+                                        </option>
                                         <option value="Numpang KK">Numpang KK</option>
                                         <option value="Membuat KK Baru">Membuat KK Baru</option>
                                         <option value="Nama Kepala Keluarga dan 
-Nomor KK Tetap">Nama Kepala Keluarga dan
+Nomor KK Tetap">Nama Kepala Keluarga
+                                            dan
                                             Nomor KK Tetap</option>
                                     </select>
                                 </div>
@@ -344,7 +360,8 @@ Nomor KK Tetap">Nama Kepala Keluarga dan
                                     <select id="jumlah-keluarga-yg-pindah-data-kepindahan" name=""
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
-                                        <option value="" selected disabled>Pilih Jumlah Keluarga Yang Pindah</option>
+                                        <option value="" selected disabled>Pilih Jumlah Keluarga Yang Pindah
+                                        </option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -359,18 +376,40 @@ Nomor KK Tetap">Nama Kepala Keluarga dan
                                         <option value="12">12</option>
                                     </select>
                                 </div>
+                                <div class="flex-grow mb-2">
+                                    <label for="nama"
+                                        class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
+                                    <input type="text" id="nama" name=""
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="Nama" required />
+                                </div>
+                                <div class="flex-grow mb-2">
+                                    <label for="nik"
+                                        class="block mb-2 text-sm font-medium text-gray-900">NIK</label>
+                                    <input type="number" id="nik" name=""
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="NIK" required />
+                                </div>
+                                <div class="flex-grow mb-2">
+                                    <label for="shdck"
+                                        class="block mb-2 text-sm font-medium text-gray-900">SHDCK</label>
+                                    <input type="number" id="shdck" name=""
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="SHDCK" required />
+                                </div>
+
                                 <div id="form-container">
                                 </div>
                                 <script>
-                                    document.getElementById('jumlah-keluarga-yg-pindah-data-kepindahan').addEventListener('change', function () {
+                                    document.getElementById('jumlah-keluarga-yg-pindah-data-kepindahan').addEventListener('change', function() {
                                         const container = document.getElementById('form-container');
-                                        container.innerHTML = ''; 
+                                        container.innerHTML = '';
                                         const count = parseInt(this.value);
-                            
+
                                         for (let i = 0; i < count; i++) {
                                             const formGroup = document.createElement('div');
                                             formGroup.className = 'mb-4 p-4 border border-gray-300 rounded-lg';
-                            
+
                                             formGroup.innerHTML = `
                                                 <div class="mb-2 relative">
                                                     <label for="nama-data-kepindahan-${i}" class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
@@ -397,7 +436,7 @@ Nomor KK Tetap">Nama Kepala Keluarga dan
                                                     </select>
                                                 </div>
                                             `;
-                            
+
                                             container.appendChild(formGroup);
                                         }
                                     });
@@ -425,7 +464,8 @@ Nomor KK Tetap">Nama Kepala Keluarga dan
                                 </div>
                                 <div class="mb-2">
                                     <label for="nik-kepala-keluarga-daerah-tujuan"
-                                        class="block mb-2 text-sm font-medium text-gray-900">NIK Kepala Keluarga</label>
+                                        class="block mb-2 text-sm font-medium text-gray-900">NIK Kepala
+                                        Keluarga</label>
                                     <input type="number" id="nik-kepala-keluarga-daerah-tujuan" name=""
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="NIK Kepala Keluarga" required />
@@ -437,14 +477,17 @@ Nomor KK Tetap">Nama Kepala Keluarga dan
                                     <select id="status-no-kk-bagi-tak-pindah-daerah-tujuan" name=""
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
-                                        <option value="" selected disabled>Pilih Status No KK Bagi yang Tidak Pindah
+                                        <option value="" selected disabled>Pilih Status No KK Bagi yang Tidak
+                                            Pindah
                                         </option>
                                         <option value="Kepala Kelurga">Kepala Kelurga</option>
                                         <option value="Kepindaan Kelurga dan 
-Seluruh Anggota keluarga">Kepindaan Kelurga dan
+Seluruh Anggota keluarga">Kepindaan
+                                            Kelurga dan
                                             Seluruh Anggota keluarga</option>
                                         <option value="Kepindaan Kelurga dan 
-Sebagian Anggota keluarga">Kepindaan Kelurga dan
+Sebagian Anggota keluarga">Kepindaan
+                                            Kelurga dan
                                             Sebagian Anggota keluarga</option>
                                         <option value="Anggota Keluarga">Anggota Keluarga</option>
                                     </select>
@@ -515,7 +558,8 @@ Sebagian Anggota keluarga">Kepindaan Kelurga dan
                                     <select id="jumlah-keluarga-yg-pindah-daerah-tujuan" name=""
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
-                                        <option value="" selected disabled>Pilih Jumlah Keluarga Yang Pindah</option>
+                                        <option value="" selected disabled>Pilih Jumlah Keluarga Yang Pindah
+                                        </option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -531,19 +575,41 @@ Sebagian Anggota keluarga">Kepindaan Kelurga dan
                                     </select>
                                 </div>
 
+                                <div class="flex-grow mb-2">
+                                    <label for="nama"
+                                        class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
+                                    <input type="text" id="nama" name=""
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="Nama" required />
+                                </div>
+                                <div class="flex-grow mb-2">
+                                    <label for="nik"
+                                        class="block mb-2 text-sm font-medium text-gray-900">NIK</label>
+                                    <input type="number" id="nik" name=""
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="NIK" required />
+                                </div>
+                                <div class="flex-grow mb-2">
+                                    <label for="shdck"
+                                        class="block mb-2 text-sm font-medium text-gray-900">SHDCK</label>
+                                    <input type="number" id="shdck" name=""
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="SHDCK" required />
+                                </div>
+
                                 <div id="form-container-daerah-tujuan">
                                 </div>
 
                                 <script>
-                                    document.getElementById('jumlah-keluarga-yg-pindah-daerah-tujuan').addEventListener('change', function () {
+                                    document.getElementById('jumlah-keluarga-yg-pindah-daerah-tujuan').addEventListener('change', function() {
                                         const container = document.getElementById('form-container-daerah-tujuan');
-                                        container.innerHTML = ''; 
+                                        container.innerHTML = '';
                                         const count = parseInt(this.value);
-                            
+
                                         for (let i = 0; i < count; i++) {
                                             const formGroup = document.createElement('div');
                                             formGroup.className = 'mb-4 p-4 border border-gray-300 rounded-lg';
-                            
+
                                             formGroup.innerHTML = `
                                                 <div class="mb-2 relative">
                                                     <label for="nama-daerah-tujuan-${i}" class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
@@ -570,7 +636,7 @@ Sebagian Anggota keluarga">Kepindaan Kelurga dan
                                                     </select>
                                                 </div>
                                             `;
-                            
+
                                             container.appendChild(formGroup);
                                         }
                                     });
