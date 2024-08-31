@@ -39,39 +39,63 @@
             <!-- Form Section -->
             <div class="bg-[#F5F3F3] pb-20 p-6 rounded-lg shadow-lg">
                 <h2 class="text-xl font-semibold mb-4 text-center">Informasi Berita</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- Drag and Drop Section -->
-                    <div class="flex flex-col items-center justify-center  border-gray-300 rounded-lg h-64 bg-[#D9D9D9]" id="dropzone">
-                        <input id="fileInput" type="file" class="hidden" />
-                        <div class="text-center" id="fileDisplayArea">
-                            {{-- <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto mb-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16s1-1 4-1 5 1 8 1 4-1 4-1v3a2 2 0 01-2 2H5a2 2 0 01-2-2v-3zM8 10h.01M16 10h.01M12 14h.01M21 12h-6.59l2.3-2.29a1 1 0 00-1.42-1.42l-4 4a1 1 0 000 1.42l4 4a1 1 0 001.42-1.42L14.41 14H21a1 1 0 000-2z" />
-                            </svg> --}}
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6    w-6 mx-auto mb-2 text-gray-400">
-                                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="#4B4646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M17 8L12 3L7 8" stroke="#4B4646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M12 3V15" stroke="#4B4646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
+                <form action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Drag and Drop Section -->
+                        <div class="flex flex-col items-center justify-center border-gray-300 rounded-lg h-64 bg-[#D9D9D9]"
+                            id="dropzone">
+                            <input id="fileInput" type="file" name="image" class="hidden" />
+                            <div class="text-center" id="fileDisplayArea">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto mb-2 text-gray-400">
+                                    <path
+                                        d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15"
+                                        stroke="#4B4646" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M17 8L12 3L7 8" stroke="#4B4646" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M12 3V15" stroke="#4B4646" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <p class="text-black">Drag and drop files here</p>
+                            </div>
+                        </div>
+                        <!-- Form Fields -->
+                        <div class="space-y-4">
+                            <div>
+                                <input type="text" id="judul" name="title"
+                                    class="bg-[#F5F3F3] mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    placeholder="Judul Berita" required>
+                            </div>
+                            <div>
+                                <textarea id="isi" name="description" rows="4"
+                                    class="bg-[#F5F3F3] mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    placeholder="Isi Berita" required></textarea>
+                            </div>
+                            <div>
+                                <input type="date" id="tanggal" name="date"
+                                    class="bg-[#F5F3F3] mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="float-right text-center">
+                        <button type="submit"
+                            class="bg-[#2B2A4C] text-white px-4 py-1 rounded-md hover:bg-[#414066]">Upload</button>
+                    </div>
+                </form>
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-success">
+                        {{ session('error') }}
+                    </div>
+                @endif
 
-                            <p class="text-black">Drag and drop files here</p>
-                        </div>
-                    </div>
-                    <!-- Form Fields -->
-                    <div class="space-y-4">
-                        <div>
-                            <input type="text" id="judul" name="judul" class="bg-[#F5F3F3] mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Judul Berita">
-                        </div>
-                        <div>
-                            <textarea id="isi" name="isi" rows="4" class="bg-[#F5F3F3] mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Isi Berita"></textarea>
-                        </div>
-                        <div>
-                            <input type="date" id="tanggal" name="" class="bg-[#F5F3F3] mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        </div>
-                    </div>
-                </div>
-                <div class="float-right text-center">
-                    <button type="submit" class="bg-[#2B2A4C] text-white px-4 py-1 rounded-md hover:bg-[#414066]">Upload</button>
-                </div>
             </div>
         </div>
     </div>
@@ -118,7 +142,6 @@
                 `;
             }
         }
-
     </script>
 </body>
 

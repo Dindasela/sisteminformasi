@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BeritaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralPage;
 use App\Http\Controllers\PhotoController;
@@ -63,7 +65,10 @@ Route::controller(GeneralPage::class)->group(function () {
 
     // Awal Admin
     Route::get('/login-admin', 'loginadmin');
-    Route::get('/dashboard', 'dashboard');
+    Route::post('/login-admin', [AuthController::class, 'login'])->name('login');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/dashboard', 'dashboard')->name('dashboard')->middleware('auth');
+    Route::get('/manajemen-surat', 'manajemensurat');
     Route::get('/surat-masuk', 'suratmasuk');
     Route::get('/tambah-surat-masuk', 'tambahsuratmasuk');
     Route::get('/lihat-surat-masuk', 'lihatsuratmasuk');
@@ -75,9 +80,17 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/laporan-masuk', 'laporanmasuk');
     Route::get('/lihat-laporan', 'lihatlaporan');
     Route::get('/informasi', 'informasi');
-    Route::get('/daftar-berita', 'daftarberita');
+
+    //Start Berita
+    Route::get('/daftar-berita', [BeritaController::class, 'index'])->name('berita.index');
     Route::get('/tambah-berita', 'tambahberita');
-    Route::get('/edit-berita', 'editberita');
+    Route::post('/tambah-berita', [BeritaController::class, 'store'])->name('berita.store');
+    Route::get('/edit-berita/{id}', [BeritaController::class, 'edit'])->name('berita.edit');
+    Route::put('/berita/{id}', [BeritaController::class, 'update'])->name('berita.update');
+    Route::delete('/berita/{id}', [BeritaController::class, 'destroy'])->name('berita.destroy');
+    //Akhir Berita
+
+    //Start
     Route::get('/daftar-pengumuman', 'daftarpengumuman');
     Route::get('/tambah-pengumuman', 'tambahpengumuman');
     Route::get('/edit-pengumuman', 'editpengumuman');
