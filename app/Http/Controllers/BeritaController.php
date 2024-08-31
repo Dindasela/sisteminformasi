@@ -17,7 +17,6 @@ class BeritaController extends Controller
     public function edit($id)
     {
         $berita = Berita::findOrFail($id);
-
         return view('pages.admin.informasi.edit-berita', compact('berita'));
     }
 

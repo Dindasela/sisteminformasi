@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralPage;
+use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PhotoController;
 
 /*
@@ -91,10 +92,15 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::delete('/berita/{id}', [BeritaController::class, 'destroy'])->name('berita.destroy');
     //Akhir Berita
 
-    //Start
-    Route::get('/daftar-pengumuman', 'daftarpengumuman');
+    //Start Pengumuman
+    Route::get('/daftar-pengumuman', [PengumumanController::class,'index'])->name('pengumuman.index');
     Route::get('/tambah-pengumuman', 'tambahpengumuman');
-    Route::get('/edit-pengumuman', 'editpengumuman');
+    Route::post('/tambah-pengumuman',[PengumumanController::class,'store'])->name('pengumuman.store');
+    Route::get('/edit-pengumuman/{id}', [PengumumanController::class,'edit'])->name('pengumuman.edit');
+    Route::put('/pengumuman/{id}', [PengumumanController::class,'update'])->name('pengumuman.update');
+    Route::delete('/pengumuman/{id}',[PengumumanController::class,'destroy'])->name('pengumuman.destroy');
+    //Akhir Pengumuman
+
     Route::get('/list-galeri', 'listgaleri');
     Route::get('/tambah-foto-video', 'tambahfotovideo');
     Route::get('/edit-foto-video', 'editfotovideo');
