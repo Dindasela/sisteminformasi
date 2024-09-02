@@ -78,7 +78,6 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/lihat-arsip-surat-keluar', 'lihatarsipsuratkeluar');
     Route::get('/tambah-surat-keluar', 'tambahsuratkeluar');
     Route::get('/lihat-surat-keluar', 'lihatsuratkeluar');
-
     Route::get('/laporan-masuk', 'laporanmasuk');
     Route::get('/lihat-laporan', 'lihatlaporan');
     Route::get('/informasi', 'informasi');
@@ -108,5 +107,12 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/lihat-akun', 'lihatakun');
     Route::get('/permohonan-akun', 'permohonanakun');
     Route::get('/lihat-permohonan-akun', 'lihatpermohonanakun');
+    // Awal Pengajuan Surat
+    Route::get('/manajemen-surat', 'manajemensurat');
+    Route::get('/surat-keterangan-domisili', 'suratketerangandomisili');
+    Route::get('/surat-keterangan-domisili-usaha', 'suratketerangandomisiliusaha');
+    Route::get('/surat-keterangan-tidak-mampu', 'suratketerangantidakmampu');
+    Route::get('/surat-keterangan-kematian', 'suratketerangankematian');
+    // Akhir Pengajuan Surat
     // Akhir Admin
 });

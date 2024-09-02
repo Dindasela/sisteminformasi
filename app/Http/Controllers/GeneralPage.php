@@ -119,9 +119,6 @@ class GeneralPage extends Controller
     function dashboard () {
         return view('pages/admin/dashboard');
     }
-    function manajemensurat () {
-        return view('pages/admin/manajemen-surat');
-    }
     function suratmasuk () {
         return view('pages/admin/manajemen-surat/surat-masuk/surat-masuk');
     }
@@ -146,7 +143,6 @@ class GeneralPage extends Controller
     function lihatsuratkeluar () {
         return view('pages/admin/manajemen-surat/surat-keluar/lihat-surat-keluar');
     }
-
     function laporanmasuk () {
         return view('pages/admin/pelaporan/laporan-masuk');
     }
@@ -195,5 +191,22 @@ class GeneralPage extends Controller
     function lihatpermohonanakun () {
         return view('pages/admin/kelolaakun/lihat-permohonan-akun');
     }
+    // Awal Pengajuan Surat
+    function manajemensurat () {
+        return view('pages/admin/manajemen-surat/manajemen-surat');
+    }
+    function suratketerangandomisili () {
+        return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-domisili');
+    }
+    function suratketerangandomisiliusaha () {
+        return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-domisili-usaha');
+    }
+    function suratketerangantidakmampu () {
+        return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-tidak-mampu');
+    }
+    function suratketerangankematian () {
+        return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-kematian');
+    }
+    // Akhir Pengajuan Surat 
     // Akhir Admin
 }
