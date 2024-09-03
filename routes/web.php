@@ -114,6 +114,8 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/surat-keterangan-belum-menikah', 'suratketeranganbelummenikah');
     Route::get('/surat-keterangan-kelahiran', 'suratketerangankelahiran');
     Route::get('/surat-keterangan-pengantar-skck', 'suratketeranganpengantarskck');
+    Route::get('/surat-keterangan-penghasilan', 'suratketeranganpenghasilan');
+    Route::get('/surat-keterangan-pindah', 'suratketeranganpindah');
     // Akhir Pengajuan Surat
     // Akhir Admin
 });

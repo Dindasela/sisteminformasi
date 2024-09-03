@@ -228,6 +228,12 @@ class GeneralPage extends Controller
     function suratketeranganpengantarskck () {
         return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-pengantar-skck');
     }
+    function suratketeranganpenghasilan () {
+        return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-penghasilan');
+    }
+    function suratketeranganpindah () {
+        return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-pindah');
+    }
     // Akhir Pengajuan Surat 
     // Akhir Admin
 }
