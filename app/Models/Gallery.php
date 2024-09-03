@@ -5,16 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Berita extends Model
+class Gallery extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'berita';
+    protected $table = 'gallery';
 
     protected $fillable = [
         'title',
-        'image',
+        'category',
+        'date',
         'description',
-    'date',
+        'image'
     ];
 }
