@@ -207,6 +207,27 @@ class GeneralPage extends Controller
     function suratketerangankematian () {
         return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-kematian');
     }
+    function suratketerangan () {
+        return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan');
+    }
+    function suratketerangansudahmenikah () {
+        return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-sudah-menikah');
+    }
+    function suratketeranganbersihdiri () {
+        return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-bersih-diri');
+    }
+    function suratketeranganusaha () {
+        return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-usaha');
+    }
+    function suratketeranganbelummenikah () {
+        return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-belum-menikah');
+    }
+    function suratketerangankelahiran () {
+        return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-kelahiran');
+    }
+    function suratketeranganpengantarskck () {
+        return view('pages/admin/manajemen-surat/pengajuan-surat/surat-keterangan-pengantar-skck');
+    }
     // Akhir Pengajuan Surat 
     // Akhir Admin
 }
