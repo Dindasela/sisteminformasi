@@ -113,6 +113,15 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/surat-keterangan-domisili-usaha', 'suratketerangandomisiliusaha');
     Route::get('/surat-keterangan-tidak-mampu', 'suratketerangantidakmampu');
     Route::get('/surat-keterangan-kematian', 'suratketerangankematian');
+    Route::get('/surat-keterangan', 'suratketerangan');
+    Route::get('/surat-keterangan-sudah-menikah', 'suratketerangansudahmenikah');
+    Route::get('/surat-keterangan-bersih-diri', 'suratketeranganbersihdiri');
+    Route::get('/surat-keterangan-usaha', 'suratketeranganusaha');
+    Route::get('/surat-keterangan-belum-menikah', 'suratketeranganbelummenikah');
+    Route::get('/surat-keterangan-kelahiran', 'suratketerangankelahiran');
+    Route::get('/surat-keterangan-pengantar-skck', 'suratketeranganpengantarskck');
+    Route::get('/surat-keterangan-penghasilan', 'suratketeranganpenghasilan');
+    Route::get('/surat-keterangan-pindah', 'suratketeranganpindah');
     // Akhir Pengajuan Surat
     // Akhir Admin
 });
