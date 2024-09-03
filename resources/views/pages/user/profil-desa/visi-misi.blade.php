@@ -23,9 +23,9 @@
     <div>
         <x-nav-user />
         <section id="cover"
-            class="relative bg-center bg-no-repeat bg-cover bg-[url('./image/hero.svg')] bg-blend-multiply min-h-screen flex items-center justify-center lg:pb-16">
+            class="relative bg-center bg-no-repeat bg-cover bg-white bg-blend-multiply min-h-screen flex items-center justify-center lg:pb-16">
             <div class="absolute inset-0 bg-white opacity-40"></div>
-            <div class="relative w-full p-20 rounded-lg shadow-lg z-10 text-black lg:mt-10">
+            <div class="relative w-full p-20 rounded-lg z-10 text-black lg:mt-10">
                 <div class="font-bold text-4xl mb-5 lg:mb-10">
                     VISI MISI
                 </div>

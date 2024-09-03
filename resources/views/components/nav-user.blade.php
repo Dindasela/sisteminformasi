@@ -27,20 +27,6 @@
             <ul
                 class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent lg:items-center">
                 <li>
-                    <div class="relative">
-                        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                            <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 20 20">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                            </svg>
-                        </div>
-                        <input type="text" id="search-navbar"
-                            class="block w-full ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Search anything....">
-                    </div>
-                </li>
-                <li>
                     <div class="text-white hover:text-[#2B2A4C] flex">
                         <button id="dropdownNavbarLink" data-dropdown-toggle="profil"
                             class="block py-2 px-3 md:p-0 text-black lg:text-white bg-white rounded md:bg-transparent hover:text-[#2B2A4C]">Profil
