@@ -36,7 +36,6 @@ class SuratKeteranganKematian extends Model
 
     protected $casts = [
         'tanggal_lahir' => 'date',
-        'jam_kematian' => 'time',
         'tanggal_kematian' => 'date',
     ];
 

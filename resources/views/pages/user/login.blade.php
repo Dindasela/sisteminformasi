@@ -26,7 +26,8 @@
         <section id="cover"
             class="relative bg-center bg-no-repeat bg-cover bg-[url('./image/hero.svg')] bg-blend-multiply min-h-screen flex items-center justify-center">
             <div class="absolute inset-0 bg-white opacity-40"></div>
-            <form class="relative max-w-md bg-white p-6 rounded-lg shadow-lg z-10 text-black">
+            <form action="{{route('login')}}" method="POST" class="relative max-w-md bg-white p-6 rounded-lg shadow-lg z-10 text-black">
+                @csrf
                 <div class="p-6">
                     <div class="text-center mb-5">
                         <div class="text-xl font-bold">Login</div>
@@ -34,7 +35,7 @@
                     </div>
                     <div class="mb-5">
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Username</label>
-                        <input type="email" id="email"
+                        <input type="email" id="email" name="email"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="abcdef@gmail.com" required />
                     </div>
@@ -42,7 +43,7 @@
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Kata sandi</label>
                         <input type="password" id="password" placeholder="********"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            required />
+                            required name="password"/>
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5 mt-6">
                             <svg id="eye-open" class="h-5 w-5 text-gray-500 cursor-pointer" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor">

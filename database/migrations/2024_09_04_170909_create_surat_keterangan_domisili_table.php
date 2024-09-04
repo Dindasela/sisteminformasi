@@ -19,12 +19,10 @@ return new class extends Migration
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->string('pekerjaan');
-            $table->string('alamat_kk');
             $table->string('warga_negara');
             $table->string('agama');
             $table->string('status_perkawinan');
             $table->string('alamat_sesuai_kk');
-            $table->date('tanggal_tinggal');
             $table->date('berlaku_sampai');
             $table->string('alamat_saat_ini');
             $table->date('tanggal_di_alamat_saat_ini');

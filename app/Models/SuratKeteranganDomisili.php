@@ -19,12 +19,10 @@ class SuratKeteranganDomisili extends Model
             'tempat_lahir',
             'tanggal_lahir',
             'pekerjaan',
-            'alamat_kk',
             'warga_negara',
             'agama',
             'status_perkawinan',
             'alamat_sesuai_kk',
-            'tanggal_tinggal',
             'berlaku_sampai',
             'alamat_saat_ini',
             'tanggal_di_alamat_saat_ini',
@@ -38,7 +36,6 @@ class SuratKeteranganDomisili extends Model
 
     protected $casts = [
         'tanggal_lahir' => 'date',
-        'tanggal_tinggal' => 'date',
         'berlaku_sampai' => 'date',
         'tanggal_di_alamat_saat_ini' => 'date',
     ];

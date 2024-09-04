@@ -66,7 +66,8 @@
         <x-nav-user />
         <section id="cover"
             class="relative bg-center bg-no-repeat bg-cover bg-white bg-blend-multiply min-h-screen flex items-center justify-center">
-            <form class="relative full m-5 lg:m-10 p-6 z-10 text-black">
+            <form action="{{route('pengajuan-surat-keterangan-pindah.post')}}" method="POST" enctype="multipart/form-data" class="relative full m-5 lg:m-10 p-6 z-10 text-black">
+                @csrf
                 <div class="mt-10 lg:mt-20 mb-10 lg:mb-20">
                     <div
                         class="font-bold text-4xl mb-5 lg:mb-10 mt-20 lg:mt-0 text-[#2B2A4C] underline underline-offset-4">
@@ -78,12 +79,12 @@
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4">
                         <div class="text-black text-left">
                             <div>
-                                <div class="font-bold text-black mb-5 text-lg">Data Derah Asal</div>
+                                <div class="font-bold text-black mb-5 text-lg">Data Daerah Asal</div>
                                 <div class="mb-2">
                                     <label for="nomor-kartu-keluarga-daerah-asal"
                                         class="block mb-2 text-sm font-medium text-gray-900">Nomor Kartu
                                         Keluarga</label>
-                                    <input type="number" id="nomor-kartu-keluarga-daerah-asal" name=""
+                                    <input type="number" id="nomor-kartu-keluarga-daerah-asal" name="no_kk_asal"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Nomor Kartu Keluarga" required />
                                 </div>
@@ -91,14 +92,14 @@
                                     <label for="nama-kepala-keluarga-daerah-asal"
                                         class="block mb-2 text-sm font-medium text-gray-900">Nama Kepala
                                         Keluarga</label>
-                                    <input type="text" id="nama-kepala-keluarga-daerah-asal" name=""
+                                    <input type="text" id="nama-kepala-keluarga-daerah-asal" name="nama_kepala_keluarga_asal"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Nama Kepala Keluarga" required />
                                 </div>
                                 <div class="mb-2">
                                     <label for="alamat-rumah-daerah-asal"
                                         class="block mb-2 text-sm font-medium text-gray-900">Alamat Rumah</label>
-                                    <input type="text" id="alamat-rumah-daerah-asal" name=""
+                                    <input type="text" id="alamat-rumah-daerah-asal" name="alamat_asal"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Alamat Rumah" required />
                                 </div>
@@ -106,14 +107,14 @@
                                     <div class="flex-grow">
                                         <label for="rt-daerah-asal"
                                             class="block mb-2 text-sm font-medium text-gray-900">RT</label>
-                                        <input type="number" id="rt-daerah-asal" name=""
+                                        <input type="number" id="rt-daerah-asal" name="rt_asal"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             placeholder="RT" required />
                                     </div>
                                     <div class="flex-grow">
                                         <label for="rw-daerah-asal"
                                             class="block mb-2 text-sm font-medium text-gray-900">RW</label>
-                                        <input type="number" id="rw-daerah-asal" name=""
+                                        <input type="number" id="rw-daerah-asal" name="rw_asal"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             placeholder="RW" required />
                                     </div>
@@ -121,28 +122,28 @@
                                 <div class="mb-2">
                                     <label for="desa-data-kepindahan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Desa</label>
-                                    <input type="name" id="desa-data-kepindahan" name=""
+                                    <input type="name" id="desa-data-kepindahan" name="desa_asal"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Desa" required />
                                 </div>
                                 <div class="mb-2">
                                     <label for="kecamatan-daerah-asal"
                                         class="block mb-2 text-sm font-medium text-gray-900">Kecamatan</label>
-                                    <input type="text" id="kecamatan-daerah-asal" name=""
+                                    <input type="text" id="kecamatan-daerah-asal" name="kecamatan_asal"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Kecamatan" required />
                                 </div>
                                 <div class="mb-2">
                                     <label for="kabupaten-kota-daerah-asal"
                                         class="block mb-2 text-sm font-medium text-gray-900">Kabupaten/Kota</label>
-                                    <input type="text" id="kabupaten-kota-daerah-asal" name=""
+                                    <input type="text" id="kabupaten-kota-daerah-asal" name="kabupaten_asal"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Kabupaten/Kota" required />
                                 </div>
                                 <div class="mb-2">
                                     <label for="provinsi-daerah-asal"
                                         class="block mb-2 text-sm font-medium text-gray-900">Provinsi</label>
-                                    <input type="text" id="provinsi-daerah-asal" name=""
+                                    <input type="text" id="provinsi-daerah-asal" name="provinsi_asal"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Provinsi" required />
                                 </div>
@@ -150,14 +151,14 @@
                                     <div class="flex-grow">
                                         <label for="kode-pos-daerah-asal"
                                             class="block mb-2 text-sm font-medium text-gray-900">Kode Pos</label>
-                                        <input type="number" id="kode-pos-daerah-asal" name=""
+                                        <input type="number" id="kode-pos-daerah-asal" name="kode_pos_asal"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             placeholder="Kode Pos" required />
                                     </div>
                                     <div class="flex-grow">
                                         <label for="telepon-daerah-asal"
                                             class="block mb-2 text-sm font-medium text-gray-900">Telepon</label>
-                                        <input type="number" id="telepon-daerah-asal" name=""
+                                        <input type="number" id="telepon-daerah-asal" name="telepon_asal"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             placeholder="Telepon" required />
                                     </div>
@@ -169,7 +170,7 @@
                                     <div class="mb-2">
                                         <label for="alasan-pindah-data-kepindahan"
                                             class="block mb-2 text-sm font-medium text-gray-900">Alasan Pindah</label>
-                                        <select id="alasan-pindah-data-kepindahan" name=""
+                                        <select id="alasan-pindah" name="alasan_pindah"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             required onchange="toggleLainLainInput()">
                                             <option value="" selected disabled>Pilih Alasan Pindah</option>
@@ -186,7 +187,7 @@
                                         <label for="lain-lain"
                                             class="block mb-2 text-sm font-medium text-gray-900">Sebutkan
                                             Alasan</label>
-                                        <input type="text" id="lain-lain" name=""
+                                        <input type="text" id="lain-lain" name="alasan_lain"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             placeholder="Sebutkan Alasan" />
                                     </div>
@@ -206,7 +207,7 @@
                                     <label for="alamat-tujuan-pindah-data-kepindahan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Alamat Tujuan
                                         Pindah</label>
-                                    <input type="name" id="alamat-tujuan-pindah-data-kepindahan" name=""
+                                    <input type="name" id="alamat-tujuan-pindah-data-kepindahan" name="alamat_tujuan_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Alamat Tujuan Pindah" required />
                                 </div>
@@ -214,14 +215,14 @@
                                     <div class="flex-grow">
                                         <label for="rt-data-kepindahan-data-kepindahan"
                                             class="block mb-2 text-sm font-medium text-gray-900">RT</label>
-                                        <input type="number" id="rt-data-kepindahan-data-kepindahan" name=""
+                                        <input type="number" id="rt-data-kepindahan-data-kepindahan" name="rt_pindah"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             placeholder="RT" required />
                                     </div>
                                     <div class="flex-grow">
                                         <label for="rw-data-kepindahan-data-kepindahan"
                                             class="block mb-2 text-sm font-medium text-gray-900">RW</label>
-                                        <input type="number" id="rw-data-kepindahan-data-kepindahan" name=""
+                                        <input type="number" id="rw-data-kepindahan-data-kepindahan" name="rw_pindah"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             placeholder="RW" required />
                                     </div>
@@ -229,28 +230,28 @@
                                 <div class="mb-2">
                                     <label for="desa-data-kepindahan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Desa</label>
-                                    <input type="name" id="desa-data-kepindahan" name=""
+                                    <input type="name" id="desa-data-kepindahan" name="desa_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Desa" required />
                                 </div>
                                 <div class="mb-2">
                                     <label for="kecamatan-data-kepindahan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Kecamatan</label>
-                                    <input type="name" id="kecamatan-data-kepindahan" name=""
+                                    <input type="name" id="kecamatan-data-kepindahan" name="kecamatan_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Kecamatan" required />
                                 </div>
                                 <div class="mb-2">
                                     <label for="kabupaten-kota-data-kepindahan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Kabupaten/Kota</label>
-                                    <input type="name" id="kabupaten-kota-data-kepindahan" name=""
+                                    <input type="name" id="kabupaten-kota-data-kepindahan" name="kabupaten_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Kabupaten/Kota" required />
                                 </div>
                                 <div class="mb-2">
                                     <label for="provinsi-data-kepindahan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Provinsi</label>
-                                    <input type="name" id="provinsi-data-kepindahan" name=""
+                                    <input type="name" id="provinsi-data-kepindahan" name="provinsi_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Provinsi" required />
                                 </div>
@@ -259,23 +260,23 @@
                                         <label for="kode-pos-data-kepindahan"
                                             class="block mb-2 text-sm font-medium text-gray-900">Kode
                                             Pos</label>
-                                        <input type="number" id="kode-pos-data-kepindahan" name=""
+                                        <input type="number" id="kode-pos-data-kepindahan" name="kode_pos_pindah"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             placeholder="Kode Pos" required />
                                     </div>
                                     <div class="flex-grow">
                                         <label for="telepon-data-kepindahan"
                                             class="block mb-2 text-sm font-medium text-gray-900">Telepon</label>
-                                        <input type="number" id="telepon-data-kepindahan" name=""
+                                        <input type="number" id="telepon-data-kepindahan" name="telepon_pindah"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             placeholder="Telepon" required />
                                     </div>
                                 </div>
                                 <div class="mb-2">
                                     <label for="kelasifikasi-pindah-data-kepindahan"
-                                        class="block mb-2 text-sm font-medium text-gray-900">Kelasifikasi
+                                        class="block mb-2 text-sm font-medium text-gray-900">Klasifikasi
                                         Pindah</label>
-                                    <select id="kelasifikasi-pindah-data-kepindahan" name=""
+                                    <select id="kelasifikasi-pindah-data-kepindahan" name="klasifikasi_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Kelasifikasi Pindah</option>
@@ -289,7 +290,7 @@
                                 <div class="mb-2">
                                     <label for="jenis-kepindahan-data-kepindahan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Jenis Kepindahan</label>
-                                    <select id="jenis-kepindahan-data-kepindahan" name=""
+                                    <select id="jenis-kepindahan-data-kepindahan" name="jenis_kepindahan"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Jenis Kepindahan</option>
@@ -309,7 +310,7 @@ Sebagian Anggota keluarga">Kepindaan
                                     <label for="status-no-kk-bagi-tak-pindah-data-kepindahan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Status No KK Bagi yang
                                         Tidak Pindah</label>
-                                    <select id="status-no-kk-bagi-tak-pindah-data-kepindahan" name=""
+                                    <select id="status-no-kk-bagi-tak-pindah-data-kepindahan" name="status_kk_tidak_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Status No KK Bagi yang Tidak
@@ -331,7 +332,7 @@ Sebagian Anggota keluarga">Kepindaan
                                     <label for="status-no-kk-bagi-yg-pindah-data-kepindahan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Status No KK Bagi yang
                                         Pindah</label>
-                                    <select id="status-no-kk-bagi-yg-pindah-data-kepindahan" name=""
+                                    <select id="status-no-kk-bagi-yg-pindah-data-kepindahan" name="status_kk_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Status No KK Bagi yang Pindah
@@ -349,7 +350,7 @@ Nomor KK Tetap">Nama Kepala Keluarga
                                         class="block mb-2 text-sm font-medium text-gray-900">Rencana Tanggal
                                         Pindah</label>
                                     <input type="date" id="rencana-tanggal-pindah-data-kepindahan"
-                                        placeholder="Rencana Tanggal Pindah" name=""
+                                        placeholder="Rencana Tanggal Pindah" name="rencana_tanggal_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>
@@ -357,7 +358,7 @@ Nomor KK Tetap">Nama Kepala Keluarga
                                     <label for="jumlah-keluarga-yg-pindah-data-kepindahan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Jumlah Keluarga Yang
                                         Pindah</label>
-                                    <select id="jumlah-keluarga-yg-pindah-data-kepindahan" name=""
+                                    <select id="jumlah-keluarga-yg-pindah-data-kepindahan" name="jumlah_keluarga_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Jumlah Keluarga Yang Pindah
@@ -376,28 +377,27 @@ Nomor KK Tetap">Nama Kepala Keluarga
                                         <option value="12">12</option>
                                     </select>
                                 </div>
-                                <div class="flex-grow mb-2">
+                                {{-- <div class="flex-grow mb-2">
                                     <label for="nama"
                                         class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
-                                    <input type="text" id="nama" name=""
+                                    <input type="text" id="nama" name="nama_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Nama" required />
                                 </div>
                                 <div class="flex-grow mb-2">
                                     <label for="nik"
                                         class="block mb-2 text-sm font-medium text-gray-900">NIK</label>
-                                    <input type="number" id="nik" name=""
+                                    <input type="number" id="nik" name="nik_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="NIK" required />
                                 </div>
                                 <div class="flex-grow mb-2">
                                     <label for="shdck"
                                         class="block mb-2 text-sm font-medium text-gray-900">SHDCK</label>
-                                    <input type="number" id="shdck" name=""
+                                    <input type="number" id="shdck" name="shdck_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="SHDCK" required />
-                                </div>
-
+                                </div> --}}
                                 <div id="form-container">
                                 </div>
                                 <script>
@@ -413,15 +413,15 @@ Nomor KK Tetap">Nama Kepala Keluarga
                                             formGroup.innerHTML = `
                                                 <div class="mb-2 relative">
                                                     <label for="nama-data-kepindahan-${i}" class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
-                                                    <input type="text" id="nama-data-kepindahan-${i}" placeholder="Nama" name="nama[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                                                    <input type="text" id="nama-data-kepindahan-${i}" placeholder="Nama" name="nama_pindah[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                                                 </div>
                                                 <div class="mb-2 relative">
                                                     <label for="nik-data-kepindahan-${i}" class="block mb-2 text-sm font-medium text-gray-900">NIK</label>
-                                                    <input type="number" id="nik-data-kepindahan-${i}" placeholder="NIK" name="nik[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                                                    <input type="number" id="nik-data-kepindahan-${i}" placeholder="NIK" name="nik_pindah[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                                                 </div>
                                                 <div class="mb-2">
                                                     <label for="shdk-data-kepindahan-${i}" class="block mb-2 text-sm font-medium text-gray-900">SHDK</label>
-                                                    <select id="shdk-data-kepindahan-${i}" name="shdk[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                                                    <select id="shdk-data-kepindahan-${i}" name="shdck_pindah[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                                         <option value="" selected disabled>Pilih SHDK</option>
                                                         <option value="01 Kepala Keluarga">01 Kepala Keluarga</option>
                                                         <option value="02 Suami">02 Suami</option>
@@ -445,12 +445,12 @@ Nomor KK Tetap">Nama Kepala Keluarga
                         </div>
                         <div class="mt-10 lg:mt-0">
                             <div>
-                                <div class="font-bold text-black mb-5 text-lg">Data Derah Tujuan</div>
+                                <div class="font-bold text-black mb-5 text-lg">Data Daerah Tujuan</div>
                                 <div class="mb-2">
                                     <label for="nomor-kartu-keluarga-daerah-tujuan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Nomor Kartu
                                         Keluarga</label>
-                                    <input type="number" id="nomor-kartu-keluarga-daerah-tujuan" name=""
+                                    <input type="number" id="nomor-kartu-keluarga-daerah-tujuan" name="no_kk_tujuan"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Nomor Kartu Keluarga" required />
                                 </div>
@@ -458,7 +458,7 @@ Nomor KK Tetap">Nama Kepala Keluarga
                                     <label for="nama-kepala-keluarga-daerah-tujuan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Nama Kepala
                                         Keluarga</label>
-                                    <input type="text" id="nama-kepala-keluarga-daerah-tujuan" name=""
+                                    <input type="text" id="nama-kepala-keluarga-daerah-tujuan" name="nama_kepala_keluarga_tujuan"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Nama Kepala Keluarga" required />
                                 </div>
@@ -466,7 +466,7 @@ Nomor KK Tetap">Nama Kepala Keluarga
                                     <label for="nik-kepala-keluarga-daerah-tujuan"
                                         class="block mb-2 text-sm font-medium text-gray-900">NIK Kepala
                                         Keluarga</label>
-                                    <input type="number" id="nik-kepala-keluarga-daerah-tujuan" name=""
+                                    <input type="number" id="nik-kepala-keluarga-daerah-tujuan" name="nik_kepala_keluarga_tujuan"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="NIK Kepala Keluarga" required />
                                 </div>
@@ -474,7 +474,7 @@ Nomor KK Tetap">Nama Kepala Keluarga
                                     <label for="status-no-kk-bagi-tak-pindah-daerah-tujuan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Status No KK Bagi yang
                                         Tidak Pindah</label>
-                                    <select id="status-no-kk-bagi-tak-pindah-daerah-tujuan" name=""
+                                    <select id="status-no-kk-bagi-tak-pindah-daerah-tujuan" name="status_kk_tujuan_yang_tidak_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Status No KK Bagi yang Tidak
@@ -496,14 +496,14 @@ Sebagian Anggota keluarga">Kepindaan
                                     <label for="tanggal-kedatangan-daerah-tujuan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Tanggal Kedatangan</label>
                                     <input type="date" id="tanggal-kedatangan-daerah-tujuan"
-                                        placeholder="Tanggal Kedatangan" name=""
+                                        placeholder="Tanggal Kedatangan" name="tanggal_kedatangan"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>
                                 <div class="mb-2">
                                     <label for="alamat-rumah-daerah-tujuan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Alamat Rumah</label>
-                                    <input type="text" id="alamat-rumah-daerah-tujuan" name=""
+                                    <input type="text" id="alamat-rumah-daerah-tujuan" name="alamat_rumah_tujuan"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Alamat Rumah" required />
                                 </div>
@@ -511,14 +511,14 @@ Sebagian Anggota keluarga">Kepindaan
                                     <div class="flex-grow">
                                         <label for="rt-daerah-tujuan"
                                             class="block mb-2 text-sm font-medium text-gray-900">RT</label>
-                                        <input type="number" id="rt-daerah-tujuan" name=""
+                                        <input type="number" id="rt-daerah-tujuan" name="rt_tujuan"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             placeholder="RT" required />
                                     </div>
                                     <div class="flex-grow">
                                         <label for="rw-daerah-tujuan"
                                             class="block mb-2 text-sm font-medium text-gray-900">RW</label>
-                                        <input type="number" id="rw-daerah-tujuan" name=""
+                                        <input type="number" id="rw-daerah-tujuan" name="rw_tujuan"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             placeholder="RW" required />
                                     </div>
@@ -526,28 +526,28 @@ Sebagian Anggota keluarga">Kepindaan
                                 <div class="mb-2">
                                     <label for="desa-daerah-tujuan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Desa</label>
-                                    <input type="name" id="desa-daerah-tujuan" name=""
+                                    <input type="name" id="desa-daerah-tujuan" name="desa_tujuan"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Desa" required />
                                 </div>
                                 <div class="mb-2">
                                     <label for="kecamatan-daerah-tujuan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Kecamatan</label>
-                                    <input type="text" id="kecamatan-daerah-tujuan" name=""
+                                    <input type="text" id="kecamatan-daerah-tujuan" name="kecamatan_tujuan"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Kecamatan" required />
                                 </div>
                                 <div class="mb-2">
                                     <label for="kabupaten-kota-daerah-tujuan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Kabupaten/Kota</label>
-                                    <input type="text" id="kabupaten-kota-daerah-tujuan" name=""
+                                    <input type="text" id="kabupaten-kota-daerah-tujuan" name="kabupaten_tujuan"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Kabupaten/Kota" required />
                                 </div>
                                 <div class="mb-2">
                                     <label for="provinsi-daerah-tujuan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Provinsi</label>
-                                    <input type="text" id="provinsi-daerah-tujuan" name=""
+                                    <input type="text" id="provinsi-daerah-tujuan" name="provinsi_tujuan"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Provinsi" required />
                                 </div>
@@ -555,7 +555,7 @@ Sebagian Anggota keluarga">Kepindaan
                                     <label for="jumlah-keluarga-yg-pindah-daerah-tujuan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Jumlah Keluarga Yang
                                         Pindah</label>
-                                    <select id="jumlah-keluarga-yg-pindah-daerah-tujuan" name=""
+                                    <select id="jumlah-keluarga-yg-pindah-daerah-tujuan" name="jumlah_keluarga_pindah_tujuan"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Jumlah Keluarga Yang Pindah
@@ -575,7 +575,7 @@ Sebagian Anggota keluarga">Kepindaan
                                     </select>
                                 </div>
 
-                                <div class="flex-grow mb-2">
+                                {{-- <div class="flex-grow mb-2">
                                     <label for="nama"
                                         class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
                                     <input type="text" id="nama" name=""
@@ -595,7 +595,7 @@ Sebagian Anggota keluarga">Kepindaan
                                     <input type="number" id="shdck" name=""
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="SHDCK" required />
-                                </div>
+                                </div> --}}
 
                                 <div id="form-container-daerah-tujuan">
                                 </div>
@@ -613,15 +613,15 @@ Sebagian Anggota keluarga">Kepindaan
                                             formGroup.innerHTML = `
                                                 <div class="mb-2 relative">
                                                     <label for="nama-daerah-tujuan-${i}" class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
-                                                    <input type="text" id="nama-daerah-tujuan-${i}" placeholder="Nama" name="nama_daerah_tujuan[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                                                    <input type="text" id="nama-daerah-tujuan-${i}" placeholder="Nama" name="nama_tujuan[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                                                 </div>
                                                 <div class="mb-2 relative">
                                                     <label for="nik-daerah-tujuan-${i}" class="block mb-2 text-sm font-medium text-gray-900">NIK</label>
-                                                    <input type="number" id="nik-daerah-tujuan-${i}" placeholder="NIK" name="nik_daerah_tujuan[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+                                                    <input type="number" id="nik-daerah-tujuan-${i}" placeholder="NIK" name="nik_tujuan[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
                                                 </div>
                                                 <div class="mb-2">
                                                     <label for="shdk-daerah-tujuan-${i}" class="block mb-2 text-sm font-medium text-gray-900">SHDK</label>
-                                                    <select id="shdk-daerah-tujuan-${i}" name="shdk_daerah_tujuan[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                                                    <select id="shdk-daerah-tujuan-${i}" name="shdck_tujuan[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                                         <option value="" selected disabled>Pilih SHDK</option>
                                                         <option value="01 Kepala Keluarga">01 Kepala Keluarga</option>
                                                         <option value="02 Suami">02 Suami</option>
@@ -654,7 +654,7 @@ Sebagian Anggota keluarga">Kepindaan
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                         for="input_ktp">Upload file</label>
                                     <div class="relative">
-                                        <input name=""
+                                        <input name="foto_ktp"
                                             class="block w-full text-sm text-gray-900 rounded-lg cursor-pointer bg-gray-50 file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700"
                                             aria-describedby="input_ktp_help" id="input_ktp" type="file" required>
                                     </div>
@@ -671,7 +671,7 @@ Sebagian Anggota keluarga">Kepindaan
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                         for="input_swafoto">Upload file</label>
                                     <div class="relative">
-                                        <input name=""
+                                        <input name="foto_kk"
                                             class="block w-full text-sm text-gray-900 rounded-lg cursor-pointer bg-gray-50 file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700"
                                             aria-describedby="input_swafoto_help" id="input_swafoto" type="file"
                                             required>
@@ -690,7 +690,7 @@ Sebagian Anggota keluarga">Kepindaan
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                         for="input_swafoto">Upload file</label>
                                     <div class="relative">
-                                        <input name=""
+                                        <input name="foto_surat_pengantar"
                                             class="block w-full text-sm text-gray-900 rounded-lg cursor-pointer bg-gray-50 file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700"
                                             aria-describedby="input_swafoto_help" id="input_swafoto" type="file"
                                             required>

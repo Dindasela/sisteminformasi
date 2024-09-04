@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('kode_pos_asal');
             $table->string('telepon_asal');
             $table->string('alasan_pindah');
+            $table->string('alasan_lain')->nullable();
             $table->string('alamat_tujuan_pindah');
             $table->string('rt_pindah');
             $table->string('rw_pindah');
@@ -48,9 +49,8 @@ return new class extends Migration
             $table->string('no_kk_tujuan');
             $table->string('nama_kepala_keluarga_tujuan');
             $table->string('nik_kepala_keluarga_tujuan');
-            $table->string('alamat_tujuan');
             $table->string('status_kk_tujuan_yang_tidak_pindah');
-            $table->date('tangga_kedatangan');
+            $table->date('tanggal_kedatangan');
             $table->string('alamat_rumah_tujuan');
             $table->string('rt_tujuan');
             $table->string('rw_tujuan');

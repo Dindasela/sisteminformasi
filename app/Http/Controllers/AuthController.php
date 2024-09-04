@@ -10,8 +10,8 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $cekAdmin = User::where('email', $request->email)->where('role', 'admin')->first();
-        if (!$cekAdmin) {
+        $cek = User::where('email', $request->email)->first();
+        if (!$cek) {
             return redirect()->back()->withErrors([
                 'email' => 'Email atau password salah.',
             ])->withInput($request->except('password'));
@@ -20,7 +20,11 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         
         if (Auth::attempt($credentials)) {
-            return redirect()->route('dashboard');
+            if(Auth::user()->role == 'admin') {
+                return redirect()->route('dashboard');
+            }elseif(Auth::user()->role == 'user') {
+                return redirect()->route('home');
+            }
         }
 
         return redirect()->back()->withErrors([
@@ -33,5 +37,11 @@ class AuthController extends Controller
         Auth::logout();
         
         return redirect('/login-admin');
+    }
+
+    public function logoutUser(Request $request)
+    {
+        Auth::logout();
+        return redirect('/login-user');
     }
 }

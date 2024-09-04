@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\SuratController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralPage;
 use App\Http\Controllers\PengumumanController;
@@ -41,7 +42,7 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/layanan-verifikasi-gagal', 'layananverifikasigagal');
     Route::get('/layanan-pelaporan', 'layananpelaporan');
     Route::get('/layanan-form-pelaporan', 'layananformpelaporan');
-    Route::get('/layanan-pengajuan-dokumen', 'layananpengajuandokumen');
+    Route::get('/layanan-pengajuan-dokumen', 'layananpengajuandokumen')->name('layanan-pengajuan-dokumen');
     Route::get('/layanan-form-permohonan', 'layananformpermohonan');
     Route::get('/layanan-status-permohonan', 'layananstatuspermohonan');
     Route::get('/layanan-status-ditolak', 'layananstatusditolak');
@@ -51,15 +52,25 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/galeri-foto-video', 'galerifotovideo');
     // Awal Pengajuan Surat
     Route::get('/pengajuan-surat-domisili', 'pengajuansuratdomisili');
+    Route::post('/pengajuan-surat-domisili', [SuratController::class, 'createSKD'])->name('pengajuan-surat-domisili.post');
     Route::get('/pengajuan-surat-domisili-usaha', 'pengajuansuratdomisiliusaha');
+    Route::post('/pengajuan-surat-domisili-usaha', [SuratController::class, 'createSKDU'])->name('pengajuan-surat-domisili-usaha.post');
     Route::get('/pengajuan-surat-tidak-mampu', 'pengajuansurattidakmampu');
+    Route::post('/pengajuan-surat-tidak-mampu', [SuratController::class, 'createSKTM'])->name('pengajuan-surat-tidak-mampu.post');
     Route::get('/pengajuan-surat-keterangan-kematian', 'pengajuansuratketerangankematian');
+    Route::post('/pengajuan-surat-keterangan-kematian', [SuratController::class, 'createSKK'])->name('pengajuan-surat-keterangan-kematian.post');
     Route::get('/pengajuan-surat-keterangan', 'pengajuansuratketerangan');
+    Route::post('/pengajuan-surat-keterangan', [SuratController::class, 'createSK'])->name('pengajuan-surat-keterangan.post');
     Route::get('/pengajuan-surat-keterangan-sudah-menikah', 'pengajuansuratketerangansudahmenikah');
+    Route::post('/pengajuan-surat-keterangan-sudah-menikah', [SuratController::class, 'createSKSM'])->name('pengajuan-surat-keterangan-sudah-menikah.post');
     Route::get('/pengajuan-surat-keterangan-bersih-diri', 'pengajuansuratketeranganbersihdiri');
+    Route::post('/pengajuan-surat-keterangan-bersih-diri', [SuratController::class, 'createSKBD'])->name('pengajuan-surat-keterangan-bersih-diri.post');
     Route::get('/pengajuan-surat-keterangan-usaha', 'pengajuansuratketeranganusaha');
+    Route::post('/pengajuan-surat-keterangan-usaha', [SuratController::class, 'createSKU'])->name('pengajuan-surat-keterangan-usaha.post');
     Route::get('/pengajuan-surat-keterangan-pindah', 'pengajuansuratketeranganpindah');
+    Route::post('/pengajuan-surat-keterangan-pindah', [SuratController::class, 'createSKP'])->name('pengajuan-surat-keterangan-pindah.post');
     Route::get('/pengajuan-surat-keterangan-penghasilan-orang-tua', 'pengajuansuratketeranganpenghasilanorangtua');
+    Route::post('/pengajuan-surat-keterangan-penghasilan-orang-tua', [SuratController::class, 'createSKP'])->name('pengajuan-surat-keterangan-penghasilan-orang-tua.post');
     Route::get('/pengajuan-surat-keterangan-belum-menikah', 'pengajuansuratketeranganbelummenikah');
     Route::get('/pengajuan-surat-keterangan-kelahiran', 'pengajuansuratketerangankelahiran');
     Route::get('/pengajuan-surat-pengantar-skck', 'pengajuansuratpengantarskck');
@@ -71,6 +82,7 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/login-admin', 'loginadmin');
     Route::post('/login-admin', [AuthController::class, 'login'])->name('login');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/logout-user', [AuthController::class, 'logoutUser'])->name('logout-user');
     Route::get('/dashboard', 'dashboard')->name('dashboard')->middleware('auth');
     Route::get('/manajemen-surat', 'manajemensurat');
     Route::get('/surat-masuk', 'suratmasuk');

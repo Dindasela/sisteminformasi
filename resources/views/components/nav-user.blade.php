@@ -55,6 +55,7 @@
                         </ul>
                     </div>
                 </li>
+                @if(Auth::check() && Auth::user()->role == 'user')
                 <li>
                     <div class="text-white hover:text-[#2B2A4C] flex">
                         <button id="dropdownNavbarLink" data-dropdown-toggle="layanan"
@@ -89,6 +90,7 @@
                         </ul>
                     </div>
                 </li>
+                @endif
                 <li>
                     <div class="text-white hover:text-[#2B2A4C] flex">
                         <button id="dropdownNavbarLink" data-dropdown-toggle="informasi"
@@ -142,6 +144,16 @@
             </ul>
         </div>
         <!-- Dropdown menu -->
+        @if(Auth::check() && Auth::user()->role == 'user')
+        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow"
+            id="user-dropdown">
+            <ul class="py-2" aria-labelledby="user-menu-button">
+                <li>
+                    <a href="{{route('logout-user')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout User</a>
+                </li>
+            </ul>
+        </div>
+        @else
         <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow"
             id="user-dropdown">
             <ul class="py-2" aria-labelledby="user-menu-button">
@@ -150,10 +162,11 @@
                 </li>
                 <li>
                     <a href="/login-admin" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Login
-                        Adamin</a>
+                        Admin</a>
                 </li>
             </ul>
         </div>
+        @endif
     </div>
 </nav>
 {{-- Akhir Navbar --}}

@@ -66,7 +66,8 @@
         <x-nav-user />
         <section id="cover"
             class="relative bg-center bg-no-repeat bg-cover bg-white bg-blend-multiply min-h-screen flex items-center justify-center">
-            <form class="relative full m-5 lg:m-10 p-6 z-10 text-black">
+            <form action="{{route('pengajuan-surat-keterangan-sudah-menikah.post')}}" method="POST" enctype="multipart/form-data" class="relative full m-5 lg:m-10 p-6 z-10 text-black">
+                @csrf
                 <div class="mt-10 lg:mt-20 mb-10 lg:mb-20">
                     <div
                         class="font-bold text-4xl mb-5 lg:mb-10 mt-20 lg:mt-0 text-[#2B2A4C] underline underline-offset-4">
@@ -83,7 +84,7 @@
                                     <label for="nama-lengkap-istri"
                                         class="block mb-2 text-sm font-medium text-gray-900">Nama
                                         Lengkap</label>
-                                    <input type="name" id="nama-lengkap-istri" name=""
+                                    <input type="name" id="nama-lengkap-istri" name="nama_lengkap_istri"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Nama Lengkap" required />
                                 </div>
@@ -91,7 +92,7 @@
                                     <label for="jenis-kelamin-istri"
                                         class="block mb-2 text-sm font-medium text-gray-900">Jenis
                                         Kelamin</label>
-                                    <select id="jenis-kelamin-istri" name=""
+                                    <select id="jenis-kelamin-istri" name="jenis_kelamin_istri"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Jenis Kelamin</option>
@@ -103,7 +104,7 @@
                                     <label for="tempat-lahir-istri"
                                         class="block mb-2 text-sm font-medium text-gray-900">Tempat
                                         Lahir</label>
-                                    <input type="name" id="tempat-lahir-istri" placeholder="Tempat Lahir"
+                                    <input type="name" id="tempat-lahir-istri" name="tempat_lahir_istri" placeholder="Tempat Lahir"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>
@@ -111,14 +112,14 @@
                                     <label for="tanggal-lahir-istri"
                                         class="block mb-2 text-sm font-medium text-gray-900">Tanggal
                                         Lahir</label>
-                                    <input type="date" id="tanggal-lahir-istri" placeholder="Tanggal Lahir" name=""
+                                    <input type="date" id="tanggal-lahir-istri" placeholder="Tanggal Lahir" name="tanggal_lahir_istri"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>
                                 <div class="mb-2">
                                     <label for="agama-istri"
                                         class="block mb-2 text-sm font-medium text-gray-900">Agama</label>
-                                    <select id="agama-istri" name=""
+                                    <select id="agama-istri" name="agama_istri"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Agama</option>
@@ -133,7 +134,7 @@
                                 <div class="mb-2">
                                     <label for="status-perkawinan-istri"
                                         class="block mb-2 text-sm font-medium text-gray-900">Status Perkawinan</label>
-                                    <select id="status-perkawinan-istri" name=""
+                                    <select id="status-perkawinan-istri" name="status_perkawinan_istri"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Status Perkawinan</option>
@@ -146,14 +147,14 @@
                                 <div class="mb-2 relative">
                                     <label for="pekerjaan-istri"
                                         class="block mb-2 text-sm font-medium text-gray-900">Pekerjaan</label>
-                                    <input type="name" id="pekerjaan-istri" placeholder="Pekerjaan" name=""
+                                    <input type="name" id="pekerjaan-istri" placeholder="Pekerjaan" name="pekerjaan_istri"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>
                                 <div class="mb-2 relative">
                                     <label for="alamat-istri"
                                         class="block mb-2 text-sm font-medium text-gray-900">Alamat</label>
-                                    <input type="name" id="alamat-istri" placeholder="Alamat" name=""
+                                    <input type="name" id="alamat-istri" placeholder="Alamat" name="alamat_istri"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>
@@ -164,7 +165,7 @@
                                     <label for="nama-lengkap-suami"
                                         class="block mb-2 text-sm font-medium text-gray-900">Nama
                                         Lengkap</label>
-                                    <input type="name" id="nama-lengkap-suami" name=""
+                                    <input type="name" id="nama-lengkap-suami" name="nama_lengkap_suami"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Nama Lengkap" required />
                                 </div>
@@ -172,7 +173,7 @@
                                     <label for="jenis-kelamin-suami"
                                         class="block mb-2 text-sm font-medium text-gray-900">Jenis
                                         Kelamin</label>
-                                    <select id="jenis-kelamin-suami" name=""
+                                    <select id="jenis-kelamin-suami" name="jenis_kelamin_suami"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Jenis Kelamin</option>
@@ -184,7 +185,7 @@
                                     <label for="tempat-lahir-suami"
                                         class="block mb-2 text-sm font-medium text-gray-900">Tempat
                                         Lahir</label>
-                                    <input type="name" id="tempat-lahir-suami" placeholder="Tempat Lahir"
+                                    <input type="name" id="tempat-lahir-suami" name="tempat_lahir_suami" placeholder="Tempat Lahir"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>
@@ -192,14 +193,14 @@
                                     <label for="tanggal-lahir-suami"
                                         class="block mb-2 text-sm font-medium text-gray-900">Tanggal
                                         Lahir</label>
-                                    <input type="date" id="tanggal-lahir-suami" placeholder="Tanggal Lahir" name=""
+                                    <input type="date" id="tanggal-lahir-suami" name="tanggal_lahir_suami" placeholder="Tanggal Lahir" name=""
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>
                                 <div class="mb-2">
                                     <label for="agama-suami"
                                         class="block mb-2 text-sm font-medium text-gray-900">Agama</label>
-                                    <select id="agama-suami" name=""
+                                    <select id="agama-suami" name="agama_suami"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Agama</option>
@@ -214,7 +215,7 @@
                                 <div class="mb-2">
                                     <label for="status-perkawinan-suami"
                                         class="block mb-2 text-sm font-medium text-gray-900">Status Perkawinan</label>
-                                    <select id="status-perkawinan-suami" name=""
+                                    <select id="status-perkawinan-suami" name="status_perkawinan_suami"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Status Perkawinan</option>
@@ -227,14 +228,14 @@
                                 <div class="mb-2 relative">
                                     <label for="pekerjaan-suami"
                                         class="block mb-2 text-sm font-medium text-gray-900">Pekerjaan</label>
-                                    <input type="name" id="pekerjaan-suami" placeholder="Pekerjaan" name=""
+                                    <input type="name" id="pekerjaan-suami" placeholder="Pekerjaan" name="pekerjaan_suami"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>
                                 <div class="mb-2 relative">
                                     <label for="alamat-suami"
                                         class="block mb-2 text-sm font-medium text-gray-900">Alamat</label>
-                                    <input type="name" id="alamat-suami" placeholder="Alamat" name=""
+                                    <input type="name" id="alamat-suami" placeholder="Alamat" name="alamat_suami"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>
@@ -246,7 +247,7 @@
                                 <div class="mb-2">
                                     <label for="lokasi-pernikahan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Lokasi Pernikahan</label>
-                                    <input type="name" id="lokasi-pernikahan" name=""
+                                    <input type="name" id="lokasi-pernikahan" name="lokasi_pernikahan"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Lokasi Pernikahan" required />
                                 </div>
@@ -254,13 +255,13 @@
                                     <label for="tanggal-pernikahan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Tanggal
                                         Pernikahan</label>
-                                    <input type="date" id="tanggal-pernikahan" placeholder="Tanggal Pernikahan" name=""
+                                    <input type="date" id="tanggal-pernikahan" placeholder="Tanggal Pernikahan" name="tanggal_pernikahan"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>
                                 <div class="mb-2 relative">
                                     <label for="jam" class="block mb-2 text-sm font-medium text-gray-900">Jam</label>
-                                    <input type="time" id="jam" placeholder="Jam" name=""
+                                    <input type="time" id="jam" placeholder="Jam" name="jam"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required />
                                 </div>
@@ -277,7 +278,7 @@
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                         for="input_ktp">Upload file</label>
                                     <div class="relative">
-                                        <input name=""
+                                        <input name="foto_ktp"
                                             class="block w-full text-sm text-gray-900 rounded-lg cursor-pointer bg-gray-50 file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700"
                                             aria-describedby="input_ktp_help" id="input_ktp" type="file" required>
                                     </div>
@@ -294,7 +295,7 @@
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                         for="input_swafoto">Upload file</label>
                                     <div class="relative">
-                                        <input name=""
+                                        <input name="foto_kk"
                                             class="block w-full text-sm text-gray-900 rounded-lg cursor-pointer bg-gray-50 file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700"
                                             aria-describedby="input_swafoto_help" id="input_swafoto" type="file"
                                             required>
@@ -313,7 +314,7 @@
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                         for="input_swafoto">Upload file</label>
                                     <div class="relative">
-                                        <input name=""
+                                        <input name="foto_surat_pengantar"
                                             class="block w-full text-sm text-gray-900 rounded-lg cursor-pointer bg-gray-50 file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700"
                                             aria-describedby="input_swafoto_help" id="input_swafoto" type="file"
                                             required>

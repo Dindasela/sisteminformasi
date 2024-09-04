@@ -32,5 +32,19 @@ class DatabaseSeeder extends Seeder
             'is_active' => 1,
             'role' => 'admin',
         ]);
+
+        \App\Models\User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'user@gmail.com',
+            'username' => 'user',
+            'phone' => '081234567890',
+            'address' => 'Jl. Test No. 1',
+            'nik' => '1234567890123451',
+            'password' => password_hash('user', PASSWORD_DEFAULT),
+            'swafoto' => 'swafoto.jpg',
+            'ktp' => 'ktp.jpg',
+            'is_active' => 1,
+            'role' => 'user',
+        ]);
     }
 }

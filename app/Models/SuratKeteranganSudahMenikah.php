@@ -43,7 +43,6 @@ class SuratKeteranganSudahMenikah extends Model
 
     protected $casts = [
         'tanggal_pernikahan' => 'date',
-        'jam' => 'time',
         'tanggal_lahir_istri' => 'date',
         'tanggal_lahir_suami' => 'date',
     ];
