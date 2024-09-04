@@ -132,7 +132,7 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/permohonan-akun', 'permohonanakun');
     Route::get('/lihat-permohonan-akun', 'lihatpermohonanakun');
     // Awal Pengajuan Surat
-    Route::get('/manajemen-surat', 'manajemensurat');
+    Route::get('/manajemen-surat', [SuratController::class, 'index'])->name('manajemen-surat.index');
     Route::get('/surat-keterangan-domisili', 'suratketerangandomisili');
     Route::get('/surat-keterangan-domisili-usaha', 'suratketerangandomisiliusaha');
     Route::get('/surat-keterangan-tidak-mampu', 'suratketerangantidakmampu');

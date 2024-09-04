@@ -19,6 +19,30 @@ use Illuminate\Http\Request;
 
 class SuratController extends Controller
 {
+    public function index()
+    {
+        $sk_domisili = SuratKeteranganDomisili::with(['User'])->get();
+        $sk_kematian = SuratKeteranganKematian::with(['User'])->get();
+        $sk = SuratKeterangan::with(['User'])->get();
+        $sk_belum_menikah = SuratKeteranganBelumMenikah::with(['User'])->get();
+        $sk_bersih_diri = SuratKeteranganBersihDiri::with(['User'])->get();
+        $sk_domisili_usaha = SuratKeteranganDomisiliUsaha::with(['User'])->get();
+        $sk_kelahiran = SuratKeteranganKelahiran::with(['User'])->get();
+        $sk_penghasilan = SuratKeteranganPenghasilan::with(['User'])->get();
+        $sk_pindah = SuratKeteranganPindah::with(['User'])->get();
+        $sk_sudah_menikah = SuratKeteranganSudahMenikah::with(['User'])->get();
+        $sk_tidak_mampu = SuratKeteranganTidakMampu::with(['User'])->get();
+        $sk_usaha = SuratKeteranganUsaha::with(['User'])->get();
+        $sk_pengantar_skck = SuratPengantarSKCK::with(['User'])->get();
+
+        $datas = collect([$sk_domisili, $sk_kematian, $sk, $sk_belum_menikah, $sk_bersih_diri, $sk_domisili_usaha, $sk_kelahiran, $sk_penghasilan, $sk_pindah, $sk_sudah_menikah, $sk_tidak_mampu, $sk_usaha, $sk_pengantar_skck])
+            ->reduce(function ($carry, $item) {
+                return $carry->concat($item);
+            }, collect());
+
+        return view('pages.admin.manajemen-surat.manajemen-surat', compact('datas'));
+    }
+    
     public function createSKD(Request $request)
     {
 
