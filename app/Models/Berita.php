@@ -15,6 +15,7 @@ class Berita extends Model
         'title',
         'image',
         'description',
-    'date',
+        'date',
+        'status'
     ];
 }

@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralPage;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +26,13 @@ use App\Http\Controllers\PhotoController;
 
 Route::controller(GeneralPage::class)->group(function () {
     // Awal Home
-    Route::get('/', 'home');
+    Route::get('/', 'home')->name('home');
     // Akhir Home
 
     // Awal User
     Route::get('/login-user', 'loginuser');
     Route::get('/daftar-user', 'daftaruser');
+    Route::post('/daftar-user', [UserController::class, 'register'])->name('user.register');
     Route::get('/profil-desa', 'profildesa');
     Route::get('/visi-misi', 'visimisi');
     Route::get('/sejarah', 'sejarah');
@@ -100,9 +103,15 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::delete('/pengumuman/{id}',[PengumumanController::class,'destroy'])->name('pengumuman.destroy');
     //Akhir Pengumuman
 
-    Route::get('/list-galeri', 'listgaleri');
+    //Start Galeri
+    Route::get('/list-galeri', [GalleryController::class,'index'])->name('galeri.index');
     Route::get('/tambah-foto-video', 'tambahfotovideo');
-    Route::get('/edit-foto-video', 'editfotovideo');
+    Route::post('/tambah-foto-video', [GalleryController::class,'store'])->name('galeri.store');
+    Route::get('/edit-foto-video/{id}', [GalleryController::class,'edit'])->name('galeri.edit');
+    Route::put('/galeri/{id}', [GalleryController::class,'update'])->name('galeri.update');
+    Route::delete('/galeri/{id}', [GalleryController::class,'destroy'])->name('galeri.destroy');
+    //Akhir Galeri
+
     Route::get('/daftar-akun', 'daftarakun');
     Route::get('/lihat-akun', 'lihatakun');
     Route::get('/permohonan-akun', 'permohonanakun');

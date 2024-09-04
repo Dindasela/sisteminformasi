@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('swafoto');
             $table->string('ktp');
+            $table->integer('is_active')->default(2)->comment('2 = nonaktif, 1 = aktif');
+            $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

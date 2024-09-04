@@ -31,44 +31,60 @@
             <!-- Form Section -->
             <div class="bg-[#F5F3F3] pb-20 p-6 rounded-lg shadow-lg">
                 <h2 class="text-xl font-semibold mb-4 text-center">Informasi Foto dan Video</h2>
+                <form action="{{ route('galeri.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <!-- Drag and Drop Section -->
-                    <div class="flex flex-col items-center justify-center  border-gray-300 rounded-lg h-64 bg-[#D9D9D9]" id="dropzone">
-                        <input id="fileInput" type="file" class="hidden" />
-                        <div class="text-center" id="fileDisplayArea">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-6    w-6 mx-auto mb-2 text-gray-400">
-                                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="#4B4646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M17 8L12 3L7 8" stroke="#4B4646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M12 3V15" stroke="#4B4646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
+                        <div class="flex flex-col items-center justify-center  border-gray-300 rounded-lg h-64 bg-[#D9D9D9]"
+                            id="dropzone">
+                            <input id="fileInput" type="file" class="hidden" name="image" />
+                            <div class="text-center" id="fileDisplayArea">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" class="h-6    w-6 mx-auto mb-2 text-gray-400">
+                                    <path
+                                        d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15"
+                                        stroke="#4B4646" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M17 8L12 3L7 8" stroke="#4B4646" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M12 3V15" stroke="#4B4646" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
 
-                            <p class="text-black">Drag and drop files here</p>
+                                <p class="text-black">Drag and drop files here</p>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Form Fields -->
-                    <form action="" method="">
+                        <!-- Form Fields -->
                         <div class="space-y-4 pb-4">
                             <div>
-                                <input type="text" id="judul" name="judul" class="bg-[#F5F3F3] mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Judul Foto atau Video">
+                                <input type="text" id="judul" name="title"
+                                    class="bg-[#F5F3F3] mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    placeholder="Judul Foto atau Video">
                             </div>
                             <div>
-                                <select id="countries" class="bg-[#F5F3F3] mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <select id="countries" name="category"
+                                    class="bg-[#F5F3F3] mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     <option selected>Foto</option>
                                     <option value="WNA">Video</option>
                                 </select>
                             </div>
                             <div>
-                                <input type="text" id="link" name="link" class="bg-[#F5F3F3] mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Link Video">
+                                <input type="text" id="link" name="link"
+                                    class="bg-[#F5F3F3] mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    placeholder="Link Video">
                             </div>
                             <div>
-                                <textarea id="isi" name="isi" rows="4" class="bg-[#F5F3F3] mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Deskripsi"></textarea>
+                                <textarea id="isi" name="description" rows="4"
+                                    class="bg-[#F5F3F3] mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    placeholder="Deskripsi"></textarea>
                             </div>
                         </div>
-                    </form>
                 </div>
                 <div class="float-right text-center">
-                    <button type="submit" class="bg-[#2B2A4C] text-white px-4 py-1 rounded-md hover:bg-[#414066]">Upload</button>
+                    <button type="submit"
+                        class="bg-[#2B2A4C] text-white px-4 py-1 rounded-md hover:bg-[#414066]">Upload</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -115,7 +131,6 @@
                 `;
             }
         }
-
     </script>
 </body>
 

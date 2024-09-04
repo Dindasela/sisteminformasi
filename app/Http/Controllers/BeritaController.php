@@ -65,6 +65,7 @@ class BeritaController extends Controller
             'image' => 'nullable|image',
             'date' => 'required',
             'description' => 'required',
+            'status' => 'required',
         ]);
 
         $berita = Berita::findOrFail($id);
@@ -88,7 +89,7 @@ class BeritaController extends Controller
         $berita->title = $validateData['title'];
         $berita->description = $validateData['description'];
         $berita->date = $validateData['date'];
-        $berita->status = $request->input('status', $berita->status);
+        $berita->status = $validateData['status'];
 
         $save = $berita->save();
         if (!$save) {

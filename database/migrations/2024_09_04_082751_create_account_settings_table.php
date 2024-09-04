@@ -11,17 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('gallery', function (Blueprint $table) {
+        Schema::create('account_settings', function (Blueprint $table) {
             $table->bigInteger('id', true);
-            $table->string('title');
-            $table->string('image');
-            $table->string('description');
-            $table->string('category');
+            $table->bigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('status');
-            $table->string('link')->nullable();
-            $table->date('date');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('gallery');
+        Schema::dropIfExists('account_settings');
     }
 };

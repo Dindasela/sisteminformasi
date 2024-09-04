@@ -14,8 +14,8 @@ class Gallery extends Model
     protected $fillable = [
         'title',
         'category',
-        'date',
         'description',
-        'image'
+        'image',
+        'link'
     ];
 }

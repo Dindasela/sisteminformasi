@@ -10,6 +10,13 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
+        $cekAdmin = User::where('email', $request->email)->where('role', 'admin')->first();
+        if (!$cekAdmin) {
+            return redirect()->back()->withErrors([
+                'email' => 'Email atau password salah.',
+            ])->withInput($request->except('password'));
+        }
+
         $credentials = $request->only('email', 'password');
         
         if (Auth::attempt($credentials)) {
