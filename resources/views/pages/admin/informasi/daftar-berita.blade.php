@@ -109,7 +109,7 @@
                                         </svg>
 
                                     </a>
-                                    <form action="{{ route('berita.destroy', $item->id) }}" method="POST"
+                                    {{-- <form action="{{ route('berita.destroy', $item->id) }}" method="POST"
                                         onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita ini?');">
                                         @csrf
                                         @method('DELETE')
@@ -132,7 +132,8 @@
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </button>
-                                    </form>
+                                    </form> --}}
+                                    <x-pop-up-hapus/>
                                 </div>
                             </td>
                         </tr>
