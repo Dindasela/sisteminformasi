@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('tempat_kematian');
             $table->string('penyebab_kematian');
             $table->string('tempat_pemakaman');
+            $table->string('jenis');
+            $table->string('status');
             $table->string('ktp');
             $table->string('kk');
             $table->string('surat_pengantar_rt');

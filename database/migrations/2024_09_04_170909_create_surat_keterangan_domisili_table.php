@@ -29,6 +29,8 @@ return new class extends Migration
             $table->string('alamat_saat_ini');
             $table->date('tanggal_di_alamat_saat_ini');
             $table->string('keperluan');
+            $table->string('jenis');
+            $table->string('status');
             $table->string('foto_ktp');
             $table->string('foto_kk');
             $table->string('foto_surat_pengantar');

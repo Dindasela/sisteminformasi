@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('nama_ayah');
             $table->string('nama_ibu');
             $table->string('anak_ke');
+            $table->string('jenis');
+            $table->string('status');
             $table->string('ktp');
             $table->string('kk');
             $table->string('surat_pengantar_rt');

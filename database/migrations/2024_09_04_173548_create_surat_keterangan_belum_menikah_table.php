@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('pekerjaan');
             $table->string('agama');
             $table->string('alamat');
+            $table->string('jenis');
+            $table->string('status');
             $table->string('ktp');
             $table->string('kk');
             $table->string('surat_pengantar_rt');

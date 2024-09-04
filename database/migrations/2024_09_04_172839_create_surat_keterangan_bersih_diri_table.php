@@ -34,6 +34,8 @@ return new class extends Migration
             $table->string('pekerjaan_anak');
             $table->string('alamat_anak');
             $table->string('keperluan');
+            $table->string('jenis');
+            $table->string('status');
             $table->string('ktp');
             $table->string('kk');
             $table->string('surat_pengantar_rt');

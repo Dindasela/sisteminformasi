@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('nama_usaha');
             $table->string('alamat_usaha');
             $table->string('bidang_usaha');
+            $table->string('jenis');
+            $table->string('status');
             $table->string('ktp');
             $table->string('kk');
             $table->string('surat_pengantar_rt');
