@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('surat_keterangan_bersih_diri', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained('users');
+            $table->bigInteger('id', true);
+            $table->bigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('nama_lengkap_bapak');
             $table->string('umur_bapak');
             $table->string('warga_negara_bapak');

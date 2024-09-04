@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('surat_keterangan_tidak_mampu', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained('users');
+            $table->bigInteger('id', true);
+            $table->bigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('nama_lengkap_orang_tua');
             $table->string('jenis_kelamin_orang_tua');
             $table->string('tempat_lahir_orang_tua');
