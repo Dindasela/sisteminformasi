@@ -572,9 +572,9 @@ class SuratController extends Controller
             'pekerjaan_orang_tua' => 'required',
             'alamat_orang_tua' => 'required',
             'nama' => 'required',
+            'jenis_kelamin' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
             'pekerjaan' => 'required',
             'agama' => 'required',
             'alamat' => 'required',
@@ -619,11 +619,11 @@ class SuratController extends Controller
     {
         $validateData = $request->validate([
             'nama' => 'required',
+            'jenis_kelamin' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
-            'pekerjaan' => 'required',
             'agama' => 'required',
+            'pekerjaan' => 'required',
             'alamat' => 'required',
             'ktp' => 'required',
             'kk' => 'required',
@@ -657,9 +657,9 @@ class SuratController extends Controller
     {
         $validateData = $request->validate([
             'nama' => 'required',
+            'jenis_kelamin' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
             'pekerjaan' => 'required',
             'agama' => 'required',
             'alamat' => 'required',
@@ -701,10 +701,10 @@ class SuratController extends Controller
     {
         $validateData = $request->validate([
             'nama' => 'required',
+            'jenis_kelamin' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
             'status_perkawinan' => 'required',
-            'jenis_kelamin' => 'required',
             'agama' => 'required',
             'pekerjaan' => 'required',
             'alamat' => 'required',

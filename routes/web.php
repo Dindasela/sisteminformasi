@@ -70,10 +70,13 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/pengajuan-surat-keterangan-pindah', 'pengajuansuratketeranganpindah');
     Route::post('/pengajuan-surat-keterangan-pindah', [SuratController::class, 'createSKP'])->name('pengajuan-surat-keterangan-pindah.post');
     Route::get('/pengajuan-surat-keterangan-penghasilan-orang-tua', 'pengajuansuratketeranganpenghasilanorangtua');
-    Route::post('/pengajuan-surat-keterangan-penghasilan-orang-tua', [SuratController::class, 'createSKP'])->name('pengajuan-surat-keterangan-penghasilan-orang-tua.post');
+    Route::post('/pengajuan-surat-keterangan-penghasilan-orang-tua', [SuratController::class, 'createSKPOT'])->name('pengajuan-surat-keterangan-penghasilan-orang-tua.post');
     Route::get('/pengajuan-surat-keterangan-belum-menikah', 'pengajuansuratketeranganbelummenikah');
+    Route::post('/pengajuan-surat-keterangan-belum-menikah', [SuratController::class, 'createSKBM'])->name('pengajuan-surat-keterangan-belum-menikah.post');
     Route::get('/pengajuan-surat-keterangan-kelahiran', 'pengajuansuratketerangankelahiran');
+    Route::post('/pengajuan-surat-keterangan-kelahiran', [SuratController::class, 'createSKKL'])->name('pengajuan-surat-keterangan-kelahiran.post');
     Route::get('/pengajuan-surat-pengantar-skck', 'pengajuansuratpengantarskck');
+    Route::post('/pengajuan-surat-pengantar-skck', [SuratController::class, 'createSKPSKCK'])->name('pengajuan-surat-pengantar-skck.post');
     Route::post('/save-photo', [PhotoController::class, 'store'])->name('save-photo');
     // Akhir Pengjuan Surat
     // Akhir User
