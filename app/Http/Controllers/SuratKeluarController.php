@@ -17,7 +17,7 @@ class SuratKeluarController extends Controller
         if ($jenis == 'SKD') {
             $qr = QrCode::size(200)
                 ->format('png')
-                ->generate("https://4bfa-2404-8000-100b-d702-e5da-46cb-594b-ebe3.ngrok-free.app/layanan-verifikasi-sukses?jenis_surat=SKD&id_surat={$id}");
+                ->generate("https://63b2-2404-8000-100b-d702-e5da-46cb-594b-ebe3.ngrok-free.app/layanan-verifikasi-sukses?jenis_surat=SKD&id_surat={$id}");
             
             $filename = 'qr-code.png';
 

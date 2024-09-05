@@ -10,6 +10,7 @@ use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\SuratKeluarController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VerifikasiSuksesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,7 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/visi-misi', 'visimisi');
     Route::get('/sejarah', 'sejarah');
     Route::get('/layanan-verifikasi-dokumen', 'layananverifikasidokumen');
-    Route::get('/layanan-verifikasi-sukses', 'layananverifikasisukses');
+    Route::get('/layanan-verifikasi-sukses', [VerifikasiSuksesController::class, 'show'])->name('layanan-verifikasi-sukses');
     Route::post('/generate-qr', [SuratKeluarController::class, 'generateQR'])->name('generate-qr.store');
     Route::get('/layanan-verifikasi-gagal', 'layananverifikasigagal');
     Route::get('/layanan-pelaporan', 'layananpelaporan');

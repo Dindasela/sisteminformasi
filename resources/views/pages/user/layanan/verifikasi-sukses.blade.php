@@ -46,15 +46,15 @@
                         <div class="m-auto justify-center">
                             <div class="grid grid-cols-2 gap-2 text-center">
                                 <div class="bg-[#B2ACAC] p-3">Tanggal Diminta</div>
-                                <div class="bg-[#D9D9D9] p-3">01-01-2024</div>
+                                <div class="bg-[#D9D9D9] p-3">{{$data->tanggal_diterima}}</div>
                                 <div class="bg-[#B2ACAC] p-3">Nama Pemohon</div>
-                                <div class="bg-[#D9D9D9] p-3">Mulyadi</div>
+                                <div class="bg-[#D9D9D9] p-3">{{$data->nama_pemohon}}</div>
                                 <div class="bg-[#B2ACAC] p-3">Pembuat Dokumen</div>
-                                <div class="bg-[#D9D9D9] p-3">Staff Administrasi</div>
+                                <div class="bg-[#D9D9D9] p-3">{{$data->pembuat_pemohonan}}</div>
                                 <div class="bg-[#B2ACAC] p-3">Jenis Dokumen</div>
-                                <div class="bg-[#D9D9D9] p-3">Surat Pengantar</div>
+                                <div class="bg-[#D9D9D9] p-3">{{$data->jenis_dokumen}}</div>
                                 <div class="bg-[#B2ACAC] p-3">Tanggal Dokumen Keluar</div>
-                                <div class="bg-[#D9D9D9] p-3">10-01-2024</div>
+                                <div class="bg-[#D9D9D9] p-3">{{$data->created_at}}</div>
                                 <div class="bg-[#B2ACAC] p-3">Verifikasi Pejabat</div>
                                 <div class="bg-[#D9D9D9] p-3">Lurah</div>
                             </div>
