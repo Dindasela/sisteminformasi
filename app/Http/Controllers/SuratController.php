@@ -16,6 +16,7 @@ use App\Models\SuratKeteranganTidakMampu;
 use App\Models\SuratKeteranganUsaha;
 use App\Models\SuratPengantarSKCK;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class SuratController extends Controller
 {
@@ -42,7 +43,7 @@ class SuratController extends Controller
 
         return view('pages.admin.manajemen-surat.manajemen-surat', compact('datas'));
     }
-    
+
     public function createSKD(Request $request)
     {
 
@@ -178,7 +179,7 @@ class SuratController extends Controller
 
         $ktp = $request->ktp->store('Surat/SKTM');
         $kk = $request->kk->store('Surat/SKTM');
-        $pengantar = $request->surat_pengantar_rt->store('Surat/SKTM');  
+        $pengantar = $request->surat_pengantar_rt->store('Surat/SKTM');
 
         SuratKeteranganTidakMampu::create([
             'user_id' => auth()->user()->id,
@@ -466,55 +467,55 @@ class SuratController extends Controller
     public function createSKP(Request $request)
     {
         $validateData = $request->validate([
-            'no_kk_asal'=>'required',
-            'nama_kepala_keluarga_asal'=>'required',
-            'alamat_asal'=>'required',
-            'rt_asal'=>'required',
-            'rw_asal'=>'required',
-            'desa_asal'=>'required',
-            'kecamatan_asal'=>'required',
-            'kabupaten_asal'=>'required',
-            'provinsi_asal'=>'required',
-            'kode_pos_asal'=>'required',
-            'telepon_asal'=>'required',
-            'alasan_pindah'=>'required',
-            'alamat_tujuan_pindah'=>'required',
-            'rt_pindah'=>'required',
-            'rw_pindah'=>'required',
-            'desa_pindah'=>'required',
-            'kecamatan_pindah'=>'required',
-            'kabupaten_pindah'=>'required',
-            'provinsi_pindah'=>'required',
-            'kode_pos_pindah'=>'required',
-            'telepon_pindah'=>'required',
-            'klasifikasi_pindah'=>'required',
-            'jenis_kepindahan'=>'required',
-            'status_kk_pindah'=>'required',
-            'status_kk_tidak_pindah'=>'required',
-            'rencana_tanggal_pindah'=>'required',
-            'jumlah_keluarga_pindah'=>'required',
-            'nama_pindah'=>'required',
-            'nik_pindah'=>'required',
-            'shdck_pindah'=>'required',
-            'no_kk_tujuan'=>'required',
-            'nama_kepala_keluarga_tujuan'=>'required',
-            'nik_kepala_keluarga_tujuan'=>'required',
-            'status_kk_tujuan_yang_tidak_pindah'=>'required',
-            'tanggal_kedatangan'=>'required',
-            'alamat_rumah_tujuan'=>'required',
-            'rt_tujuan'=>'required',
-            'rw_tujuan'=>'required',
-            'desa_tujuan'=>'required',
-            'kecamatan_tujuan'=>'required',
-            'kabupaten_tujuan'=>'required',
-            'provinsi_tujuan'=>'required',
-            'jumlah_keluarga_pindah_tujuan'=>'required',
-            'nama_tujuan'=>'required',
-            'nik_tujuan'=>'required',
-            'shdck_tujuan'=>'required',
-            'foto_ktp'=>'required',
-            'foto_kk'=>'required',
-            'foto_surat_pengantar'=>'required',
+            'no_kk_asal' => 'required',
+            'nama_kepala_keluarga_asal' => 'required',
+            'alamat_asal' => 'required',
+            'rt_asal' => 'required',
+            'rw_asal' => 'required',
+            'desa_asal' => 'required',
+            'kecamatan_asal' => 'required',
+            'kabupaten_asal' => 'required',
+            'provinsi_asal' => 'required',
+            'kode_pos_asal' => 'required',
+            'telepon_asal' => 'required',
+            'alasan_pindah' => 'required',
+            'alamat_tujuan_pindah' => 'required',
+            'rt_pindah' => 'required',
+            'rw_pindah' => 'required',
+            'desa_pindah' => 'required',
+            'kecamatan_pindah' => 'required',
+            'kabupaten_pindah' => 'required',
+            'provinsi_pindah' => 'required',
+            'kode_pos_pindah' => 'required',
+            'telepon_pindah' => 'required',
+            'klasifikasi_pindah' => 'required',
+            'jenis_kepindahan' => 'required',
+            'status_kk_pindah' => 'required',
+            'status_kk_tidak_pindah' => 'required',
+            'rencana_tanggal_pindah' => 'required',
+            'jumlah_keluarga_pindah' => 'required',
+            'nama_pindah' => 'required',
+            'nik_pindah' => 'required',
+            'shdck_pindah' => 'required',
+            'no_kk_tujuan' => 'required',
+            'nama_kepala_keluarga_tujuan' => 'required',
+            'nik_kepala_keluarga_tujuan' => 'required',
+            'status_kk_tujuan_yang_tidak_pindah' => 'required',
+            'tanggal_kedatangan' => 'required',
+            'alamat_rumah_tujuan' => 'required',
+            'rt_tujuan' => 'required',
+            'rw_tujuan' => 'required',
+            'desa_tujuan' => 'required',
+            'kecamatan_tujuan' => 'required',
+            'kabupaten_tujuan' => 'required',
+            'provinsi_tujuan' => 'required',
+            'jumlah_keluarga_pindah_tujuan' => 'required',
+            'nama_tujuan' => 'required',
+            'nik_tujuan' => 'required',
+            'shdck_tujuan' => 'required',
+            'foto_ktp' => 'required',
+            'foto_kk' => 'required',
+            'foto_surat_pengantar' => 'required',
         ]);
         $nama_pindahan = implode(',', $validateData['nama_pindah']);
         $nik_pindahan = implode(',', $validateData['nik_pindah']);
@@ -528,57 +529,58 @@ class SuratController extends Controller
 
         SuratKeteranganPindah::create([
             'user_id' => auth()->user()->id,
-            'no_kk_asal'=> $validateData['no_kk_asal'],
-            'nama_kepala_keluarga_asal'=> $validateData['nama_kepala_keluarga_asal'],
-            'alamat_asal'=> $validateData['alamat_asal'],
-            'rt_asal'=> $validateData['rt_asal'],
-            'rw_asal'=> $validateData['rw_asal'],
-            'desa_asal'=> $validateData['desa_asal'],
-            'kecamatan_asal'=> $validateData['kecamatan_asal'],
-            'kabupaten_asal'=> $validateData['kabupaten_asal'],
-            'provinsi_asal'=> $validateData['provinsi_asal'],
-            'kode_pos_asal'=> $validateData['kode_pos_asal'],
-            'telepon_asal'=> $validateData['telepon_asal'],
-            'alasan_pindah'=> $validateData['alasan_pindah'],
-            'alasan_lain', $request->alasan_lain,
-            'alamat_tujuan_pindah'=> $validateData['alamat_tujuan_pindah'],
-            'rt_pindah'=> $validateData['rt_pindah'],
-            'rw_pindah'=> $validateData['rw_pindah'],
-            'desa_pindah'=> $validateData['desa_pindah'],
-            'kecamatan_pindah'=> $validateData['kecamatan_pindah'],
-            'kabupaten_pindah'=> $validateData['kabupaten_pindah'],
-            'provinsi_pindah'=> $validateData['provinsi_pindah'],
-            'kode_pos_pindah'=> $validateData['kode_pos_pindah'],
-            'telepon_pindah'=> $validateData['telepon_pindah'],
-            'klasifikasi_pindah'=> $validateData['klasifikasi_pindah'],
-            'jenis_kepindahan'=> $validateData['jenis_kepindahan'],
-            'status_kk_pindah'=> $validateData['status_kk_pindah'],
-            'status_kk_tidak_pindah'=> $validateData['status_kk_tidak_pindah'],
-            'rencana_tanggal_pindah'=> $validateData['rencana_tanggal_pindah'],
-            'jumlah_keluarga_pindah'=> $validateData['jumlah_keluarga_pindah'],
-            'nama_pindah'=> $nama_pindahan,
-            'nik_pindah'=> $nik_pindahan,
-            'shdck_pindah'=> $shdck_pindahan,
-            'no_kk_tujuan'=> $validateData['no_kk_tujuan'],
-            'nama_kepala_keluarga_tujuan'=> $validateData['nama_kepala_keluarga_tujuan'],
-            'nik_kepala_keluarga_tujuan'=> $validateData['nik_kepala_keluarga_tujuan'],
-            'status_kk_tujuan_yang_tidak_pindah'=> $validateData['status_kk_tujuan_yang_tidak_pindah'],
-            'tanggal_kedatangan'=> $validateData['tanggal_kedatangan'],
-            'alamat_rumah_tujuan'=> $validateData['alamat_rumah_tujuan'],
-            'rt_tujuan'=> $validateData['rt_tujuan'],
-            'rw_tujuan'=> $validateData['rw_tujuan'],
-            'desa_tujuan'=> $validateData['desa_tujuan'],
-            'kecamatan_tujuan'=> $validateData['kecamatan_tujuan'],
-            'kabupaten_tujuan'=> $validateData['kabupaten_tujuan'],
-            'provinsi_tujuan'=> $validateData['provinsi_tujuan'],
-            'jumlah_keluarga_pindah_tujuan'=> $validateData['jumlah_keluarga_pindah_tujuan'],
-            'nama_tujuan'=> $nama_tujuan,
-            'nik_tujuan'=> $nik_tujuan,
-            'shdck_tujuan'=> $shdck_tujuan,
-            'foto_ktp'=> $ktp,
-            'foto_kk'=> $kk,
-            'foto_surat_pengantar'=> $pengantar,
-            'status'=> 'Perlu Tindakan',
+            'no_kk_asal' => $validateData['no_kk_asal'],
+            'nama_kepala_keluarga_asal' => $validateData['nama_kepala_keluarga_asal'],
+            'alamat_asal' => $validateData['alamat_asal'],
+            'rt_asal' => $validateData['rt_asal'],
+            'rw_asal' => $validateData['rw_asal'],
+            'desa_asal' => $validateData['desa_asal'],
+            'kecamatan_asal' => $validateData['kecamatan_asal'],
+            'kabupaten_asal' => $validateData['kabupaten_asal'],
+            'provinsi_asal' => $validateData['provinsi_asal'],
+            'kode_pos_asal' => $validateData['kode_pos_asal'],
+            'telepon_asal' => $validateData['telepon_asal'],
+            'alasan_pindah' => $validateData['alasan_pindah'],
+            'alasan_lain',
+            $request->alasan_lain,
+            'alamat_tujuan_pindah' => $validateData['alamat_tujuan_pindah'],
+            'rt_pindah' => $validateData['rt_pindah'],
+            'rw_pindah' => $validateData['rw_pindah'],
+            'desa_pindah' => $validateData['desa_pindah'],
+            'kecamatan_pindah' => $validateData['kecamatan_pindah'],
+            'kabupaten_pindah' => $validateData['kabupaten_pindah'],
+            'provinsi_pindah' => $validateData['provinsi_pindah'],
+            'kode_pos_pindah' => $validateData['kode_pos_pindah'],
+            'telepon_pindah' => $validateData['telepon_pindah'],
+            'klasifikasi_pindah' => $validateData['klasifikasi_pindah'],
+            'jenis_kepindahan' => $validateData['jenis_kepindahan'],
+            'status_kk_pindah' => $validateData['status_kk_pindah'],
+            'status_kk_tidak_pindah' => $validateData['status_kk_tidak_pindah'],
+            'rencana_tanggal_pindah' => $validateData['rencana_tanggal_pindah'],
+            'jumlah_keluarga_pindah' => $validateData['jumlah_keluarga_pindah'],
+            'nama_pindah' => $nama_pindahan,
+            'nik_pindah' => $nik_pindahan,
+            'shdck_pindah' => $shdck_pindahan,
+            'no_kk_tujuan' => $validateData['no_kk_tujuan'],
+            'nama_kepala_keluarga_tujuan' => $validateData['nama_kepala_keluarga_tujuan'],
+            'nik_kepala_keluarga_tujuan' => $validateData['nik_kepala_keluarga_tujuan'],
+            'status_kk_tujuan_yang_tidak_pindah' => $validateData['status_kk_tujuan_yang_tidak_pindah'],
+            'tanggal_kedatangan' => $validateData['tanggal_kedatangan'],
+            'alamat_rumah_tujuan' => $validateData['alamat_rumah_tujuan'],
+            'rt_tujuan' => $validateData['rt_tujuan'],
+            'rw_tujuan' => $validateData['rw_tujuan'],
+            'desa_tujuan' => $validateData['desa_tujuan'],
+            'kecamatan_tujuan' => $validateData['kecamatan_tujuan'],
+            'kabupaten_tujuan' => $validateData['kabupaten_tujuan'],
+            'provinsi_tujuan' => $validateData['provinsi_tujuan'],
+            'jumlah_keluarga_pindah_tujuan' => $validateData['jumlah_keluarga_pindah_tujuan'],
+            'nama_tujuan' => $nama_tujuan,
+            'nik_tujuan' => $nik_tujuan,
+            'shdck_tujuan' => $shdck_tujuan,
+            'foto_ktp' => $ktp,
+            'foto_kk' => $kk,
+            'foto_surat_pengantar' => $pengantar,
+            'status' => 'Perlu Tindakan',
             'jenis' => 'SKP',
         ]);
 
@@ -759,5 +761,38 @@ class SuratController extends Controller
         ]);
 
         return redirect('layanan-pengajuan-dokumen')->with('success', 'Buat Surat Keterangan Pengantar SKCK Berhasil');
+    }
+
+    public function statusPermohonanView()
+    {
+        $sk_domisili = SuratKeteranganDomisili::where('user_id', auth()->user()->id)->with(['User'])->get();
+        $sk_kematian = SuratKeteranganKematian::where('user_id', auth()->user()->id)->with(['User'])->get();
+        $sk = SuratKeterangan::where('user_id', auth()->user()->id)->with(['User'])->get();
+        $sk_belum_menikah = SuratKeteranganBelumMenikah::where('user_id', auth()->user()->id)->with(['User'])->get();
+        $sk_bersih_diri = SuratKeteranganBersihDiri::where('user_id', auth()->user()->id)->with(['User'])->get();
+        $sk_domisili_usaha = SuratKeteranganDomisiliUsaha::where('user_id', auth()->user()->id)->with(['User'])->get();
+        $sk_kelahiran = SuratKeteranganKelahiran::where('user_id', auth()->user()->id)->with(['User'])->get();
+        $sk_penghasilan = SuratKeteranganPenghasilan::where('user_id', auth()->user()->id)->with(['User'])->get();
+        $sk_pindah = SuratKeteranganPindah::where('user_id', auth()->user()->id)->with(['User'])->get();
+        $sk_sudah_menikah = SuratKeteranganSudahMenikah::where('user_id', auth()->user()->id)->with(['User'])->get();
+        $sk_tidak_mampu = SuratKeteranganTidakMampu::where('user_id', auth()->user()->id)->with(['User'])->get();
+        $sk_usaha = SuratKeteranganUsaha::where('user_id', auth()->user()->id)->with(['User'])->get();
+        $sk_pengantar_skck = SuratPengantarSKCK::where('user_id', auth()->user()->id)->with(['User'])->get();
+
+        $data = collect([$sk_domisili, $sk_kematian, $sk, $sk_belum_menikah, $sk_bersih_diri, $sk_domisili_usaha, $sk_kelahiran, $sk_penghasilan, $sk_pindah, $sk_sudah_menikah, $sk_tidak_mampu, $sk_usaha, $sk_pengantar_skck])
+            ->reduce(function ($carry, $item) {
+                return $carry->concat($item);
+            }, collect());
+            
+            $page = request()->get('page', 1);
+            $perPage = 5;
+            $paginatedData = new LengthAwarePaginator(
+                $data->forPage($page, $perPage), // Extract items for the current page
+                $data->count(),                  // Total items
+                $perPage,                        // Items per page
+                $page,                           // Current page
+                ['path' => request()->url()]     // Path for pagination links
+            );
+        return view('pages/user/layanan/status-permohonan', compact('paginatedData'));
     }
 }

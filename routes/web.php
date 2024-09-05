@@ -44,7 +44,7 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/layanan-form-pelaporan', 'layananformpelaporan');
     Route::get('/layanan-pengajuan-dokumen', 'layananpengajuandokumen')->name('layanan-pengajuan-dokumen');
     Route::get('/layanan-form-permohonan', 'layananformpermohonan');
-    Route::get('/layanan-status-permohonan', 'layananstatuspermohonan');
+    Route::get('/layanan-status-permohonan', [SuratController::class,'statusPermohonanView'])->name('layanan-status-permohonan.index');
     Route::get('/layanan-status-ditolak', 'layananstatusditolak');
     Route::get('/informasi-berita', [BeritaController::class,'indexUser'])->name('informasi-berita.index');
     Route::get('/informasi-detail-berita', 'informasidetailberita');

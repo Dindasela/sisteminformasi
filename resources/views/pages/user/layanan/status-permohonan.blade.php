@@ -37,17 +37,6 @@
                 </div>
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="w-full text-sm text-left text-gray-500">
-                        @php
-                        $dummyData = [
-                        ['no' => 1, 'no_permohonan' => '1234', 'nama_pemohon' => 'Lorem Ipsum', 'tanggal_permohonan' =>
-                        '01/01/2024', 'jenis_surat' => 'Surat Keterangan', 'status' => 'SELESAI'],
-                        ['no' => 2, 'no_permohonan' => '5678', 'nama_pemohon' => 'Dolor Sit', 'tanggal_permohonan' =>
-                        '02/01/2024', 'jenis_surat' => 'Surat Pernyataan', 'status' => 'DIPROSES'],
-                        ['no' => 3, 'no_permohonan' => '9101', 'nama_pemohon' => 'Amet Consectetur',
-                        'tanggal_permohonan' => '03/01/2024', 'jenis_surat' => 'Surat Pemberitahuan', 'status' =>
-                        'DITOLAK'],
-                        ];
-                        @endphp
                         <table class="min-w-full">
                             <thead class="text-xs text-white uppercase bg-[#2B2A4C]">
                                 <tr>
@@ -61,19 +50,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($dummyData as $data)
+                                @foreach ($paginatedData as $data)
                                 <tr class="bg-[#DDDBDB] border-b text-black">
-                                    <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">{{ $data['no'] }}
+                                    <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">{{ $loop->iteration }}
                                     </th>
-                                    <td class="px-6 py-4">{{ $data['no_permohonan'] }}</td>
-                                    <td class="px-6 py-4">{{ $data['nama_pemohon'] }}</td>
-                                    <td class="px-6 py-4">{{ $data['tanggal_permohonan'] }}</td>
-                                    <td class="px-6 py-4">{{ $data['jenis_surat'] }}</td>
+                                    <td class="px-6 py-4">{{ $data->id }}</td>
+                                    <td class="px-6 py-4">{{ auth()->user()->name }}</td>
+                                    @php
+                                        $date = date('d-m-Y', strtotime($data->created_at));
+                                    @endphp
+                                    <td class="px-6 py-4">{{ $date }}</td>
+                                    <td class="px-6 py-4">{{ $data->jenis }}</td>
                                     <td class="px-6 py-4">
                                         @if($data['status'] == 'SELESAI')
                                         <span
                                             class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">SELESAI</span>
-                                        @elseif($data['status'] == 'DIPROSES')
+                                        @elseif($data['status'] == 'Perlu Tindakan')
                                         <span
                                             class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">DIPROSES</span>
                                         @else
@@ -125,6 +117,9 @@
                     </table>
                 </div>
             </form>
+            @if ($paginatedData->lastPage() > 1)
+            <x-pagination-admin :pages="$paginatedData->lastPage()" :current="$paginatedData->currentPage()" />
+            @endif
         </section>
         <x-footer-user />
     </div>
