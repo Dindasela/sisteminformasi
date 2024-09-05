@@ -77,9 +77,11 @@ class UserController extends Controller
     {
         $account = AccountSettings::all();
         $data = [];
-        $account->each(function ($user) {
+        $account->each(function ($user) use (&$data) {
             $data[] = $user->user_id;
         });
-        dd($data);
+        $datas = User::with(['settings'])->whereIn('id', $data)->get();
+
+        return view('pages.admin.kelolaakun.permohonan-akun', compact('datas'));
     }
 }

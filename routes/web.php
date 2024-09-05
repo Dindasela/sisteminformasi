@@ -127,10 +127,14 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::delete('/galeri/{id}', [GalleryController::class,'destroy'])->name('galeri.destroy');
     //Akhir Galeri
 
+    //Start Akun
     Route::get('/daftar-akun', 'daftarakun');
+    Route::get('/test', [UserController::class, 'getPermohonanAkun']);
     Route::get('/lihat-akun', 'lihatakun');
-    Route::get('/permohonan-akun', 'permohonanakun');
+    Route::get('/permohonan-akun', [UserController::class, 'getPermohonanAkun'])->name('permohonan-akun');
     Route::get('/lihat-permohonan-akun', 'lihatpermohonanakun');
+    //Akhir Akun
+
     // Awal Pengajuan Surat
     Route::get('/manajemen-surat', [SuratController::class, 'index'])->name('manajemen-surat.index');
     Route::get('/surat-keterangan-domisili', 'suratketerangandomisili');
