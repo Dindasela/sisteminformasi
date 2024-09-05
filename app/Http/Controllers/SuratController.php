@@ -15,8 +15,11 @@ use App\Models\SuratKeteranganSudahMenikah;
 use App\Models\SuratKeteranganTidakMampu;
 use App\Models\SuratKeteranganUsaha;
 use App\Models\SuratPengantarSKCK;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 
 class SuratController extends Controller
 {
@@ -42,6 +45,33 @@ class SuratController extends Controller
             }, collect());
 
         return view('pages.admin.manajemen-surat.manajemen-surat', compact('datas'));
+    }
+
+    public function showSKD($id)
+    {
+        $datas = SuratKeteranganDomisili::find($id);
+        return view('pages.admin.manajemen-surat.pengajuan-surat.surat-keterangan-domisili', compact('datas'));
+    }
+
+    public function verifSKD($id)
+    {
+        $datas = SuratKeteranganDomisili::find($id);
+        $datas->status = 'Diterima';
+        $datas->save();
+
+        $dataArray = $datas->toArray();
+        $directoryPath = public_path('Surat/SKD/pdf/');
+
+        if (!File::exists($directoryPath)) {
+            File::makeDirectory($directoryPath, 0755, true);
+        }
+
+        $pdf = Pdf::loadView('surat.surat-keterangan-domisili', ['dataArray' => $dataArray]);
+
+        $pdf->save($directoryPath . $datas->user->id . '.pdf');
+
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKD', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Domisili Berhasil');
     }
 
     public function createSKD(Request $request)
@@ -151,7 +181,6 @@ class SuratController extends Controller
         ]);
 
         return redirect('layanan-pengajuan-dokumen')->with('success', 'Buat Surat Keterangan Domisili Usaha Berhasil');
-
     }
 
     public function createSKTM(Request $request)
@@ -783,16 +812,16 @@ class SuratController extends Controller
             ->reduce(function ($carry, $item) {
                 return $carry->concat($item);
             }, collect());
-            
-            $page = request()->get('page', 1);
-            $perPage = 5;
-            $paginatedData = new LengthAwarePaginator(
-                $data->forPage($page, $perPage), // Extract items for the current page
-                $data->count(),                  // Total items
-                $perPage,                        // Items per page
-                $page,                           // Current page
-                ['path' => request()->url()]     // Path for pagination links
-            );
+
+        $page = request()->get('page', 1);
+        $perPage = 5;
+        $paginatedData = new LengthAwarePaginator(
+            $data->forPage($page, $perPage), // Extract items for the current page
+            $data->count(),                  // Total items
+            $perPage,                        // Items per page
+            $page,                           // Current page
+            ['path' => request()->url()]     // Path for pagination links
+        );
         return view('pages/user/layanan/status-permohonan', compact('paginatedData'));
     }
 }

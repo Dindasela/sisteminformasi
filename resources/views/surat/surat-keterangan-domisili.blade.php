@@ -135,39 +135,39 @@
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['nama']}}</td>
                 </tr>
                 <tr>
                     <td>Tempat Tanggal Lahir</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['tempat_lahir'].' '.$dataArray['tanggal_lahir']}}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['pekerjaan']}}</td>
                 </tr>
                 <tr>
                     <td>Warga Negara</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['warga_negara']}}</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['agama']}}</td>
                 </tr>
                 <tr>
                     <td>Status Perkawinan</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['status_perkawinan']}}</td>
                 </tr>
                 <tr>
                     <td>Alamat Sesuai KK</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['alamat_sesuai_kk']}}</td>
                 </tr>
                 <tr>
                     <td>Berlaku s.d Tanggal</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['berlaku_sampai']}}</td>
                 </tr>
             </table>
             <p>Berdasarkan Laporan Ketua RT. ___ Lk. __ Nama tersebut di atas saat ini berdomisili di _____________________________________________________ sejak __-__-20__ sampai saat ini. Surat keterangan ini dibuat yang bersangkutan untuk keperluan:</p>
-            <p>____________________________________________________________________</p>
+            <p>{{$dataArray['keperluan']}}</p>
             <p>Demikian Surat Keterangan ini kami buat dengan sebenar-benarnya agar dapat dipergunakan sebagaimana mestinya.</p>
         </div>
 

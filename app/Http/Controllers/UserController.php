@@ -84,4 +84,10 @@ class UserController extends Controller
 
         return view('pages.admin.kelolaakun.permohonan-akun', compact('datas'));
     }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+        return view('pages.admin.kelolaakun.lihat-permohonan-akun', compact('user'));
+    }
 }

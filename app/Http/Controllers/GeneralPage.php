@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class GeneralPage extends Controller
 {
     // Awal Home
@@ -137,7 +139,11 @@ class GeneralPage extends Controller
     function lihatarsipsuratkeluar () {
         return view('pages/admin/manajemen-surat/arsip-surat/lihat-arsip-surat-keluar');
     }
-    function tambahsuratkeluar () {
+    function tambahsuratkeluar (Request $request) {
+        session([
+            'jenis_surat' => $request->query('jenis'),
+            'id_surat' => $request->query('id')
+        ]);
         return view('pages/admin/manajemen-surat/surat-keluar/tambah-surat-keluar');
     }
     function lihatsuratkeluar () {

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralPage;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\SuratKeluarController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -39,14 +40,15 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/sejarah', 'sejarah');
     Route::get('/layanan-verifikasi-dokumen', 'layananverifikasidokumen');
     Route::get('/layanan-verifikasi-sukses', 'layananverifikasisukses');
+    Route::post('/generate-qr', [SuratKeluarController::class, 'generateQR'])->name('generate-qr.store');
     Route::get('/layanan-verifikasi-gagal', 'layananverifikasigagal');
     Route::get('/layanan-pelaporan', 'layananpelaporan');
     Route::get('/layanan-form-pelaporan', 'layananformpelaporan');
     Route::get('/layanan-pengajuan-dokumen', 'layananpengajuandokumen')->name('layanan-pengajuan-dokumen');
     Route::get('/layanan-form-permohonan', 'layananformpermohonan');
-    Route::get('/layanan-status-permohonan', [SuratController::class,'statusPermohonanView'])->name('layanan-status-permohonan.index');
+    Route::get('/layanan-status-permohonan', [SuratController::class, 'statusPermohonanView'])->name('layanan-status-permohonan.index');
     Route::get('/layanan-status-ditolak', 'layananstatusditolak');
-    Route::get('/informasi-berita', [BeritaController::class,'indexUser'])->name('informasi-berita.index');
+    Route::get('/informasi-berita', [BeritaController::class, 'indexUser'])->name('informasi-berita.index');
     Route::get('/informasi-detail-berita', 'informasidetailberita');
     Route::get('/informasi-pengumuman', 'informasipengumuman');
     Route::get('/galeri-foto-video', 'galerifotovideo');
@@ -94,7 +96,8 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/arsip-surat', 'arsipsurat');
     Route::get('/lihat-arsip-surat-masuk', 'lihatarsipsuratmasuk');
     Route::get('/lihat-arsip-surat-keluar', 'lihatarsipsuratkeluar');
-    Route::get('/tambah-surat-keluar', 'tambahsuratkeluar');
+    Route::get('/tambah-surat-keluar', 'tambahsuratkeluar')->name('tambah-surat-keluar.index');
+    Route::post('/tambah-surat-keluar', [SuratKeluarController::class, 'store'])->name('tambah-surat-keluar.store');
     Route::get('/lihat-surat-keluar', 'lihatsuratkeluar');
     Route::get('/laporan-masuk', 'laporanmasuk');
     Route::get('/lihat-laporan', 'lihatlaporan');
@@ -110,34 +113,35 @@ Route::controller(GeneralPage::class)->group(function () {
     //Akhir Berita
 
     //Start Pengumuman
-    Route::get('/daftar-pengumuman', [PengumumanController::class,'index'])->name('pengumuman.index');
+    Route::get('/daftar-pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.index');
     Route::get('/tambah-pengumuman', 'tambahpengumuman');
-    Route::post('/tambah-pengumuman',[PengumumanController::class,'store'])->name('pengumuman.store');
-    Route::get('/edit-pengumuman/{id}', [PengumumanController::class,'edit'])->name('pengumuman.edit');
-    Route::put('/pengumuman/{id}', [PengumumanController::class,'update'])->name('pengumuman.update');
-    Route::delete('/pengumuman/{id}',[PengumumanController::class,'destroy'])->name('pengumuman.destroy');
+    Route::post('/tambah-pengumuman', [PengumumanController::class, 'store'])->name('pengumuman.store');
+    Route::get('/edit-pengumuman/{id}', [PengumumanController::class, 'edit'])->name('pengumuman.edit');
+    Route::put('/pengumuman/{id}', [PengumumanController::class, 'update'])->name('pengumuman.update');
+    Route::delete('/pengumuman/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
     //Akhir Pengumuman
 
     //Start Galeri
-    Route::get('/list-galeri', [GalleryController::class,'index'])->name('galeri.index');
+    Route::get('/list-galeri', [GalleryController::class, 'index'])->name('galeri.index');
     Route::get('/tambah-foto-video', 'tambahfotovideo');
-    Route::post('/tambah-foto-video', [GalleryController::class,'store'])->name('galeri.store');
-    Route::get('/edit-foto-video/{id}', [GalleryController::class,'edit'])->name('galeri.edit');
-    Route::put('/galeri/{id}', [GalleryController::class,'update'])->name('galeri.update');
-    Route::delete('/galeri/{id}', [GalleryController::class,'destroy'])->name('galeri.destroy');
+    Route::post('/tambah-foto-video', [GalleryController::class, 'store'])->name('galeri.store');
+    Route::get('/edit-foto-video/{id}', [GalleryController::class, 'edit'])->name('galeri.edit');
+    Route::put('/galeri/{id}', [GalleryController::class, 'update'])->name('galeri.update');
+    Route::delete('/galeri/{id}', [GalleryController::class, 'destroy'])->name('galeri.destroy');
     //Akhir Galeri
 
     //Start Akun
     Route::get('/daftar-akun', 'daftarakun');
-    Route::get('/test', [UserController::class, 'getPermohonanAkun']);
+    // Route::get('/test', [UserController::class, 'getPermohonanAkun']);
     Route::get('/lihat-akun', 'lihatakun');
     Route::get('/permohonan-akun', [UserController::class, 'getPermohonanAkun'])->name('permohonan-akun');
-    Route::get('/lihat-permohonan-akun', 'lihatpermohonanakun');
+    Route::get('/lihat-permohonan-akun/{id}', [UserController::class, 'show'])->name('lihat-permohonan-akun');
     //Akhir Akun
 
     // Awal Pengajuan Surat
     Route::get('/manajemen-surat', [SuratController::class, 'index'])->name('manajemen-surat.index');
-    Route::get('/surat-keterangan-domisili', 'suratketerangandomisili');
+    Route::get('/surat-keterangan-domisili/{id}', [SuratController::class, 'showSKD'])->name('surat-keterangan-domisili.show');
+    Route::post('/verif-skd/{id}', [SuratController::class, 'verifSKD'])->name('verif.skd');
     Route::get('/surat-keterangan-domisili-usaha', 'suratketerangandomisiliusaha');
     Route::get('/surat-keterangan-tidak-mampu', 'suratketerangantidakmampu');
     Route::get('/surat-keterangan-kematian', 'suratketerangankematian');
@@ -152,4 +156,7 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/surat-keterangan-pindah', 'suratketeranganpindah');
     // Akhir Pengajuan Surat
     // Akhir Admin
+
+    //Test
+    Route::get('/test',[SuratKeluarController::class, 'generateQR']);
 });

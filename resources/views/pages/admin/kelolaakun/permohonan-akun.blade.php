@@ -99,7 +99,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flex">
-                                    <a href="/lihat-permohonan-akun" class="mr-2">
+                                    <a href="/lihat-permohonan-akun/{{$item->id}}" class="mr-2">
                                         <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path

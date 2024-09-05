@@ -38,38 +38,40 @@
             <div class="spaye-y-4">
                 <div class="pb-2">
                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" id="email" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan Email">
+                    <input type="email" id="email" name="" value="{{$user->email}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan Email">
                 </div>
                 <div class="pb-2">
                     <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
-                    <input type="username" id="username" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan Username">
+                    <input type="username" id="username" name="" value="{{$user->username}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan Username">
                 </div>
                 <div class="pb-2">
                     <label for="nama" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
-                    <input type="text" id="nama" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan Nama">
+                    <input type="text" id="nama" name="" value="{{$user->name}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan Nama">
                 </div>
                 <div class="pb-2">
                     <label for="nik" class="block text-sm font-medium text-gray-700">NIK</label>
-                    <input type="text" id="nik" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan NIK">
+                    <input type="text" id="nik" name="" value="{{$user->nik}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan NIK">
                 </div>
                 <div class="pb-2">
                     <label for="alamat" class="block text-sm font-medium text-gray-700">Alamat Tinggal</label>
-                    <input type="text" id="alamat" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan Alamat">
+                    <input type="text" id="alamat" name="" value="{{$user->address}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan Alamat">
                 </div>
                 <div class="pb-2">
                     <label for="telepon" class="block text-sm font-medium text-gray-700">Nomor Telepon</label>
-                    <input type="text" id="telepon" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan Nomor Telepn">
+                    <input type="text" id="telepon" name="" value="{{$user->phone}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan Nomor Telepn">
                 </div>
             </div>
             <div class="">
                 <div class="pb-4">
                     <label for="ktp" class="block text-sm font-medium text-gray-700">Foto KTP</label>
                     <div class="w-full bg-gray-300 h-36 mt-2">
+                        <img src="{{asset('storage/'.$user->ktp)}}" alt="Foto KTP" class="w-full h-full object-cover">
                     </div>
                 </div>
                 <div class="">
                     <label for="swafoto" class="block text-sm font-medium text-gray-700">Swafoto</label>
                     <div class="w-full bg-gray-300 h-36 mt-2">
+                        <img src="{{asset('storage/'.$user->swafoto)}}" alt="Swafoto" class="w-full h-full object-cover">
                     </div>
                 </div>
                 <div class="flex justify-between mt-6 mx-auto w-[100%] pb-4">
