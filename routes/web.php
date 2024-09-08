@@ -49,9 +49,9 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/layanan-form-permohonan', 'layananformpermohonan');
     Route::get('/layanan-status-permohonan', [SuratController::class, 'statusPermohonanView'])->name('layanan-status-permohonan.index');
     Route::get('/layanan-status-ditolak', 'layananstatusditolak');
-    Route::get('/informasi-berita', [BeritaController::class, 'indexUser'])->name('informasi-berita.index');
-    Route::get('/informasi-detail-berita', 'informasidetailberita');
-    Route::get('/informasi-pengumuman', 'informasipengumuman');
+    Route::get('/berita', [BeritaController::class, 'indexUser'])->name('berita.index');
+    Route::get('/detail-berita', 'detailberita');
+    Route::get('/pengumuman', 'pengumuman');
     Route::get('/galeri-foto-video', 'galerifotovideo');
     // Awal Pengajuan Surat
     Route::get('/pengajuan-surat-domisili', 'pengajuansuratdomisili');

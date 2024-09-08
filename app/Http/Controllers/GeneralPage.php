@@ -52,10 +52,10 @@ class GeneralPage extends Controller
     function informasiberita () {
         return view('pages/user/informasi/berita');
     }
-    function informasidetailberita () {
+    function detailberita () {
         return view('pages/user/informasi/detail-berita');
     }
-    function informasipengumuman () {
+    function pengumuman () {
         return view('pages/user/informasi/pengumuman');
     }
     function galerifotovideo () {

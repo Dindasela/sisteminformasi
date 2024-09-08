@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
             'password' => password_hash('user', PASSWORD_DEFAULT),
             'swafoto' => 'swafoto.jpg',
             'ktp' => 'ktp.jpg',
-            'is_active' => 1,
+            // 'is_active' => 1,
             'role' => 'user',
         ]);
     }
