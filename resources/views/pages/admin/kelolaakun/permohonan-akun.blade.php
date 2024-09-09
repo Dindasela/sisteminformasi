@@ -28,15 +28,33 @@
         <h1 class="text-3xl font-bold pb-4">Permohonan Akun</h1>
         <x-search-admin />
         <div class="flex items-center space-x-4 mt-4 w-96">
-            <label class="py-1 flex items-center border border-red-600 rounded-md rounded-md pl-2 w-[50%]">
-                <input type="radio" name="status" value="Terlaksana" class="form-radio text-red-600 bg-white">
-                <span class="ml-6 text-sm text-red-600 font-light">DItolak</span>
-            </label>
-            <label class="py-1 flex items-center border border-gray-600 rounded-md rounded-md pl-2 w-[50%]">
+            @if (request()->status == 'Ditolak')
+                <a href="{{ route('permohonan-akun') }}"
+                    class="py-1 flex items-center border border-red-600 rounded-md rounded-md pl-2 w-[50%]">
+                    <input type="radio" name="status" value="Terlaksana" disabled checked
+                        class="form-radio text-red-600 bg-white">
+                    <span class="ml-6 text-sm text-red-600 font-light">Ditolak</span>
+                </a>
+            @else
+                <a href="{{ route('permohonan-akun', ['status' => 'Ditolak']) }}"
+                    class="py-1 flex items-center border border-red-600 rounded-md rounded-md pl-2 w-[50%]">
+                    <input type="radio" name="status" value="Terlaksana" class="form-radio text-red-600 bg-white" disabled>
+                    <span class="ml-6 text-sm text-red-600 font-light">Ditolak</span>
+                </a>
+            @endif
+            @if (request()->status == 'Perlu Tindakan')
+            <a href="{{ route('permohonan-akun') }}" class="py-1 flex items-center border border-gray-600 rounded-md rounded-md pl-2 w-[50%]">
                 <input type="radio" name="status" value="Belum Terlaksana"
-                    class="form-radio text-indigo-600 bg-white">
+                    class="form-radio text-indigo-600 bg-white" checked disabled>
                 <span class="ml-6 text-sm text-gray-600 font-light">Perlu Tindakan</span>
-            </label>
+            </a>
+            @else
+            <a href="{{ route('permohonan-akun', ['status' => 'Perlu Tindakan']) }}" class="py-1 flex items-center border border-gray-600 rounded-md rounded-md pl-2 w-[50%]">
+                <input type="radio" name="status" value="Belum Terlaksana"
+                    class="form-radio text-indigo-600 bg-white" disabled>
+                <span class="ml-6 text-sm text-gray-600 font-light">Perlu Tindakan</span>
+            </a>
+            @endif
         </div>
         <div class="flex pb-2">
             {{-- <div class="">
@@ -78,7 +96,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($datas as $index => $item)
+                    @foreach ($data as $index => $item)
                         <tr class="border-2 bg-[#DDDBDB] ">
                             <th class="px-6 py-4 ">
                                 {{ $index + 1 }}
@@ -92,14 +110,14 @@
                             <td class="px-6 py-4">
                                 <div>
                                     <ul
-                                        class="flex items-center justify-center {{ $item->settings->status == 'Perlu Tindakan' ? 'bg-[#B5B5B5]' : 'bg-[#D72323]' }} text-black rounded-xl w-28">
-                                        <li>Perlu Tindakan</li>
+                                        class="flex items-center justify-center {{ $item->settings->status == 'Perlu Tindakan' ? 'bg-[#B5B5B5]' : ($item->settings->status == 'Diterima' ? 'bg-green-500' : 'bg-[#D72323]') }} text-black rounded-xl w-28">
+                                        <li>{{$item->settings->status}}</li>
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flex">
-                                    <a href="/lihat-permohonan-akun/{{$item->id}}" class="mr-2">
+                                    <a href="/lihat-permohonan-akun/{{ $item->id }}" class="mr-2">
                                         <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path

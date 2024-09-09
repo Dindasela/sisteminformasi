@@ -18,11 +18,12 @@ class AuthController extends Controller
         }
 
         $credentials = $request->only('email', 'password');
-        
+
         if (Auth::attempt($credentials)) {
-            if(Auth::user()->role == 'admin') {
+            if (Auth::user()->role == 'admin') {
                 return redirect()->route('dashboard');
-            }elseif(Auth::user()->role == 'user') {
+            } elseif (Auth::user()->role == 'user') {
+                User::where('id', Auth::user()->id)->update(['is_active' => 1]);
                 return redirect()->route('home');
             }
         }
@@ -32,15 +33,15 @@ class AuthController extends Controller
         ])->withInput($request->except('password'));
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         Auth::logout();
-        
         return redirect('/login-admin');
     }
 
-    public function logoutUser(Request $request)
+    public function logoutUser()
     {
+        User::where('id', Auth::user()->id)->update(['is_active' => 2]);
         Auth::logout();
         return redirect('/login-user');
     }

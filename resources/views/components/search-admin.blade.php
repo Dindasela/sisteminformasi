@@ -6,6 +6,6 @@
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
             </svg>
         </div>
-        <input type="search" id="default-search" class="w-72 p-1 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-[#DDDBDB] focus:ring-gray-500 focus:border-gray-500  placeholder-gray-400 text-black focus:ring-gray-500 focus:border-gray-500" placeholder="Search" required />
+        <input id="search" name="search" type="search" {{ request()->query('search') }} id="default-search" class="w-72 p-1 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-[#DDDBDB] focus:ring-gray-500 focus:border-gray-500  placeholder-gray-400 text-black focus:ring-gray-500 focus:border-gray-500" placeholder="Search" required />
     </div>
 </form>

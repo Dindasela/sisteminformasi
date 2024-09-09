@@ -38,40 +38,52 @@
             <div class="spaye-y-4">
                 <div class="pb-2">
                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" id="email" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan Email">
+                    <input type="email" id="email" name=""
+                        class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        placeholder="Masukkan Email" value="{{ $data->email }}">
                 </div>
                 <div class="pb-2">
                     <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
-                    <input type="username" id="username" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan Username">
+                    <input type="username" id="username" name=""
+                        class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        placeholder="Masukkan Username" value="{{ $data->username }}">
                 </div>
                 <div class="pb-2">
                     <label for="nama" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
-                    <input type="text" id="nama" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan Nama">
+                    <input type="text" id="nama" name=""
+                        class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        placeholder="Masukkan Nama" value="{{ $data->name }}">
                 </div>
                 <div class="pb-2">
                     <label for="nik" class="block text-sm font-medium text-gray-700">NIK</label>
-                    <input type="text" id="nik" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan NIK">
+                    <input type="text" id="nik" name=""
+                        class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        placeholder="Masukkan NIK" value="{{ $data->nik }}">
                 </div>
                 <div class="pb-2">
                     <label for="alamat" class="block text-sm font-medium text-gray-700">Alamat Tinggal</label>
-                    <input type="text" id="alamat" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan Alamat">
+                    <input type="text" id="alamat" name=""
+                        class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        placeholder="Masukkan Alamat" value="{{ $data->address }}">
                 </div>
                 <div class="pb-2">
                     <label for="telepon" class="block text-sm font-medium text-gray-700">Nomor Telepon</label>
-                    <input type="text" id="telepon" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukkan Nomor Telepn">
+                    <input type="text" id="telepon" name=""
+                        class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        placeholder="Masukkan Nomor Telepn" value="{{ $data->phone }}">
                 </div>
             </div>
             <div class="">
                 <div class="pb-4">
                     <label for="ktp" class="block text-sm font-medium text-gray-700">Foto KTP</label>
                     <div class="w-full h-36 mt-2">
-                        <img class="mx-auto h-full object-cover" src="image/ktp-fake.png" />
+                        <img class="mx-auto h-full object-cover" src="{{ asset('storage/'.$data->ktp) }}" />
                     </div>
                 </div>
                 <div class="">
                     <label for="swafoto" class="block text-sm font-medium text-gray-700">Swafoto</label>
                     <div class="w-full h-36 mt-2">
-                        <img class="mx-auto h-full object-cover" src="image/ktp-fake.png" />
+                        <img class="mx-auto h-full object-cover" src="{{ asset('storage/'.$data->ktp) }}" />
                     </div>
                 </div>
             </div>

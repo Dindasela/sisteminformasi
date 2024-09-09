@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+
     public function register(Request $request)
     {
         $validateData = $request->validate([
@@ -75,14 +76,18 @@ class UserController extends Controller
 
     public function getPermohonanAkun()
     {
-        $account = AccountSettings::all();
-        $data = [];
-        $account->each(function ($user) use (&$data) {
-            $data[] = $user->user_id;
-        });
-        $datas = User::with(['settings'])->whereIn('id', $data)->get();
-
-        return view('pages.admin.kelolaakun.permohonan-akun', compact('datas'));
+        $status = request()->query('status');
+        $search = request()->query('search');
+        $data = User::where(function ($query) use ($search) {
+            if($search){
+                $query->where('name', 'LIKE', '%' . $search . '%');
+            }
+        })->WhereHas('settings', function ($query) use ($status) {
+            if($status){
+                $query->where('status', $status);
+            }
+        })->paginate(10);
+        return view('pages.admin.kelolaakun.permohonan-akun', compact('data'));
     }
 
     public function show($id)
@@ -90,4 +95,27 @@ class UserController extends Controller
         $user = User::find($id);
         return view('pages.admin.kelolaakun.lihat-permohonan-akun', compact('user'));
     }
+
+    public  function daftarAkunIndex(){
+        $data = User::paginate(10);
+        return view('pages/admin/kelolaakun/daftar-akun', compact('data'));
+    }
+
+    public  function daftarAkunShow(Request $request){
+        $data = User::where('id', $request->query('id'))->first();
+        return view('pages/admin/kelolaakun/lihat-akun', compact('data'));
+    }
+
+    public  function terimaPermohonan($id){
+        $data = AccountSettings::where('user_id', $id)->first();
+        $data->update(['status' => 'Diterima']);
+        return redirect()->route('permohonan-akun');
+    }
+
+    public  function tolakPermohonan($id){
+        $data = AccountSettings::where('user_id', $id)->first();
+        $data->update(['status' => 'Ditolak']);
+        return redirect()->route('permohonan-akun');
+    }
+
 }

@@ -75,8 +75,8 @@
                     </div>
                 </div>
                 <div class="flex justify-between mt-6 mx-auto w-[100%] pb-4">
-                    <button class="bg-[#2B2A4C] text-white px-6 py-1 rounded-md hover:bg-gray-400">Tolak</button>
-                    <button class="bg-[#D72323] text-white px-6 py-1 rounded-md hover:bg-red-700">Terima</button>
+                    <a href="{{route('tolak-permohonan-akun', $user->id)}}" class="bg-[#2B2A4C] text-white px-6 py-1 rounded-md hover:bg-gray-400">Tolak</a>
+                    <a href="{{route('terima-permohonan-akun', $user->id)}}" class="bg-[#D72323] text-white px-6 py-1 rounded-md hover:bg-red-700">Terima</a>
                 </div>
             </div>
         </div>

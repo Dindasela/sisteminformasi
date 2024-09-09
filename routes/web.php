@@ -132,11 +132,13 @@ Route::controller(GeneralPage::class)->group(function () {
     //Akhir Galeri
 
     //Start Akun
-    Route::get('/daftar-akun', 'daftarakun');
+    Route::get('/daftar-akun', [UserController::class, 'daftarAkunIndex'])->name('daftar-akun.index');
     // Route::get('/test', [UserController::class, 'getPermohonanAkun']);
-    Route::get('/lihat-akun', 'lihatakun');
+    Route::get('/lihat-akun', [UserController::class, 'daftarAkunShow'])->name('daftar-akun.show');
     Route::get('/permohonan-akun', [UserController::class, 'getPermohonanAkun'])->name('permohonan-akun');
     Route::get('/lihat-permohonan-akun/{id}', [UserController::class, 'show'])->name('lihat-permohonan-akun');
+    Route::get('/terima-permohonan/{id}', [UserController::class, 'terimaPermohonan'])->name('terima-permohonan-akun');
+    Route::get('/tolak-permohonan/{id}', [UserController::class, 'tolakPermohonan'])->name('tolak-permohonan-akun');
     //Akhir Akun
 
     // Awal Pengajuan Surat
