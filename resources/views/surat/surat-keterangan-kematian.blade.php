@@ -136,50 +136,50 @@
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['nama']}}</td>
                 </tr>
                 <tr>
                     <td>Tempat / Tgl lahir</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['tempat_lahir'].' '.$dataArray['tanggal_lahir']}}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['jenis_kelamin']}}</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['agama']}}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['pekerjaan']}}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['alamat']}}</td>
                 </tr>
             </table>
             <p>Telah meninggal dunia pada:</p>
             <table class="info-table">
                 <tr>
                     <td>Hari</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['hari']}}</td>
                 </tr>
                 <tr>
                     <td>Tanggal / Jam</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['tanggal_kematian']}}</td>
                 </tr>
                 <tr>
                     <td>Di</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['tempat_kematian']}}</td>
                 </tr>
                 <tr>
                     <td>Disebabkan karena</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['penyebab_kematian']}}</td>
                 </tr>
                 <tr>
                     <td>Dimakamkan</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['tempat_pemakaman']}}</td>
                 </tr>
             </table>
             <p>Demikian Surat Keterangan ini dibuat untuk dapat dipergunakan sebagaimana mestinya.</p>

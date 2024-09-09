@@ -53,6 +53,69 @@ class SuratController extends Controller
         return view('pages.admin.manajemen-surat.pengajuan-surat.surat-keterangan-domisili', compact('datas'));
     }
 
+    public function showSKK($id)
+    {
+        $datas = SuratKeteranganKematian::find($id);
+        return view('pages.admin.manajemen-surat.pengajuan-surat.surat-keterangan-kematian', compact('datas'));
+    }
+
+    public function showSK($id)
+    {
+        $datas = SuratKeterangan::find($id);
+        return view('pages.admin.manajemen-surat.pengajuan-surat.surat-keterangan', compact('datas'));
+    }
+
+    public function showSKBM($id)
+    {
+        $datas = SuratKeteranganBelumMenikah::find($id);
+        return view('pages.admin.manajemen-surat.pengajuan-surat.surat-keterangan-belum-menikah', compact('datas'));
+    }
+
+    public function showSKBD($id)
+    {
+        $datas = SuratKeteranganBersihDiri::find($id);
+        return view('pages.admin.manajemen-surat.pengajuan-surat.surat-keterangan-bersih-diri', compact('datas'));
+    }
+
+    public function showSKDU($id)
+    {
+        $datas = SuratKeteranganDomisiliUsaha::find($id);
+        return view('pages.admin.manajemen-surat.pengajuan-surat.surat-keterangan-domisili-usaha', compact('datas'));
+    }
+
+    public function showSKKL($id)
+    {
+        $datas = SuratKeteranganKelahiran::find($id);
+        return view('pages.admin.manajemen-surat.pengajuan-surat.surat-keterangan-kelahiran', compact('datas'));
+    }
+
+    public function showSKSM($id)
+    {
+        $datas = SuratKeteranganSudahMenikah::find($id);
+        return view('pages.admin.manajemen-surat.pengajuan-surat.surat-keterangan-sudah-menikah', compact('datas'));
+    }
+
+    public function verifSKK($id)
+    {
+        $datas = SuratKeteranganKematian::find($id);
+        $datas->status = 'Diterima';
+        $datas->save();
+
+        $dataArray = $datas->toArray();
+        $directoryPath = public_path('Surat/SKK/pdf/');
+
+        if (!File::exists($directoryPath)) {
+            File::makeDirectory($directoryPath, 0755, true);
+        }
+
+        $pdf = Pdf::loadView('surat.surat-keterangan-kematian', ['dataArray' => $dataArray]);
+
+        $pdf->save($directoryPath . $datas->user->id . '-' . $datas->id . '.pdf');
+
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKK', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Kematian Berhasil');
+    }
+
     public function verifSKD($id)
     {
         $datas = SuratKeteranganDomisili::find($id);
@@ -68,12 +131,137 @@ class SuratController extends Controller
 
         $pdf = Pdf::loadView('surat.surat-keterangan-domisili', ['dataArray' => $dataArray]);
 
-        $pdf->save($directoryPath . $datas->user->id . '.pdf');
+        $pdf->save($directoryPath . $datas->user->id . '-' . $datas->id . '.pdf');
 
         return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKD', 'id' => $datas->id])
             ->with('success', 'Verifikasi Surat Keterangan Domisili Berhasil');
     }
 
+    public function verifSK($id)
+    {
+        $datas = SuratKeterangan::find($id);
+        $datas->status = 'Diterima';
+        $datas->save();
+
+        $dataArray = $datas->toArray();
+        $directoryPath = public_path('Surat/SK/pdf/');
+
+        if (!File::exists($directoryPath)) {
+            File::makeDirectory($directoryPath, 0755, true);
+        }
+
+        $pdf = Pdf::loadView('surat.surat-keterangan', ['dataArray' => $dataArray]);
+
+        $pdf->save($directoryPath . $datas->user->id . '-' . $datas->id . '.pdf');
+
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SK', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Berhasil');
+    }
+
+    public function verifSKBM($id)
+    {
+        $datas = SuratKeteranganBelumMenikah::find($id);
+        $datas->status = 'Diterima';
+        $datas->save();
+
+        $dataArray = $datas->toArray();
+        $directoryPath = public_path('Surat/SKBM/pdf/');
+
+        if (!File::exists($directoryPath)) {
+            File::makeDirectory($directoryPath, 0755, true);
+        }
+
+        $pdf = Pdf::loadView('surat.surat-keterangan-belum-menikah', ['dataArray' => $dataArray]);
+
+        $pdf->save($directoryPath . $datas->user->id . '-' . $datas->id . '.pdf');
+
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKBM', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Belum Menikah Berhasil');
+    }
+
+    public function verifSKBD($id)
+    {
+        $datas = SuratKeteranganBersihDiri::find($id);
+        $datas->status = 'Diterima';
+        $datas->save();
+
+        $dataArray = $datas->toArray();
+        $directoryPath = public_path('Surat/SKBD/pdf/');
+
+        if (!File::exists($directoryPath)) {
+            File::makeDirectory($directoryPath, 0755, true);
+        }
+
+        $pdf = Pdf::loadView('surat.surat-keterangan-bersih-diri', ['dataArray' => $dataArray]);
+
+        $pdf->save($directoryPath . $datas->user->id . '-' . $datas->id . '.pdf');
+
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKBD', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Bersih Diri Berhasil');
+    }
+
+    public function verifSKDU($id)
+    {
+        $datas = SuratKeteranganDomisiliUsaha::find($id);
+        $datas->status = 'Diterima';
+        $datas->save();
+
+        $dataArray = $datas->toArray();
+        $directoryPath = public_path('Surat/SKDU/pdf/');
+
+        if (!File::exists($directoryPath)) {
+            File::makeDirectory($directoryPath, 0755, true);
+        }
+
+        $pdf = Pdf::loadView('surat.surat-keterangan-domisili-usaha', ['dataArray' => $dataArray]);
+
+        $pdf->save($directoryPath . $datas->user->id . '-' . $datas->id . '.pdf');
+
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKDU', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Domisili Usaha Berhasil');
+    }
+
+    public function verifSKKL($id)
+    {
+        $datas = SuratKeteranganKelahiran::find($id);
+        $datas->status = 'Diterima';
+        $datas->save();
+
+        $dataArray = $datas->toArray();
+        $directoryPath = public_path('Surat/SKKL/pdf/');
+
+        if (!File::exists($directoryPath)) {
+            File::makeDirectory($directoryPath, 0755, true);
+        }
+
+        $pdf = Pdf::loadView('surat.surat-keterangan-kelahiran', ['dataArray' => $dataArray]);
+
+        $pdf->save($directoryPath . $datas->user->id . '-' . $datas->id . '.pdf');
+
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKKL', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Kelahiran Berhasil');
+    }
+
+    public function verifSKSM($id)
+    {
+        $datas = SuratKeteranganSudahMenikah::find($id);
+        $datas->status = 'Diterima';
+        $datas->save();
+
+        $dataArray = $datas->toArray();
+        $directoryPath = public_path('Surat/SKSM/pdf/');
+
+        if (!File::exists($directoryPath)) {
+            File::makeDirectory($directoryPath, 0755, true);
+        }
+
+        $pdf = Pdf::loadView('surat.surat-keterangan-sudah-menikah', ['dataArray' => $dataArray]);
+
+        $pdf->save($directoryPath . $datas->user->id . '-' . $datas->id . '.pdf');
+
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKSM', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Sudah Menikah Berhasil');
+    }
     public function createSKD(Request $request)
     {
 

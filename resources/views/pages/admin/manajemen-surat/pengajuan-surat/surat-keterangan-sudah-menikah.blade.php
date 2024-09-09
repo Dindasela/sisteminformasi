@@ -34,109 +34,109 @@
                     <h1 class="text-xl font-bold pb-4">Data Diri Istri</h1>
                     <div class="pb-2">
                         <label for="text" class="block text-sm font-normal text-gray-700">Nama Lengkap</label>
-                        <input type="text" id="text" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
+                        <input type="text" id="text" name="" value="{{$datas->nama_lengkap_istri}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
                     </div>
                     <div class="pb-2">
                         <label for="nik" class="block text-sm font-normal text-gray-700">Jenis Kelamin</label>
                         <select id="countries" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option selected>Perempuan</option>
-                            <option value="LK">Laki-Laki </option>
+                            <option {{$datas->jenis_kelamin_istri == 'Wanita' ? 'selected' : ''}}>Perempuan</option>
+                            <option {{$datas->jenis_kelamin_istri == 'Pria' ? 'selected' : ''}}>Laki-Laki </option>
                         </select>
                     </div>
                     <div class="pb-2">
                         <label for="text" class="block text-sm font-normal text-gray-700">Tempat Lahir
-                            <input type="text" id="text" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
+                            <input type="text" id="text" name="" value="{{$datas->tempat_lahir_istri}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
                     </div>
                     <div class="pb-2">
                         <label for="nama" class="block text-sm font-normal text-gray-700">Tanggal Lahir</label>
-                        <input type="date" id="tanggal" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <input type="date" id="tanggal" name="" value="{{$datas->tanggal_lahir_istri}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                     </div>
 
                     <div class="pb-2">
                         <label for="nik" class="block text-sm font-normal text-gray-700">Agama</label>
                         <select id="countries" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option selected>Islam</option>
-                            <option value="KRI">Kristen </option>
-                            <option value="HIN">Hindu</option>
-                            <option value="BUD">Budhha</option>
-                            <option value="KNG">Konghucu</option>
+                            <option {{$datas->agama_istri == 'Islam' ? 'selected' : ''}}>Islam</option>
+                            <option {{$datas->agama_istri == 'Kristen Protestan' ? 'selected' : ''}}>Kristen </option>
+                            <option {{$datas->agama_istri == 'Hindu' ? 'selected' : ''}}>Hindu</option>
+                            <option {{$datas->agama_istri == 'Buddha' ? 'selected' : ''}}>Budhha</option>
+                            <option {{$datas->agama_istri == 'Konghucu' ? 'selected' : ''}}>Konghucu</option>
                         </select>
                     </div>
                     <div class="pb-2">
-                        <label for="nik" class="block text-sm font-normal text-gray-700">Status Perkawinan</label>
+                        <label for="status perkawinan" class="block text-sm font-normal text-gray-700">Status Perkawinan</label>
                         <select id="countries" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option selected>Kawin</option>
-                            <option value="BK">Belum Kawin</option>
+                            <option {{$datas->status_perkawinan_istri == 'Kawin' ? 'selected' : ''}}>Kawin</option>
+                            <option {{$datas->status_perkawinan_istri == 'Belum Kawin' ? 'selected' : ''}}>Belum Kawin</option>
                         </select>
                     </div>
                     <div class="pb-2">
                         <label for="nama" class="block text-sm font-normal text-gray-700">Pekerjaan</label>
-                        <input type="text" id="nama" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
+                        <input type="text" id="nama" name="" value="{{$datas->pekerjaan_istri}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
                     </div>
                     <div class="pb-2">
                         <label for="alamat" class="block text-sm font-normal text-gray-700">Alamat</label>
-                        <input type="text" id="alamat" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
+                    <input type="text" id="alamat" name="" value="{{$datas->alamat_istri}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
                     </div>
                     {{-- Data 2 --}}
                     <h1 class="text-xl font-bold pb-4 pt-4">Data Diri Suami</h1>
                     <div class="pb-2">
                         <label for="text" class="block text-sm font-normal text-gray-700">Nama Lengkap</label>
-                        <input type="text" id="text" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
+                        <input type="text" id="text" name="" value="{{$datas->nama_lengkap_suami}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
                     </div>
                     <div class="pb-2">
                         <label for="nik" class="block text-sm font-normal text-gray-700">Jenis Kelamin</label>
                         <select id="countries" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option selected>Perempuan</option>
-                            <option value="LK">Laki-Laki </option>
+                            <option {{$datas->jenis_kelamin_suami == 'Wanita' ? 'selected' : ''}}>Perempuan</option>
+                            <option {{$datas->jenis_kelamin_suami == 'Pria' ? 'selected' : ''}}>Laki-Laki </option>
                         </select>
                     </div>
                     <div class="pb-2">
                         <label for="text" class="block text-sm font-normal text-gray-700">Tempat Lahir
-                            <input type="text" id="text" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
+                            <input type="text" id="text" name="" value="{{$datas->tempat_lahir_suami}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
                     </div>
                     <div class="pb-2">
                         <label for="nama" class="block text-sm font-normal text-gray-700">Tanggal Lahir</label>
-                        <input type="date" id="tanggal" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <input type="date" id="tanggal" name="" value="{{$datas->tanggal_lahir_suami}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                     </div>
 
                     <div class="pb-2">
                         <label for="nik" class="block text-sm font-normal text-gray-700">Agama</label>
                         <select id="countries" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option selected>Islam</option>
-                            <option value="KRI">Kristen </option>
-                            <option value="HIN">Hindu</option>
-                            <option value="BUD">Budhha</option>
-                            <option value="KNG">Konghucu</option>
+                            <option {{$datas->agama_suami == 'Islam' ? 'selected' : ''}}>Islam</option>
+                            <option {{$datas->agama_suami == 'Kristen Protestan' ? 'selected' : ''}}>Kristen </option>
+                            <option {{$datas->agama_suami == 'Hindu' ? 'selected' : ''}}>Hindu</option>
+                            <option {{$datas->agama_suami == 'Buddha' ? 'selected' : ''}}>Budhha</option>
+                            <option {{$datas->agama_suami == 'Konghucu' ? 'selected' : ''}}>Konghucu</option>
                         </select>
                     </div>
                     <div class="pb-2">
                         <label for="nik" class="block text-sm font-normal text-gray-700">Status Perkawinan</label>
                         <select id="countries" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option selected>Kawin</option>
-                            <option value="BK">Belum Kawin</option>
+                            <option {{$datas->status_perkawinan_suami == 'Kawin' ? 'selected' : ''}}>Kawin</option>
+                            <option {{$datas->status_perkawinan_suami == 'Belum Kawin' ? 'selected' : ''}}>Belum Kawin</option>
                         </select>
                     </div>
                     <div class="pb-2">
                         <label for="nama" class="block text-sm font-normal text-gray-700">Pekerjaan</label>
-                        <input type="text" id="nama" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
+                        <input type="text" id="nama" name="" value="{{$datas->pekerjaan_suami}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
                     </div>
                     <div class="pb-2">
                         <label for="alamat" class="block text-sm font-normal text-gray-700">Alamat</label>
-                        <input type="text" id="alamat" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
+                        <input type="text" id="alamat" name="" value="{{$datas->alamat_suami}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
                     </div>
                     {{-- Data 3 --}}
                     <h1 class="text-xl font-bold pb-4 pt-4">Data Pernikahan</h1>
                     <div class="pb-2">
                         <label for="text" class="block text-sm font-normal text-gray-700">Lokasi Pernikahan</label>
-                        <input type="text" id="text" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
+                        <input type="text" id="text" name="" value="{{$datas->lokasi_pernikahan}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
                     </div>
                     <div class="pb-2">
                         <label for="nama" class="block text-sm font-normal text-gray-700">Tanggal Pernikahan</label>
-                        <input type="date" id="tanggal" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <input type="date" id="tanggal" name="" value="{{$datas->tanggal_pernikahan}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                     </div>
                     <div class="pb-2">
                         <label for="text" class="block text-sm font-normal text-gray-700">Jam
-                            <input type="text" id="text" name="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
+                            <input type="text" id="text" name="" value="{{$datas->jam}}" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="">
                     </div>
                 </div>
                 {{-- Upload Berkas --}}
@@ -144,19 +144,19 @@
                     <div class="pb-4">
                         <label for="ktp" class="block text-sm font-normal text-gray-700">Foto KTP</label>
                         <div class="w-full h-36 mt-2">
-                            <img class="mx-auto h-full object-cover" src="image/ktp-fake.png" />
+                            <img class="mx-auto h-full object-cover" src="{{ asset('storage/' . $datas->foto_ktp) }}" />
                         </div>
                     </div>
                     <div class="pb-4">
                         <label for="swafoto" class="block text-sm font-normal text-gray-700">Unggah KK</label>
                         <div class="w-full h-36 mt-2">
-                            <img class="mx-auto h-full object-cover" src="image/ktp-fake.png" />
+                            <img class="mx-auto h-full object-cover" src="{{ asset('storage/' . $datas->foto_kk) }}" />
                         </div>
                     </div>
                     <div class="pb-4">
                         <label for="swafoto" class="block text-sm font-normal text-gray-700">Surat Pengantar RT</label>
                         <div class="w-full h-36 mt-2">
-                            <img class="mx-auto h-full object-cover" src="image/preview.png" />
+                            <img class="mx-auto h-full object-cover" src="{{ asset('storage/' . $datas->foto_surat_pengantar_rt) }}" />
                         </div>
                     </div>
                     <div class="flex justify-between mt-6 mx-auto w-[100%] pb-4">

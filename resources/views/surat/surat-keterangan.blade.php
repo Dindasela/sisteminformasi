@@ -144,28 +144,28 @@
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>: {{ $name }}</td>
+                    <td>: {{ $dataArray['nama_lengkap'] }}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>: {{ $gender }}</td>
+                    <td>: {{ $dataArray['jenis_kelamin']  }}</td>
                 </tr>
                 <tr>
                     <td>Tempat Tanggal Lahir</td>
-                    <td>: {{ $birthdate }}</td>
+                    <td>: {{ $dataArray['tempat_lahir'] . ' ' . $dataArray['tanggal_lahir']   }}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>: {{ $job }}</td>
+                    <td>: {{ $dataArray['pekerjaan']  }}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>: {{ $address }}</td>
+                    <td>: {{ $dataArray['alamat']  }}</td>
                 </tr>
             </table>
             <p>Berdasarkan keterangan Ketua Rt. Lk. Kel.Sumberrejo Kec Kemiling bahwa benar warga tersebut
-                {{ $name }}</p>
-            <p>Demikian surat keterangan ini dibuat sebagai persyaratan mendaftar kuliah, agar dapat dipergunakan dengan
+                {{ $dataArray['nama_lengkap']  }}</p>
+            <p>Demikian surat keterangan ini dibuat sebagai {{$dataArray['keperluan'] }}, agar dapat dipergunakan dengan
                 sebagaimana mestinya.</p>
         </div>
 
