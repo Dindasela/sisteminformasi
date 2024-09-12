@@ -39,7 +39,6 @@
                             <thead class="text-xs text-white uppercase bg-[#2B2A4C] text-center">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">No</th>
-                                    <th scope="col" class="px-6 py-3">No Permohonan</th>
                                     <th scope="col" class="px-6 py-3">Nama Pemohon</th>
                                     <th scope="col" class="px-6 py-3">Tanggal Permohonan</th>
                                     <th scope="col" class="px-6 py-3">Jenis Surat</th>
@@ -52,7 +51,6 @@
                                 <tr class="bg-[#DDDBDB] border-b text-black text-center">
                                     <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">{{ $loop->iteration }}
                                     </th>
-                                    <td class="px-6 py-4">{{ $data->id }}</td>
                                     <td class="px-6 py-4">{{ auth()->user()->name }}</td>
                                     @php
                                     $date = date('d-m-Y', strtotime($data->created_at));
