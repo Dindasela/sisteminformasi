@@ -9,6 +9,7 @@ use App\Http\Controllers\GeneralPage;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\SuratKeluarController;
+use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VerifikasiSuksesController;
 
@@ -143,14 +144,49 @@ Route::controller(GeneralPage::class)->group(function () {
 
     // Awal Pengajuan Surat
     Route::get('/manajemen-surat', [SuratController::class, 'index'])->name('manajemen-surat.index');
+
+    // Start Surat Keterangan Domisili
     Route::get('/surat-keterangan-domisili/{id}', [SuratController::class, 'showSKD'])->name('surat-keterangan-domisili.show');
     Route::post('/verif-skd/{id}', [SuratController::class, 'verifSKD'])->name('verif.skd');
+    Route::post('/tolak-skd/{id}', [SuratController::class, 'rejectSKD'])->name('reject.skd');
+    // End Surat Keterangan Domisili
+
+    // Start Surat Keterangan Domisili Usaha
     Route::get('/surat-keterangan-domisili-usaha/{id}', [SuratController::class,'showSKDU'])->name('surat-keterangan-domisili-usaha.show');
-    Route::get('/surat-keterangan-tidak-mampu', 'suratketerangantidakmampu');
+    Route::post('/verif-skdu/{id}', [SuratController::class, 'verifSKDU'])->name('verif.skdu');
+    Route::post('/tolak-skdu/{id}', [SuratController::class, 'rejectSKDU'])->name('reject.skdu');
+    // End Surat Keterangan Domisili Usaha
+
+    // Start Surat Keterangan Tidak Mampu
+    Route::get('/surat-keterangan-tidak-mampu/{id}', [SuratController::class, 'showSKTM'])->name('surat-keterangan-tidak-mampu.show');
+    Route::post('/verif-sktm/{id}', [SuratController::class, 'verifSKTM'])->name('verif.sktm');
+    Route::post('/tolak-sktm/{id}', [SuratController::class, 'rejectSKTM'])->name('reject.sktm');
+    
+    // Start Surat Keterangan Kematian
     Route::get('/surat-keterangan-kematian/{id}', [SuratController::class, 'showSKK'])->name('surat-keterangan-kematian.show');
+    Route::post('/verif-skk/{id}', [SuratController::class, 'verifSKK'])->name('verif.skk');
+    Route::post('/tolak-skk/{id}', [SuratController::class, 'rejectSKK'])->name('reject.skk');
+    // End Surat Keterangan Kematian
+
+    // Start Surat Keterangan
     Route::get('/surat-keterangan/{id}', [SuratController::class, 'showSK'])->name('surat-keterangan.show');
+    Route::post('/verif-sk/{id}', [SuratController::class, 'verifSK'])->name('verif.sk');
+    Route::post('/tolak-sk/{id}', [SuratController::class, 'rejectSK'])->name('reject.sk');
+    // End Surat Keterangan
+
+
+    // Start Surat Keterangan Sudah Menikah
     Route::get('/surat-keterangan-sudah-menikah/{id}', [SuratController::class, 'showSKSM'])->name('surat-keterangan-sudah-menikah.show');
+    Route::post('/verif-sksm/{id}', [SuratController::class, 'verifSKSM'])->name('verif.sksm');
+    Route::post('/tolak-sksm/{id}', [SuratController::class, 'rejectSKSM'])->name('reject.sksm');
+    // End Surat Keterangan Sudah Menikah
+
+    // Start Surat Keterangan Bersih Diri
     Route::get('/surat-keterangan-bersih-diri/{id}', [SuratController::class, 'showSKBD'])->name('surat-keterangan-bersih-diri.show');
+    Route::post('/verif-skbd/{id}', [SuratController::class, 'verifSKBD'])->name('verif.skbd');
+    Route::post('/tolak-skbd/{id}', [SuratController::class, 'rejectSKBD'])->name('reject.skbd');
+    // End Surat Keterangan Bersih Diri
+
     Route::get('/surat-keterangan-usaha', 'suratketeranganusaha');
     Route::get('/surat-keterangan-belum-menikah/{id}', [SuratController::class, 'showSKBM'])->name('surat-keterangan-belum-menikah.show');
     Route::get('/surat-keterangan-kelahiran/{id}', [SuratController::class, 'showSKKL'])->name('surat-keterangan-kelahiran.show');
@@ -162,4 +198,8 @@ Route::controller(GeneralPage::class)->group(function () {
 
     //Test
     Route::get('/test',[SuratKeluarController::class, 'generateQR']);
+
+    //Test Template
+    Route::get('/skd', [TemplateController::class, 'surat_keterangan_domisili']);
+    Route::get('/skdu', [TemplateController::class, 'surat_keterangan_domisili_tempat']);
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SuratKeteranganDomisiliUsaha;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class TemplateController extends Controller
@@ -72,17 +73,10 @@ class TemplateController extends Controller
 
     public function surat_keterangan_domisili_tempat()
     {
-        $data = [
-            'name' => 'John Doe',
-            'gender' => 'Laki-laki',
-            'birthdate' => 'Bandar Lampung, 1 Januari 1990',
-            'job' => 'Mahasiswa',
-            'address' => 'Jl. Imam Bonjol No. 10',
-            'date' => date('d F Y')
-        ];
+        $data = SuratKeteranganDomisiliUsaha::find(1);
 
         // Generate PDF with the correct facade usage
-        $pdf = Pdf::loadView('surat.surat-keterangan-domisili-tempat', $data);
+        $pdf = Pdf::loadView('surat.surat-keterangan-domisili-tempat', ['dataArray' => $data]);
 
         // To stream the PDF in the browser
         return $pdf->stream('surat_keterangan_domisili-tempat.pdf');
@@ -90,17 +84,25 @@ class TemplateController extends Controller
 
     public function surat_keterangan_domisili()
     {
-        $data = [
-            'name' => 'John Doe',
-            'gender' => 'Laki-laki',
-            'birthdate' => 'Bandar Lampung, 1 Januari 1990',
-            'job' => 'Mahasiswa',
-            'address' => 'Jl. Imam Bonjol No. 10',
-            'date' => date('d F Y')
+        $dataArray = [
+            'nama' => 'John Doe',
+            'jenis_kelamin' => 'Laki-laki',
+            'tempat_lahir' => 'Bandar Lampung',
+            'tanggal_lahir' => '1 Januari 1990',
+            'pekerjaan' => 'Mahasiswa',
+            'alamat' => 'Jl. Imam Bonjol No. 10',
+            'warga_negara' => 'Indonesia',
+            'agama' => 'Islam',
+            'status_perkawinan' => 'Belum Menikah',
+            'alamat_sesuai_kk' => 'Jl. Imam Bonjol No. 10',
+            'berlaku_sampai' => '1 Januari 2022',
+            'keperluan' => 'Mengurus SIM',
+            'date' => date('d F Y'),
+            'id' => 2
         ];
 
         // Generate PDF with the correct facade usage
-        $pdf = Pdf::loadView('surat.surat-keterangan-domisili', $data);
+        $pdf = Pdf::loadView('surat.surat-keterangan-domisili', ['dataArray' => $dataArray]);
 
         // To stream the PDF in the browser
         return $pdf->stream('surat_keterangan_domisili.pdf');

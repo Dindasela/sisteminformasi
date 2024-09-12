@@ -30,11 +30,10 @@
             </div>
             <div class="overflow-x-auto ">
                 <!-- Form Section -->
-                <div class="bg-[#F5F3F3] pb-8 p-6 rounded-lg   ">
-                    <h2 class="text-xl font-semibold text-center">Input Surat Keluar</h2>
-                    <form action="{{ route('tambah-surat-keluar.store') }}" method="POST"
-                        enctype="multipart/form-data">
-                        @csrf
+                <form action="{{ route('generate-qr.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="bg-[#F5F3F3] pb-8 p-6 rounded-lg   ">
+                        <h2 class="text-xl font-semibold text-center">Input Surat Keluar</h2>
                         <div class="mx-auto w-[90%]">
                             <!-- Form Fields -->
                             <div class="space-y-2">
@@ -104,21 +103,19 @@
                                 </div>
                             </div>
                         </div>
-                </div>
-                <div class="mx-auto w-[50%]">
-                    <div class="pt-4 float-right text-center">
-                        <button type="submit"
-                            class="bg-[#2B2A4C] text-white px-4 py-1 rounded-md hover:bg-[#414066]">Selesai</button>
+                    </div>
+                    <div class="mx-auto w-[50%]">
+                        <div class="pt-4 float-right text-center">
+                            <button type="submit"
+                                class="bg-[#2B2A4C] text-white px-4 py-1 rounded-md hover:bg-[#414066]">Selesai</button>
+                        </div>
+                        <div class="pt-4 ">
+                            <button type="submit"
+                                class="bg-[#5B5B5B] text-white px-4 py-1 rounded-md hover:bg-[#414066]">Generate
+                                QR</button>
+                        </div>
                     </div>
                 </form>
-                    <div class="pt-4 ">
-                        <form action="{{ route('generate-qr.store') }}" method="POST">
-                            @csrf
-                            <button type="submit"
-                                class="bg-[#5B5B5B] text-white px-4 py-1 rounded-md hover:bg-[#414066]">Generate QR</button>
-                        </form>                        
-                    </div>
-                </div>
             </div>
         </div>
     </div>

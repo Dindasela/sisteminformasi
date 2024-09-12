@@ -115,6 +115,17 @@
             font-weight: bold;
             align-items: center;
         }
+
+        .qr-code {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        .qr-code img {
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -141,73 +152,73 @@
             <table class="info-table">
                 <tr>
                     <td>Bapak</td>
-                    <td>: {{ $bapak_name }}</td>
+                    <td>: {{ $dataArray['nama_lengkap_bapak'] }}</td>
                 </tr>
                 <tr>
                     <td>Umur</td>
-                    <td>: {{ $bapak_age }}</td>
+                    <td>: {{ $dataArray['umur_bapak'] }}</td>
                 </tr>
                 <tr>
                     <td>Warga Negara / Agama</td>
-                    <td>: {{ $bapak_religion }}</td>
+                    <td>: {{ $dataArray['warga_negara_bapak'] . '/' . $dataArray['agama_bapak'] }}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>: {{ $bapak_job }}</td>
+                    <td>: {{ $dataArray['pekerjaan_bapak'] }}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>: {{ $bapak_address }}</td>
+                    <td>: {{ $dataArray['alamat_bapak'] }}</td>
                 </tr>
             </table>
 
             <table class="info-table">
                 <tr>
                     <td>Ibu</td>
-                    <td>: {{ $ibu_name }}</td>
+                    <td>: {{ $dataArray['nama_lengkap_ibu'] }}</td>
                 </tr>
                 <tr>
                     <td>Umur</td>
-                    <td>: {{ $ibu_age }}</td>
+                    <td>: {{ $dataArray['umur_ibu'] }}</td>
                 </tr>
                 <tr>
                     <td>Warga Negara / Agama</td>
-                    <td>: {{ $ibu_religion }}</td>
+                    <td>: {{ $dataArray['warga_negara_ibu'] . '/' . $dataArray['agama_ibu'] }}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>: {{ $ibu_job }}</td>
+                    <td>: {{ $dataArray['pekerjaan_ibu'] }}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>: {{ $ibu_address }}</td>
+                    <td>: {{ $dataArray['alamat_ibu'] }}</td>
                 </tr>
             </table>
 
             <table class="info-table">
                 <tr>
                     <td>Anak</td>
-                    <td>: {{ $anak_name }}</td>
+                    <td>: {{ $dataArray['nama_lengkap_anak'] }}</td>
                 </tr>
                 <tr>
                     <td>Umur</td>
-                    <td>: {{ $anak_age }}</td>
+                    <td>: {{ $dataArray['umur_anak'] }}</td>
                 </tr>
                 <tr>
                     <td>Warga Negara / Agama</td>
-                    <td>: {{ $anak_religion }}</td>
+                    <td>: {{ $dataArray['warga_negara_anak'] . '/' . $dataArray['agama_anak'] }}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>: {{ $anak_job }}</td>
+                    <td>: {{ $dataArray['pekerjaan_anak'] }}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>: {{ $anak_address }}</td>
+                    <td>: {{ $dataArray['alamat_anak'] }}</td>
                 </tr>
             </table>
 
-            <p>a. Sesuai dengan hasil penilaian kami, orang tua (bapak dan ibu) dan {{ $anak_name }} sampai
+            <p>a. Sesuai dengan hasil penilaian kami, orang tua (bapak dan ibu) dan {{ $dataArray['nama_lengkap_anak'] }} sampai
                 dengan surat keterangan ini dikeluarkan adalah berkelakuan baik dan belum pernah tersangkut dengan hukum
                 dan kepolisian.</p>
             <p>b. Tidak terlibat dalam Organisasi Terlarang (OT) dan tidak menentang PUPN (Pancasila, Undang-Undang
@@ -226,7 +237,7 @@
                     <p>_____________________________</p>
                 </td> <!-- Empty left box -->
                 <td class="signature-right">
-                    <p class="date">Bandar Lampung, {{ $date }}</p>
+                    <p class="date">Bandar Lampung, {{ now()->format('d-m-Y') }}</p>
                     <p class="position">MENGETAHUI</p>
                     <p class="position">LURAH SUMBERREJO</p>
                     <br><br><br>
@@ -257,6 +268,10 @@
                 </td>
             </tr>
         </table>
+        
+        <div class='qr-code'>
+            <img src="storage/Surat/SKBD/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
+        </div>
     </div>
     </div>
 </body>

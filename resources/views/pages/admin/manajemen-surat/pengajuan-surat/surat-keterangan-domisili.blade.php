@@ -140,6 +140,7 @@
                                 src="{{ asset('storage/' . $datas->foto_surat_pengantar) }}" />
                         </div>
                     </div>
+                    @if ($datas->status != 'Ditolak')    
                     <div class="flex justify-between mt-6 mx-auto w-[100%] pb-4">
                         <x-pop-up-tolak />
                         <form action="{{ route('verif.skd', $datas->id) }}" method="POST">
@@ -150,9 +151,48 @@
                             </button>
                         </form>
                     </div>
+                    @endif
+                    @if ($datas->status == 'Ditolak')
+                    <div class="flex justify-between mt-6 mx-auto w-[100%] pb-4">
+                        <label for="nama" class="block text-sm font-normal text-gray-700">Alasan Ditolak</label>
+                        <input type="text" disabled id="alamat" name=""
+                            class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            placeholder="" value="{{ $datas->alasan_ditolak }}">
+                    </div>
+                    @endif
                 </div>
             </div>
         <x-footer-admin />
 </body>
+
+<script>
+    document.getElementById('submit-reject').addEventListener('click', function() {
+        // Ambil nilai dari textarea
+        let alasan = document.getElementById('isiAlasan').value;
+
+        // Buat form
+        let form = document.createElement('form');
+        form.method = 'POST';
+        form.action = '{{ route('reject.skd', $datas->id) }}'; // Pastikan route ini sudah ada di routes/web.php
+
+        // Tambahkan CSRF token ke dalam form
+        let csrfToken = document.createElement('input');
+        csrfToken.type = 'hidden';
+        csrfToken.name = '_token';
+        csrfToken.value = '{{ csrf_token() }}'; // Laravel CSRF Token
+        form.appendChild(csrfToken);
+
+        // Tambahkan input untuk alasan
+        let alasanInput = document.createElement('input');
+        alasanInput.type = 'hidden';
+        alasanInput.name = 'alasan_ditolak';
+        alasanInput.value = alasan;
+        form.appendChild(alasanInput);
+
+        // Tambahkan form ke body dan submit
+        document.body.appendChild(form);
+        form.submit();
+    });
+</script>
 
 </html>

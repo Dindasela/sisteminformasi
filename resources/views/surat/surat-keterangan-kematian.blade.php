@@ -107,6 +107,17 @@
         .info-table td:first-child {
             width: 150px;
         }
+
+        .qr-code {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        .qr-code img {
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -140,7 +151,7 @@
                 </tr>
                 <tr>
                     <td>Tempat / Tgl lahir</td>
-                    <td>{{$dataArray['tempat_lahir'].' '.$dataArray['tanggal_lahir']}}</td>
+                    <td>{{$dataArray['tempat_lahir'].' '.date('Y-m-d',strtotime($dataArray['tanggal_lahir']))}}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
@@ -183,6 +194,10 @@
                 </tr>
             </table>
             <p>Demikian Surat Keterangan ini dibuat untuk dapat dipergunakan sebagaimana mestinya.</p>
+        </div>
+
+        <div class='qr-code'>
+            <img src="storage/Surat/SKK/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
         </div>
 
         <div class="signature">

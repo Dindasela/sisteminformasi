@@ -95,6 +95,48 @@ class SuratController extends Controller
         return view('pages.admin.manajemen-surat.pengajuan-surat.surat-keterangan-sudah-menikah', compact('datas'));
     }
 
+    public function showSKTM($id)
+    {
+        $datas = SuratKeteranganTidakMampu::find($id);
+        return view('pages.admin.manajemen-surat.pengajuan-surat.surat-keterangan-tidak-mampu', compact('datas'));
+    }
+
+    public function verifSKTM($id)
+    {
+        $datas = SuratKeteranganTidakMampu::find($id);
+        $datas->status = 'Diterima';
+        $datas->save();
+
+        $dataArray = $datas->toArray();
+        $directoryPath = public_path('storage/Surat/SKTM/pdf/');
+
+        if (!File::exists($directoryPath)) {
+            File::makeDirectory($directoryPath, 0755, true);
+        }
+
+        $pdf = Pdf::loadView('surat.surat-keterangan-tidak-mampu', ['dataArray' => $dataArray]);
+
+        $pdf->save($directoryPath . $datas->id . '.pdf');
+
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKTM', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Tidak Mampu Berhasil');
+    }
+
+    public function rejectSKTM(Request $request, $id)
+    {
+        $validateData = $request->validate([
+            'alasan_ditolak' => 'required'
+        ]);
+
+        $datas = SuratKeteranganTidakMampu::find($id);
+        $datas->status = 'Ditolak';
+        $datas->alasan_ditolak = $validateData['alasan_ditolak'];
+        $datas->save();
+
+        return redirect()->route('manajemen-surat.index')
+            ->with('success', 'Verifikasi Surat Keterangan Tidak Mampu Berhasil');
+    }
+
     public function verifSKK($id)
     {
         $datas = SuratKeteranganKematian::find($id);
@@ -102,7 +144,7 @@ class SuratController extends Controller
         $datas->save();
 
         $dataArray = $datas->toArray();
-        $directoryPath = public_path('Surat/SKK/pdf/');
+        $directoryPath = public_path('storage/Surat/SKK/pdf/');
 
         if (!File::exists($directoryPath)) {
             File::makeDirectory($directoryPath, 0755, true);
@@ -110,9 +152,24 @@ class SuratController extends Controller
 
         $pdf = Pdf::loadView('surat.surat-keterangan-kematian', ['dataArray' => $dataArray]);
 
-        $pdf->save($directoryPath . $datas->user->id . '-' . $datas->id . '.pdf');
+        $pdf->save($directoryPath . $datas->id . '.pdf');
 
         return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKK', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Kematian Berhasil');
+    }
+
+    public function rejectSKK(Request $request, $id)
+    {
+        $validateData = $request->validate([
+            'alasan_ditolak' => 'required'
+        ]);
+
+        $datas = SuratKeteranganKematian::find($id);
+        $datas->status = 'Ditolak';
+        $datas->alasan_ditolak = $validateData['alasan_ditolak'];
+        $datas->save();
+
+        return redirect()->route('manajemen-surat.index')
             ->with('success', 'Verifikasi Surat Keterangan Kematian Berhasil');
     }
 
@@ -123,7 +180,7 @@ class SuratController extends Controller
         $datas->save();
 
         $dataArray = $datas->toArray();
-        $directoryPath = public_path('Surat/SKD/pdf/');
+        $directoryPath = public_path('storage/Surat/SKD/pdf/');
 
         if (!File::exists($directoryPath)) {
             File::makeDirectory($directoryPath, 0755, true);
@@ -131,9 +188,24 @@ class SuratController extends Controller
 
         $pdf = Pdf::loadView('surat.surat-keterangan-domisili', ['dataArray' => $dataArray]);
 
-        $pdf->save($directoryPath . $datas->user->id . '-' . $datas->id . '.pdf');
+        $pdf->save($directoryPath . $datas->id . '.pdf');
 
         return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKD', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Domisili Berhasil');
+    }
+
+    public function rejectSKD(Request $request, $id)
+    {
+        $validateData = $request->validate([
+            'alasan_ditolak' => 'required'
+        ]);
+
+        $datas = SuratKeteranganDomisili::find($id);
+        $datas->status = 'Ditolak';
+        $datas->alasan_ditolak = $validateData['alasan_ditolak'];
+        $datas->save();
+
+        return redirect()->route('manajemen-surat.index')
             ->with('success', 'Verifikasi Surat Keterangan Domisili Berhasil');
     }
 
@@ -144,7 +216,7 @@ class SuratController extends Controller
         $datas->save();
 
         $dataArray = $datas->toArray();
-        $directoryPath = public_path('Surat/SK/pdf/');
+        $directoryPath = public_path('storage/Surat/SK/pdf/');
 
         if (!File::exists($directoryPath)) {
             File::makeDirectory($directoryPath, 0755, true);
@@ -152,9 +224,24 @@ class SuratController extends Controller
 
         $pdf = Pdf::loadView('surat.surat-keterangan', ['dataArray' => $dataArray]);
 
-        $pdf->save($directoryPath . $datas->user->id . '-' . $datas->id . '.pdf');
+        $pdf->save($directoryPath . $datas->id . '.pdf');
 
         return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SK', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Berhasil');
+    }
+
+    public function rejectSK(Request $request, $id)
+    {
+        $validateData = $request->validate([
+            'alasan_ditolak' => 'required'
+        ]);
+
+        $datas = SuratKeterangan::find($id);
+        $datas->status = 'Ditolak';
+        $datas->alasan_ditolak = $validateData['alasan_ditolak'];
+        $datas->save();
+
+        return redirect()->route('manajemen-surat.index')
             ->with('success', 'Verifikasi Surat Keterangan Berhasil');
     }
 
@@ -186,7 +273,7 @@ class SuratController extends Controller
         $datas->save();
 
         $dataArray = $datas->toArray();
-        $directoryPath = public_path('Surat/SKBD/pdf/');
+        $directoryPath = public_path('storage/Surat/SKBD/pdf/');
 
         if (!File::exists($directoryPath)) {
             File::makeDirectory($directoryPath, 0755, true);
@@ -194,9 +281,24 @@ class SuratController extends Controller
 
         $pdf = Pdf::loadView('surat.surat-keterangan-bersih-diri', ['dataArray' => $dataArray]);
 
-        $pdf->save($directoryPath . $datas->user->id . '-' . $datas->id . '.pdf');
+        $pdf->save($directoryPath . $datas->id . '.pdf');
 
         return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKBD', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Bersih Diri Berhasil');
+    }
+
+    public function rejectSKBD(Request $request,$id)
+    {
+        $validateData = $request->validate([
+            'alasan_ditolak' => 'required'
+        ]);
+
+        $datas = SuratKeteranganBersihDiri::find($id);
+        $datas->status = 'Ditolak';
+        $datas->alasan_ditolak = $validateData['alasan_ditolak'];
+        $datas->save();
+
+        return redirect()->route('manajemen-surat.index')
             ->with('success', 'Verifikasi Surat Keterangan Bersih Diri Berhasil');
     }
 
@@ -213,11 +315,26 @@ class SuratController extends Controller
             File::makeDirectory($directoryPath, 0755, true);
         }
 
-        $pdf = Pdf::loadView('surat.surat-keterangan-domisili-usaha', ['dataArray' => $dataArray]);
+        $pdf = Pdf::loadView('surat.surat-keterangan-domisili-tempat', ['dataArray' => $dataArray]);
 
-        $pdf->save($directoryPath . $datas->user->id . '-' . $datas->id . '.pdf');
+        $pdf->save($directoryPath . $datas->id . '.pdf');
 
         return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKDU', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Domisili Usaha Berhasil');
+    }
+
+    public function rejectSKDU(Request $request, $id)
+    {
+        $validateData = $request->validate([
+            'alasan_ditolak' => 'required'
+        ]);
+
+        $datas = SuratKeteranganDomisiliUsaha::find($id);
+        $datas->status = 'Ditolak';
+        $datas->alasan_ditolak = $validateData['alasan_ditolak'];
+        $datas->save();
+
+        return redirect()->route('manajemen-surat.index')
             ->with('success', 'Verifikasi Surat Keterangan Domisili Usaha Berhasil');
     }
 
@@ -249,7 +366,7 @@ class SuratController extends Controller
         $datas->save();
 
         $dataArray = $datas->toArray();
-        $directoryPath = public_path('Surat/SKSM/pdf/');
+        $directoryPath = public_path('storage/Surat/SKSM/pdf/');
 
         if (!File::exists($directoryPath)) {
             File::makeDirectory($directoryPath, 0755, true);
@@ -257,11 +374,27 @@ class SuratController extends Controller
 
         $pdf = Pdf::loadView('surat.surat-keterangan-sudah-menikah', ['dataArray' => $dataArray]);
 
-        $pdf->save($directoryPath . $datas->user->id . '-' . $datas->id . '.pdf');
+        $pdf->save($directoryPath . $datas->id . '.pdf');
 
         return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKSM', 'id' => $datas->id])
             ->with('success', 'Verifikasi Surat Keterangan Sudah Menikah Berhasil');
     }
+
+    public function rejectSKSM(Request $request, $id)
+    {
+        $validateData = $request->validate([
+            'alasan_ditolak' => 'required'
+        ]);
+
+        $datas = SuratKeteranganSudahMenikah::find($id);
+        $datas->status = 'Ditolak';
+        $datas->alasan_ditolak = $validateData['alasan_ditolak'];
+        $datas->save();
+
+        return redirect()->route('manajemen-surat.index')
+            ->with('success', 'Verifikasi Surat Keterangan Sudah Menikah Berhasil');
+    }
+
     public function createSKD(Request $request)
     {
 

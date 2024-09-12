@@ -108,6 +108,16 @@
             width: 150px;
         }
 
+        .qr-code {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        .qr-code img {
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -192,6 +202,10 @@
                 </tr>
             </table>
             <p>Demikian surat pernyataan ini saya buat dengan sebenar nya untuk dapat dipergunakan dengan seperlunya.</p>
+        </div>
+
+        <div class='qr-code'>
+            <img src="Surat/SKD/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
         </div>
 
         <div class="signature">

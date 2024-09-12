@@ -67,6 +67,7 @@ return new class extends Migration
             $table->string('foto_ktp');
             $table->string('foto_kk');
             $table->string('foto_surat_pengantar');
+            $table->string('alasan_ditolak')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

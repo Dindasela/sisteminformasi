@@ -96,6 +96,17 @@
         .clearfix {
             clear: both;
         }
+
+        .qr-code {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        .qr-code img {
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -157,6 +168,10 @@
 
             <p>Surat Keterangan Usaha ini berlaku s/d ___________</p>
             <p>Demikian Surat Keterangan Usaha ini kami buat dengan sebenarnya untuk dapat dipergunakan sebagaimana mestinya.</p>
+        </div>
+
+        <div class='qr-code'>
+            <img src="Surat/SKD/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
         </div>
 
         <div class="signature">

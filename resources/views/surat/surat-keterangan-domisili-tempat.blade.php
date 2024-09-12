@@ -88,7 +88,7 @@
         .signature {
             float: right;
             text-align: center;
-            margin-top: 100px;
+            margin-top: 10px;
         }
 
         .clearfix {
@@ -114,6 +114,16 @@
             border: 1px solid black;
         }
 
+        .qr-code {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        .qr-code img {
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -134,7 +144,7 @@
         <div class="title">
             <p>SURAT BERDOMISILI</p>
             <div class="slash">
-                <p>No. 474 <span>/</span> <span>VI.91</span> <span>/</span> <span>I</span> <span>/</span> <span>2022</span></p>
+                <p>No.  <span>/</span> <span></span> <span>/</span> <span></span> <span>/</span> <span></span></p>
             </div>
         </div>
 
@@ -143,71 +153,77 @@
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>ROHAIYATI</td>
+                    <td>{{$dataArray['nama_lengkap']}}</td>
                 </tr>
                 <tr>
                     <td>NIK</td>
-                    <td>1871135507660006</td>
+                    <td>{{$dataArray['nik']}}</td>
                 </tr>
                 <tr>
                     <td>Tempat, Tanggal Lahir</td>
-                    <td>Lampung Selatan, 15-07-1966</td>
+                    <td>{{$dataArray['tempat_lahir'] . ',' . date('Y-m-d',strtotime($dataArray['tanggal_lahir']))}}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>Perempuan</td>
+                    <td>{{$dataArray['jenis_kelamin']}}</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>Islam</td>
+                    <td>{{$dataArray['agama']}}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>Mengurus Rumah Tangga</td>
+                    <td>{{$dataArray['pekerjaan']}}</td>
                 </tr>
                 <tr>
                     <td>Status Perkawinan</td>
-                    <td>Kawin</td>
+                    <td>{{$dataArray['status_perkawinan']}}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>Jl. Imam Bonjol No.585/2 Rt.007 Lk.I, Kel. Sumberrejo, Kec. Kemiling</td>
+                    <td>{{$dataArray['alamat_kk']}}</td>
                 </tr>
             </table>
             <p>Bahwa benar yang bersangkutan di atas:</p>
             <table class="info-table">
                 <tr>
                     <td>Nama Lembaga</td>
-                    <td>Lembaga Pendidikan / Taman Kanak Kanak Sekar Melati</td>
+                    <td>{{$dataArray['nama_lembaga']}}</td>
                 </tr>
                 <tr>
                     <td>NPSN</td>
-                    <td>69756591</td>
+                    <td>{{$dataArray['npsn']}}</td>
                 </tr>
                 <tr>
                     <td>Tahun Berdiri</td>
-                    <td>2007</td>
+                    <td>{{$dataArray['tahun_berdiri']}}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>Jl. Imam Bonjol No.585/2 Rt.007 Lk.I, Kel. Sumberrejo, Kec. Kemiling</td>
+                    <td>{{$dataArray['alamat_lembaga']}}</td>
                 </tr>
                 <tr>
                     <td>Kota</td>
-                    <td>Bandar Lampung</td>
+                    <td>{{$dataArray['kota']}}</td>
                 </tr>
                 <tr>
                     <td>Provinsi</td>
-                    <td>Lampung</td>
+                    <td>{{$dataArray['provinsi']}}</td>
                 </tr>
             </table>
             <p>Surat keterangan ini diminta yang bersangkutan untuk:</p>
-            <p>____________________________________________________________________</p>
+            <p>{{$dataArray['keperluan']}}</p>
             <p>Demikian Surat ini kami buat dengan sebenar-benarnya agar dapat dipergunakan seperlunya.</p>
         </div>
 
+        @if (public_path('Surat/SKDU/qr/'.$dataArray['id'].'.png'))    
+        <div class='qr-code'>
+            <img src="storage/Surat/SKDU/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
+        </div>
+        @endif
+
         <div class="signature">
-            <p>BANDAR LAMPUNG, 11 Februari 2020</p>
+            <p>BANDAR LAMPUNG, ________ </p>
             <p>MENGETAHUI,</p>
             <p>LURAH SUMBER REJO</p>
         </div>

@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('ktp');
             $table->string('kk');
             $table->string('surat_pengantar_rt');
+            $table->string('alasan_ditolak')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

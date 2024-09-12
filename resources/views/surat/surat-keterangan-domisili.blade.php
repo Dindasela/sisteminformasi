@@ -106,6 +106,17 @@
         .info-table td:first-child {
             width: 150px;
         }
+
+         .qr-code {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        .qr-code img {
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -139,7 +150,7 @@
                 </tr>
                 <tr>
                     <td>Tempat Tanggal Lahir</td>
-                    <td>{{$dataArray['tempat_lahir'].' '.$dataArray['tanggal_lahir']}}</td>
+                    <td>{{$dataArray['tempat_lahir'].' '.date('Y-m-d',strtotime($dataArray['tanggal_lahir']))}}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
@@ -170,6 +181,12 @@
             <p>{{$dataArray['keperluan']}}</p>
             <p>Demikian Surat Keterangan ini kami buat dengan sebenar-benarnya agar dapat dipergunakan sebagaimana mestinya.</p>
         </div>
+
+        @if (public_path('Surat/SKD/qr/'.$dataArray['id'].'.png'))    
+        <div class='qr-code'>
+            <img src="storage/Surat/SKD/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
+        </div>
+        @endif
 
         <div class="signature">
             <p>BANDAR LAMPUNG</p>

@@ -96,6 +96,17 @@
         .clearfix {
             clear: both;
         }
+
+        .qr-code {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        .qr-code img {
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -115,7 +126,7 @@
 
         <div class="title">
             <p>SURAT KETERANGAN TELAH MENIKAH</p>
-            <p>No. 474 / _____ / VI.91 / XI / 2022</p>
+            <p>No.  / ____ / ____ / ____ / ____</p>
         </div>
 
         <div class="content">
@@ -124,67 +135,71 @@
             <table class="info-table">
                 <tr>
                     <td>Nama (Suami)</td>
-                    <td>MISWARDI</td>
+                    <td>{{$dataArray['nama_lengkap_suami']}}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>Laki - Laki</td>
+                    <td>{{$dataArray['jenis_kelamin_suami']}}</td>
                 </tr>
                 <tr>
                     <td>Tempat dan Tgl Lahir</td>
-                    <td>Tanjungan, 15-12-1983</td>
+                    <td>{{$dataArray['tempat_lahir_suami'] . ', ' . date('Y-m-d' ,strtotime($dataArray['tanggal_lahir_suami']))}}</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>Islam</td>
+                    <td>{{$dataArray['agama_suami']}}</td>
                 </tr>
                 <tr>
                     <td>Status Perkawinan</td>
-                    <td>Kawin</td>
+                    <td>{{$dataArray['status_perkawinan_suami']}}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>Buruh Harian Lepas</td>
+                    <td>{{$dataArray['pekerjaan_suami']}}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>JL.Karet Gg.Senen RT.017 LK.I Kel.Sumberrejo Kec.Kemiling</td>
+                    <td>{{$dataArray['alamat_suami']}}</td>
                 </tr>
             </table>
 
             <table class="info-table">
                 <tr>
                     <td>Nama (Istri)</td>
-                    <td>SEPTI MARLINA</td>
+                    <td>{{$dataArray['nama_lengkap_istri']}}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>Perempuan</td>
+                    <td>{{$dataArray['jenis_kelamin_istri']}}</td>
                 </tr>
                 <tr>
                     <td>Tempat dan Tgl Lahir</td>
-                    <td>B.Lampung, 07-11-1987</td>
+                    <td>{{$dataArray['tempat_lahir_istri'] . ', ' . date('d-m-Y' ,strtotime($dataArray['tanggal_lahir_istri']))}}</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>Islam</td>
+                    <td>{{$dataArray['agama_istri']}}</td>
                 </tr>
                 <tr>
                     <td>Status Perkawinan</td>
-                    <td>Kawin</td>
+                    <td>{{$dataArray['status_perkawinan_istri']}}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>Mengurus Rumah Tangga</td>
+                    <td>{{$dataArray['pekerjaan_istri']}}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>JL.Karet Gg.Senen RT.017 LK.I Kel.Sumberrejo Kec.Kemiling</td>
+                    <td>{{$dataArray['alamat_istri']}}</td>
                 </tr>
             </table>
 
-            <p>Adalah benar telah menikah secara agama Islam di _________________________________ pada Tanggal ____________ 20__ jam ____ WIB yang dilakukan oleh Pemuka Agama/Penghulu Kelurahan Kemiling Permai.</p>
+            <p>Adalah benar telah menikah secara agama Islam di {{$dataArray['lokasi_pernikahan']}} pada Tanggal {{date('d-m-Y',strtotime($dataArray['tanggal_pernikahan'])) . ' '}} {{$dataArray['jam']}}  WIB yang dilakukan oleh Pemuka Agama/Penghulu Kelurahan Kemiling Permai.</p>
             <p>Demikian Surat Keterangan ini dibuat dengan sebenarnya untuk Penerbitan Buku Nikah di Pengadilan Agama Bandar Lampung.</p>
+        </div>
+
+        <div class='qr-code'>
+            <img src="storage/Surat/SKSM/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
         </div>
 
         <div class="signature">

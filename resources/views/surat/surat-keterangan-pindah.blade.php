@@ -123,6 +123,17 @@
         .followers-table th {
             background-color: #f2f2f2;
         }
+
+        .qr-code {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        .qr-code img {
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -243,6 +254,10 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+
+        <div class='qr-code'>
+            <img src="Surat/SKD/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
         </div>
 
         <div class="signature">

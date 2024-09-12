@@ -107,6 +107,17 @@
         .clearfix {
             clear: both;
         }
+
+        .qr-code {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        .qr-code img {
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -137,27 +148,27 @@
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['nama_lengkap_orang_tua']}}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['jenis_kelamin_orang_tua']}}</td>
                 </tr>
                 <tr>
                     <td>Tempat dan Tgl Lahir</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['tempat_lahir_orang_tua'] . ',' . $dataArray['tanggal_lahir']}}</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['agama_orang_tua']}}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['pekerjaan_orang_tua']}}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['alamat_orang_tua']}}</td>
                 </tr>
             </table>
 
@@ -166,33 +177,37 @@
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['nama']}}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['jenis_kelamin']}}</td>
                 </tr>
                 <tr>
                     <td>Tempat dan Tgl Lahir</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['tempat_lahir'] . ',' . date('Y-m-d',strtotime($dataArray['tanggal_lahir']))}}</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['agama']}}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['pekerjaan']}}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['alamat']}}</td>
                 </tr>
             </table>
 
-            <p>Bahwa orang tersebut di atas benar kurang mampu berdasarkan keterangan RT. 001 LK. II Kel.Sumberrejo Kec.Kemiling Kota Bandar Lampung.</p>
-            <p>Surat keterangan ini diberikan untuk dipergunakan: _____________________________</p>
+            <p>Bahwa orang tersebut di atas benar kurang mampu berdasarkan keterangan RT. __ LK. __ Kel.Sumberrejo Kec.Kemiling Kota Bandar Lampung.</p>
+            <p>Surat keterangan ini diberikan untuk dipergunakan: {{$dataArray['keperluan']}}</p>
             <p>Demikian Surat Keterangan ini dibuat dengan sebenarnya untuk dapat dipergunakan dengan seperlunya.</p>
+        </div>
+
+        <div class='qr-code'>
+            <img src="storage/Surat/SKTM/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
         </div>
 
         <div class="signature">

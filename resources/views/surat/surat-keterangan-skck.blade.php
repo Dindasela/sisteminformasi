@@ -97,6 +97,17 @@
         .clearfix {
             clear: both;
         }
+
+        .qr-code {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        .qr-code img {
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -163,6 +174,10 @@
             <p>Nama tersebut diatas adalah benar warga Kelurahan Sumberejo, beralamat seperti yang tercantum di atas, dan menurut pengamatan kami, yang bersangkutan berkelakuan baik dan belum pernah berurusan dengan pihak kepolisian karena suatu perkara.</p>
             <p>Surat keterangan ini dipergunakan untuk pembuatan SKCK.</p>
             <p>Demikian surat keterangan ini dibuat untuk dipergunakan sebagaimana mestinya.</p>
+        </div>
+
+        <div class='qr-code'>
+            <img src="Surat/SKD/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
         </div>
 
         <div class="signature">

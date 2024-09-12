@@ -139,6 +139,17 @@
         .info-table td:first-child {
             width: 150px;
         }
+
+        .qr-code {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        .qr-code img {
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -194,9 +205,13 @@
                     <td>: {{ $address }}</td>
                 </tr>
             </table>
-            <p>Berdasarkan keterangan yang bersangkutan di atas sampai saat ini, belum pernah  menikah .
+            <p>Berdasarkan keterangan yang bersangkutan di atas sampai saat ini, belum pernah menikah .
                 Demikian surat keterangan ini di buat dengan sebenarnya dan dipergunakan sebagaimana 
                 mestinya.</p>
+        </div>
+
+        <div class='qr-code'>
+            <img src="storage/Surat/SKBM/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
         </div>
 
         <table class="signature-box">

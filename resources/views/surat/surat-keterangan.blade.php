@@ -112,6 +112,17 @@
         .info-table td:first-child {
             width: 150px;
         }
+
+        .qr-code {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        .qr-code img {
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -152,7 +163,7 @@
                 </tr>
                 <tr>
                     <td>Tempat Tanggal Lahir</td>
-                    <td>: {{ $dataArray['tempat_lahir'] . ' ' . $dataArray['tanggal_lahir']   }}</td>
+                    <td>: {{ $dataArray['tempat_lahir'] . ' ' . date('Y-m-d',strtotime($dataArray['tanggal_lahir']))}}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
@@ -169,8 +180,12 @@
                 sebagaimana mestinya.</p>
         </div>
 
+        <div class='qr-code'>
+            <img src="storage/Surat/SK/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
+        </div>
+
         <div class="signature">
-            <p>Bandar Lampung, {{ $date }}</p>
+            <p>Bandar Lampung, {{ now()->format('Y-m-d') }}</p>
             <p>MENGETAHUI</p>
             <p>LURAH SUMBERREJO</p>
             <br><br><br>
