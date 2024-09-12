@@ -2,20 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SuratKeluarBelumMenikah;
 use App\Models\SuratKeluarBersihDiri;
 use App\Models\SuratKeluarDomisili;
 use App\Models\SuratKeluarDomisiliUsaha;
 use App\Models\SuratKeluarKematian;
 use App\Models\SuratKeluarKeterangan;
+use App\Models\SuratKeluarPenghasilan;
 use App\Models\SuratKeluarSudahMenikah;
 use App\Models\SuratKeluarTidakMampu;
+use App\Models\SuratKeluarUsaha;
 use App\Models\SuratKeterangan;
+use App\Models\SuratKeteranganBelumMenikah;
 use App\Models\SuratKeteranganBersihDiri;
 use App\Models\SuratKeteranganDomisili;
 use App\Models\SuratKeteranganDomisiliUsaha;
 use App\Models\SuratKeteranganKematian;
+use App\Models\SuratKeteranganPenghasilan;
 use App\Models\SuratKeteranganSudahMenikah;
 use App\Models\SuratKeteranganTidakMampu;
+use App\Models\SuratKeteranganUsaha;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -379,8 +385,157 @@ class SuratKeluarController extends Controller
                 return redirect()->route('manajemen-surat.index');
             }
         }
-    }
 
+        if ($jenis == 'SKU') {
+            $datas = SuratKeteranganUsaha::find($id);
+
+            $validateData = $request->validate([
+                'jenis_dokumen' => 'required',
+                'nomor_surat' => 'required',
+                'nama_pemohon' => 'required',
+                'nik' => 'required',
+                'pembuat_pemohonan' => 'required',
+                'tanggal_diterima' => 'required',
+                'file' => 'required'
+            ]);
+
+            SuratKeluarUsaha::create([
+                'surat_keterangan_usaha_id' => $id,
+                'jenis_dokumen' => $validateData['jenis_dokumen'],
+                'nomor_surat' => $validateData['nomor_surat'],
+                'nama_pemohon' => $validateData['nama_pemohon'],
+                'nik' => $validateData['nik'],
+                'pembuat_pemohonan' => $validateData['pembuat_pemohonan'],
+                'tanggal_diterima' => $validateData['tanggal_diterima'],
+                'file' => $validateData['file'],
+            ]);
+
+            $qr = QrCode::size(200)
+                ->format('png')
+                ->generate("https://63b2-2404-8000-100b-d702-e5da-46cb-594b-ebe3.ngrok-free.app/layanan-verifikasi-sukses?jenis_surat=SKU&id_surat={$id}");
+
+            $filename = $id . '.png';
+
+            $save = Storage::disk('public')->put('Surat/SKU/qr/' . $filename, $qr);
+            if ($save) {
+                if (Storage::disk('public')->exists('Surat/SKU/pdf/' . $id . '.pdf')) {
+                    Storage::disk('public')->delete('Surat/SKU/pdf/' . $id . '.pdf');
+                }
+                $dataArray = $datas->toArray();
+                $directoryPath = public_path('storage/Surat/SKU/pdf/');
+
+                if (!File::exists($directoryPath)) {
+                    File::makeDirectory($directoryPath, 0755, true);
+                }
+
+                $pdf = Pdf::loadView('surat.surat-keterangan-usaha', ['dataArray' => $dataArray]);
+
+                $pdf->save($directoryPath . $datas->id . '.pdf');
+
+                return redirect()->route('manajemen-surat.index');
+            }
+        }
+
+        if ($jenis == 'SKPOT') {
+            $datas = SuratKeteranganPenghasilan::find($id);
+
+            $validateData = $request->validate([
+                'jenis_dokumen' => 'required',
+                'nomor_surat' => 'required',
+                'nama_pemohon' => 'required',
+                'nik' => 'required',
+                'pembuat_pemohonan' => 'required',
+                'tanggal_diterima' => 'required',
+                'file' => 'required'
+            ]);
+
+            SuratKeluarPenghasilan::create([
+                'surat_keterangan_penghasilan_id' => $id,
+                'jenis_dokumen' => $validateData['jenis_dokumen'],
+                'nomor_surat' => $validateData['nomor_surat'],
+                'nama_pemohon' => $validateData['nama_pemohon'],
+                'nik' => $validateData['nik'],
+                'pembuat_pemohonan' => $validateData['pembuat_pemohonan'],
+                'tanggal_diterima' => $validateData['tanggal_diterima'],
+                'file' => $validateData['file'],
+            ]);
+
+            $qr = QrCode::size(200)
+                ->format('png')
+                ->generate("https://63b2-2404-8000-100b-d702-e5da-46cb-594b-ebe3.ngrok-free.app/layanan-verifikasi-sukses?jenis_surat=SKPOT&id_surat={$id}");
+
+            $filename = $id . '.png';
+
+            $save = Storage::disk('public')->put('Surat/SKPOT/qr/' . $filename, $qr);
+            if ($save) {
+                if (Storage::disk('public')->exists('Surat/SKPOT/pdf/' . $id . '.pdf')) {
+                    Storage::disk('public')->delete('Surat/SKPOT/pdf/' . $id . '.pdf');
+                }
+                $dataArray = $datas->toArray();
+                $directoryPath = public_path('storage/Surat/SKPOT/pdf/');
+
+                if (!File::exists($directoryPath)) {
+                    File::makeDirectory($directoryPath, 0755, true);
+                }
+
+                $pdf = Pdf::loadView('surat.surat-keterangan-penghasilan', ['dataArray' => $dataArray]);
+
+                $pdf->save($directoryPath . $datas->id . '.pdf');
+
+                return redirect()->route('manajemen-surat.index');
+            }
+        }
+
+        if ($jenis == 'SKBM') {
+            $datas = SuratKeteranganBelumMenikah::find($id);
+
+            $validateData = $request->validate([
+                'jenis_dokumen' => 'required',
+                'nomor_surat' => 'required',
+                'nama_pemohon' => 'required',
+                'nik' => 'required',
+                'pembuat_pemohonan' => 'required',
+                'tanggal_diterima' => 'required',
+                'file' => 'required'
+            ]);
+
+            SuratKeluarBelumMenikah::create([
+                'surat_keterangan_belum_menikah_id' => $id,
+                'jenis_dokumen' => $validateData['jenis_dokumen'],
+                'nomor_surat' => $validateData['nomor_surat'],
+                'nama_pemohon' => $validateData['nama_pemohon'],
+                'nik' => $validateData['nik'],
+                'pembuat_pemohonan' => $validateData['pembuat_pemohonan'],
+                'tanggal_diterima' => $validateData['tanggal_diterima'],
+                'file' => $validateData['file'],
+            ]);
+
+            $qr = QrCode::size(200)
+                ->format('png')
+                ->generate("https://63b2-2404-8000-100b-d702-e5da-46cb-594b-ebe3.ngrok-free.app/layanan-verifikasi-sukses?jenis_surat=SKBM&id_surat={$id}");
+
+            $filename = $id . '.png';
+
+            $save = Storage::disk('public')->put('Surat/SKBM/qr/' . $filename, $qr);
+            if ($save) {
+                if (Storage::disk('public')->exists('Surat/SKBM/pdf/' . $id . '.pdf')) {
+                    Storage::disk('public')->delete('Surat/SKBM/pdf/' . $id . '.pdf');
+                }
+                $dataArray = $datas->toArray();
+                $directoryPath = public_path('storage/Surat/SKBM/pdf/');
+
+                if (!File::exists($directoryPath)) {
+                    File::makeDirectory($directoryPath, 0755, true);
+                }
+
+                $pdf = Pdf::loadView('surat.surat-keterangan-belum-menikah', ['dataArray' => $dataArray]);
+
+                $pdf->save($directoryPath . $datas->id . '.pdf');
+
+                return redirect()->route('manajemen-surat.index');
+            }
+        }
+    }
 
     public function store(Request $request)
     {

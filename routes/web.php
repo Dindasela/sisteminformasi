@@ -187,11 +187,28 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::post('/tolak-skbd/{id}', [SuratController::class, 'rejectSKBD'])->name('reject.skbd');
     // End Surat Keterangan Bersih Diri
 
-    Route::get('/surat-keterangan-usaha', 'suratketeranganusaha');
+    // Start Surat Keterangan Usaha
+    Route::get('/surat-keterangan-usaha/{id}', [SuratController::class, 'showSKU'])->name('surat-keterangan-usaha.show');
+    Route::post('/verif-sku/{id}', [SuratController::class, 'verifSKU'])->name('verif.sku');
+    Route::post('/tolak-sku/{id}', [SuratController::class, 'rejectSKU'])->name('reject.sku');
+    // End Surat Keterangan Usaha
+
+    // Start Surat Keterangan Belum Menikah
     Route::get('/surat-keterangan-belum-menikah/{id}', [SuratController::class, 'showSKBM'])->name('surat-keterangan-belum-menikah.show');
+    Route::post('/verif-skbm/{id}', [SuratController::class, 'verifSKBM'])->name('verif.skbm');
+    Route::post('/tolak-skbm/{id}', [SuratController::class, 'rejectSKBM'])->name('reject.skbm');
+    // End Surat Keterangan Belum Menikah
+
     Route::get('/surat-keterangan-kelahiran/{id}', [SuratController::class, 'showSKKL'])->name('surat-keterangan-kelahiran.show');
     Route::get('/surat-keterangan-pengantar-skck', 'suratketeranganpengantarskck');
-    Route::get('/surat-keterangan-penghasilan', 'suratketeranganpenghasilan');
+
+    // Start Surat Keterangan Penghasilan
+    Route::get('/surat-keterangan-penghasilan/{id}', [SuratController::class, 'showSKPOT'])->name('surat-keterangan-penghasilan.show');
+    Route::post('/verif-skpot/{id}', [SuratController::class, 'verifSKPOT'])->name('verif.skpot');
+    Route::post('/tolak-skpot/{id}', [SuratController::class, 'rejectSKPOT'])->name('reject.skpot');
+    // End Surat Keterangan Penghasilan
+
+
     Route::get('/surat-keterangan-pindah', 'suratketeranganpindah');
     // Akhir Pengajuan Surat
     // Akhir Admin

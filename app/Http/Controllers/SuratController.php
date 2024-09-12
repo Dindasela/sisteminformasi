@@ -101,6 +101,90 @@ class SuratController extends Controller
         return view('pages.admin.manajemen-surat.pengajuan-surat.surat-keterangan-tidak-mampu', compact('datas'));
     }
 
+    public function showSKU($id)
+    {
+        $datas = SuratKeteranganUsaha::find($id);
+        return view('pages.admin.manajemen-surat.pengajuan-surat.surat-keterangan-usaha', compact('datas'));
+    }
+
+    public function showSKPOT($id)
+    {
+        $datas = SuratKeteranganPenghasilan::find($id);
+        return view('pages.admin.manajemen-surat.pengajuan-surat.surat-keterangan-penghasilan', compact('datas'));
+    }
+
+    public function verifSKPOT($id)
+    {
+        $datas = SuratKeteranganPenghasilan::find($id);
+        $datas->status = 'Diterima';
+        $datas->save();
+
+        $dataArray = $datas->toArray();
+        $directoryPath = public_path('storage/Surat/SKPOT/pdf/');
+
+        if (!File::exists($directoryPath)) {
+            File::makeDirectory($directoryPath, 0755, true);
+        }
+
+        $pdf = Pdf::loadView('surat.surat-keterangan-penghasilan', ['dataArray' => $dataArray]);
+
+        $pdf->save($directoryPath . $datas->id . '.pdf');
+
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKPOT', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Penghasilan Berhasil');
+    }
+
+    public function rejectSKPOT(Request $request, $id)
+    {
+        $validateData = $request->validate([
+            'alasan_ditolak' => 'required'
+        ]);
+
+        $datas = SuratKeteranganPenghasilan::find($id);
+        $datas->status = 'Ditolak';
+        $datas->alasan_ditolak = $validateData['alasan_ditolak'];
+        $datas->save();
+
+        return redirect()->route('manajemen-surat.index')
+            ->with('success', 'Verifikasi Surat Keterangan Penghasilan Berhasil');
+    }
+
+    public function verifSKU($id)
+    {
+        $datas = SuratKeteranganUsaha::find($id);
+        $datas->status = 'Diterima';
+        $datas->save();
+
+        $dataArray = $datas->toArray();
+        $directoryPath = public_path('storage/Surat/SKU/pdf/');
+
+        if (!File::exists($directoryPath)) {
+            File::makeDirectory($directoryPath, 0755, true);
+        }
+
+        $pdf = Pdf::loadView('surat.surat-keterangan-usaha', ['dataArray' => $dataArray]);
+
+        $pdf->save($directoryPath . $datas->id . '.pdf');
+
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKU', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Usaha Berhasil');
+    }
+
+    public function rejectSKU(Request $request, $id)
+    {
+        $validateData = $request->validate([
+            'alasan_ditolak' => 'required'
+        ]);
+
+        $datas = SuratKeteranganUsaha::find($id);
+        $datas->status = 'Ditolak';
+        $datas->alasan_ditolak = $validateData['alasan_ditolak'];
+        $datas->save();
+
+        return redirect()->route('manajemen-surat.index')
+            ->with('success', 'Verifikasi Surat Keterangan Usaha Berhasil');
+    }
+
     public function verifSKTM($id)
     {
         $datas = SuratKeteranganTidakMampu::find($id);
@@ -252,7 +336,7 @@ class SuratController extends Controller
         $datas->save();
 
         $dataArray = $datas->toArray();
-        $directoryPath = public_path('Surat/SKBM/pdf/');
+        $directoryPath = public_path('storage/Surat/SKBM/pdf/');
 
         if (!File::exists($directoryPath)) {
             File::makeDirectory($directoryPath, 0755, true);
@@ -260,9 +344,24 @@ class SuratController extends Controller
 
         $pdf = Pdf::loadView('surat.surat-keterangan-belum-menikah', ['dataArray' => $dataArray]);
 
-        $pdf->save($directoryPath . $datas->user->id . '-' . $datas->id . '.pdf');
+        $pdf->save($directoryPath . $datas->id . '.pdf');
 
         return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKBM', 'id' => $datas->id])
+            ->with('success', 'Verifikasi Surat Keterangan Belum Menikah Berhasil');
+    }
+
+    public function rejectSKBM(Request $request, $id)
+    {
+        $validateData = $request->validate([
+            'alasan_ditolak' => 'required'
+        ]);
+
+        $datas = SuratKeteranganBelumMenikah::find($id);
+        $datas->status = 'Ditolak';
+        $datas->alasan_ditolak = $validateData['alasan_ditolak'];
+        $datas->save();
+
+        return redirect()->route('manajemen-surat.index')
             ->with('success', 'Verifikasi Surat Keterangan Belum Menikah Berhasil');
     }
 
@@ -287,7 +386,7 @@ class SuratController extends Controller
             ->with('success', 'Verifikasi Surat Keterangan Bersih Diri Berhasil');
     }
 
-    public function rejectSKBD(Request $request,$id)
+    public function rejectSKBD(Request $request, $id)
     {
         $validateData = $request->validate([
             'alasan_ditolak' => 'required'
@@ -960,9 +1059,9 @@ class SuratController extends Controller
             'surat_pengantar_rt' => 'required',
         ]);
 
-        $ktp = $request->ktp->store('Surat/SKP');
-        $kk = $request->kk->store('Surat/SKP');
-        $pengantar = $request->surat_pengantar_rt->store('Surat/SKP');
+        $ktp = $request->ktp->store('Surat/SKPOT');
+        $kk = $request->kk->store('Surat/SKPOT');
+        $pengantar = $request->surat_pengantar_rt->store('Surat/SKPOT');
 
         SuratKeteranganPenghasilan::create([
             'user_id' => auth()->user()->id,

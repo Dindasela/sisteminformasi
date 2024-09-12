@@ -182,27 +182,27 @@
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>: {{ $name }}</td>
+                    <td>: {{ $dataArray['nama'] }}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>: {{ $gender }}</td>
+                    <td>: {{ $dataArray['jenis_kelamin'] }}</td>
                 </tr>
                 <tr>
                     <td>Tempat Tanggal Lahir</td>
-                    <td>: {{ $birthdate }}</td>
+                    <td>: {{ $dataArray['tempat_lahir'] . ', ' . date('d-m-Y', strtotime($dataArray['tanggal_lahir'])) }}</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>: {{ $job }}</td>
+                    <td>: {{ $dataArray['agama'] }}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>: {{ $job }}</td>
+                    <td>: {{ $dataArray['pekerjaan'] }}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>: {{ $address }}</td>
+                    <td>: {{ $dataArray['alamat'] }}</td>
                 </tr>
             </table>
             <p>Berdasarkan keterangan yang bersangkutan di atas sampai saat ini, belum pernah menikah .
@@ -218,7 +218,7 @@
             <tr>
                 <td style="width: 50%;"></td> <!-- Empty left box -->
                 <td class="signature-right">
-                    <p class="date">Bandar Lampung, {{ $date }}</p>
+                    <p class="date">Bandar Lampung, {{ now()->format('d-m-Y') }}</p>
                     <p class="position">MENGETAHUI</p>
                     <p class="position">LURAH SUMBERREJO</p>
                     <br><br><br>

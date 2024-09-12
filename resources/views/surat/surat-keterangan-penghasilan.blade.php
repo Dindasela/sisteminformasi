@@ -147,69 +147,69 @@
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['nama_lengkap_orang_tua']}}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['jenis_kelamin_orang_tua']}}</td>
                 </tr>
                 <tr>
                     <td>Tempat dan Tgl Lahir</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['tempat_lahir_orang_tua'] . ', ' . date('d-m-Y', strtotime($dataArray['tanggal_lahir_orang_tua']))}}</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['agama_orang_tua']}}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['pekerjaan_orang_tua']}}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['alamat_orang_tua']}}</td>
                 </tr>
                 <tr>
                     <td>Penghasilan Orang Tua</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['penghasilan_orang_tua']}}</td>
                 </tr>
             </table>
             <p>Adalah benar orang tua kandung dari Mahasiswi yaitu:</p>
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['nama']}}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['jenis_kelamin']}}</td>
                 </tr>
                 <tr>
                     <td>Tempat Tanggal Lahir</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['tempat_lahir'] . ', ' . date('d-m-Y', strtotime($dataArray['tanggal_lahir']))}}</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['agama']}}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['pekerjaan']}}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['alamat']}}</td>
                 </tr>
             </table>
             <p>Demikian surat pernyataan ini saya buat dengan sebenar nya untuk dapat dipergunakan dengan seperlunya.</p>
         </div>
 
         <div class='qr-code'>
-            <img src="Surat/SKD/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
+            <img src="storage/Surat/SKPOT/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
         </div>
 
         <div class="signature">
-            <p>BANDAR LAMPUNG, 20</p>
+            <p>BANDAR LAMPUNG, {{now()->format('d-m-Y')}}</p>
             <p>MENGETAHUI,</p>
             <p>LURAH SUMBEREJO</p>
         </div>
