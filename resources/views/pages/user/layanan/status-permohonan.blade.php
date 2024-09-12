@@ -62,17 +62,28 @@
                                         <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">SELESAI</span>
                                         @elseif($data['status'] == 'Perlu Tindakan')
                                         <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">DIPROSES</span>
-                                        @else
+                                        @elseif($data['status'] == 'DITOLAK')
                                         <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">DITOLAK</span>
                                         @endif
                                     </td>
                                     <td class="px-6 py-4 flex gap-2">
+                                        @if($data['status'] == 'DITOLAK')
+                                        <a href="/layanan-status-permohonan" class="font-medium text-blue-600 hover:underline">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.66602 9.99996C1.66602 9.99996 4.16602 4.16663 9.99935 4.16663C15.8327 4.16663 18.3327 9.99996 18.3327 9.99996C18.3327 9.99996 15.8327 15.8333 9.99935 15.8333C4.16602 15.8333 1.66602 9.99996 1.66602 9.99996Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                        @endif
+                                        @if($data['status'] == 'SELESAI')
                                         <a href="#" class="font-medium text-blue-600 hover:underline">
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M1.66602 9.99996C1.66602 9.99996 4.16602 4.16663 9.99935 4.16663C15.8327 4.16663 18.3327 9.99996 18.3327 9.99996C18.3327 9.99996 15.8327 15.8333 9.99935 15.8333C4.16602 15.8333 1.66602 9.99996 1.66602 9.99996Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                                 <path d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </a>
+                                        @endif
+                                        @if($data['status'] == 'SELESAI' || $data['status'] == 'DITOLAK')
                                         <button>
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g clip-path="url(#clip0_6_1521)">
@@ -87,6 +98,7 @@
                                                 </defs>
                                             </svg>
                                         </button>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach
