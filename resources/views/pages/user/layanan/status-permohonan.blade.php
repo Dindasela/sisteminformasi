@@ -25,18 +25,18 @@
     {{-- Awal Navbar --}}
     <div>
         <x-nav-user />
-        <section id="cover" class="relative bg-center bg-no-repeat bg-cover bg-white bg-blend-multiply min-h-screen flex items-center justify-center">
-            <form class="relative w-full m-5 lg:m-10 p-6 z-10 text-black">
+        <section id="cover" class="m-5 md:m-10 lg:m-20 pt-20 lg:pt-10">
+            <form class="relative w-full">
                 <div class="font-bold text-2xl lg:text-4xl mb-5 lg:mt-0 text-[#2B2A4C] underline underline-offset-4">
                     Status Permohonan
                 </div>
                 <div class="max-w-full mb-5 lg:mb-10">
                     Silahkan cek status permohonan dokumen anda dibawah ini.
                 </div>
-                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <div class="relative overflow-x-auto sm:rounded-lg">
                     <table class="w-full text-sm text-left text-gray-500">
                         <table class="min-w-full">
-                            <thead class="text-xs text-white uppercase bg-[#2B2A4C]">
+                            <thead class="text-xs text-white uppercase bg-[#2B2A4C] text-center">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">No</th>
                                     <th scope="col" class="px-6 py-3">No Permohonan</th>
@@ -49,7 +49,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($paginatedData as $data)
-                                <tr class="bg-[#DDDBDB] border-b text-black">
+                                <tr class="bg-[#DDDBDB] border-b text-black text-center">
                                     <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">{{ $loop->iteration }}
                                     </th>
                                     <td class="px-6 py-4">{{ $data->id }}</td>
@@ -103,6 +103,7 @@
                 </div>
             </form>
         </section>
+
         <x-footer-user />
     </div>
     {{-- Akhir Navbar --}}
