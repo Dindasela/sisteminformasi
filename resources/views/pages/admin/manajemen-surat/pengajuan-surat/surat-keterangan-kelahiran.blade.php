@@ -27,7 +27,6 @@
     <div class="pb-20 pl-4 pr-4 sm:ml-64">
         <h1 class="text-3xl font-bold pb-2">Pengajuan Dokumen</h1>
         <h2 class="text-normal font-light pb-4">Surat Keterangan Kelahiran</h2>
-        <form action="" method="">
             <div class="flex mx-auto w-[70%] grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-16">
                 <div class="spaye-y-4">
                     {{-- Data 1 --}}
@@ -105,14 +104,60 @@
                             <img class="mx-auto h-full object-cover" src="{{ asset('storage/' . $datas->surat_pengantar_rt) }}" />
                         </div>
                     </div>
-                    <div class="flex justify-between mt-6 mx-auto w-[100%] pb-4">
-                        <x-pop-up-tolak />
-                        <button class="bg-[#D72323] text-white px-6 py-1 rounded-md hover:bg-red-700">Terima</button>
-                    </div>
+                    @if ($datas->status != 'Ditolak')
+                        <div class="flex justify-between mt-6 mx-auto w-[100%] pb-4">
+                            <x-pop-up-tolak />
+                            <form action="{{ route('verif.skkl', $datas->id) }}" method="POST">
+                                @csrf
+                                <button type="submit"
+                                    class="bg-[#D72323] text-white px-6 py-1 rounded-md hover:bg-red-700">
+                                    Terima
+                                </button>
+                            </form>
+                        </div>
+                    @endif
+                    @if ($datas->status == 'Ditolak')
+                        <div class="flex justify-between mt-6 mx-auto w-[100%] pb-4">
+                            <label for="nama" class="block text-sm font-normal text-gray-700">Alasan
+                                Ditolak</label>
+                            <input type="text" disabled id="alamat" name=""
+                                class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                placeholder="" value="{{ $datas->alasan_ditolak }}">
+                        </div>
+                    @endif
                 </div>
             </div>
-        </form>
         <x-footer-admin />
 </body>
+
+<script>
+    document.getElementById('submit-reject').addEventListener('click', function() {
+        // Ambil nilai dari textarea
+        let alasan = document.getElementById('isiAlasan').value;
+
+        // Buat form
+        let form = document.createElement('form');
+        form.method = 'POST';
+        form.action ='{{ route('reject.skkl', $datas->id) }}'; // Pastikan route ini sudah ada di routes/web.php
+
+        // Tambahkan CSRF token ke dalam form
+        let csrfToken = document.createElement('input');
+        csrfToken.type = 'hidden';
+        csrfToken.name = '_token';
+        csrfToken.value = '{{ csrf_token() }}'; // Laravel CSRF Token
+        form.appendChild(csrfToken);
+
+        // Tambahkan input untuk alasan
+        let alasanInput = document.createElement('input');
+        alasanInput.type = 'hidden';
+        alasanInput.name = 'alasan_ditolak';
+        alasanInput.value = alasan;
+        form.appendChild(alasanInput);
+
+        // Tambahkan form ke body dan submit
+        document.body.appendChild(form);
+        form.submit();
+    });
+</script>
 
 </html>

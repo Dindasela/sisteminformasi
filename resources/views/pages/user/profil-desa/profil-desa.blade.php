@@ -23,96 +23,21 @@
     <div>
         <x-nav-user />
         <section id="cover"
-            class="relative bg-center bg-no-repeat bg-cover bg-[url('./image/hero.svg')] bg-blend-multiply min-h-screen flex items-center justify-center lg:pb-16">
+            class="relative bg-center bg-no-repeat bg-cover bg-white bg-blend-multiply min-h-screen flex items-center justify-center lg:pb-16">
             <div class="absolute inset-0 bg-white opacity-40"></div>
-            <div class="relative w-full p-20 rounded-lg shadow-lg z-10 text-black lg:mt-10">
+            <div class="relative w-full p-5 lg:p-20 rounded-lg z-10 text-black lg:mt-10">
                 <div class="font-bold text-4xl mb-5 lg:mb-10">
-                    PROFIL
+                    Struktur Organisasi Tata Kerja Pemerintahan
                 </div>
-                <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4">
-                    <div class="m-auto text-center flex items-center justify-center">
-                        <div class="flex flex-col items-center justify-center">
-                            <div>
-                                <img class="h-auto max-w-full rounded-lg"
-                                    src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
-                                <div class="text-center text-black lg:w-1/2 m-auto mt-2 lg:mt-5">
-                                    <div class="text-md font-bold">Nama</div>
-                                    <div class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="m-auto text-center flex items-center justify-center">
-                        <div class="flex flex-col items-center justify-center">
-                            <div>
-                                <img class="h-auto max-w-full rounded-lg"
-                                    src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
-                                <div class="text-center text-black lg:w-1/2 m-auto mt-2 lg:mt-5">
-                                    <div class="text-md font-bold">Nama</div>
-                                    <div class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="m-auto text-center flex items-center justify-center">
-                        <div class="flex flex-col items-center justify-center">
-                            <div>
-                                <img class="h-auto max-w-full rounded-lg"
-                                    src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
-                                <div class="text-center text-black lg:w-1/2 m-auto mt-2 lg:mt-5">
-                                    <div class="text-md font-bold">Nama</div>
-                                    <div class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="m-auto text-center flex items-center justify-center">
-                        <div class="flex flex-col items-center justify-center">
-                            <div>
-                                <img class="h-auto max-w-full rounded-lg"
-                                    src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
-                                <div class="text-center text-black lg:w-1/2 m-auto mt-2 lg:mt-5">
-                                    <div class="text-md font-bold">Nama</div>
-                                    <div class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="m-auto text-center flex items-center justify-center">
-                        <div class="flex flex-col items-center justify-center">
-                            <div>
-                                <img class="h-auto max-w-full rounded-lg"
-                                    src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
-                                <div class="text-center text-black lg:w-1/2 m-auto mt-2 lg:mt-5">
-                                    <div class="text-md font-bold">Nama</div>
-                                    <div class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="m-auto text-center flex items-center justify-center">
-                        <div class="flex flex-col items-center justify-center">
-                            <div>
-                                <img class="h-auto max-w-full rounded-lg"
-                                    src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
-                                <div class="text-center text-black lg:w-1/2 m-auto mt-2 lg:mt-5">
-                                    <div class="text-md font-bold">Nama</div>
-                                    <div class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <a href="./image/struktur.png" download="struktur_organisasi.png">
+                    <img class="w-full rounded-lg" src="./image/struktur.png" alt="Struktur">
+                </a>
             </div>
         </section>
         <x-footer-user />
     </div>
 </body>
+
+
 
 </html>

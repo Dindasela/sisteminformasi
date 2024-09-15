@@ -25,21 +25,12 @@
         <section id="cover"
             class="relative bg-center bg-no-repeat bg-cover bg-white bg-blend-multiply min-h-screen flex items-center justify-center lg:pb-16">
             <div class="absolute inset-0 bg-white opacity-40"></div>
-            <div class="relative w-full p-5 lg:p-20 rounded-lg z-10 text-black lg:mt-10">
+            <div class="relative w-full p-5 mt-20 mb-20 lg:mb-0 lg:p-20 rounded-lg z-10 text-black lg:mt-10">
                 <div class="font-bold text-4xl mb-5 lg:mb-10">
                     SEJARAH
                 </div>
                 <div class="text-justify text-black text-sm">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Diam donec adipiscing tristique risus nec feugiat in. Pellentesque massa
-                    placerat duis ultricies. Sed blandit libero volutpat sed cras ornare arcu dui. Nunc sed id semper
-                    risus in. Phasellus egestas tellus rutrum tellus pellentesque eu. Quisque id diam vel quam elementum
-                    pulvinar etiam non quam. Donec ultrices tincidunt arcu non sodales. Vel pharetra vel turpis nunc
-                    eget lorem dolor sed viverra. Ornare arcu odio ut sem nulla. Tellus rutrum tellus pellentesque eu
-                    tincidunt tortor. Dictum sit amet justo donec enim diam vulputate. Erat nam at lectus urna duis
-                    convallis convallis tellus. Non blandit massa enim nec dui nunc mattis enim ut. Congue nisi vitae
-                    suscipit tellus mauris a diam maecenas. Ultrices eros in cursus turpis. Commodo elit at imperdiet
-                    dui accumsan sit amet. Tincidunt dui ut ornare lectus sit amet est placerat in.
+                    Kelurahan Sumberrejo, yang terletak di Kecamatan Kemiling, Kota Bandar Lampung, Provinsi Lampung, memiliki sejarah dan perkembangan yang mencerminkan pertumbuhan kota tersebut. Nama "Sumberrejo" berasal dari bahasa Jawa, yang menggabungkan kata "sumber," yang berarti mata air, dengan "rejo," yang berarti makmur atau subur, mencerminkan aspirasi masyarakat dan kondisi geografisnya. Seiring berjalannya waktu, kelurahan ini telah mengalami berbagai perubahan seiring dengan perkembangan Bandar Lampung. Sebelum menjadi bagian dari Kota Bandar Lampung, wilayah ini merupakan bagian dari administrasi yang lebih besar dan mengalami berbagai tahap perkembangan. Pemerintah kelurahan berperan penting dalam pelayanan publik, administrasi kependudukan, dan pembangunan lokal. Masyarakat Sumberrejo terlibat dalam berbagai aktivitas ekonomi, dari pertanian hingga usaha kecil, dengan perkembangan infrastruktur yang meningkatkan kualitas hidup. Selain itu, kelurahan ini kaya akan budaya dan tradisi lokal, yang berperan penting dalam kehidupan komunitas sehari-hari. Untuk informasi lebih mendetail, menghubungi kantor kelurahan setempat atau melihat arsip sejarah lokal bisa memberikan gambaran yang lebih lengkap tentang sejarah dan perkembangan Kelurahan Sumberrejo.
                 </div>
                 <div class="mt-10">
                     <img src="./image/tentang-kelurahan.svg" class="w-96 flex m-auto justify-center items-center"

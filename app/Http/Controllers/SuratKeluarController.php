@@ -6,9 +6,12 @@ use App\Models\SuratKeluarBelumMenikah;
 use App\Models\SuratKeluarBersihDiri;
 use App\Models\SuratKeluarDomisili;
 use App\Models\SuratKeluarDomisiliUsaha;
+use App\Models\SuratKeluarKelahiran;
 use App\Models\SuratKeluarKematian;
 use App\Models\SuratKeluarKeterangan;
 use App\Models\SuratKeluarPenghasilan;
+use App\Models\SuratKeluarPindah;
+use App\Models\SuratKeluarSKCK;
 use App\Models\SuratKeluarSudahMenikah;
 use App\Models\SuratKeluarTidakMampu;
 use App\Models\SuratKeluarUsaha;
@@ -17,11 +20,14 @@ use App\Models\SuratKeteranganBelumMenikah;
 use App\Models\SuratKeteranganBersihDiri;
 use App\Models\SuratKeteranganDomisili;
 use App\Models\SuratKeteranganDomisiliUsaha;
+use App\Models\SuratKeteranganKelahiran;
 use App\Models\SuratKeteranganKematian;
 use App\Models\SuratKeteranganPenghasilan;
+use App\Models\SuratKeteranganPindah;
 use App\Models\SuratKeteranganSudahMenikah;
 use App\Models\SuratKeteranganTidakMampu;
 use App\Models\SuratKeteranganUsaha;
+use App\Models\SuratPengantarSKCK;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -529,6 +535,156 @@ class SuratKeluarController extends Controller
                 }
 
                 $pdf = Pdf::loadView('surat.surat-keterangan-belum-menikah', ['dataArray' => $dataArray]);
+
+                $pdf->save($directoryPath . $datas->id . '.pdf');
+
+                return redirect()->route('manajemen-surat.index');
+            }
+        }
+
+        if ($jenis == 'SKKL') {
+            $datas = SuratKeteranganKelahiran::find($id);
+
+            $validateData = $request->validate([
+                'jenis_dokumen' => 'required',
+                'nomor_surat' => 'required',
+                'nama_pemohon' => 'required',
+                'nik' => 'required',
+                'pembuat_pemohonan' => 'required',
+                'tanggal_diterima' => 'required',
+                'file' => 'required'
+            ]);
+
+            SuratKeluarKelahiran::create([
+                'surat_keterangan_kelahiran_id' => $id,
+                'jenis_dokumen' => $validateData['jenis_dokumen'],
+                'nomor_surat' => $validateData['nomor_surat'],
+                'nama_pemohon' => $validateData['nama_pemohon'],
+                'nik' => $validateData['nik'],
+                'pembuat_pemohonan' => $validateData['pembuat_pemohonan'],
+                'tanggal_diterima' => $validateData['tanggal_diterima'],
+                'file' => $validateData['file'],
+            ]);
+
+            $qr = QrCode::size(200)
+                ->format('png')
+                ->generate("https://63b2-2404-8000-100b-d702-e5da-46cb-594b-ebe3.ngrok-free.app/layanan-verifikasi-sukses?jenis_surat=SKKL&id_surat={$id}");
+
+            $filename = $id . '.png';
+
+            $save = Storage::disk('public')->put('Surat/SKKL/qr/' . $filename, $qr);
+            if ($save) {
+                if (Storage::disk('public')->exists('Surat/SKKL/pdf/' . $id . '.pdf')) {
+                    Storage::disk('public')->delete('Surat/SKKL/pdf/' . $id . '.pdf');
+                }
+                $dataArray = $datas->toArray();
+                $directoryPath = public_path('storage/Surat/SKKL/pdf/');
+
+                if (!File::exists($directoryPath)) {
+                    File::makeDirectory($directoryPath, 0755, true);
+                }
+
+                $pdf = Pdf::loadView('surat.surat-keterangan-kelahiran', ['dataArray' => $dataArray]);
+
+                $pdf->save($directoryPath . $datas->id . '.pdf');
+
+                return redirect()->route('manajemen-surat.index');
+            }
+        }
+
+        if ($jenis == 'SKP') {
+            $datas = SuratKeteranganPindah::find($id);
+
+            $validateData = $request->validate([
+                'jenis_dokumen' => 'required',
+                'nomor_surat' => 'required',
+                'nama_pemohon' => 'required',
+                'nik' => 'required',
+                'pembuat_pemohonan' => 'required',
+                'tanggal_diterima' => 'required',
+                'file' => 'required'
+            ]);
+
+            SuratKeluarPindah::create([
+                'surat_keterangan_pindah_id' => $id,
+                'jenis_dokumen' => $validateData['jenis_dokumen'],
+                'nomor_surat' => $validateData['nomor_surat'],
+                'nama_pemohon' => $validateData['nama_pemohon'],
+                'nik' => $validateData['nik'],
+                'pembuat_pemohonan' => $validateData['pembuat_pemohonan'],
+                'tanggal_diterima' => $validateData['tanggal_diterima'],
+                'file' => $validateData['file'],
+            ]);
+
+            $qr = QrCode::size(200)
+                ->format('png')
+                ->generate("https://63b2-2404-8000-100b-d702-e5da-46cb-594b-ebe3.ngrok-free.app/layanan-verifikasi-sukses?jenis_surat=SKP&id_surat={$id}");
+
+            $filename = $id . '.png';
+
+            $save = Storage::disk('public')->put('Surat/SKP/qr/' . $filename, $qr);
+            if ($save) {
+                if (Storage::disk('public')->exists('Surat/SKP/pdf/' . $id . '.pdf')) {
+                    Storage::disk('public')->delete('Surat/SKP/pdf/' . $id . '.pdf');
+                }
+                $dataArray = $datas->toArray();
+                $directoryPath = public_path('storage/Surat/SKP/pdf/');
+
+                if (!File::exists($directoryPath)) {
+                    File::makeDirectory($directoryPath, 0755, true);
+                }
+
+                $pdf = Pdf::loadView('surat.surat-keterangan-pindah', ['dataArray' => $dataArray]);
+
+                $pdf->save($directoryPath . $datas->id . '.pdf');
+
+                return redirect()->route('manajemen-surat.index');
+            }
+        }
+
+        if ($jenis == 'SKPSKCK') {
+            $datas = SuratPengantarSKCK::find($id);
+
+            $validateData = $request->validate([
+                'jenis_dokumen' => 'required',
+                'nomor_surat' => 'required',
+                'nama_pemohon' => 'required',
+                'nik' => 'required',
+                'pembuat_pemohonan' => 'required',
+                'tanggal_diterima' => 'required',
+                'file' => 'required'
+            ]);
+
+            SuratKeluarSKCK::create([
+                'surat_pengantar_skck_id' => $id,
+                'jenis_dokumen' => $validateData['jenis_dokumen'],
+                'nomor_surat' => $validateData['nomor_surat'],
+                'nama_pemohon' => $validateData['nama_pemohon'],
+                'nik' => $validateData['nik'],
+                'pembuat_pemohonan' => $validateData['pembuat_pemohonan'],
+                'tanggal_diterima' => $validateData['tanggal_diterima'],
+                'file' => $validateData['file'],
+            ]);
+
+            $qr = QrCode::size(200)
+                ->format('png')
+                ->generate("https://63b2-2404-8000-100b-d702-e5da-46cb-594b-ebe3.ngrok-free.app/layanan-verifikasi-sukses?jenis_surat=SKPSKCK&id_surat={$id}");
+
+            $filename = $id . '.png';
+
+            $save = Storage::disk('public')->put('Surat/SKPSKCK/qr/' . $filename, $qr);
+            if ($save) {
+                if (Storage::disk('public')->exists('Surat/SKPSKCK/pdf/' . $id . '.pdf')) {
+                    Storage::disk('public')->delete('Surat/SKPSKCK/pdf/' . $id . '.pdf');
+                }
+                $dataArray = $datas->toArray();
+                $directoryPath = public_path('storage/Surat/SKPSKCK/pdf/');
+
+                if (!File::exists($directoryPath)) {
+                    File::makeDirectory($directoryPath, 0755, true);
+                }
+
+                $pdf = Pdf::loadView('surat.surat-keterangan-skck', ['dataArray' => $dataArray]);
 
                 $pdf->save($directoryPath . $datas->id . '.pdf');
 

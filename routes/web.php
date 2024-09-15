@@ -199,7 +199,12 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::post('/tolak-skbm/{id}', [SuratController::class, 'rejectSKBM'])->name('reject.skbm');
     // End Surat Keterangan Belum Menikah
 
+    // Start Surat Keterangan Kelahiran
     Route::get('/surat-keterangan-kelahiran/{id}', [SuratController::class, 'showSKKL'])->name('surat-keterangan-kelahiran.show');
+    Route::post('/verif-skkl/{id}', [SuratController::class, 'verifSKKL'])->name('verif.skkl');
+    Route::post('/tolak-skkl/{id}', [SuratController::class, 'rejectSKKL'])->name('reject.skkl');
+    // End Surat Keterangan Kelahiran
+
     Route::get('/surat-keterangan-pengantar-skck', 'suratketeranganpengantarskck');
 
     // Start Surat Keterangan Penghasilan
@@ -208,8 +213,12 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::post('/tolak-skpot/{id}', [SuratController::class, 'rejectSKPOT'])->name('reject.skpot');
     // End Surat Keterangan Penghasilan
 
+    // Start Surat Keterangan Pindah
+    Route::get('/surat-keterangan-pindah/{id}', [SuratController::class, 'showSKP'])->name('surat-keterangan-pindah.show');
+    Route::post('/verif-skp/{id}', [SuratController::class, 'verifSKP'])->name('verif.skp');
+    Route::post('/tolak-skp/{id}', [SuratController::class, 'rejectSKP'])->name('reject.skp');
+    // End Surat Keterangan Pindah
 
-    Route::get('/surat-keterangan-pindah', 'suratketeranganpindah');
     // Akhir Pengajuan Surat
     // Akhir Admin
 

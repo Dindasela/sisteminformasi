@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="flex">
                                     <label for="file"
-                                        class="flex items-center block text-sm font-medium text-gray-700 w-52">File</label>
+                                        class="flex items-center block text-sm font-medium text-gray-700 w-52">Perlu TTD Lurah ?</label>
                                     <div class="mx-auto flex items-center space-x-4">
                                         <label
                                             class="py-1 flex items-center border border-gray-600 rounded-md rounded-md pl-2 w-[50%]">
@@ -104,14 +104,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mx-auto w-[50%]">
-                        <div class="pt-4 float-right text-center">
+                    <div class="mx-auto justify-center flex">
+                        {{-- <div class="pt-4 float-right text-center">
                             <button type="submit"
                                 class="bg-[#2B2A4C] text-white px-4 py-1 rounded-md hover:bg-[#414066]">Selesai</button>
-                        </div>
+                        </div> --}}
                         <div class="pt-4 ">
                             <button type="submit"
-                                class="bg-[#5B5B5B] text-white px-4 py-1 rounded-md hover:bg-[#414066]">Generate
+                                class="bg-[#5B5B5B] text-white px-4 py-2 rounded-md hover:bg-[#414066]">Selesai dan Generate
                                 QR</button>
                         </div>
                     </div>

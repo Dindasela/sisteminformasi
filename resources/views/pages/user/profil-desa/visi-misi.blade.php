@@ -25,7 +25,7 @@
         <section id="cover"
             class="relative bg-center bg-no-repeat bg-cover bg-white bg-blend-multiply min-h-screen flex items-center justify-center lg:pb-16">
             <div class="absolute inset-0 bg-white opacity-40"></div>
-            <div class="relative w-full p-20 rounded-lg z-10 text-black lg:mt-10">
+            <div class="relative w-full p-5 lg:p-20 rounded-lg z-10 text-black lg:mt-10">
                 <div class="font-bold text-4xl mb-5 lg:mb-10">
                     VISI MISI
                 </div>
@@ -33,23 +33,14 @@
                     <ul>
                         <li>- Visi</li>
                         <div>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.
+                            Menjadi kelurahan yang maju, mandiri, dan sejahtera dengan mengutamakan pelayanan publik yang prima dan pemberdayaan masyarakat.
                         </div>
                         <li class="mt-5 lg:mt-10">- Misi</li>
-                        <div>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Diam donec adipiscing tristique risus nec feugiat in.
-                            Pellentesque massa placerat duis ultricies. Sed blandit libero volutpat sed cras ornare arcu
-                            dui. Nunc sed id semper risus in. Phasellus egestas tellus rutrum tellus pellentesque eu.
-                            Quisque id diam vel quam elementum pulvinar etiam non quam. Donec ultrices tincidunt arcu
-                            non sodales. Vel pharetra vel turpis nunc eget lorem dolor sed viverra. Ornare arcu odio ut
-                            sem nulla. Tellus rutrum tellus pellentesque eu tincidunt tortor. Dictum sit amet justo
-                            donec enim diam vulputate. Erat nam at lectus urna duis convallis convallis tellus. Non
-                            blandit massa enim nec dui nunc mattis enim ut. Congue nisi vitae suscipit tellus mauris a
-                            diam maecenas. Ultrices eros in cursus turpis. Commodo elit at imperdiet dui accumsan sit
-                            amet. Tincidunt dui ut ornare lectus sit amet est placerat in.
+                        <div class="text-justify">
+                            1. Meningkatkan Kualitas Pelayanan Publik: Menyediakan layanan yang cepat, transparan, dan akuntabel kepada masyarakat untuk memenuhi kebutuhan administrasi dan pelayanan sosial.Pemberdayaan Masyarakat: Melaksanakan program-program yang mendukung pemberdayaan ekonomi, pendidikan, dan kesehatan masyarakat untuk meningkatkan kesejahteraan warga. <br>
+ 2. Pengelolaan Lingkungan yang Berkelanjutan: Mengoptimalkan pengelolaan lingkungan hidup melalui program kebersihan, penghijauan, dan pengelolaan sampah yang berbasis partisipasi masyarakat. <br>
+3. Peningkatan Kualitas Infrastruktur: Mengembangkan infrastruktur kelurahan yang memadai untuk mendukung aktivitas sosial dan ekonomi masyarakat. <br>
+4. Penguatan Partisipasi Masyarakat: Mendorong partisipasi aktif masyarakat dalam proses pembangunan melalui musyawarah dan gotong royong.
                         </div>
                     </ul>
                 </div>

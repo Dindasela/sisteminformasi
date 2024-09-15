@@ -26,12 +26,24 @@
                 <div class="w-full object-cover ">
                     <h1 class="text-xl font-light mb-4 text-center">Tampilan Dokumen</h1>
                     <img class="mx-auto h-full object-cover" src="image/preview.png" />
+                    <div class="mx-auto justify-center flex">
+                    </div>
                 </div>
             </div>
+
             <div class="flex items-center ">
                 <div class="w-full object-cover ">
                     <h1 class="text-xl font-light mb-4 text-center">QR Code</h1>
                     <img class="mx-auto h-full object-cover" src="image/preview.png" />
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-1">
+            <div class="flex justify-center">
+                <div class="">
+                    <button type="submit"
+                        class="bg-[#2B2A4C] text-white px-4 py-2 rounded-md hover:bg-[#414066]">Download
+                        PDF</button>
                 </div>
             </div>
         </div>
@@ -45,7 +57,6 @@
         fileInput.addEventListener('change', function() {
             fileChosen.textContent = this.files.length ? this.files[0].name : 'No file chosen';
         });
-
     </script>
 </body>
 

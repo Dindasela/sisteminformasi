@@ -157,7 +157,8 @@
         </div>
 
         <div class="content">
-            <p>Yang bertanda tangan di bawah ini, Lurah Sumber Rejo Kecamatan Kemiling Kota Bandar Lampung, menerangkan bahwa:</p>
+            <p>Yang bertanda tangan di bawah ini, Lurah Sumber Rejo Kecamatan Kemiling Kota Bandar Lampung, menerangkan
+                bahwa:</p>
 
             <table class="info-table">
                 <tr>
@@ -206,23 +207,23 @@
             <table class="info-table">
                 <tr>
                     <td>Desa/Kelurahan</td>
-                    <td>_________________________</td>
+                    <td>{{ $dataArray['desa_tujuan'] }}</td>
                 </tr>
                 <tr>
                     <td>Kecamatan</td>
-                    <td>_________________________</td>
+                    <td>{{ $dataArray['kecamatan_tujuan'] }}</td>
                 </tr>
                 <tr>
                     <td>Kab/Kota</td>
-                    <td>_________________________</td>
+                    <td>{{ $dataArray['kabupaten_tujuan'] }}</td>
                 </tr>
                 <tr>
                     <td>Provinsi</td>
-                    <td>_________________________</td>
+                    <td>{{ $dataArray['provinsi_tujuan'] }}</td>
                 </tr>
                 <tr>
                     <td>Alasan Pindah</td>
-                    <td>_________________________</td>
+                    <td>{{ $dataArray['alasan_pindah'] }}</td>
                 </tr>
             </table>
 
@@ -257,11 +258,11 @@
         </div>
 
         <div class='qr-code'>
-            <img src="Surat/SKD/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
+            <img src="storage/Surat/SKP/qr/{{ $dataArray['id'] }}.png" alt="QR Code" width="">
         </div>
 
         <div class="signature">
-            <p>Bandar Lampung, 20</p>
+            <p>Bandar Lampung, {{ now()->format('d-m-Y') }}</p>
             <p>MENGETAHUI,</p>
             <p>LURAH SUMBER REJO</p>
         </div>

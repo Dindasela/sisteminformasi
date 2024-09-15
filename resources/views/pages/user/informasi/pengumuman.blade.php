@@ -48,7 +48,7 @@
                             placeholder="Search" required />
                     </div>
                 </div>
-                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <div class="relative overflow-x-auto mb-10 lg:mb-0">
                     <div class="mb-4 flex items-center">
                         <label for="entries" class="mr-2 text-gray-700">Show</label>
                         <select id="entries"
@@ -107,38 +107,36 @@
                                 ],
                             ];
                         @endphp
-                        <table class="min-w-full">
-                            <thead class="text-xs text-white bg-[#2B2A4C]">
-                                <tr>
-                                    <th scope="col" class="px-6 py-3">tanggal</th>
-                                    <th scope="col" class="px-6 py-3">Nama Kegiatan</th>
-                                    <th scope="col" class="px-6 py-3">Tempat Pelaksanaan</th>
-                                    <th scope="col" class="px-6 py-3">Deskripsi Singkat</th>
-                                    <th scope="col" class="px-6 py-3">Keterangan</th>
+                        <thead class="text-sm text-white bg-[#2B2A4C]">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">tanggal</th>
+                                <th scope="col" class="px-6 py-3">Nama Kegiatan</th>
+                                <th scope="col" class="px-6 py-3">Tempat Pelaksanaan</th>
+                                <th scope="col" class="px-6 py-3">Deskripsi Singkat</th>
+                                <th scope="col" class="px-6 py-3">Keterangan</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm">
+                            @foreach ($dummyData as $data)
+                                <tr class="bg-[#DDDBDB] border-b text-black text-center">
+                                    <td scope="row" class="px-6 py-4">{{ $data['tanggal'] }}
+                                    </td>
+                                    <td class="px-6 py-4">{{ $data['nama_kegiatan'] }}</td>
+                                    <td class="px-6 py-4">{{ $data['tempat_kegiatan'] }}</td>
+                                    <td class="px-6 py-4">{{ $data['dekripsi_singkat'] }}</td>
+                                    <td class="px-6 py-4">
+                                        @if ($data['keterangan'] == 'Terlaksana')
+                                            <span
+                                                class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">Terlaksana</span>
+                                        @elseif($data['keterangan'] == 'Belum Terlaksana')
+                                            <span
+                                                class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">Belum
+                                                Terlaksana</span>
+                                        @endif
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($dummyData as $data)
-                                    <tr class="bg-[#DDDBDB] border-b text-black text-center">
-                                        <td scope="row" class="px-6 py-4">{{ $data['tanggal'] }}
-                                        </td>
-                                        <td class="px-6 py-4">{{ $data['nama_kegiatan'] }}</td>
-                                        <td class="px-6 py-4">{{ $data['tempat_kegiatan'] }}</td>
-                                        <td class="px-6 py-4">{{ $data['dekripsi_singkat'] }}</td>
-                                        <td class="px-6 py-4">
-                                            @if ($data['keterangan'] == 'Terlaksana')
-                                                <span
-                                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">Terlaksana</span>
-                                            @elseif($data['keterangan'] == 'Belum Terlaksana')
-                                                <span
-                                                    class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">Belum
-                                                    Terlaksana</span>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
             </form>

@@ -66,7 +66,8 @@
         <x-nav-user />
         <section id="cover"
             class="relative bg-center bg-no-repeat bg-cover bg-white bg-blend-multiply min-h-screen flex items-center justify-center">
-            <form action="{{route('pengajuan-surat-keterangan-pindah.post')}}" method="POST" enctype="multipart/form-data" class="relative full m-5 lg:m-10 p-6 z-10 text-black">
+            <form action="{{ route('pengajuan-surat-keterangan-pindah.post') }}" method="POST"
+                enctype="multipart/form-data" class="relative full m-5 lg:m-10 p-6 z-10 text-black">
                 @csrf
                 <div class="mt-10 lg:mt-20 mb-10 lg:mb-20">
                     <div
@@ -92,7 +93,8 @@
                                     <label for="nama-kepala-keluarga-daerah-asal"
                                         class="block mb-2 text-sm font-medium text-gray-900">Nama Kepala
                                         Keluarga</label>
-                                    <input type="text" id="nama-kepala-keluarga-daerah-asal" name="nama_kepala_keluarga_asal"
+                                    <input type="text" id="nama-kepala-keluarga-daerah-asal"
+                                        name="nama_kepala_keluarga_asal"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Nama Kepala Keluarga" required />
                                 </div>
@@ -180,7 +182,7 @@
                                             <option value="Kesehatan">Kesehatan</option>
                                             <option value="Perumahan">Perumahan</option>
                                             <option value="Keluarga">Keluarga</option>
-                                            <option value="Lain-lain (Sebutkan)">Lain-lain (Sebutkan)</option>
+                                            <option value="Lain-lain">Lain-lain (Sebutkan)</option>
                                         </select>
                                     </div>
                                     <div class="mb-2" id="lain-lain-container" style="display: none;">
@@ -207,7 +209,8 @@
                                     <label for="alamat-tujuan-pindah-data-kepindahan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Alamat Tujuan
                                         Pindah</label>
-                                    <input type="name" id="alamat-tujuan-pindah-data-kepindahan" name="alamat_tujuan_pindah"
+                                    <input type="name" id="alamat-tujuan-pindah-data-kepindahan"
+                                        name="alamat_tujuan_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Alamat Tujuan Pindah" required />
                                 </div>
@@ -215,14 +218,16 @@
                                     <div class="flex-grow">
                                         <label for="rt-data-kepindahan-data-kepindahan"
                                             class="block mb-2 text-sm font-medium text-gray-900">RT</label>
-                                        <input type="number" id="rt-data-kepindahan-data-kepindahan" name="rt_pindah"
+                                        <input type="number" id="rt-data-kepindahan-data-kepindahan"
+                                            name="rt_pindah"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             placeholder="RT" required />
                                     </div>
                                     <div class="flex-grow">
                                         <label for="rw-data-kepindahan-data-kepindahan"
                                             class="block mb-2 text-sm font-medium text-gray-900">RW</label>
-                                        <input type="number" id="rw-data-kepindahan-data-kepindahan" name="rw_pindah"
+                                        <input type="number" id="rw-data-kepindahan-data-kepindahan"
+                                            name="rw_pindah"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             placeholder="RW" required />
                                     </div>
@@ -295,13 +300,9 @@
                                         required>
                                         <option value="" selected disabled>Pilih Jenis Kepindahan</option>
                                         <option value="Kepindahan Kelurga">Kepindahan Kelurga</option>
-                                        <option value="Kepindaan Kelurga dan 
-Seluruh Anggota keluarga">Kepindaan
-                                            Kelurga dan
+                                        <option value="Kepindaan Kelurga dan Seluruh keluarga">Kepindaan Kelurga dan
                                             Seluruh Anggota keluarga</option>
-                                        <option value="Kepindaan Kelurga dan 
-Sebagian Anggota keluarga">Kepindaan
-                                            Kelurga dan
+                                        <option value="Kepindaan Kelurga dan Sebagian keluarga">Kepindaan Kelurga dan
                                             Sebagian Anggota keluarga</option>
                                         <option value="Anggota Keluarga">Anggota Keluarga</option>
                                     </select>
@@ -310,21 +311,16 @@ Sebagian Anggota keluarga">Kepindaan
                                     <label for="status-no-kk-bagi-tak-pindah-data-kepindahan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Status No KK Bagi yang
                                         Tidak Pindah</label>
-                                    <select id="status-no-kk-bagi-tak-pindah-data-kepindahan" name="status_kk_tidak_pindah"
+                                    <select id="status-no-kk-bagi-tak-pindah-data-kepindahan"
+                                        name="status_kk_tidak_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Status No KK Bagi yang Tidak
                                             Pindah
                                         </option>
                                         <option value="Kepala Kelurga">Kepala Kelurga</option>
-                                        <option value="Kepindaan Kelurga dan 
-Seluruh Anggota keluarga">Kepindaan
-                                            Kelurga dan
-                                            Seluruh Anggota keluarga</option>
-                                        <option value="Kepindaan Kelurga dan 
-Sebagian Anggota keluarga">Kepindaan
-                                            Kelurga dan
-                                            Sebagian Anggota keluarga</option>
+                                        <option value="Kepindaan Kelurga dan Seluruh keluarga">Kepindaan Kelurga dan Seluruh Anggota keluarga</option>
+                                        <option value="Kepindaan Kelurga dan Sebagian keluarga">Kepindaan Kelurga dan Sebagian Anggota keluarga</option>
                                         <option value="Anggota Keluarga">Anggota Keluarga</option>
                                     </select>
                                 </div>
@@ -339,10 +335,7 @@ Sebagian Anggota keluarga">Kepindaan
                                         </option>
                                         <option value="Numpang KK">Numpang KK</option>
                                         <option value="Membuat KK Baru">Membuat KK Baru</option>
-                                        <option value="Nama Kepala Keluarga dan 
-Nomor KK Tetap">Nama Kepala Keluarga
-                                            dan
-                                            Nomor KK Tetap</option>
+                                        <option value="Nama Kepala Keluarga dan Nomor KK Tetap">Nama Kepala Keluarga dan Nomor KK Tetap</option>
                                     </select>
                                 </div>
                                 <div class="mb-2 relative">
@@ -358,7 +351,8 @@ Nomor KK Tetap">Nama Kepala Keluarga
                                     <label for="jumlah-keluarga-yg-pindah-data-kepindahan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Jumlah Keluarga Yang
                                         Pindah</label>
-                                    <select id="jumlah-keluarga-yg-pindah-data-kepindahan" name="jumlah_keluarga_pindah"
+                                    <select id="jumlah-keluarga-yg-pindah-data-kepindahan"
+                                        name="jumlah_keluarga_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Jumlah Keluarga Yang Pindah
@@ -423,16 +417,16 @@ Nomor KK Tetap">Nama Kepala Keluarga
                                                     <label for="shdk-data-kepindahan-${i}" class="block mb-2 text-sm font-medium text-gray-900">SHDK</label>
                                                     <select id="shdk-data-kepindahan-${i}" name="shdck_pindah[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                                         <option value="" selected disabled>Pilih SHDK</option>
-                                                        <option value="01 Kepala Keluarga">01 Kepala Keluarga</option>
-                                                        <option value="02 Suami">02 Suami</option>
-                                                        <option value="03 Istri">03 Istri</option>
-                                                        <option value="04 Anak">04 Anak</option>
-                                                        <option value="05 Menantu">05 Menantu</option>
-                                                        <option value="06 Cucu">06 Cucu</option>
-                                                        <option value="07 Orang Tua">07 Orang Tua</option>
-                                                        <option value="08 Mertua">08 Mertua</option>
-                                                        <option value="09 Family Lainnya">09 Family Lainnya</option>
-                                                        <option value="10 Pembantu">10 Pembantu</option>
+                                                        <option value="Kepala Keluarga">01 Kepala Keluarga</option>
+                                                        <option value="Suami">02 Suami</option>
+                                                        <option value="Istri">03 Istri</option>
+                                                        <option value="Anak">04 Anak</option>
+                                                        <option value="Menantu">05 Menantu</option>
+                                                        <option value="Cucu">06 Cucu</option>
+                                                        <option value="Orang Tua">07 Orang Tua</option>
+                                                        <option value="Mertua">08 Mertua</option>
+                                                        <option value="Family Lainnya">09 Family Lainnya</option>
+                                                        <option value="Pembantu">10 Pembantu</option>
                                                     </select>
                                                 </div>
                                             `;
@@ -441,6 +435,64 @@ Nomor KK Tetap">Nama Kepala Keluarga
                                         }
                                     });
                                 </script>
+                            </div>
+                            <div>
+                                <div class="font-bold text-black mb-5 mt-5 text-lg">Data Diri</div>
+                                <div class="mb-2">
+                                    <label for=""
+                                        class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
+                                    <input type="text" id="" name=""
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="Nama" required />
+                                </div>
+                                <div class="mb-2">
+                                    <label for="alamat-rumah-daerah-asal"
+                                        class="block mb-2 text-sm font-medium text-gray-900">Tempat Lahir</label>
+                                    <input type="text" id="alamat-rumah-daerah-asal" name="alamat_asal"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="Tempat Lahir" required />
+                                </div>
+                                <div class="mb-2">
+                                    <label for=""
+                                        class="block mb-2 text-sm font-medium text-gray-900">Tanggal Lahir</label>
+                                    <input type="date" id=""
+                                        name=""
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="Tanggal Lahir" required />
+                                </div>
+                                <div class="mb-2">
+                                    <label for=""
+                                        class="block mb-2 text-sm font-medium text-gray-900">Jenis Kelamin</label>
+                                    <select id="" name=""
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        required>
+                                        <option value="" selected disabled>Pilih Jenis Kelamin</option>
+                                        <option value="lakiLaki">Laki Laki</option>
+                                        <option value="perempuan">Perempuan</option>
+                                    </select>
+                                </div>
+                                <div class="mb-2">
+                                    <label for=""
+                                        class="block mb-2 text-sm font-medium text-gray-900">Pekerjaan</label>
+                                    <input type="text" id="" name=""
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="Masukkan Pekerjaan" required />
+                                </div>
+                                <div class="mb-2">
+                                    <label for=""
+                                        class="block mb-2 text-sm font-medium text-gray-900">Agama</label>
+                                    <select id="" name=""
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        required>
+                                        <option value="" selected disabled>Pilih Agama</option>
+                                        <option value="Islam">Islam</option>
+                                        <option value="Kristen Protestan">Kristen Protestan</option>
+                                        <option value="Katolik">Katolik</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Buddha">Buddha</option>
+                                        <option value="Konghucu">Konghucu</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="mt-10 lg:mt-0">
@@ -458,7 +510,8 @@ Nomor KK Tetap">Nama Kepala Keluarga
                                     <label for="nama-kepala-keluarga-daerah-tujuan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Nama Kepala
                                         Keluarga</label>
-                                    <input type="text" id="nama-kepala-keluarga-daerah-tujuan" name="nama_kepala_keluarga_tujuan"
+                                    <input type="text" id="nama-kepala-keluarga-daerah-tujuan"
+                                        name="nama_kepala_keluarga_tujuan"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Nama Kepala Keluarga" required />
                                 </div>
@@ -466,7 +519,8 @@ Nomor KK Tetap">Nama Kepala Keluarga
                                     <label for="nik-kepala-keluarga-daerah-tujuan"
                                         class="block mb-2 text-sm font-medium text-gray-900">NIK Kepala
                                         Keluarga</label>
-                                    <input type="number" id="nik-kepala-keluarga-daerah-tujuan" name="nik_kepala_keluarga_tujuan"
+                                    <input type="number" id="nik-kepala-keluarga-daerah-tujuan"
+                                        name="nik_kepala_keluarga_tujuan"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="NIK Kepala Keluarga" required />
                                 </div>
@@ -474,21 +528,16 @@ Nomor KK Tetap">Nama Kepala Keluarga
                                     <label for="status-no-kk-bagi-tak-pindah-daerah-tujuan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Status No KK Bagi yang
                                         Tidak Pindah</label>
-                                    <select id="status-no-kk-bagi-tak-pindah-daerah-tujuan" name="status_kk_tujuan_yang_tidak_pindah"
+                                    <select id="status-no-kk-bagi-tak-pindah-daerah-tujuan"
+                                        name="status_kk_tujuan_yang_tidak_pindah"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Status No KK Bagi yang Tidak
                                             Pindah
                                         </option>
                                         <option value="Kepala Kelurga">Kepala Kelurga</option>
-                                        <option value="Kepindaan Kelurga dan 
-Seluruh Anggota keluarga">Kepindaan
-                                            Kelurga dan
-                                            Seluruh Anggota keluarga</option>
-                                        <option value="Kepindaan Kelurga dan 
-Sebagian Anggota keluarga">Kepindaan
-                                            Kelurga dan
-                                            Sebagian Anggota keluarga</option>
+                                        <option value="Kepindaan Kelurga dan Seluruh Anggota keluarga">Kepindaan Kelurga dan Seluruh Anggota keluarga</option>
+                                        <option value="Kepindaan Kelurga dan Sebagian Anggota keluarga">Kepindaan Kelurga dan Sebagian Anggota keluarga</option>
                                         <option value="Anggota Keluarga">Anggota Keluarga</option>
                                     </select>
                                 </div>
@@ -555,7 +604,8 @@ Sebagian Anggota keluarga">Kepindaan
                                     <label for="jumlah-keluarga-yg-pindah-daerah-tujuan"
                                         class="block mb-2 text-sm font-medium text-gray-900">Jumlah Keluarga Yang
                                         Pindah</label>
-                                    <select id="jumlah-keluarga-yg-pindah-daerah-tujuan" name="jumlah_keluarga_pindah_tujuan"
+                                    <select id="jumlah-keluarga-yg-pindah-daerah-tujuan"
+                                        name="jumlah_keluarga_pindah_tujuan"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Jumlah Keluarga Yang Pindah
@@ -623,16 +673,16 @@ Sebagian Anggota keluarga">Kepindaan
                                                     <label for="shdk-daerah-tujuan-${i}" class="block mb-2 text-sm font-medium text-gray-900">SHDK</label>
                                                     <select id="shdk-daerah-tujuan-${i}" name="shdck_tujuan[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                                         <option value="" selected disabled>Pilih SHDK</option>
-                                                        <option value="01 Kepala Keluarga">01 Kepala Keluarga</option>
-                                                        <option value="02 Suami">02 Suami</option>
-                                                        <option value="03 Istri">03 Istri</option>
-                                                        <option value="04 Anak">04 Anak</option>
-                                                        <option value="05 Menantu">05 Menantu</option>
-                                                        <option value="06 Cucu">06 Cucu</option>
-                                                        <option value="07 Orang Tua">07 Orang Tua</option>
-                                                        <option value="08 Mertua">08 Mertua</option>
-                                                        <option value="09 Family Lainnya">09 Family Lainnya</option>
-                                                        <option value="10 Pembantu">10 Pembantu</option>
+                                                        <option value="Kepala Keluarga">01 Kepala Keluarga</option>
+                                                        <option value="Suami">02 Suami</option>
+                                                        <option value="Istri">03 Istri</option>
+                                                        <option value="Anak">04 Anak</option>
+                                                        <option value="Menantu">05 Menantu</option>
+                                                        <option value="Cucu">06 Cucu</option>
+                                                        <option value="Orang Tua">07 Orang Tua</option>
+                                                        <option value="Mertua">08 Mertua</option>
+                                                        <option value="Family Lainnya">09 Family Lainnya</option>
+                                                        <option value="Pembantu">10 Pembantu</option>
                                                     </select>
                                                 </div>
                                             `;
