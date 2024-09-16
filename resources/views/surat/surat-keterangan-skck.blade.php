@@ -130,8 +130,8 @@
         </div>
 
         <div class="content">
-            <p>Bandar Lampung, 21 Mei 2024</p>
-            <p>Nomor: ___ / 06 / VI.71 / V / 2024</p>
+            <p>Bandar Lampung, {{now()->format('d-m-Y')}}</p>
+            <p>Nomor: ___ / __ / __ / __ / 2024</p>
             <p>Lampiran: -</p>
             <p>Perihal: Surat Keterangan SKCK</p>
 
@@ -144,31 +144,31 @@
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['nama']}}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['jenis_kelamin']}}</td>
                 </tr>
                 <tr>
                     <td>Tempat/Tgl Lahir</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['tempat_lahir'] . ', ' . date('d-m-Y', strtotime($dataArray['tanggal_lahir']))}}</td>
                 </tr>
                 <tr>
                     <td>Status Perkawinan</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['status_perkawinan']}}</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['agama']}}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['pekerjaan']}}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>JL.Imam Bonjol Gg. Sejahterea 2 RT. 011 LK. 1 Kelurahan Sumber Rejo, Kec. Kemiling, Bandar Lampung</td>
+                    <td>{{$dataArray['alamat']}}</td>
                 </tr>
             </table>
             <p>Nama tersebut diatas adalah benar warga Kelurahan Sumberejo, beralamat seperti yang tercantum di atas, dan menurut pengamatan kami, yang bersangkutan berkelakuan baik dan belum pernah berurusan dengan pihak kepolisian karena suatu perkara.</p>
@@ -177,7 +177,7 @@
         </div>
 
         <div class='qr-code'>
-            <img src="Surat/SKD/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
+            <img src="storage/Surat/SKPSKCK/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
         </div>
 
         <div class="signature">

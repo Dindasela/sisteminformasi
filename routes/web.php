@@ -9,6 +9,7 @@ use App\Http\Controllers\GeneralPage;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\SuratKeluarController;
+use App\Http\Controllers\SuratMasukController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VerifikasiSuksesController;
@@ -92,9 +93,16 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/logout-user', [AuthController::class, 'logoutUser'])->name('logout-user');
     Route::get('/dashboard', 'dashboard')->name('dashboard')->middleware('auth');
     Route::get('/manajemen-surat', 'manajemensurat');
-    Route::get('/surat-masuk', 'suratmasuk');
+
+    // Start Surat Masuk
+    Route::get('/surat-masuk', [SuratMasukController::class, 'index'])->name('surat-masuk.index');
     Route::get('/tambah-surat-masuk', 'tambahsuratmasuk');
-    Route::get('/lihat-surat-masuk', 'lihatsuratmasuk');
+    Route::post('/tambah-surat-masuk', [SuratMasukController::class, 'store'])->name('surat-masuk.store');
+    Route::get('/lihat-surat-masuk/{id}', [SuratMasukController::class, 'edit'])->name('surat-masuk.edit');
+    Route::put('/surat-masuk/{id}', [SuratMasukController::class, 'update'])->name('surat-masuk.update');
+    Route::delete('/surat-masuk/{id}', [SuratMasukController::class, 'destroy'])->name('surat-masuk.destroy');
+    // End Surat Masuk
+
     Route::get('/arsip-surat', 'arsipsurat');
     Route::get('/lihat-arsip-surat-masuk', 'lihatarsipsuratmasuk');
     Route::get('/lihat-arsip-surat-keluar', 'lihatarsipsuratkeluar');
@@ -152,7 +160,7 @@ Route::controller(GeneralPage::class)->group(function () {
     // End Surat Keterangan Domisili
 
     // Start Surat Keterangan Domisili Usaha
-    Route::get('/surat-keterangan-domisili-usaha/{id}', [SuratController::class,'showSKDU'])->name('surat-keterangan-domisili-usaha.show');
+    Route::get('/surat-keterangan-domisili-usaha/{id}', [SuratController::class, 'showSKDU'])->name('surat-keterangan-domisili-usaha.show');
     Route::post('/verif-skdu/{id}', [SuratController::class, 'verifSKDU'])->name('verif.skdu');
     Route::post('/tolak-skdu/{id}', [SuratController::class, 'rejectSKDU'])->name('reject.skdu');
     // End Surat Keterangan Domisili Usaha
@@ -161,7 +169,7 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/surat-keterangan-tidak-mampu/{id}', [SuratController::class, 'showSKTM'])->name('surat-keterangan-tidak-mampu.show');
     Route::post('/verif-sktm/{id}', [SuratController::class, 'verifSKTM'])->name('verif.sktm');
     Route::post('/tolak-sktm/{id}', [SuratController::class, 'rejectSKTM'])->name('reject.sktm');
-    
+
     // Start Surat Keterangan Kematian
     Route::get('/surat-keterangan-kematian/{id}', [SuratController::class, 'showSKK'])->name('surat-keterangan-kematian.show');
     Route::post('/verif-skk/{id}', [SuratController::class, 'verifSKK'])->name('verif.skk');
@@ -205,7 +213,11 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::post('/tolak-skkl/{id}', [SuratController::class, 'rejectSKKL'])->name('reject.skkl');
     // End Surat Keterangan Kelahiran
 
-    Route::get('/surat-keterangan-pengantar-skck', 'suratketeranganpengantarskck');
+    // Start Surat Keterangan Pengantar SKCK
+    Route::get('/surat-keterangan-pengantar-skck/{id}', [SuratController::class, 'showSKPSKCK'])->name('surat-keterangan-pengantar-skck.show');
+    Route::post('/verif-skpskck/{id}', [SuratController::class, 'verifSKPSKCK'])->name('verif.skpskck');
+    Route::post('/tolak-skpskck/{id}', [SuratController::class, 'rejectSKPSKCK'])->name('reject.skpskck');
+    // End Surat Keterangan Pengantar SKCK
 
     // Start Surat Keterangan Penghasilan
     Route::get('/surat-keterangan-penghasilan/{id}', [SuratController::class, 'showSKPOT'])->name('surat-keterangan-penghasilan.show');
@@ -223,7 +235,7 @@ Route::controller(GeneralPage::class)->group(function () {
     // Akhir Admin
 
     //Test
-    Route::get('/test',[SuratKeluarController::class, 'generateQR']);
+    Route::get('/test', [SuratKeluarController::class, 'generateQR']);
 
     //Test Template
     Route::get('/skd', [TemplateController::class, 'surat_keterangan_domisili']);

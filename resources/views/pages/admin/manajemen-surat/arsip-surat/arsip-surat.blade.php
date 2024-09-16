@@ -119,7 +119,7 @@
                     </tr>
                 </tbody>
             </table>
-            <x-pagination-admin />
+            {{-- <x-pagination-admin /> --}}
         </div>
 
     </div>
