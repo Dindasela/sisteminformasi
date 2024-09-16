@@ -14,6 +14,11 @@ class GalleryController extends Controller
         return view('pages.admin.galeri.list-galeri', compact('gallery'));
     }
 
+    public function indexUser(){
+        $data = Gallery::all();
+        return view('pages/user/galeri/foto-video', compact('data'));
+    }
+
     public function edit($id)
     {
         $gallery = Gallery::findOrFail($id);

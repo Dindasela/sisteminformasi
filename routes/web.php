@@ -53,8 +53,8 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/layanan-status-ditolak', 'layananstatusditolak');
     Route::get('/berita', [BeritaController::class, 'indexUser'])->name('berita.show');
     Route::get('/detail-berita', 'detailberita');
-    Route::get('/pengumuman', 'pengumuman');
-    Route::get('/galeri-foto-video', 'galerifotovideo');
+    Route::get('/pengumuman', [PengumumanController::class, 'indexUser'])->name('pengumuman.show');
+    Route::get('/galeri-foto-video', [GalleryController::class, 'indexUser'])->name('galeri-foto-video.index');
     // Awal Pengajuan Surat
     Route::get('/pengajuan-surat-domisili', 'pengajuansuratdomisili');
     Route::post('/pengajuan-surat-domisili', [SuratController::class, 'createSKD'])->name('pengajuan-surat-domisili.post');

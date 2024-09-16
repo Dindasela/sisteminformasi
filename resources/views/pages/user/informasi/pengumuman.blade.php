@@ -43,70 +43,24 @@
                                     stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                             </svg>
                         </div>
-                        <input type="search" id="default-search"
+                        <input id="default-search" name="search" type="search" {{ request()->query('search') }}
                             class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Search" required />
+                            placeholder="Search" />
                     </div>
                 </div>
                 <div class="relative overflow-x-auto mb-10 lg:mb-0">
                     <div class="mb-4 flex items-center">
                         <label for="entries" class="mr-2 text-gray-700">Show</label>
-                        <select id="entries"
+                        <select id="entries" name="entries" {{ request()->query('entries') }}
                             class="border border-gray-300 rounded py-1 px-2 text-gray-700 focus:outline-none focus:ring focus:ring-indigo-300">
-                            <option value="10">10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
+                            <option value=10 @selected(request()->query('entries') == 10)>10</option>
+                            <option value=25 @selected(request()->query('entries') == 25)>25</option>
+                            <option value=50 @selected(request()->query('entries') == 50)>50</option>
+                            <option value=100 @selected(request()->query('entries') == 100)>100</option>
                         </select>
                         <span class="ml-2 text-gray-700">entries</span>
                     </div>
                     <table class="w-full text-sm text-left text-gray-500">
-                        @php
-                            $dummyData = [
-                                [
-                                    'tanggal' => '01-01-2024',
-                                    'nama_kegiatan' => 'Sosialisasi Stunting',
-                                    'tempat_kegiatan' => 'Kantor Kelurahan',
-                                    'dekripsi_singkat' => 'Kegiatan Penyuluhan Stunting yang diikuti ibu-ibu',
-                                    'keterangan' => 'Terlaksana',
-                                ],
-                                [
-                                    'tanggal' => '01-01-2024',
-                                    'nama_kegiatan' => 'Sosialisasi Stunting',
-                                    'tempat_kegiatan' => 'Kantor Kelurahan',
-                                    'dekripsi_singkat' => 'Kegiatan Penyuluhan Stunting yang diikuti ibu-ibu',
-                                    'keterangan' => 'Terlaksana',
-                                ],
-                                [
-                                    'tanggal' => '01-01-2024',
-                                    'nama_kegiatan' => 'Sosialisasi Stunting',
-                                    'tempat_kegiatan' => 'Kantor Kelurahan',
-                                    'dekripsi_singkat' => 'Kegiatan Penyuluhan Stunting yang diikuti ibu-ibu',
-                                    'keterangan' => 'Terlaksana',
-                                ],
-                                [
-                                    'tanggal' => '01-01-2024',
-                                    'nama_kegiatan' => 'Sosialisasi Stunting',
-                                    'tempat_kegiatan' => 'Kantor Kelurahan',
-                                    'dekripsi_singkat' => 'Kegiatan Penyuluhan Stunting yang diikuti ibu-ibu',
-                                    'keterangan' => 'Terlaksana',
-                                ],
-                                [
-                                    'tanggal' => '01-01-2024',
-                                    'nama_kegiatan' => 'Sosialisasi Stunting',
-                                    'tempat_kegiatan' => 'Kantor Kelurahan',
-                                    'dekripsi_singkat' => 'Kegiatan Penyuluhan Stunting yang diikuti ibu-ibu',
-                                    'keterangan' => 'Belum Terlaksana',
-                                ],
-                                [
-                                    'tanggal' => '01-01-2024',
-                                    'nama_kegiatan' => 'Sosialisasi Stunting',
-                                    'tempat_kegiatan' => 'Kantor Kelurahan',
-                                    'dekripsi_singkat' => 'Kegiatan Penyuluhan Stunting yang diikuti ibu-ibu',
-                                    'keterangan' => 'Belum Terlaksana',
-                                ],
-                            ];
-                        @endphp
                         <thead class="text-sm text-white bg-[#2B2A4C]">
                             <tr>
                                 <th scope="col" class="px-6 py-3">tanggal</th>
@@ -117,18 +71,18 @@
                             </tr>
                         </thead>
                         <tbody class="text-sm">
-                            @foreach ($dummyData as $data)
+                            @foreach ($data as $item)
                                 <tr class="bg-[#DDDBDB] border-b text-black text-center">
-                                    <td scope="row" class="px-6 py-4">{{ $data['tanggal'] }}
+                                    <td scope="row" class="px-6 py-4">{{ $item->date }}
                                     </td>
-                                    <td class="px-6 py-4">{{ $data['nama_kegiatan'] }}</td>
-                                    <td class="px-6 py-4">{{ $data['tempat_kegiatan'] }}</td>
-                                    <td class="px-6 py-4">{{ $data['dekripsi_singkat'] }}</td>
+                                    <td class="px-6 py-4">{{ $item->title }}</td>
+                                    <td class="px-6 py-4">{{ $item->place }}</td>
+                                    <td class="px-6 py-4">{{ $item->description }}</td>
                                     <td class="px-6 py-4">
-                                        @if ($data['keterangan'] == 'Terlaksana')
+                                        @if ($item->status == 'Terlaksana')
                                             <span
                                                 class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">Terlaksana</span>
-                                        @elseif($data['keterangan'] == 'Belum Terlaksana')
+                                        @elseif($item->status == 'Belum Terlaksana')
                                             <span
                                                 class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">Belum
                                                 Terlaksana</span>
@@ -138,6 +92,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @if ($data->lastPage() > 1)
+                        <x-pagination-admin :pages="$data->lastPage()" :current="$data->currentPage()" />
+                    @endif
                 </div>
             </form>
         </section>

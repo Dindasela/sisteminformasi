@@ -14,6 +14,18 @@ class PengumumanController extends Controller
         return view('pages.admin.informasi.daftar-pengumuman', compact('pengumuman'));
     }
 
+    public function indexUser()
+    {
+        $search = request()->query('search');
+        $data = Pengumuman::where(function ($query) use ($search) {
+            if($search){
+                $query->where('title', 'LIKE', '%' . $search . '%')
+                ->orWhere('place', 'LIKE', '%' . $search . '%');
+            }
+        })->paginate(10);
+        return view('pages/user/informasi/pengumuman', compact('data'));
+    }
+
     public function edit($id)
     {
         $pengumuman = Pengumuman::findOrfail($id);

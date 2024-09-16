@@ -31,49 +31,16 @@
                     Foto dan Video
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                    <div>
-                        <img class="h-40 lg:h-52 max-w-full rounded-lg" src="./image/1.svg" alt="">
-                        <div class="text-center text-black w-full m-auto mt-2 lg:mt-5">
-                            <div class="text-md font-bold">Musrebangkel 2021</div>
-                            <div class="text-sm">Kegiatan Musrebang di Kelurahan Sumberrejo tahun 2021</div>
+                    @foreach ($data as $item)
+                        <div>
+                            <img class="h-40 lg:h-52 max-w-full rounded-lg" src="{{ asset('storage/' . $item->image) }}"
+                                alt="">
+                            <div class="text-center text-black w-full m-auto mt-2 lg:mt-5">
+                                <div class="text-md font-bold">{{ $item->title }}</div>
+                                <div class="text-sm">{{ $item->description }}</div>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <img class="h-40 lg:h-52 max-w-full rounded-lg" src="./image/2.svg" alt="">
-                        <div class="text-center text-black w-full m-auto mt-2 lg:mt-5">
-                            <div class="text-md font-bold">Perbaikan jalan</div>
-                            <div class="text-sm">Perbaikan jalan oleh Pemkot Bandar Lampung</div>
-                        </div>
-                    </div>
-                    <div>
-                        <img class="h-40 lg:h-52 max-w-full rounded-lg" src="./image/3.svg" alt="">
-                        <div class="text-center text-black w-full m-auto mt-2 lg:mt-5">
-                            <div class="text-md font-bold">Pelantikan Ketua RT</div>
-                            <div class="text-sm">Pelantikan Ketua RT periode tahun 2020-2023</div>
-                        </div>
-                    </div>
-                    <div>
-                        <img class="h-40 lg:h-52 max-w-full rounded-lg" src="./image/4.svg" alt="">
-                        <div class="text-center text-black w-full m-auto mt-2 lg:mt-5">
-                            <div class="text-md font-bold">Budidaya Jamur Tiram</div>
-                            <div class="text-sm">Kegiatan budidaya dan pengolahan jamur tiram untuk UMKM</div>
-                        </div>
-                    </div>
-                    <div>
-                        <img class="h-40 lg:h-52 max-w-full rounded-lg" src="./image/5.svg" alt="">
-                        <div class="text-center text-black w-full m-auto mt-2 lg:mt-5">
-                            <div class="text-md font-bold">Pelantikan Camat dan Lurah</div>
-                            <div class="text-sm">Walikota Bandar Lampung melantik Camat dan Lurah</div>
-                        </div>
-                    </div>
-                    <div>
-                        <img class="h-40 lg:h-52 max-w-full rounded-lg" src="./image/6.svg" alt="">
-                        <div class="text-center text-black w-full m-auto mt-2 lg:mt-5">
-                            <div class="text-md font-bold">Malam Puncak HUT RI ke 78</div>
-                            <div class="text-sm">Memeriahkan HUT RI ke 78 dengan penampilan warga Kelurahan
-                                Sumberejo</div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
