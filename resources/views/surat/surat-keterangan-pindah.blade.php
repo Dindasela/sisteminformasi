@@ -163,43 +163,35 @@
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['nama_diri']}}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['jenis_kelamin_diri']}}</td>
                 </tr>
                 <tr>
                     <td>Tempat/Tanggal Lahir</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['tempat_lahir_diri'] . ', ' . date('d-m-Y', strtotime($dataArray['tanggal_lahir_diri']))}}</td>
                 </tr>
                 <tr>
                     <td>Kewarganegaraan</td>
-                    <td>_________________________</td>
+                    <td>WNI</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>_________________________</td>
-                </tr>
-                <tr>
-                    <td>Status Perkawinan</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['agama_diri']}}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>_________________________</td>
-                </tr>
-                <tr>
-                    <td>Pendidikan</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['pekerjaan_diri']}}</td>
                 </tr>
                 <tr>
                     <td>No. KK</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['no_kk_asal']}}</td>
                 </tr>
                 <tr>
                     <td>Alamat Asal</td>
-                    <td>_________________________</td>
+                    <td>{{$dataArray['alamat_asal']}}</td>
                 </tr>
             </table>
 

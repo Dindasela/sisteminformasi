@@ -416,33 +416,33 @@
                 <h1 class="text-xl font-bold pb-4">Data Diri</h1>
                 <div class="pb-2">
                     <label for="text" class="block text-sm font-normal text-gray-700">Nama Lengkap</label>
-                    <input type="text" id="text" name="" value="{{ $datas->nama }}"
+                    <input type="text" id="text" name="" value="{{ $datas->nama_diri }}"
                         class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                         placeholder="">
                 </div>
 
                 <div class="pb-2">
                     <label for="text" class="block text-sm font-normal text-gray-700">Tempat Lahir
-                        <input type="text" id="text" name="" value="{{ $datas->tempat_lahir }}"
+                        <input type="text" id="text" name="" value="{{ $datas->tempat_lahir_diri }}"
                             class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             placeholder="">
                 </div>
                 <div class="pb-2">
                     <label for="nama" class="block text-sm font-normal text-gray-700">Tanggal Lahir</label>
-                    <input type="date" id="tanggal" name="" value="{{ $datas->tanggal_lahir }}"
+                    <input type="date" id="tanggal" name="" value="{{ $datas->tanggal_lahir_diri }}"
                         class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 </div>
                 <div class="pb-2">
                     <label for="nik" class="block text-sm font-normal text-gray-700">Jenis Kelamin</label>
                     <select id="countries"
                         class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <option {{ $datas->jenis_kelamin == 'Wanita' ? 'selected' : '' }}>Perempuan</option>
-                        <option {{ $datas->jenis_kelamin == 'Pria' ? 'selected' : '' }}>Laki-Laki </option>
+                        <option {{ $datas->jenis_kelamin_diri == 'Wanita' ? 'selected' : '' }}>Perempuan</option>
+                        <option {{ $datas->jenis_kelamin_diri == 'Pria' ? 'selected' : '' }}>Laki-Laki </option>
                     </select>
                 </div>
                 <div class="pb-2">
                     <label for="nama" class="block text-sm font-normal text-gray-700">Pekerjaan</label>
-                    <input type="text" id="nama" name="" value="{{ $datas->pekerjaan }}"
+                    <input type="text" id="nama" name="" value="{{ $datas->pekerjaan_diri }}"
                         class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                         placeholder="">
                 </div>
@@ -450,11 +450,11 @@
                     <label for="nik" class="block text-sm font-normal text-gray-700">Agama</label>
                     <select id="countries"
                         class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <option {{ $datas->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
-                        <option {{ $datas->agama == 'Kristen Protestan' ? 'selected' : '' }}>Kristen </option>
-                        <option {{ $datas->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
-                        <option {{ $datas->agama == 'Buddha' ? 'selected' : '' }}>Budhha</option>
-                        <option {{ $datas->agama == 'Konghucu' ? 'selected' : '' }}>Konghucu</option>
+                        <option {{ $datas->agama_diri == 'Islam' ? 'selected' : '' }}>Islam</option>
+                        <option {{ $datas->agama_diri == 'Kristen Protestan' ? 'selected' : '' }}>Kristen </option>
+                        <option {{ $datas->agama_diri == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                        <option {{ $datas->agama_diri == 'Buddha' ? 'selected' : '' }}>Budhha</option>
+                        <option {{ $datas->agama_diri == 'Konghucu' ? 'selected' : '' }}>Konghucu</option>
                     </select>
                 </div>
 
