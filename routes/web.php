@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArsipController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GalleryController;
@@ -105,7 +106,7 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::delete('/surat-masuk/{id}', [SuratMasukController::class, 'destroy'])->name('surat-masuk.destroy');
     // End Surat Masuk
 
-    Route::get('/arsip-surat', 'arsipsurat');
+    Route::get('/arsip-surat', [ArsipController::class, 'index'])->name('arsip-surat.index');
     Route::get('/lihat-arsip-surat-masuk', 'lihatarsipsuratmasuk');
     Route::get('/lihat-arsip-surat-keluar', 'lihatarsipsuratkeluar');
     Route::get('/tambah-surat-keluar', 'tambahsuratkeluar')->name('tambah-surat-keluar.index');

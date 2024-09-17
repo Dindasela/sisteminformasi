@@ -65,7 +65,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flex">
-                                    <a href="{{route('laporan-masuk.edit', ['id' => $item->id])}}" class="mr-2">
+                                    <a href="{{ route('laporan-masuk.edit', ['id' => $item->id]) }}" class="mr-2">
                                         <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -79,19 +79,23 @@
                                         </svg>
                                     </a>
                                     <x-pop-up-hapus action="{{ route('laporan-masuk.destroy', ['id' => $item->id]) }}" />
-                                    <a href="#" class="mr-2">
-                                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M5.5 7.50033V1.66699H15.5V7.50033" stroke="black" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path
-                                                d="M5.50002 15H3.83335C3.39133 15 2.9674 14.8244 2.65484 14.5118C2.34228 14.1993 2.16669 13.7754 2.16669 13.3333V9.16667C2.16669 8.72464 2.34228 8.30072 2.65484 7.98816C2.9674 7.6756 3.39133 7.5 3.83335 7.5H17.1667C17.6087 7.5 18.0326 7.6756 18.3452 7.98816C18.6578 8.30072 18.8334 8.72464 18.8334 9.16667V13.3333C18.8334 13.7754 18.6578 14.1993 18.3452 14.5118C18.0326 14.8244 17.6087 15 17.1667 15H15.5"
-                                                stroke="black" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M15.5 11.667H5.5V18.3337H15.5V11.667Z" stroke="black"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
+                                    <form action="{{ route('download-laporan', $item->id) }}" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <button type="submit" class="mr-2">
+                                            <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.5 7.50033V1.66699H15.5V7.50033" stroke="black"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path
+                                                    d="M5.50002 15H3.83335C3.39133 15 2.9674 14.8244 2.65484 14.5118C2.34228 14.1993 2.16669 13.7754 2.16669 13.3333V9.16667C2.16669 8.72464 2.34228 8.30072 2.65484 7.98816C2.9674 7.6756 3.39133 7.5 3.83335 7.5H17.1667C17.6087 7.5 18.0326 7.6756 18.3452 7.98816C18.6578 8.30072 18.8334 8.72464 18.8334 9.16667V13.3333C18.8334 13.7754 18.6578 14.1993 18.3452 14.5118C18.0326 14.8244 17.6087 15 17.1667 15H15.5"
+                                                    stroke="black" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path d="M15.5 11.667H5.5V18.3337H15.5V11.667Z" stroke="black"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>

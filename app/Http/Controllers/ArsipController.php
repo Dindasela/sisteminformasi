@@ -37,7 +37,6 @@ class ArsipController extends Controller
         $sm = SuratMasuk::get();
 
         $datas = collect([$sk_domisili, $sk_kematian, $sk, $sk_belum_menikah, $sk_bersih_diri, $sk_domisili_usaha, $sk_kelahiran, $sk_penghasilan, $sk_pindah, $sk_sudah_menikah, $sk_tidak_mampu, $sk_usaha, $sk_pengantar_skck, $sm]);
-
         return view('pages.admin.manajemen-surat.arsip-surat.arsip-surat', compact('datas'));
     }
 }

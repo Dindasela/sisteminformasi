@@ -131,7 +131,9 @@ class LaporanController extends Controller
     public function downloadPDF($id)
     {
         $laporan = Laporan::find($id);
-        $file = Storage::disk('public')->get('laporan/pdf/' . $laporan->id . '.pdf');
-        return response($file, 200)->header('Content-Type', 'application/pdf');
+
+        $pdf = Pdf::loadView('surat.pengaduan', ['dataArray' => $laporan->toArray()]);
+
+        return $pdf->download('laporan-' . $laporan->id . '.pdf');
     }
 }

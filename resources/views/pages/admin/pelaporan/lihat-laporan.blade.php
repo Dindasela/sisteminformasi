@@ -34,7 +34,7 @@
         <div class="mt-2 mb-4 mx-auto bg-gray-200 rounded-md w-[95%]">
             <div class="bg-[#2B2A4C] p-2 text-white flex justify-between items-center">
                 <h2 class="ml-6 font-semibold">Tampilan Laporan</h2>
-                <form action="{{route('download-laporan',$laporan->id)}}" method="POST" enctype="multipart/form-data" target="_blank">
+                <form action="{{route('download-laporan',$laporan->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <button class="mr-6 bg-white text-[#2B2A4C] px-2 py-1 rounded-md text-sm">Cetak</button>
                 </form>

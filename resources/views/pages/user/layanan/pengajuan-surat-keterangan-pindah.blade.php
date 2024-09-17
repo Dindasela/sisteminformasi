@@ -441,14 +441,14 @@
                                 <div class="mb-2">
                                     <label for=""
                                         class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
-                                    <input type="text" id="" name=""
+                                    <input type="text" id="" name="nama_diri"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Nama" required />
                                 </div>
                                 <div class="mb-2">
                                     <label for="alamat-rumah-daerah-asal"
                                         class="block mb-2 text-sm font-medium text-gray-900">Tempat Lahir</label>
-                                    <input type="text" id="alamat-rumah-daerah-asal" name="alamat_asal"
+                                    <input type="text" id="alamat-rumah-daerah-asal" name="tempat_lahir_diri"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Tempat Lahir" required />
                                 </div>
@@ -456,32 +456,32 @@
                                     <label for=""
                                         class="block mb-2 text-sm font-medium text-gray-900">Tanggal Lahir</label>
                                     <input type="date" id=""
-                                        name=""
+                                        name="tanggal_lahir_diri"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Tanggal Lahir" required />
                                 </div>
                                 <div class="mb-2">
                                     <label for=""
                                         class="block mb-2 text-sm font-medium text-gray-900">Jenis Kelamin</label>
-                                    <select id="" name=""
+                                    <select id="" name="jenis_kelamin_diri"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Jenis Kelamin</option>
-                                        <option value="lakiLaki">Laki Laki</option>
-                                        <option value="perempuan">Perempuan</option>
+                                        <option value="Pria">Laki Laki</option>
+                                        <option value="Wanita">Perempuan</option>
                                     </select>
                                 </div>
                                 <div class="mb-2">
                                     <label for=""
                                         class="block mb-2 text-sm font-medium text-gray-900">Pekerjaan</label>
-                                    <input type="text" id="" name=""
+                                    <input type="text" id="" name="pekerjaan_diri"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Masukkan Pekerjaan" required />
                                 </div>
                                 <div class="mb-2">
                                     <label for=""
                                         class="block mb-2 text-sm font-medium text-gray-900">Agama</label>
-                                    <select id="" name=""
+                                    <select id="" name="agama_diri"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         required>
                                         <option value="" selected disabled>Pilih Agama</option>

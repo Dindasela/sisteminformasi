@@ -64,6 +64,12 @@ return new class extends Migration
             $table->string('shdck_tujuan');
             $table->string('jenis');
             $table->string('status');
+            $table->string('nama_diri');
+            $table->string('tempat_lahir_diri');
+            $table->date('tanggal_lahir_diri');
+            $table->string('jenis_kelamin_diri');
+            $table->string('pekerjaan_diri');
+            $table->string('agama_diri');
             $table->string('foto_ktp');
             $table->string('foto_kk');
             $table->string('foto_surat_pengantar');
