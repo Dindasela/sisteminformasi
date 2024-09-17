@@ -107,8 +107,8 @@ Route::controller(GeneralPage::class)->group(function () {
     // End Surat Masuk
 
     Route::get('/arsip-surat', [ArsipController::class, 'index'])->name('arsip-surat.index');
-    Route::get('/lihat-arsip-surat-masuk', 'lihatarsipsuratmasuk');
-    Route::get('/lihat-arsip-surat-keluar', 'lihatarsipsuratkeluar');
+    Route::get('/lihat-arsip-surat-masuk/{id}', [ArsipController::class, 'lihatarsipsuratmasuk'])->name('lihat-arsip-surat-masuk');
+    Route::get('/lihat-arsip-surat-keluar/{jenis}/{id}', [ArsipController::class, 'lihatarsipsuratkeluar'])->name('lihat-arsip-surat-keluar');
     Route::get('/tambah-surat-keluar', 'tambahsuratkeluar')->name('tambah-surat-keluar.index');
     Route::post('/tambah-surat-keluar', [SuratKeluarController::class, 'store'])->name('tambah-surat-keluar.store');
     Route::get('/lihat-surat-keluar', 'lihatsuratkeluar');
