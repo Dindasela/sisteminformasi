@@ -70,7 +70,7 @@
                                         <path d="M10.5 12.5C11.8807 12.5 13 11.3807 13 10C13 8.61929 11.8807 7.5 10.5 7.5C9.11929 7.5 8 8.61929 8 10C8 11.3807 9.11929 12.5 10.5 12.5Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </a>
-                                <x-pop-up-hapus/>
+                                <x-pop-up-hapus action="{{ route('akun.destroy', ['id' => 1]) }}"/>
                                 <a href="#" class="mr-2">
                                     <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.5 7.50033V1.66699H15.5V7.50033" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -101,9 +101,10 @@
                     
                 </tbody>
             </table>
-            <x-pagination-admin/>
+            @if ($data->lastPage() > 1)
+                <x-pagination-admin :pages="$data->lastPage()" :current="$data->currentPage()" />
+            @endif
         </div>
-
     </div>
     <x-footer-admin />
 </body>

@@ -89,7 +89,7 @@
                                     </svg>
                                 </button>
                                 </form> --}}
-                                <x-pop-up-hapus />
+                                <x-pop-up-hapus action="{{ route('pengumuman.destroy', ['id' => $item->id]) }}" />
                             </div>
                         </td>
                     </tr>

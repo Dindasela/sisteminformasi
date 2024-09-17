@@ -10,6 +10,14 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
+        $cekActive = User::where('email', $request->email)->whereDoesntHave('settings');
+
+        if(!$cekActive){
+            return redirect()->back()->withErrors([
+                'email' => 'Akun anda belum aktif.',
+            ])->withInput($request->except('password'));
+        }
+
         $cek = User::where('email', $request->email)->first();
         if (!$cek) {
             return redirect()->back()->withErrors([

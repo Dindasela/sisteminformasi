@@ -148,6 +148,8 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/lihat-permohonan-akun/{id}', [UserController::class, 'show'])->name('lihat-permohonan-akun');
     Route::get('/terima-permohonan/{id}', [UserController::class, 'terimaPermohonan'])->name('terima-permohonan-akun');
     Route::get('/tolak-permohonan/{id}', [UserController::class, 'tolakPermohonan'])->name('tolak-permohonan-akun');
+    Route::delete('delete/akun/{id}', [UserController::class, 'destroy'])->name('akun.destroy');
+
     //Akhir Akun
 
     // Awal Pengajuan Surat

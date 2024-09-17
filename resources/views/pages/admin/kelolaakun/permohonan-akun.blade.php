@@ -130,7 +130,7 @@
                                                 stroke-linejoin="round" />
                                         </svg>
                                     </a>
-                                    <x-pop-up-hapus />
+                                    <x-pop-up-hapus action="{{ route('akun.destroy', ['id' => $item->id]) }}"/>
                                 </div>
                             </td>
                         </tr>

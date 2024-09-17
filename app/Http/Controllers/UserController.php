@@ -83,6 +83,7 @@ class UserController extends Controller
                 $query->where('name', 'LIKE', '%' . $search . '%');
             }
         })->WhereHas('settings', function ($query) use ($status) {
+            $query->where('status', '!=' , 'Diterima');
             if($status){
                 $query->where('status', $status);
             }
@@ -97,7 +98,14 @@ class UserController extends Controller
     }
 
     public  function daftarAkunIndex(){
-        $data = User::paginate(10);
+        $data = User::query();
+
+        $data->each(function ($data) {
+           $data->whereDoesntHave('settings'); 
+        });
+
+        $data = $data->paginate(10);
+
         return view('pages/admin/kelolaakun/daftar-akun', compact('data'));
     }
 
@@ -106,16 +114,24 @@ class UserController extends Controller
         return view('pages/admin/kelolaakun/lihat-akun', compact('data'));
     }
 
-    public  function terimaPermohonan($id){
+    public function terimaPermohonan($id){
         $data = AccountSettings::where('user_id', $id)->first();
         $data->update(['status' => 'Diterima']);
         return redirect()->route('permohonan-akun');
     }
 
-    public  function tolakPermohonan($id){
+    public function tolakPermohonan($id){
         $data = AccountSettings::where('user_id', $id)->first();
         $data->update(['status' => 'Ditolak']);
         return redirect()->route('permohonan-akun');
     }
 
+    public function destroy($id){
+        $data = User::findOrFail($id);
+        $delete = $data->delete();
+        if (!$delete) {
+            return redirect()->back()->with('error', 'Gagal menghapus data');
+        }
+        return redirect()->route('daftar-akun.index');
+    }
 }
