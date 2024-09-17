@@ -21,22 +21,65 @@ class ArsipController extends Controller
 {
     public function index()
     {
-        $sk_domisili = SuratKeluarDomisili::with(['User'])->get();
-        $sk_kematian = SuratKeluarKematian::with(['User'])->get();
-        $sk = SuratKeluarKeterangan::with(['User'])->get();
-        $sk_belum_menikah = SuratKeluarBelumMenikah::with(['User'])->get();
-        $sk_bersih_diri = SuratKeluarBersihDiri::with(['User'])->get();
-        $sk_domisili_usaha = SuratKeluarDomisiliUsaha::with(['User'])->get();
-        $sk_kelahiran = SuratKeluarKelahiran::with(['User'])->get();
-        $sk_penghasilan = SuratKeluarPenghasilan::with(['User'])->get();
-        $sk_pindah = SuratKeluarPindah::with(['User'])->get();
-        $sk_sudah_menikah = SuratKeluarSudahMenikah::with(['User'])->get();
-        $sk_tidak_mampu = SuratKeluarTidakMampu::with(['User'])->get();
-        $sk_usaha = SuratKeluarUsaha::with(['User'])->get();
-        $sk_pengantar_skck = SuratKeluarSKCK::with(['User'])->get();
+        $sk_domisili = SuratKeluarDomisili::get();
+        foreach ($sk_domisili as $key => $value) {
+            $value->kategori = "Surat Keluar";
+        }
+        $sk_kematian = SuratKeluarKematian::get();
+        foreach ($sk_kematian as $key => $value) {
+            $value['kategori'] = "Surat Keluar";
+        }
+        $sk = SuratKeluarKeterangan::get();
+        foreach ($sk as $key => $value) {
+            $value['kategori'] = "Surat Keluar";
+        }
+        $sk_belum_menikah = SuratKeluarBelumMenikah::get();
+        foreach ($sk_belum_menikah as $key => $value) {
+            $value['kategori'] = "Surat Keluar";
+        }
+        $sk_bersih_diri = SuratKeluarBersihDiri::get();
+        foreach ($sk_bersih_diri as $key => $value) {
+            $value['kategori'] = "Surat Keluar";
+        }
+        $sk_domisili_usaha = SuratKeluarDomisiliUsaha::get();
+        foreach ($sk_domisili_usaha as $key => $value) {
+            $value['kategori'] = "Surat Keluar";
+        }
+        $sk_kelahiran = SuratKeluarKelahiran::get();
+        foreach ($sk_kelahiran as $key => $value) {
+            $value['kategori'] = "Surat Keluar";
+        }
+        $sk_penghasilan = SuratKeluarPenghasilan::get();
+        foreach ($sk_penghasilan as $key => $value) {
+            $value['kategori'] = "Surat Keluar";
+        }
+        $sk_pindah = SuratKeluarPindah::get();
+        foreach ($sk_pindah as $key => $value) {
+            $value['kategori'] = "Surat Keluar";
+        }
+        $sk_sudah_menikah = SuratKeluarSudahMenikah::get();
+        foreach ($sk_sudah_menikah as $key => $value) {
+            $value['kategori'] = "Surat Keluar";
+        }
+        $sk_tidak_mampu = SuratKeluarTidakMampu::get();
+        foreach ($sk_tidak_mampu as $key => $value) {
+            $value['kategori'] = "Surat Keluar";
+        }
+        $sk_usaha = SuratKeluarUsaha::get();
+        foreach ($sk_usaha as $key => $value) {
+            $value['kategori'] = "Surat Keluar";
+        }
+        $sk_pengantar_skck = SuratKeluarSKCK::get();
+        foreach ($sk_pengantar_skck as $key => $value) {
+            $value['kategori'] = "Surat Keluar";
+        }
         $sm = SuratMasuk::get();
+        foreach ($sm as $key => $value) {
+            $value['kategori'] = "Surat Masuk";
+        }
 
         $datas = collect([$sk_domisili, $sk_kematian, $sk, $sk_belum_menikah, $sk_bersih_diri, $sk_domisili_usaha, $sk_kelahiran, $sk_penghasilan, $sk_pindah, $sk_sudah_menikah, $sk_tidak_mampu, $sk_usaha, $sk_pengantar_skck, $sm]);
+        
         return view('pages.admin.manajemen-surat.arsip-surat.arsip-surat', compact('datas'));
     }
 }
