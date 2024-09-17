@@ -47,6 +47,14 @@ class SuratController extends Controller
         return view('pages.admin.manajemen-surat.manajemen-surat', compact('datas'));
     }
 
+    public function downloadSurat($jenis, $id)
+    {
+        $directoryPath = public_path('storage/Surat/' . $jenis . '/pdf/');
+        $file = $directoryPath . $id . '.pdf';
+
+        return response()->download($file);
+    }
+
     public function showSKD($id)
     {
         $datas = SuratKeteranganDomisili::find($id);

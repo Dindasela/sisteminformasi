@@ -111,7 +111,8 @@
             margin-bottom: 40px;
             /* Space for the signature */
         }
-        .name{
+
+        .name {
             font-weight: bold;
             align-items: center;
         }
@@ -143,7 +144,11 @@
 
         <div class="title">
             <p>SURAT KETERANGAN BERSIH DIRI</p>
-            <p>No. <span>/</span> <span>/</span> <span>/</span> <span>/</span></p>
+            @if (isset($dataArray['nomor_surat_keluar']))
+                <p>Nomor: {{ $dataArray['nomor_surat_keluar'] }}</p>
+            @else
+                <p>Nomor: -</p>
+            @endif
         </div>
 
         <div class="content">
@@ -218,7 +223,8 @@
                 </tr>
             </table>
 
-            <p>a. Sesuai dengan hasil penilaian kami, orang tua (bapak dan ibu) dan {{ $dataArray['nama_lengkap_anak'] }} sampai
+            <p>a. Sesuai dengan hasil penilaian kami, orang tua (bapak dan ibu) dan
+                {{ $dataArray['nama_lengkap_anak'] }} sampai
                 dengan surat keterangan ini dikeluarkan adalah berkelakuan baik dan belum pernah tersangkut dengan hukum
                 dan kepolisian.</p>
             <p>b. Tidak terlibat dalam Organisasi Terlarang (OT) dan tidak menentang PUPN (Pancasila, Undang-Undang
@@ -230,7 +236,7 @@
             <tr>
                 <td style="width: 50%;">
                     <p class="date">Nomor: </p>
-                    <p class="position">Tanggal: </p>
+                    <p class="position">Tanggal: {{ now()->format('d-m-Y') }}</p>
                     <p class="name">Mengetahui</p>
                     <p class="name">Camat Kemiling</p>
                     <br><br>
@@ -251,26 +257,26 @@
             <tr>
                 <td style="width: 50%;">
                     <p class="date">Nomor: </p>
-                    <p class="position">Tanggal: </p>
+                    <p class="position">Tanggal: {{ now()->format('d-m-Y') }}</p>
                     <p class="name">Mengetahui</p>
                     <p class="name">KOMANDAN KORAMIL</p>
-                    <p class="name">02/TELUK BETUNG SELATAN	</p>
+                    <p class="name">02/TELUK BETUNG SELATAN </p>
                     <br><br>
                     <p>_____________________________</p>
                 </td> <!-- Empty left box -->
                 <td class="signature-right">
                     <p class="date">:Nomor</p>
-                    <p class="position">:Tanggal</p>
+                    <p class="position">{{ now()->format('d-m-Y') }}:Tanggal</p>
                     <p class="name">Mengetahui</p>
-                    <p class="name">KEPALA KEPOLISIAN SEKTOR KEMILING     410-</p>
+                    <p class="name">KEPALA KEPOLISIAN SEKTOR KEMILING 410-</p>
                     <br><br>
                     <p>_____________________________</p> <!-- ID number below the signature -->
                 </td>
             </tr>
         </table>
-        
+
         <div class='qr-code'>
-            <img src="storage/Surat/SKBD/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
+            <img src="storage/Surat/SKBD/qr/{{ $dataArray['id'] }}.png" alt="QR Code" width="">
         </div>
     </div>
     </div>

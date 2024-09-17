@@ -130,8 +130,12 @@
         </div>
 
         <div class="content">
-            <p>Bandar Lampung, {{now()->format('d-m-Y')}}</p>
-            <p>Nomor: ___ / __ / __ / __ / 2024</p>
+            <p>Bandar Lampung, {{ now()->format('d-m-Y') }}</p>
+            @if (isset($dataArray['nomor_surat_keluar']))
+                <p>Nomor: {{ $dataArray['nomor_surat_keluar'] }}</p>
+            @else
+                <p>Nomor: -</p>
+            @endif
             <p>Lampiran: -</p>
             <p>Perihal: Surat Keterangan SKCK</p>
 
@@ -140,44 +144,48 @@
             <p>Kota Bandar Lampung</p>
 
             <p>Dengan hormat,</p>
-            <p>Yang bertanda tangan dibawah ini, Lurah Sumberejo Kecamatan Kemiling Kota Bandar Lampung, dengan ini menerangkan bahwa:</p>
+            <p>Yang bertanda tangan dibawah ini, Lurah Sumberejo Kecamatan Kemiling Kota Bandar Lampung, dengan ini
+                menerangkan bahwa:</p>
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>{{$dataArray['nama']}}</td>
+                    <td>{{ $dataArray['nama'] }}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>{{$dataArray['jenis_kelamin']}}</td>
+                    <td>{{ $dataArray['jenis_kelamin'] }}</td>
                 </tr>
                 <tr>
                     <td>Tempat/Tgl Lahir</td>
-                    <td>{{$dataArray['tempat_lahir'] . ', ' . date('d-m-Y', strtotime($dataArray['tanggal_lahir']))}}</td>
+                    <td>{{ $dataArray['tempat_lahir'] . ', ' . date('d-m-Y', strtotime($dataArray['tanggal_lahir'])) }}
+                    </td>
                 </tr>
                 <tr>
                     <td>Status Perkawinan</td>
-                    <td>{{$dataArray['status_perkawinan']}}</td>
+                    <td>{{ $dataArray['status_perkawinan'] }}</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>{{$dataArray['agama']}}</td>
+                    <td>{{ $dataArray['agama'] }}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>{{$dataArray['pekerjaan']}}</td>
+                    <td>{{ $dataArray['pekerjaan'] }}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>{{$dataArray['alamat']}}</td>
+                    <td>{{ $dataArray['alamat'] }}</td>
                 </tr>
             </table>
-            <p>Nama tersebut diatas adalah benar warga Kelurahan Sumberejo, beralamat seperti yang tercantum di atas, dan menurut pengamatan kami, yang bersangkutan berkelakuan baik dan belum pernah berurusan dengan pihak kepolisian karena suatu perkara.</p>
+            <p>Nama tersebut diatas adalah benar warga Kelurahan Sumberejo, beralamat seperti yang tercantum di atas,
+                dan menurut pengamatan kami, yang bersangkutan berkelakuan baik dan belum pernah berurusan dengan pihak
+                kepolisian karena suatu perkara.</p>
             <p>Surat keterangan ini dipergunakan untuk pembuatan SKCK.</p>
             <p>Demikian surat keterangan ini dibuat untuk dipergunakan sebagaimana mestinya.</p>
         </div>
 
         <div class='qr-code'>
-            <img src="storage/Surat/SKPSKCK/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
+            <img src="storage/Surat/SKPSKCK/qr/{{ $dataArray['id'] }}.png" alt="QR Code" width="">
         </div>
 
         <div class="signature">

@@ -145,7 +145,11 @@
         <div class="title">
             <p>SURAT KETERANGAN</p>
             <div class="slash">
-                <p>No. <span>/</span> <span>/</span> <span>/</span> <span>/</span></p>
+                @if (isset($dataArray['nomor_surat_keluar']))
+                <p>Nomor: {{$dataArray['nomor_surat_keluar']}}</p>
+                @else
+                <p>Nomor: -</p>
+                @endif
             </div>
 
         </div>

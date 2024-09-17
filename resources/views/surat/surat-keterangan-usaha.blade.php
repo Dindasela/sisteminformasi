@@ -126,7 +126,11 @@
 
         <div class="title">
             <p>SURAT KETERANGAN USAHA</p>
-            <p>Nomor: ____ / ____ / ____ / ____</p>
+            @if (isset($dataArray['nomor_surat_keluar']))
+                <p>Nomor: {{ $dataArray['nomor_surat_keluar'] }}</p>
+            @else
+                <p>Nomor: -</p>
+            @endif
         </div>
 
         <div class="content">
@@ -135,47 +139,49 @@
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>{{$dataArray['nama']}}</td>
+                    <td>{{ $dataArray['nama'] }}</td>
                 </tr>
                 <tr>
                     <td>Tempat Tanggal Lahir</td>
-                    <td>{{$dataArray['tempat_lahir'] . ', ' . date('d-m-Y' , strtotime($dataArray['tanggal_lahir']))}}</td>
+                    <td>{{ $dataArray['tempat_lahir'] . ', ' . date('d-m-Y', strtotime($dataArray['tanggal_lahir'])) }}
+                    </td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>{{$dataArray['jenis_kelamin']}}</td>
+                    <td>{{ $dataArray['jenis_kelamin'] }}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>{{$dataArray['pekerjaan']}}</td>
+                    <td>{{ $dataArray['pekerjaan'] }}</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>{{$dataArray['agama']}}</td>
+                    <td>{{ $dataArray['agama'] }}</td>
                 </tr>
                 <tr>
                     <td>Alamat Rumah</td>
-                    <td>{{$dataArray['alamat']}}</td>
+                    <td>{{ $dataArray['alamat'] }}</td>
                 </tr>
                 <tr>
                     <td>Alamat Usaha</td>
-                    <td>{{$dataArray['alamat_usaha']}}</td>
+                    <td>{{ $dataArray['alamat_usaha'] }}</td>
                 </tr>
             </table>
 
             <p>Adalah BENAR orang tersebut di atas mempunyai usaha yang bergerak di dalam bidang:</p>
-            <p>{{$dataArray['bidang_usaha']}}</p>
+            <p>{{ $dataArray['bidang_usaha'] }}</p>
 
             <p>Surat Keterangan Usaha ini berlaku s/d ___________</p>
-            <p>Demikian Surat Keterangan Usaha ini kami buat dengan sebenarnya untuk dapat dipergunakan sebagaimana mestinya.</p>
+            <p>Demikian Surat Keterangan Usaha ini kami buat dengan sebenarnya untuk dapat dipergunakan sebagaimana
+                mestinya.</p>
         </div>
 
         <div class='qr-code'>
-            <img src="storage/Surat/SKU/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
+            <img src="storage/Surat/SKU/qr/{{ $dataArray['id'] }}.png" alt="QR Code" width="">
         </div>
 
         <div class="signature">
-            <p>Bandar Lampung, {{now()->format('d-m-Y')}}</p>
+            <p>Bandar Lampung, {{ now()->format('d-m-Y') }}</p>
             <p>Mengetahui,</p>
             <p>LURAH SUMBEREJO</p>
         </div>

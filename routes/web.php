@@ -117,6 +117,8 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::delete('/laporan-masuk/{id}', [LaporanController::class, 'destroy'])->name('laporan-masuk.destroy');
     Route::get('/informasi', 'informasi');
 
+    Route::post('/download-surat/{jenis}/{id}', [SuratController::class, 'downloadSurat'])->name('download-surat');
+
     //Start Berita
     Route::get('/daftar-berita', [BeritaController::class, 'index'])->name('berita.index');
     Route::get('/tambah-berita', 'tambahberita');

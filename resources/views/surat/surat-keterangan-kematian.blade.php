@@ -138,70 +138,76 @@
         <div class="title">
             <p>SURAT KETERANGAN KEMATIAN</p>
             <div class="slash">
-                <p>Nomor <span>/</span> <span>/</span> <span>/</span> <span>/</span></p>
+                @if (isset($dataArray['nomor_surat_keluar']))
+                    <p>Nomor: {{ $dataArray['nomor_surat_keluar'] }}</p>
+                @else
+                    <p>Nomor: -</p>
+                @endif
             </div>
         </div>
 
         <div class="content">
-            <p>Yang bertanda tangan dibawah ini Lurah Sumberejo Kecamatan Kemiling Kota Bandar Lampung dengan ini menerangkan:</p>
+            <p>Yang bertanda tangan dibawah ini Lurah Sumberejo Kecamatan Kemiling Kota Bandar Lampung dengan ini
+                menerangkan:</p>
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>{{$dataArray['nama']}}</td>
+                    <td>{{ $dataArray['nama'] }}</td>
                 </tr>
                 <tr>
                     <td>Tempat / Tgl lahir</td>
-                    <td>{{$dataArray['tempat_lahir'].' '.date('Y-m-d',strtotime($dataArray['tanggal_lahir']))}}</td>
+                    <td>{{ $dataArray['tempat_lahir'] . ' ' . date('Y-m-d', strtotime($dataArray['tanggal_lahir'])) }}
+                    </td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>{{$dataArray['jenis_kelamin']}}</td>
+                    <td>{{ $dataArray['jenis_kelamin'] }}</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>{{$dataArray['agama']}}</td>
+                    <td>{{ $dataArray['agama'] }}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>{{$dataArray['pekerjaan']}}</td>
+                    <td>{{ $dataArray['pekerjaan'] }}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>{{$dataArray['alamat']}}</td>
+                    <td>{{ $dataArray['alamat'] }}</td>
                 </tr>
             </table>
             <p>Telah meninggal dunia pada:</p>
             <table class="info-table">
                 <tr>
                     <td>Hari</td>
-                    <td>{{$dataArray['hari']}}</td>
+                    <td>{{ $dataArray['hari'] }}</td>
                 </tr>
                 <tr>
                     <td>Tanggal / Jam</td>
-                    <td>{{$dataArray['tanggal_kematian']}}</td>
+                    <td>{{ $dataArray['tanggal_kematian'] }}</td>
                 </tr>
                 <tr>
                     <td>Di</td>
-                    <td>{{$dataArray['tempat_kematian']}}</td>
+                    <td>{{ $dataArray['tempat_kematian'] }}</td>
                 </tr>
                 <tr>
                     <td>Disebabkan karena</td>
-                    <td>{{$dataArray['penyebab_kematian']}}</td>
+                    <td>{{ $dataArray['penyebab_kematian'] }}</td>
                 </tr>
                 <tr>
                     <td>Dimakamkan</td>
-                    <td>{{$dataArray['tempat_pemakaman']}}</td>
+                    <td>{{ $dataArray['tempat_pemakaman'] }}</td>
                 </tr>
             </table>
             <p>Demikian Surat Keterangan ini dibuat untuk dapat dipergunakan sebagaimana mestinya.</p>
         </div>
 
         <div class='qr-code'>
-            <img src="storage/Surat/SKK/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
+            <img src="storage/Surat/SKK/qr/{{ $dataArray['id'] }}.png" alt="QR Code" width="">
         </div>
 
         <div class="signature">
-            <p>BANDAR LAMPUNG, 20</p>
+            <p>BANDAR LAMPUNG, {{ now()->format('d-m-Y') }}</p>
             <p>MENGETAHUI,</p>
             <p>LURAH SUMBEREJO</p>
             <br><br>

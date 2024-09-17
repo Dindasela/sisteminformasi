@@ -84,4 +84,59 @@ class ArsipController extends Controller
 
         return view('pages.admin.manajemen-surat.arsip-surat.arsip-surat', compact('datas'));
     }
+
+    public function destroy(string|null $jenis, int $id)
+    {
+        $model = null;
+        switch ($jenis) {
+            case 'SKD':
+                $model = SuratKeluarDomisili::find($id);
+                break;
+            case 'SKK':
+                $model = SuratKeluarKematian::find($id);
+                break;
+            case 'SK':
+                $model = SuratKeluarKeterangan::find($id);
+                break;
+            case 'SKBM':
+                $model = SuratKeluarBelumMenikah::find($id);
+                break;
+            case 'SKBD':
+                $model = SuratKeluarBersihDiri::find($id);
+                break;
+            case 'SKDU':
+                $model = SuratKeluarDomisiliUsaha::find($id);
+                break;
+            case 'SKKL':
+                $model = SuratKeluarKelahiran::find($id);
+                break;
+            case 'SKPOT':
+                $model = SuratKeluarPenghasilan::find($id);
+                break;
+            case 'SKP':
+                $model = SuratKeluarPindah::find($id);
+                break;
+            case 'SKSM':
+                $model = SuratKeluarSudahMenikah::find($id);
+                break;
+            case 'SKTM':
+                $model = SuratKeluarTidakMampu::find($id);
+                break;
+            case 'SKU':
+                $model = SuratKeluarUsaha::find($id);
+                break;
+            case 'SKPSKCK':
+                $model = SuratKeluarSKCK::find($id);
+                break;
+            default:
+                $model = SuratMasuk::find($id);
+                break;
+        }
+
+        if ($model) {
+            $model->delete();
+        }
+
+        return redirect()->route('arsip-surat.index');
+    }
 }

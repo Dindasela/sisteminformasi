@@ -107,7 +107,7 @@
             width: 150px;
         }
 
-         .qr-code {
+        .qr-code {
             position: absolute;
             bottom: 0px;
             left: 0px;
@@ -137,7 +137,11 @@
         <div class="title">
             <p>SURAT KETERANGAN DOMISILI</p>
             <div class="slash">
-                <p>No. <span>/</span> <span>/</span> <span>/</span> <span>/</span> <span>/20__</span></p>
+                @if (isset($dataArray['nomor_surat_keluar']))
+                    <p>Nomor: {{ $dataArray['nomor_surat_keluar'] }}</p>
+                @else
+                    <p>Nomor: -</p>
+                @endif
             </div>
         </div>
 
@@ -146,50 +150,54 @@
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>{{$dataArray['nama']}}</td>
+                    <td>{{ $dataArray['nama'] }}</td>
                 </tr>
                 <tr>
                     <td>Tempat Tanggal Lahir</td>
-                    <td>{{$dataArray['tempat_lahir'].' '.date('Y-m-d',strtotime($dataArray['tanggal_lahir']))}}</td>
+                    <td>{{ $dataArray['tempat_lahir'] . ' ' . date('Y-m-d', strtotime($dataArray['tanggal_lahir'])) }}
+                    </td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>{{$dataArray['pekerjaan']}}</td>
+                    <td>{{ $dataArray['pekerjaan'] }}</td>
                 </tr>
                 <tr>
                     <td>Warga Negara</td>
-                    <td>{{$dataArray['warga_negara']}}</td>
+                    <td>{{ $dataArray['warga_negara'] }}</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>{{$dataArray['agama']}}</td>
+                    <td>{{ $dataArray['agama'] }}</td>
                 </tr>
                 <tr>
                     <td>Status Perkawinan</td>
-                    <td>{{$dataArray['status_perkawinan']}}</td>
+                    <td>{{ $dataArray['status_perkawinan'] }}</td>
                 </tr>
                 <tr>
                     <td>Alamat Sesuai KK</td>
-                    <td>{{$dataArray['alamat_sesuai_kk']}}</td>
+                    <td>{{ $dataArray['alamat_sesuai_kk'] }}</td>
                 </tr>
                 <tr>
                     <td>Berlaku s.d Tanggal</td>
-                    <td>{{$dataArray['berlaku_sampai']}}</td>
+                    <td>{{ $dataArray['berlaku_sampai'] }}</td>
                 </tr>
             </table>
-            <p>Berdasarkan Laporan Ketua RT. ___ Lk. __ Nama tersebut di atas saat ini berdomisili di _____________________________________________________ sejak __-__-20__ sampai saat ini. Surat keterangan ini dibuat yang bersangkutan untuk keperluan:</p>
-            <p>{{$dataArray['keperluan']}}</p>
-            <p>Demikian Surat Keterangan ini kami buat dengan sebenar-benarnya agar dapat dipergunakan sebagaimana mestinya.</p>
+            <p>Berdasarkan Laporan Ketua RT. ___ Lk. __ Nama tersebut di atas saat ini berdomisili di
+                _____________________________________________________ sejak __-__-20__ sampai saat ini. Surat keterangan
+                ini dibuat yang bersangkutan untuk keperluan:</p>
+            <p>{{ $dataArray['keperluan'] }}</p>
+            <p>Demikian Surat Keterangan ini kami buat dengan sebenar-benarnya agar dapat dipergunakan sebagaimana
+                mestinya.</p>
         </div>
 
-        @if (public_path('Surat/SKD/qr/'.$dataArray['id'].'.png'))    
-        <div class='qr-code'>
-            <img src="storage/Surat/SKD/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
-        </div>
+        @if (public_path('Surat/SKD/qr/' . $dataArray['id'] . '.png'))
+            <div class='qr-code'>
+                <img src="storage/Surat/SKD/qr/{{ $dataArray['id'] }}.png" alt="QR Code" width="">
+            </div>
         @endif
 
         <div class="signature">
-            <p>BANDAR LAMPUNG</p>
+            <p>BANDAR LAMPUNG,{{ now()->format('d-m-Y') }}</p>
             <p>LURAH SUMBER REJO</p>
         </div>
 

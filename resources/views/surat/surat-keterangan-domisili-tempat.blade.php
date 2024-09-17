@@ -144,7 +144,11 @@
         <div class="title">
             <p>SURAT BERDOMISILI</p>
             <div class="slash">
-                <p>No.  <span>/</span> <span></span> <span>/</span> <span></span> <span>/</span> <span></span></p>
+                @if (isset($dataArray['nomor_surat_keluar']))
+                    <p>Nomor: {{ $dataArray['nomor_surat_keluar'] }}</p>
+                @else
+                    <p>Nomor: -</p>
+                @endif
             </div>
         </div>
 
@@ -153,77 +157,78 @@
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>{{$dataArray['nama_lengkap']}}</td>
+                    <td>{{ $dataArray['nama_lengkap'] }}</td>
                 </tr>
                 <tr>
                     <td>NIK</td>
-                    <td>{{$dataArray['nik']}}</td>
+                    <td>{{ $dataArray['nik'] }}</td>
                 </tr>
                 <tr>
                     <td>Tempat, Tanggal Lahir</td>
-                    <td>{{$dataArray['tempat_lahir'] . ',' . date('Y-m-d',strtotime($dataArray['tanggal_lahir']))}}</td>
+                    <td>{{ $dataArray['tempat_lahir'] . ',' . date('Y-m-d', strtotime($dataArray['tanggal_lahir'])) }}
+                    </td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>{{$dataArray['jenis_kelamin']}}</td>
+                    <td>{{ $dataArray['jenis_kelamin'] }}</td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>{{$dataArray['agama']}}</td>
+                    <td>{{ $dataArray['agama'] }}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>{{$dataArray['pekerjaan']}}</td>
+                    <td>{{ $dataArray['pekerjaan'] }}</td>
                 </tr>
                 <tr>
                     <td>Status Perkawinan</td>
-                    <td>{{$dataArray['status_perkawinan']}}</td>
+                    <td>{{ $dataArray['status_perkawinan'] }}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>{{$dataArray['alamat_kk']}}</td>
+                    <td>{{ $dataArray['alamat_kk'] }}</td>
                 </tr>
             </table>
             <p>Bahwa benar yang bersangkutan di atas:</p>
             <table class="info-table">
                 <tr>
                     <td>Nama Lembaga</td>
-                    <td>{{$dataArray['nama_lembaga']}}</td>
+                    <td>{{ $dataArray['nama_lembaga'] }}</td>
                 </tr>
                 <tr>
                     <td>NPSN</td>
-                    <td>{{$dataArray['npsn']}}</td>
+                    <td>{{ $dataArray['npsn'] }}</td>
                 </tr>
                 <tr>
                     <td>Tahun Berdiri</td>
-                    <td>{{$dataArray['tahun_berdiri']}}</td>
+                    <td>{{ $dataArray['tahun_berdiri'] }}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>{{$dataArray['alamat_lembaga']}}</td>
+                    <td>{{ $dataArray['alamat_lembaga'] }}</td>
                 </tr>
                 <tr>
                     <td>Kota</td>
-                    <td>{{$dataArray['kota']}}</td>
+                    <td>{{ $dataArray['kota'] }}</td>
                 </tr>
                 <tr>
                     <td>Provinsi</td>
-                    <td>{{$dataArray['provinsi']}}</td>
+                    <td>{{ $dataArray['provinsi'] }}</td>
                 </tr>
             </table>
             <p>Surat keterangan ini diminta yang bersangkutan untuk:</p>
-            <p>{{$dataArray['keperluan']}}</p>
+            <p>{{ $dataArray['keperluan'] }}</p>
             <p>Demikian Surat ini kami buat dengan sebenar-benarnya agar dapat dipergunakan seperlunya.</p>
         </div>
 
-        @if (public_path('Surat/SKDU/qr/'.$dataArray['id'].'.png'))    
-        <div class='qr-code'>
-            <img src="storage/Surat/SKDU/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
-        </div>
+        @if (public_path('Surat/SKDU/qr/' . $dataArray['id'] . '.png'))
+            <div class='qr-code'>
+                <img src="storage/Surat/SKDU/qr/{{ $dataArray['id'] }}.png" alt="QR Code" width="">
+            </div>
         @endif
 
         <div class="signature">
-            <p>BANDAR LAMPUNG, ________ </p>
+            <p>BANDAR LAMPUNG, {{ now()->format('d-m-Y') }} </p>
             <p>MENGETAHUI,</p>
             <p>LURAH SUMBER REJO</p>
         </div>

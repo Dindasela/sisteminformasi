@@ -55,7 +55,7 @@ class SuratKeluarController extends Controller
                 'file' => 'required'
             ]);
 
-            SuratKeluarDomisili::create([
+            $surat = SuratKeluarDomisili::create([
                 'surat_keterangan_domisili_id' => $id,
                 'jenis_dokumen' => $validateData['jenis_dokumen'],
                 'nomor_surat' => $validateData['nomor_surat'],
@@ -78,6 +78,7 @@ class SuratKeluarController extends Controller
                     Storage::disk('public')->delete('Surat/SKD/pdf/' . $id . '.pdf');
                 }
                 $dataArray = $datas->toArray();
+                $dataArray['nomor_surat_keluar'] = $surat->nomor_surat;
                 $directoryPath = public_path('storage/Surat/SKD/pdf/');
 
                 if (!File::exists($directoryPath)) {
@@ -105,7 +106,7 @@ class SuratKeluarController extends Controller
                 'file' => 'required'
             ]);
 
-            SuratKeluarDomisiliUsaha::create([
+            $surat = SuratKeluarDomisiliUsaha::create([
                 'surat_keterangan_domisili_usaha_id' => $id,
                 'jenis_dokumen' => $validateData['jenis_dokumen'],
                 'nomor_surat' => $validateData['nomor_surat'],
@@ -128,6 +129,7 @@ class SuratKeluarController extends Controller
                     Storage::disk('public')->delete('Surat/SKDU/pdf/' . $id . '.pdf');
                 }
                 $dataArray = $datas->toArray();
+                $dataArray['nomor_surat_keluar'] = $surat->nomor_surat;
                 $directoryPath = public_path('storage/Surat/SKDU/pdf/');
 
                 if (!File::exists($directoryPath)) {
@@ -155,7 +157,7 @@ class SuratKeluarController extends Controller
                 'file' => 'required'
             ]);
 
-            SuratKeluarKematian::create([
+            $surat = SuratKeluarKematian::create([
                 'surat_keterangan_kematian_id' => $id,
                 'jenis_dokumen' => $validateData['jenis_dokumen'],
                 'nomor_surat' => $validateData['nomor_surat'],
@@ -178,6 +180,7 @@ class SuratKeluarController extends Controller
                     Storage::disk('public')->delete('Surat/SKK/pdf/' . $id . '.pdf');
                 }
                 $dataArray = $datas->toArray();
+                $dataArray['nomor_surat_keluar'] = $surat->nomor_surat;
                 $directoryPath = public_path('storage/Surat/SKK/pdf/');
 
                 if (!File::exists($directoryPath)) {
@@ -205,7 +208,7 @@ class SuratKeluarController extends Controller
                 'file' => 'required'
             ]);
 
-            SuratKeluarTidakMampu::create([
+            $surat = SuratKeluarTidakMampu::create([
                 'surat_keterangan_tidak_mampu_id' => $id,
                 'jenis_dokumen' => $validateData['jenis_dokumen'],
                 'nomor_surat' => $validateData['nomor_surat'],
@@ -228,6 +231,7 @@ class SuratKeluarController extends Controller
                     Storage::disk('public')->delete('Surat/SKTM/pdf/' . $id . '.pdf');
                 }
                 $dataArray = $datas->toArray();
+                $dataArray['nomor_surat_keluar'] = $surat->nomor_surat;
                 $directoryPath = public_path('storage/Surat/SKTM/pdf/');
 
                 if (!File::exists($directoryPath)) {
@@ -255,7 +259,7 @@ class SuratKeluarController extends Controller
                 'file' => 'required'
             ]);
 
-            SuratKeluarKeterangan::create([
+            $surat = SuratKeluarKeterangan::create([
                 'surat_keterangan_id' => $id,
                 'jenis_dokumen' => $validateData['jenis_dokumen'],
                 'nomor_surat' => $validateData['nomor_surat'],
@@ -278,6 +282,7 @@ class SuratKeluarController extends Controller
                     Storage::disk('public')->delete('Surat/SK/pdf/' . $id . '.pdf');
                 }
                 $dataArray = $datas->toArray();
+                $dataArray['nomor_surat_keluar'] = $surat->nomor_surat;
                 $directoryPath = public_path('storage/Surat/SK/pdf/');
 
                 if (!File::exists($directoryPath)) {
@@ -305,7 +310,7 @@ class SuratKeluarController extends Controller
                 'file' => 'required'
             ]);
 
-            SuratKeluarSudahMenikah::create([
+            $surat = SuratKeluarSudahMenikah::create([
                 'surat_keterangan_sudah_menikah_id' => $id,
                 'jenis_dokumen' => $validateData['jenis_dokumen'],
                 'nomor_surat' => $validateData['nomor_surat'],
@@ -328,6 +333,7 @@ class SuratKeluarController extends Controller
                     Storage::disk('public')->delete('Surat/SKSM/pdf/' . $id . '.pdf');
                 }
                 $dataArray = $datas->toArray();
+                $dataArray['nomor_surat_keluar'] = $surat->nomor_surat;
                 $directoryPath = public_path('storage/Surat/SKSM/pdf/');
 
                 if (!File::exists($directoryPath)) {
@@ -355,7 +361,7 @@ class SuratKeluarController extends Controller
                 'file' => 'required'
             ]);
 
-            SuratKeluarBersihDiri::create([
+            $surat = SuratKeluarBersihDiri::create([
                 'surat_keterangan_bersih_diri_id' => $id,
                 'jenis_dokumen' => $validateData['jenis_dokumen'],
                 'nomor_surat' => $validateData['nomor_surat'],
@@ -378,6 +384,7 @@ class SuratKeluarController extends Controller
                     Storage::disk('public')->delete('Surat/SKBD/pdf/' . $id . '.pdf');
                 }
                 $dataArray = $datas->toArray();
+                $dataArray['nomor_surat_keluar'] = $surat->nomor_surat;
                 $directoryPath = public_path('storage/Surat/SKBD/pdf/');
 
                 if (!File::exists($directoryPath)) {
@@ -405,7 +412,7 @@ class SuratKeluarController extends Controller
                 'file' => 'required'
             ]);
 
-            SuratKeluarUsaha::create([
+            $surat = SuratKeluarUsaha::create([
                 'surat_keterangan_usaha_id' => $id,
                 'jenis_dokumen' => $validateData['jenis_dokumen'],
                 'nomor_surat' => $validateData['nomor_surat'],
@@ -428,6 +435,7 @@ class SuratKeluarController extends Controller
                     Storage::disk('public')->delete('Surat/SKU/pdf/' . $id . '.pdf');
                 }
                 $dataArray = $datas->toArray();
+                $dataArray['nomor_surat_keluar'] = $surat->nomor_surat;
                 $directoryPath = public_path('storage/Surat/SKU/pdf/');
 
                 if (!File::exists($directoryPath)) {
@@ -455,7 +463,7 @@ class SuratKeluarController extends Controller
                 'file' => 'required'
             ]);
 
-            SuratKeluarPenghasilan::create([
+            $surat = SuratKeluarPenghasilan::create([
                 'surat_keterangan_penghasilan_id' => $id,
                 'jenis_dokumen' => $validateData['jenis_dokumen'],
                 'nomor_surat' => $validateData['nomor_surat'],
@@ -478,6 +486,7 @@ class SuratKeluarController extends Controller
                     Storage::disk('public')->delete('Surat/SKPOT/pdf/' . $id . '.pdf');
                 }
                 $dataArray = $datas->toArray();
+                $dataArray['nomor_surat_keluar'] = $surat->nomor_surat;
                 $directoryPath = public_path('storage/Surat/SKPOT/pdf/');
 
                 if (!File::exists($directoryPath)) {
@@ -505,7 +514,7 @@ class SuratKeluarController extends Controller
                 'file' => 'required'
             ]);
 
-            SuratKeluarBelumMenikah::create([
+            $surat = SuratKeluarBelumMenikah::create([
                 'surat_keterangan_belum_menikah_id' => $id,
                 'jenis_dokumen' => $validateData['jenis_dokumen'],
                 'nomor_surat' => $validateData['nomor_surat'],
@@ -528,6 +537,7 @@ class SuratKeluarController extends Controller
                     Storage::disk('public')->delete('Surat/SKBM/pdf/' . $id . '.pdf');
                 }
                 $dataArray = $datas->toArray();
+                $dataArray['nomor_surat_keluar'] = $surat->nomor_surat;
                 $directoryPath = public_path('storage/Surat/SKBM/pdf/');
 
                 if (!File::exists($directoryPath)) {
@@ -555,7 +565,7 @@ class SuratKeluarController extends Controller
                 'file' => 'required'
             ]);
 
-            SuratKeluarKelahiran::create([
+            $surat = SuratKeluarKelahiran::create([
                 'surat_keterangan_kelahiran_id' => $id,
                 'jenis_dokumen' => $validateData['jenis_dokumen'],
                 'nomor_surat' => $validateData['nomor_surat'],
@@ -578,6 +588,7 @@ class SuratKeluarController extends Controller
                     Storage::disk('public')->delete('Surat/SKKL/pdf/' . $id . '.pdf');
                 }
                 $dataArray = $datas->toArray();
+                $dataArray['nomor_surat_keluar'] = $surat->nomor_surat;
                 $directoryPath = public_path('storage/Surat/SKKL/pdf/');
 
                 if (!File::exists($directoryPath)) {
@@ -605,7 +616,7 @@ class SuratKeluarController extends Controller
                 'file' => 'required'
             ]);
 
-            SuratKeluarPindah::create([
+            $surat = SuratKeluarPindah::create([
                 'surat_keterangan_pindah_id' => $id,
                 'jenis_dokumen' => $validateData['jenis_dokumen'],
                 'nomor_surat' => $validateData['nomor_surat'],
@@ -628,6 +639,7 @@ class SuratKeluarController extends Controller
                     Storage::disk('public')->delete('Surat/SKP/pdf/' . $id . '.pdf');
                 }
                 $dataArray = $datas->toArray();
+                $dataArray['nomor_surat_keluar'] = $surat->nomor_surat;
                 $directoryPath = public_path('storage/Surat/SKP/pdf/');
 
                 if (!File::exists($directoryPath)) {
@@ -655,7 +667,7 @@ class SuratKeluarController extends Controller
                 'file' => 'required'
             ]);
 
-            SuratKeluarSKCK::create([
+            $surat = SuratKeluarSKCK::create([
                 'surat_pengantar_skck_id' => $id,
                 'jenis_dokumen' => $validateData['jenis_dokumen'],
                 'nomor_surat' => $validateData['nomor_surat'],
@@ -678,6 +690,7 @@ class SuratKeluarController extends Controller
                     Storage::disk('public')->delete('Surat/SKPSKCK/pdf/' . $id . '.pdf');
                 }
                 $dataArray = $datas->toArray();
+                $dataArray['nomor_surat_keluar'] = $surat->nomor_surat;
                 $directoryPath = public_path('storage/Surat/SKPSKCK/pdf/');
 
                 if (!File::exists($directoryPath)) {

@@ -126,84 +126,95 @@
 
         <div class="title">
             <p>SURAT KETERANGAN TELAH MENIKAH</p>
-            <p>No.  / ____ / ____ / ____ / ____</p>
+            @if (isset($dataArray['nomor_surat_keluar']))
+                <p>Nomor: {{ $dataArray['nomor_surat_keluar'] }}</p>
+            @else
+                <p>Nomor: -</p>
+            @endif
         </div>
 
         <div class="content">
-            <p>Yang bertanda tangan di bawah ini Lurah Sumber Rejo Kecamatan Kemiling, dengan ini menerangkan dengan sebenarnya bahwa:</p>
+            <p>Yang bertanda tangan di bawah ini Lurah Sumber Rejo Kecamatan Kemiling, dengan ini menerangkan dengan
+                sebenarnya bahwa:</p>
 
             <table class="info-table">
                 <tr>
                     <td>Nama (Suami)</td>
-                    <td>{{$dataArray['nama_lengkap_suami']}}</td>
+                    <td>{{ $dataArray['nama_lengkap_suami'] }}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>{{$dataArray['jenis_kelamin_suami']}}</td>
+                    <td>{{ $dataArray['jenis_kelamin_suami'] }}</td>
                 </tr>
                 <tr>
                     <td>Tempat dan Tgl Lahir</td>
-                    <td>{{$dataArray['tempat_lahir_suami'] . ', ' . date('Y-m-d' ,strtotime($dataArray['tanggal_lahir_suami']))}}</td>
+                    <td>{{ $dataArray['tempat_lahir_suami'] . ', ' . date('Y-m-d', strtotime($dataArray['tanggal_lahir_suami'])) }}
+                    </td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>{{$dataArray['agama_suami']}}</td>
+                    <td>{{ $dataArray['agama_suami'] }}</td>
                 </tr>
                 <tr>
                     <td>Status Perkawinan</td>
-                    <td>{{$dataArray['status_perkawinan_suami']}}</td>
+                    <td>{{ $dataArray['status_perkawinan_suami'] }}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>{{$dataArray['pekerjaan_suami']}}</td>
+                    <td>{{ $dataArray['pekerjaan_suami'] }}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>{{$dataArray['alamat_suami']}}</td>
+                    <td>{{ $dataArray['alamat_suami'] }}</td>
                 </tr>
             </table>
 
             <table class="info-table">
                 <tr>
                     <td>Nama (Istri)</td>
-                    <td>{{$dataArray['nama_lengkap_istri']}}</td>
+                    <td>{{ $dataArray['nama_lengkap_istri'] }}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>{{$dataArray['jenis_kelamin_istri']}}</td>
+                    <td>{{ $dataArray['jenis_kelamin_istri'] }}</td>
                 </tr>
                 <tr>
                     <td>Tempat dan Tgl Lahir</td>
-                    <td>{{$dataArray['tempat_lahir_istri'] . ', ' . date('d-m-Y' ,strtotime($dataArray['tanggal_lahir_istri']))}}</td>
+                    <td>{{ $dataArray['tempat_lahir_istri'] . ', ' . date('d-m-Y', strtotime($dataArray['tanggal_lahir_istri'])) }}
+                    </td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>{{$dataArray['agama_istri']}}</td>
+                    <td>{{ $dataArray['agama_istri'] }}</td>
                 </tr>
                 <tr>
                     <td>Status Perkawinan</td>
-                    <td>{{$dataArray['status_perkawinan_istri']}}</td>
+                    <td>{{ $dataArray['status_perkawinan_istri'] }}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>{{$dataArray['pekerjaan_istri']}}</td>
+                    <td>{{ $dataArray['pekerjaan_istri'] }}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>{{$dataArray['alamat_istri']}}</td>
+                    <td>{{ $dataArray['alamat_istri'] }}</td>
                 </tr>
             </table>
 
-            <p>Adalah benar telah menikah secara agama Islam di {{$dataArray['lokasi_pernikahan']}} pada Tanggal {{date('d-m-Y',strtotime($dataArray['tanggal_pernikahan'])) . ' '}} {{$dataArray['jam']}}  WIB yang dilakukan oleh Pemuka Agama/Penghulu Kelurahan Kemiling Permai.</p>
-            <p>Demikian Surat Keterangan ini dibuat dengan sebenarnya untuk Penerbitan Buku Nikah di Pengadilan Agama Bandar Lampung.</p>
+            <p>Adalah benar telah menikah secara agama Islam di {{ $dataArray['lokasi_pernikahan'] }} pada Tanggal
+                {{ date('d-m-Y', strtotime($dataArray['tanggal_pernikahan'])) . ' ' }} {{ $dataArray['jam'] }} WIB
+                yang
+                dilakukan oleh Pemuka Agama/Penghulu Kelurahan Kemiling Permai.</p>
+            <p>Demikian Surat Keterangan ini dibuat dengan sebenarnya untuk Penerbitan Buku Nikah di Pengadilan Agama
+                Bandar Lampung.</p>
         </div>
 
         <div class='qr-code'>
-            <img src="storage/Surat/SKSM/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
+            <img src="storage/Surat/SKSM/qr/{{ $dataArray['id'] }}.png" alt="QR Code" width="">
         </div>
 
         <div class="signature">
-            <p>Bandar Lampung, 25 November 20</p>
+            <p>Bandar Lampung, {{ now()->format('d-m-Y') }}</p>
             <p>A.n LURAH SUMBERREJO</p>
         </div>
 

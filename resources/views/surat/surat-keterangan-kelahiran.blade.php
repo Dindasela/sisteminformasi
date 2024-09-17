@@ -138,7 +138,11 @@
         <div class="title">
             <p>SURAT KETERANGAN KELAHIRAN</p>
             <div class="slash">
-                <p>No. <span>/</span> <span>/</span> <span>/</span> <span>/</span></p>
+                @if (isset($dataArray['nomor_surat_keluar']))
+                    <p>Nomor: {{ $dataArray['nomor_surat_keluar'] }}</p>
+                @else
+                    <p>Nomor: -</p>
+                @endif
             </div>
         </div>
 
@@ -147,53 +151,54 @@
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>{{$dataArray['nama']}}</td>
+                    <td>{{ $dataArray['nama'] }}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>{{$dataArray['jenis_kelamin']}}</td>
+                    <td>{{ $dataArray['jenis_kelamin'] }}</td>
                 </tr>
                 <tr>
                     <td>Tempat Tanggal Lahir</td>
-                    <td>{{$dataArray['tempat_lahir'] . ', ' . date('d-m-Y',strtotime($dataArray['tanggal_lahir']))}}</td>
+                    <td>{{ $dataArray['tempat_lahir'] . ', ' . date('d-m-Y', strtotime($dataArray['tanggal_lahir'])) }}
+                    </td>
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>{{$dataArray['agama']}}</td>
+                    <td>{{ $dataArray['agama'] }}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>{{$dataArray['pekerjaan']}}</td>
+                    <td>{{ $dataArray['pekerjaan'] }}</td>
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>{{$dataArray['alamat']}}</td>
+                    <td>{{ $dataArray['alamat'] }}</td>
                 </tr>
             </table>
             <p>Adalah anak dari:</p>
             <table class="info-table">
                 <tr>
                     <td>Nama Ayah Kandung</td>
-                    <td>{{$dataArray['nama_ayah']}}</td>
+                    <td>{{ $dataArray['nama_ayah'] }}</td>
                 </tr>
                 <tr>
                     <td>Nama Ibu Kandung</td>
-                    <td>{{$dataArray['nama_ibu']}}</td>
+                    <td>{{ $dataArray['nama_ibu'] }}</td>
                 </tr>
                 <tr>
                     <td>Anak Ke</td>
-                    <td>{{$dataArray['anak_ke']}}</td>
+                    <td>{{ $dataArray['anak_ke'] }}</td>
                 </tr>
             </table>
             <p>Demikian Surat ini kami buat dengan sebenar-benarnya agar dapat dipergunakan seperlunya.</p>
         </div>
 
         <div class='qr-code'>
-            <img src="storage/Surat/SKKL/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
+            <img src="storage/Surat/SKKL/qr/{{ $dataArray['id'] }}.png" alt="QR Code" width="">
         </div>
 
         <div class="signature">
-            <p>BANDAR LAMPUNG, {{now()->format('d-m-Y')}}</p>
+            <p>BANDAR LAMPUNG, {{ now()->format('d-m-Y') }}</p>
             <p>MENGETAHUI,</p>
             <p>LURAH SUMBER REJO</p>
         </div>

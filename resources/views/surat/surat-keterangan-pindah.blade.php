@@ -153,7 +153,11 @@
 
         <div class="title">
             <p>SURAT KETERANGAN PINDAH</p>
-            <p>No. ____ / ____ / ____ / ____</p>
+            @if (isset($dataArray['nomor_surat_keluar']))
+                <p>Nomor: {{ $dataArray['nomor_surat_keluar'] }}</p>
+            @else
+                <p>Nomor: -</p>
+            @endif
         </div>
 
         <div class="content">
@@ -163,15 +167,16 @@
             <table class="info-table">
                 <tr>
                     <td>Nama</td>
-                    <td>{{$dataArray['nama_diri']}}</td>
+                    <td>{{ $dataArray['nama_diri'] }}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
-                    <td>{{$dataArray['jenis_kelamin_diri']}}</td>
+                    <td>{{ $dataArray['jenis_kelamin_diri'] }}</td>
                 </tr>
                 <tr>
                     <td>Tempat/Tanggal Lahir</td>
-                    <td>{{$dataArray['tempat_lahir_diri'] . ', ' . date('d-m-Y', strtotime($dataArray['tanggal_lahir_diri']))}}</td>
+                    <td>{{ $dataArray['tempat_lahir_diri'] . ', ' . date('d-m-Y', strtotime($dataArray['tanggal_lahir_diri'])) }}
+                    </td>
                 </tr>
                 <tr>
                     <td>Kewarganegaraan</td>
@@ -179,19 +184,19 @@
                 </tr>
                 <tr>
                     <td>Agama</td>
-                    <td>{{$dataArray['agama_diri']}}</td>
+                    <td>{{ $dataArray['agama_diri'] }}</td>
                 </tr>
                 <tr>
                     <td>Pekerjaan</td>
-                    <td>{{$dataArray['pekerjaan_diri']}}</td>
+                    <td>{{ $dataArray['pekerjaan_diri'] }}</td>
                 </tr>
                 <tr>
                     <td>No. KK</td>
-                    <td>{{$dataArray['no_kk_asal']}}</td>
+                    <td>{{ $dataArray['no_kk_asal'] }}</td>
                 </tr>
                 <tr>
                     <td>Alamat Asal</td>
-                    <td>{{$dataArray['alamat_asal']}}</td>
+                    <td>{{ $dataArray['alamat_asal'] }}</td>
                 </tr>
             </table>
 

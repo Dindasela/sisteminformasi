@@ -172,7 +172,11 @@
         <div class="title">
             <p>SURAT KETERANGAN BELUM MENIKAH</p>
             <div class="slash">
-                <p>No. <span>/</span> <span>/</span> <span>/</span> <span>/</span></p>
+                @if (isset($dataArray['nomor_surat_keluar']))
+                    <p>Nomor: {{ $dataArray['nomor_surat_keluar'] }}</p>
+                @else
+                    <p>Nomor: -</p>
+                @endif
             </div>
 
         </div>
@@ -190,7 +194,9 @@
                 </tr>
                 <tr>
                     <td>Tempat Tanggal Lahir</td>
-                    <td>: {{ $dataArray['tempat_lahir'] . ', ' . date('d-m-Y', strtotime($dataArray['tanggal_lahir'])) }}</td>
+                    <td>:
+                        {{ $dataArray['tempat_lahir'] . ', ' . date('d-m-Y', strtotime($dataArray['tanggal_lahir'])) }}
+                    </td>
                 </tr>
                 <tr>
                     <td>Agama</td>
@@ -206,12 +212,12 @@
                 </tr>
             </table>
             <p>Berdasarkan keterangan yang bersangkutan di atas sampai saat ini, belum pernah menikah .
-                Demikian surat keterangan ini di buat dengan sebenarnya dan dipergunakan sebagaimana 
+                Demikian surat keterangan ini di buat dengan sebenarnya dan dipergunakan sebagaimana
                 mestinya.</p>
         </div>
 
         <div class='qr-code'>
-            <img src="storage/Surat/SKBM/qr/{{$dataArray['id']}}.png" alt="QR Code" width="">
+            <img src="storage/Surat/SKBM/qr/{{ $dataArray['id'] }}.png" alt="QR Code" width="">
         </div>
 
         <table class="signature-box">
