@@ -78,8 +78,10 @@ class ArsipController extends Controller
             $value['kategori'] = "Surat Masuk";
         }
 
-        $datas = collect([$sk_domisili, $sk_kematian, $sk, $sk_belum_menikah, $sk_bersih_diri, $sk_domisili_usaha, $sk_kelahiran, $sk_penghasilan, $sk_pindah, $sk_sudah_menikah, $sk_tidak_mampu, $sk_usaha, $sk_pengantar_skck, $sm]);
-        
+        $datas = collect([$sk_domisili, $sk_kematian, $sk, $sk_belum_menikah, $sk_bersih_diri, $sk_domisili_usaha, $sk_kelahiran, $sk_penghasilan, $sk_pindah, $sk_sudah_menikah, $sk_tidak_mampu, $sk_usaha, $sk_pengantar_skck, $sm])->reduce(function ($carry, $item) {
+            return $carry->concat($item);
+        }, collect());
+
         return view('pages.admin.manajemen-surat.arsip-surat.arsip-surat', compact('datas'));
     }
 }

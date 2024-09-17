@@ -38,108 +38,20 @@
                             <img class="h-[150px] w-[400px] lg:h-[300px] lg:w-[500px] rounded-lg"
                                 src="{{ asset('storage/' . $item->image) }}" alt="">
                             <div>
-                                <div class="font-bold text-[20px] text-black mt-5 lg:mt-0">{{ $item->title }} Jalan
-                                    Diperbaiki, Warga
-                                    Sumberejo Sampaikan
-                                    Terima
-                                    Kasih ke
-                                    Pemkot Bandar Lampung</div>
+                                <div class="font-bold text-[20px] text-black mt-5 lg:mt-0">{{ $item->title }} </div>
                                 <div class="text-[16px] text-black text-justify lg:text-left">{{ $item->description }}
-                                    Warga yang berdomisili di sekitar Jalan Karet rt.17
-                                    LK.1, tepatnya di Kelurahan Sumberrejo Kecamatan Kemiling, sudah mulai bernafas
-                                    lega.
-                                    Pasalnya, Pemkot Bandar Lampung melalui Dinas Pekerjaan Umum (PU), sejak beberapa
-                                    hari
-                                    lalu sudah mulai melakukan perbaikan dan pelebaran jalan tersebut.</div>
-                                <button type="submit"
-                                    class="mt-5 lg:mt-10 btn border-none w-[50%] text-white bg-[#2B2A4C] hover:bg-[#191831] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
-                                    Selengkapnya
-                                </button>
+                                </div>
+                                <a href="/detail-berita">
+                                    <button type="submit"
+                                        class="mt-5 lg:mt-10 btn border-none w-[240px] text-white bg-[#2B2A4C] hover:bg-[#191831] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 justify-center">
+                                        Selengkapnya
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>
                 @endforeach
-                @foreach ($berita as $item)
-                    <div class="grid grid-cols-1 gap-2 lg:gap-4 mb-4">
-                        <div class="lg:flex gap-10">
-                            <img class="h-[150px] w-[400px] lg:h-[300px] lg:w-[500px] rounded-lg"
-                                src="{{ asset('storage/' . $item->image) }}" alt="">
-                            <div>
-                                <div class="font-bold text-[20px] text-black mt-5 lg:mt-0">{{ $item->title }} Jalan
-                                    Diperbaiki, Warga
-                                    Sumberejo Sampaikan
-                                    Terima
-                                    Kasih ke
-                                    Pemkot Bandar Lampung</div>
-                                <div class="text-[16px] text-black text-justify lg:text-left">{{ $item->description }}
-                                    Warga yang berdomisili di sekitar Jalan Karet rt.17
-                                    LK.1, tepatnya di Kelurahan Sumberrejo Kecamatan Kemiling, sudah mulai bernafas
-                                    lega.
-                                    Pasalnya, Pemkot Bandar Lampung melalui Dinas Pekerjaan Umum (PU), sejak beberapa
-                                    hari
-                                    lalu sudah mulai melakukan perbaikan dan pelebaran jalan tersebut.</div>
-                                <button type="submit"
-                                    class="mt-5 lg:mt-10 btn border-none w-[50%] text-white bg-[#2B2A4C] hover:bg-[#191831] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
-                                    Selengkapnya
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                @foreach ($berita as $item)
-                    <div class="grid grid-cols-1 gap-2 lg:gap-4 mb-4">
-                        <div class="lg:flex gap-10">
-                            <img class="h-[150px] w-[400px] lg:h-[300px] lg:w-[500px] rounded-lg"
-                                src="{{ asset('storage/' . $item->image) }}" alt="">
-                            <div>
-                                <div class="font-bold text-[20px] text-black mt-5 lg:mt-0">{{ $item->title }} Jalan
-                                    Diperbaiki, Warga
-                                    Sumberejo Sampaikan
-                                    Terima
-                                    Kasih ke
-                                    Pemkot Bandar Lampung</div>
-                                <div class="text-[16px] text-black text-justify lg:text-left">{{ $item->description }}
-                                    Warga yang berdomisili di sekitar Jalan Karet rt.17
-                                    LK.1, tepatnya di Kelurahan Sumberrejo Kecamatan Kemiling, sudah mulai bernafas
-                                    lega.
-                                    Pasalnya, Pemkot Bandar Lampung melalui Dinas Pekerjaan Umum (PU), sejak beberapa
-                                    hari
-                                    lalu sudah mulai melakukan perbaikan dan pelebaran jalan tersebut.</div>
-                                <button type="submit"
-                                    class="mt-5 lg:mt-10 btn border-none w-[50%] text-white bg-[#2B2A4C] hover:bg-[#191831] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
-                                    Selengkapnya
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                @foreach ($berita as $item)
-                    <div class="grid grid-cols-1 gap-2 lg:gap-4 mb-4">
-                        <div class="lg:flex gap-10">
-                            <img class="h-[150px] w-[400px] lg:h-[300px] lg:w-[500px] rounded-lg"
-                                src="{{ asset('storage/' . $item->image) }}" alt="">
-                            <div>
-                                <div class="font-bold text-[20px] text-black mt-5 lg:mt-0">{{ $item->title }} Jalan
-                                    Diperbaiki, Warga
-                                    Sumberejo Sampaikan
-                                    Terima
-                                    Kasih ke
-                                    Pemkot Bandar Lampung</div>
-                                <div class="text-[16px] text-black text-justify lg:text-left">{{ $item->description }}
-                                    Warga yang berdomisili di sekitar Jalan Karet rt.17
-                                    LK.1, tepatnya di Kelurahan Sumberrejo Kecamatan Kemiling, sudah mulai bernafas
-                                    lega.
-                                    Pasalnya, Pemkot Bandar Lampung melalui Dinas Pekerjaan Umum (PU), sejak beberapa
-                                    hari
-                                    lalu sudah mulai melakukan perbaikan dan pelebaran jalan tersebut.</div>
-                                <button type="submit"
-                                    class="mt-5 lg:mt-10 btn border-none w-[50%] text-white bg-[#2B2A4C] hover:bg-[#191831] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
-                                    Selengkapnya
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
+
             </div>
         </section>
         <x-footer-user />

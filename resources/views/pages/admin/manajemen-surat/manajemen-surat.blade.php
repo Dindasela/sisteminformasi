@@ -68,7 +68,7 @@
                         </td>
                         <td class="px-6 py-4">
                             <div>
-                                <ul class="flex items-center justify-center {{ $item->status == 'Perlu Tindakan' ? 'bg-[#B5B5B5]' : ($item->status == 'Diterima' ? 'bg-[#4cd431]' : 'bg-[#D72323]') }} text-black rounded-xl w-28">
+                                <ul class="flex items-center justify-center {{ $item->status == 'Perlu Tindakan' ? 'bg-[#B5B5B5]' : ($item->status == 'Diterima' ? 'bxg-[#4cd431]' : 'bg-[#D72323]') }} text-black rounded-xl w-28">
                                     <li>{{$item->status}}</li>
                                 </ul>
                                 

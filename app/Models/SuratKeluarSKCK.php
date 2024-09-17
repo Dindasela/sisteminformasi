@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SuratKeluarSKCK extends Model
 {
-    protected $table = 'surat_keluar_SKCK';
+    protected $table = 'surat_keluar_skck';
 
     protected $fillable = [
         'surat_pengantar_skck_id',

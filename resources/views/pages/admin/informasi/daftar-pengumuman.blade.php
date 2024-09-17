@@ -56,10 +56,11 @@
                         <td class="px-6 py-4">{{ $item->place }}</td>
                         <td class="px-6 py-4">
                             <div>
-                                <ul class="flex items-center justify-center bg-gray-500 text-black rounded-xl w-24">
+                                <ul class="flex items-center justify-center {{ $item->status == 'Terlaksana' ? 'bg-[#82FA6F]' : 'bg-[#FCFF8F]' }} text-black rounded-xl w-36">
                                     <li>{{ $item->status }}</li>
                                 </ul>
                             </div>
+                            
                         </td>
                         <td class="px-6 py-4">
                             <div class="flex">
