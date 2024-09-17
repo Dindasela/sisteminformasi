@@ -85,7 +85,7 @@ class ArsipController extends Controller
         return view('pages.admin.manajemen-surat.arsip-surat.arsip-surat', compact('datas'));
     }
 
-    public function destroy(string|null $jenis, int $id)
+    public function destroy($jenis, $id)
     {
         $model = null;
         switch ($jenis) {
@@ -129,10 +129,19 @@ class ArsipController extends Controller
                 $model = SuratKeluarSKCK::find($id);
                 break;
             default:
-                $model = SuratMasuk::find($id);
                 break;
         }
 
+        if ($model) {
+            $model->delete();
+        }
+
+        return redirect()->route('arsip-surat.index');
+    }
+
+    public function destroySuratMasuk($id)
+    {
+        $model = SuratMasuk::find($id);
         if ($model) {
             $model->delete();
         }
