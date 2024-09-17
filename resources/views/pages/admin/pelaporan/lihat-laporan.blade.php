@@ -40,25 +40,25 @@
                 <h3 class="text-center font-semibold mb-2">Pilih Klasifikasi Laporan</h3>
                 <div class="flex justify-center mb-2 space-x-16">
                     <label class="py-1 flex items-center border border-gray-600 rounded-md">
-                        <input type="radio" name="klasifikasi" value="Pengaduan" class="ml-2 form-radio text-[#2B2A4C]" checked>
-                        <span class="ml-2 mr-2 text-sm">Pengaduan</span>
+                        <input type="radio" name="jenis" value="Aspirasi" class="ml-2 form-radio text-[#2B2A4C]" {{$laporan->jenis == 'Aspirasi' ? 'checked' : ''}}>
+                        <span class="ml-2 mr-2 text-sm">Aspirasi</span>
                     </label>
                     <label class="py-1 flex items-center border border-gray-600 rounded-md">
-                        <input type="radio" name="klasifikasi" value="Pelanggaran" class="ml-2 form-radio text-[#2B2A4C]">
-                        <span class="ml-2 mr-2 text-sm">Pelanggaran</span>
+                        <input type="radio" name="jenis" value="Pelanggaran" class="ml-2 form-radio text-[#2B2A4C]" {{$laporan->jenis == 'Pelaporan' ? 'checked' : ''}}>
+                        <span class="ml-2 mr-2 text-sm">Pelaporan</span>
                     </label>
                     <label class="py-1 flex items-center border border-gray-600 rounded-md">
-                        <input type="radio" name="klasifikasi" value="Pengaduan" class="ml-2 form-radio text-[#2B2A4C]">
+                        <input type="radio" name="jenis" value="Pengaduan" class="ml-2 form-radio text-[#2B2A4C]" {{$laporan->jenis == 'Pengaduan' ? 'checked' : ''}}>
                         <span class="ml-2 mr-2 text-sm">Pengaduan</span>
                     </label>
                 </div>
                 <div class="mx-auto w-[60%]">
-                    <input type="text" placeholder="Ilham Suseno" class="mb-2 text-sm w-full px-3 py-1 border border-gray-600 rounded bg-[#F5F3F3]">
-                    <textarea placeholder="Telah terjadi perampokan" class="mb-2 text-sm w-full px-3 py-1 border border-gray-600 rounded bg-[#F5F3F3]" rows="4"></textarea>
-                    <input type="date" class="mb-2 text-sm w-full px-3 py-1 border border-gray-600 rounded bg-[#F5F3F3]">
-                    <input type="text" placeholder="Majenang" class="mb-2 text-sm w-full px-3 py-1 border border-gray-600 rounded bg-[#F5F3F3]">
+                    <input type="text" placeholder="Ilham Suseno" value="{{$laporan->nama}}" class="mb-2 text-sm w-full px-3 py-1 border border-gray-600 rounded bg-[#F5F3F3]">
+                    <textarea placeholder="Telah terjadi perampokan" class="mb-2 text-sm w-full px-3 py-1 border border-gray-600 rounded bg-[#F5F3F3]" rows="4">{{$laporan->deskripsi}}</textarea>
+                    <input type="date" class="mb-2 text-sm w-full px-3 py-1 border border-gray-600 rounded bg-[#F5F3F3]" value="{{$laporan->tanggal}}">
+                    <input type="text" placeholder="Majenang" class="mb-2 text-sm w-full px-3 py-1 border border-gray-600 rounded bg-[#F5F3F3]" value="{{$laporan->lokasi}}">
                     <div class="relative w-full">
-                        <input type="text" value="img291.png" class="mb-2 text-sm w-full px-3 py-1 border border-gray-600 rounded bg-[#F5F3F3]" readonly>
+                        <input type="text" value="{{$laporan->file}}" class="mb-2 text-sm w-full px-3 py-1 border border-gray-600 rounded bg-[#F5F3F3]" readonly>
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute inset-y-0 right-0 pr-4 pt-1 ">
                             <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="#4B4646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             <path d="M17 8L12 3L7 8" stroke="#4B4646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
