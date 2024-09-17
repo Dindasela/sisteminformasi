@@ -27,7 +27,7 @@
                 <div class="bg-white text-[#4B4646] h-screen flex flex-col justify-center items-center">
                     <div class="text-center text-xl font-bold">Untuk Menggunakan Fitur Pelaporan <br> Silahkan Login Terlebih Dahulu</div>
                     <div class="flex justify-center mt-10">
-                        <a href="/layanan-form-pelaporan" class="btn border-none bg-[#2B2A4C] text-white">Login</a>
+                        <a href="/login-user" class="btn border-none bg-[#2B2A4C] text-white">Login</a>
                     </div>
                 </div>
             </div>

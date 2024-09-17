@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\SuratController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralPage;
@@ -45,8 +46,9 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/layanan-verifikasi-sukses', [VerifikasiSuksesController::class, 'show'])->name('layanan-verifikasi-sukses');
     Route::post('/generate-qr', [SuratKeluarController::class, 'generateQR'])->name('generate-qr.store');
     Route::get('/layanan-verifikasi-gagal', 'layananverifikasigagal');
-    Route::get('/layanan-pelaporan', 'layananpelaporan');
-    Route::get('/layanan-form-pelaporan', 'layananformpelaporan');
+    Route::get('/layanan-pelaporan', 'layananpelaporan')->name('layanan-pelaporan.auth');
+    Route::get('/layanan-form-pelaporan', [LaporanController::class, 'create'])->name('layanan-form-pelaporan');
+    Route::post('/layanan-form-pelaporan', [LaporanController::class, 'store'])->name('layanan-form-pelaporan.post');
     Route::get('/layanan-pengajuan-dokumen', 'layananpengajuandokumen')->name('layanan-pengajuan-dokumen');
     Route::get('/layanan-form-permohonan', 'layananformpermohonan');
     Route::get('/layanan-status-permohonan', [SuratController::class, 'statusPermohonanView'])->name('layanan-status-permohonan.index');
@@ -109,8 +111,8 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/tambah-surat-keluar', 'tambahsuratkeluar')->name('tambah-surat-keluar.index');
     Route::post('/tambah-surat-keluar', [SuratKeluarController::class, 'store'])->name('tambah-surat-keluar.store');
     Route::get('/lihat-surat-keluar', 'lihatsuratkeluar');
-    Route::get('/laporan-masuk', 'laporanmasuk');
-    Route::get('/lihat-laporan', 'lihatlaporan');
+    Route::get('/laporan-masuk', [LaporanController::class, 'index'])->name('laporan-masuk.index');
+    Route::get('/lihat-laporan/{id}', [LaporanController::class, 'edit'])->name('laporan-masuk.edit');
     Route::get('/informasi', 'informasi');
 
     //Start Berita

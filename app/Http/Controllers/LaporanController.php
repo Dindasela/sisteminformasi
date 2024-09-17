@@ -10,9 +10,22 @@ class LaporanController extends Controller
 {
     public function index()
     {
-        $laporan = Laporan::all();
-        return view('pages.admin.pelaporan.laporan-masuk', compact('laporan'));
+        $search = request()->query('search');
+        $data = Laporan::where(function ($query) use ($search) {
+            if($search){
+                $query->where('nama', 'LIKE', '%' . $search . '%')->orWhere('jenis', 'LIKE', '%' . $search . '%');
+            }
+        })->paginate(10);
+        return view('pages.admin.pelaporan.laporan-masuk', compact('data'));
     }
+
+    public function create(){
+        if (auth()->check()) {
+            return view('pages/user/layanan/form-pelaporan');
+        }
+        return redirect()->route('layanan-pelaporan.auth');
+    }
+
 
     public function edit($id)
     {
@@ -51,7 +64,7 @@ class LaporanController extends Controller
         $laporan->file = $file_path;
         $laporan->save();
 
-        return redirect()->route('laporan.index');
+        return redirect()->route('layanan-form-pelaporan');
     }
 
     public function update(Request $request, $id)
@@ -100,4 +113,5 @@ class LaporanController extends Controller
 
         return redirect()->route('laporan.index');
     }
+    
 }

@@ -30,7 +30,8 @@
             <div class="bg-[#2B2A4C] text-white p-5 font-bold">
                 Sampaikan Laporan Anda
             </div>
-            <form class="bg-[#F5F3F3] text-[#4B4646] p-10">
+            <form action="{{route('layanan-form-pelaporan.post')}}" method="POST" enctype="multipart/form-data" class="bg-[#F5F3F3] text-[#4B4646] p-10">
+                @csrf
                 <script>
                     function uncheckOthers(selectedId) {
                         const radios = document.querySelectorAll('input[type="radio"][name="pilihan"]');
@@ -40,29 +41,28 @@
                             }
                         });
                     }
-
                 </script>
                 <div class="grid grid-cols-1 gap-2 lg:gap-4 m-auto w-full lg:w-1/2 justify-center mt-5 lg:mt-10">
-                    <select id="" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <option selected>Aspirasi</option>
-                        <option value="PL">Pelaporan</option>
-                        <option value="PN">Pengaduan</option>
+                    <select id="" name="jenis" class="bg-white mt-1 block w-full px-3 py-1 border border-gray-600 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option value="Aspirasi">Aspirasi</option>
+                        <option value="Pelaporan">Pelaporan</option>
+                        <option value="Pengaduan">Pengaduan</option>
                     </select>
                 </div>
                 <div class="grid grid-cols-1 gap-2 lg:gap-4 m-auto w-full lg:w-1/2 justify-center mt-5 lg:mt-10">
-                    <input type="text" id="nama" name="" class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Nama" required />
-                    <textarea id="isilaporan" class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Isi Laporan*" required></textarea>
+                    <input type="text" id="nama" name="nama" class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Nama" required />
+                    <textarea id="isilaporan" name="deskripsi" class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Isi Laporan*" required></textarea>
                     <div class="relative w-full">
                         <div class="absolute inset-y-0 end-0 flex items-center ps-3 pointer-events-none pr-5">
                             <svg class="w-4 h-4 text-gray-500 right-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                             </svg>
                         </div>
-                        <input id="datepicker-format" datepicker datepicker-min-date="06/04/2024" datepicker-max-date="05/05/2025" type="text" class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Select date">
+                        <input id="datepicker-format" name="tanggal" type="date" class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Select date">
                     </div>
-                    <input type="text" id="lokasiKejadian" name="" class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Lokasi Kejadian*" required />
+                    <input type="text" id="lokasiKejadian" name="lokasi" class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Lokasi Kejadian*" required />
                     <div class="flex">
-                        <input type="file" id="gambar" class="hidden" accept="image/*" name="" onchange="handleFileChange(this)">
+                        <input type="file" id="gambar" class="hidden" accept="image/*" name="file" onchange="handleFileChange(this)">
                         <label for="gambar" class="btn cursor-pointer bg-[#D72323] text-white rounded-lg py-2 px-4 hover:bg-[#D72323]">
                             Upload Gambar
                         </label>
@@ -82,7 +82,7 @@
                             <a href="/layanan-pelaporan" class="btn border-none bg-[#B2ACAC] text-white">Kembali</a>
                         </div>
                         <div class="flex justify-center m-auto">
-                            <button value="" type="submit" class="btn border-none bg-[#2B2A4C] text-white">Lapor
+                            <button  type="submit" class="btn border-none bg-[#2B2A4C] text-white">Lapor
                                 !</button>
                         </div>
                     </div>

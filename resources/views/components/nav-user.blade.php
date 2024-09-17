@@ -75,7 +75,7 @@
                                     class="block px-4 py-2 hover:bg-[#2B2A4C]">Verifikasi Dokumen</a>
                             </li>
                             <li>
-                                <a href="/layanan-pelaporan" class="block px-4 py-2 hover:bg-[#2B2A4C]">Pelaporan</a>
+                                <a href="{{route('layanan-form-pelaporan')}}" class="block px-4 py-2 hover:bg-[#2B2A4C]">Pelaporan</a>
                             </li>
                             @if (Auth::check() && Auth::user()->role == 'user')
                                 <li>
