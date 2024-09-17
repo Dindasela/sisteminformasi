@@ -44,7 +44,10 @@ class GeneralPage extends Controller
         return view('pages/user/layanan/form-pelaporan');
     }
     function layananpengajuandokumen () {
-        return view('pages/user/layanan/pengajuan-dokumen');
+        if(auth()->check()) {
+            return view('pages/user/layanan/pengajuan-dokumen');
+        }
+        return view('pages/user/layanan/pengajuan-dokumen-auth');
     }
     function layananformpermohonan () {
         return view('pages/user/layanan/form-permohonan');

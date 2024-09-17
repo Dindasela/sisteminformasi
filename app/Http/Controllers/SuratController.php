@@ -142,7 +142,7 @@ class SuratController extends Controller
 
         $pdf->save(filename: $directoryPath . $datas->id . '.pdf');
 
-        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKPSKCK', 'id' => $datas->id, 'nama'=>$datas->user->name, 'nik'=>$datas->user->nik])
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKPSKCK', 'id' => $datas->id, 'nama' => $datas->user->name, 'nik' => $datas->user->nik])
             ->with('success', 'Verifikasi Surat Pengantar SKCK Berhasil');
     }
 
@@ -178,7 +178,7 @@ class SuratController extends Controller
 
         $pdf->save($directoryPath . $datas->id . '.pdf');
 
-        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKP', 'id' => $datas->id, 'nama'=>$datas->user->name, 'nik'=>$datas->user->nik])
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKP', 'id' => $datas->id, 'nama' => $datas->user->name, 'nik' => $datas->user->nik])
             ->with('success', 'Verifikasi Surat Keterangan Pindah Berhasil');
     }
 
@@ -214,7 +214,7 @@ class SuratController extends Controller
 
         $pdf->save($directoryPath . $datas->id . '.pdf');
 
-        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKPOT', 'id' => $datas->id, 'nama'=>$datas->user->name, 'nik'=>$datas->user->nik])
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKPOT', 'id' => $datas->id, 'nama' => $datas->user->name, 'nik' => $datas->user->nik])
             ->with('success', 'Verifikasi Surat Keterangan Penghasilan Berhasil');
     }
 
@@ -250,7 +250,7 @@ class SuratController extends Controller
 
         $pdf->save($directoryPath . $datas->id . '.pdf');
 
-        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKU', 'id' => $datas->id, 'nama'=>$datas->user->name, 'nik'=>$datas->user->nik])
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKU', 'id' => $datas->id, 'nama' => $datas->user->name, 'nik' => $datas->user->nik])
             ->with('success', 'Verifikasi Surat Keterangan Usaha Berhasil');
     }
 
@@ -286,7 +286,7 @@ class SuratController extends Controller
 
         $pdf->save($directoryPath . $datas->id . '.pdf');
 
-        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKTM', 'id' => $datas->id, 'nama'=>$datas->user->name, 'nik'=>$datas->user->nik])
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKTM', 'id' => $datas->id, 'nama' => $datas->user->name, 'nik' => $datas->user->nik])
             ->with('success', 'Verifikasi Surat Keterangan Tidak Mampu Berhasil');
     }
 
@@ -322,7 +322,7 @@ class SuratController extends Controller
 
         $pdf->save($directoryPath . $datas->id . '.pdf');
 
-        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKK', 'id' => $datas->id, 'nama'=>$datas->user->name, 'nik'=>$datas->user->nik])
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKK', 'id' => $datas->id, 'nama' => $datas->user->name, 'nik' => $datas->user->nik])
             ->with('success', 'Verifikasi Surat Keterangan Kematian Berhasil');
     }
 
@@ -358,7 +358,7 @@ class SuratController extends Controller
 
         $pdf->save($directoryPath . $datas->id . '.pdf');
 
-        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKD', 'id' => $datas->id, 'nama'=>$datas->user->name, 'nik'=>$datas->user->nik])
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKD', 'id' => $datas->id, 'nama' => $datas->user->name, 'nik' => $datas->user->nik])
             ->with('success', 'Verifikasi Surat Keterangan Domisili Berhasil');
     }
 
@@ -383,7 +383,7 @@ class SuratController extends Controller
         $datas->status = 'Diterima';
         $datas->save();
 
-        
+
         $dataArray = $datas->toArray();
         $directoryPath = public_path('storage/Surat/SK/pdf/');
 
@@ -395,7 +395,7 @@ class SuratController extends Controller
 
         $pdf->save($directoryPath . $datas->id . '.pdf');
 
-        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SK', 'id' => $datas->id, 'nama'=>$datas->user->name, 'nik'=>$datas->user->nik])
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SK', 'id' => $datas->id, 'nama' => $datas->user->name, 'nik' => $datas->user->nik])
             ->with('success', 'Verifikasi Surat Keterangan Berhasil');
     }
 
@@ -431,7 +431,7 @@ class SuratController extends Controller
 
         $pdf->save($directoryPath . $datas->id . '.pdf');
 
-        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKBM', 'id' => $datas->id, 'nama'=>$datas->user->name, 'nik'=>$datas->user->nik])
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKBM', 'id' => $datas->id, 'nama' => $datas->user->name, 'nik' => $datas->user->nik])
             ->with('success', 'Verifikasi Surat Keterangan Belum Menikah Berhasil');
     }
 
@@ -467,7 +467,7 @@ class SuratController extends Controller
 
         $pdf->save($directoryPath . $datas->id . '.pdf');
 
-        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKBD', 'id' => $datas->id, 'nama'=>$datas->user->name, 'nik'=>$datas->user->nik])
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKBD', 'id' => $datas->id, 'nama' => $datas->user->name, 'nik' => $datas->user->nik])
             ->with('success', 'Verifikasi Surat Keterangan Bersih Diri Berhasil');
     }
 
@@ -503,7 +503,7 @@ class SuratController extends Controller
 
         $pdf->save($directoryPath . $datas->id . '.pdf');
 
-        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKDU', 'id' => $datas->id, 'nama'=>$datas->user->name, 'nik'=>$datas->user->nik])
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKDU', 'id' => $datas->id, 'nama' => $datas->user->name, 'nik' => $datas->user->nik])
             ->with('success', 'Verifikasi Surat Keterangan Domisili Usaha Berhasil');
     }
 
@@ -539,7 +539,7 @@ class SuratController extends Controller
 
         $pdf->save($directoryPath . $datas->id . '.pdf');
 
-        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKKL', 'id' => $datas->id, 'nama'=>$datas->user->name, 'nik'=>$datas->user->nik])
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKKL', 'id' => $datas->id, 'nama' => $datas->user->name, 'nik' => $datas->user->nik])
             ->with('success', 'Verifikasi Surat Keterangan Kelahiran Berhasil');
     }
 
@@ -575,7 +575,7 @@ class SuratController extends Controller
 
         $pdf->save($directoryPath . $datas->id . '.pdf');
 
-        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKSM', 'id' => $datas->id, 'nama'=>$datas->user->name, 'nik'=>$datas->user->nik])
+        return redirect()->route('tambah-surat-keluar.index', ['jenis' => 'SKSM', 'id' => $datas->id, 'nama' => $datas->user->name, 'nik' => $datas->user->nik])
             ->with('success', 'Verifikasi Surat Keterangan Sudah Menikah Berhasil');
     }
 
@@ -1314,6 +1314,9 @@ class SuratController extends Controller
 
     public function statusPermohonanView()
     {
+        if (!auth()->check()) {
+            return view('pages/user/layanan/status-permohonan-auth');
+        }
         $sk_domisili = SuratKeteranganDomisili::where('user_id', auth()->user()->id)->with(['User'])->get();
         $sk_kematian = SuratKeteranganKematian::where('user_id', auth()->user()->id)->with(['User'])->get();
         $sk = SuratKeterangan::where('user_id', auth()->user()->id)->with(['User'])->get();
