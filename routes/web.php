@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArsipController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\SuratController;
@@ -94,7 +95,7 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::post('/login-admin', [AuthController::class, 'login'])->name('login');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/logout-user', [AuthController::class, 'logoutUser'])->name('logout-user');
-    Route::get('/dashboard', 'dashboard')->name('dashboard')->middleware('auth');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
     // Route::get('/manajemen-surat', 'manajemensurat');
 
     // Start Surat Masuk
@@ -118,6 +119,8 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/informasi', 'informasi');
 
     Route::post('/download-surat/{jenis}/{id}', [SuratController::class, 'downloadSurat'])->name('download-surat');
+    Route::delete('/delete-surat/{jenis}/{id}', [ArsipController::class, 'destroy'])->name('delete-surat');
+    Route::delete('/delete-surat-masuk/{id}', [ArsipController::class, 'destroySuratMasuk'])->name('delete-surat-masuk');
 
     //Start Berita
     Route::get('/daftar-berita', [BeritaController::class, 'index'])->name('berita.index');

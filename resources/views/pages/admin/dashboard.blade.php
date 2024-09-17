@@ -36,7 +36,7 @@
                     <div>
                         <p class="flex text-xl text-white">Jumlah Pengajuan Dokumen Hari Ini
                         </p>
-                        <h1 class="text-4xl font-bold text-white">30</h1>
+                        <h1 class="text-4xl font-bold text-white">{{$data['total']}}</h1>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                     <div>
                         <p class="flex text-xl text-white">Jumlah Pelaporan Hari Ini
                         </p>
-                        <h1 class="text-4xl font-bold text-white">10</h1>
+                        <h1 class="text-4xl font-bold text-white">{{$data['laporan']}}</h1>
                     </div>
                 </div>
                 <div class="flex items-center pl-4 h-28 rounded-2xl bg-[#2B2A4C]">
@@ -62,7 +62,7 @@
                     <div>
                         <p class="flex text-xl text-white">Jumlah yang Memverefikasi
                         </p>
-                        <h1 class="text-4xl font-bold text-white">3</h1>
+                        <h1 class="text-4xl font-bold text-white">{{$data['total_diterima']}}</h1>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                     <div>
                         <p class="flex text-xl text-white">Jumlah Surat Keluar Hari Ini
                         </p>
-                        <h1 class="text-4xl font-bold text-white">5</h1>
+                        <h1 class="text-4xl font-bold text-white">{{$data['total_surat_keluar']}}</h1>
                     </div>
                 </div>
                 <div class="flex items-center pl-4 h-28 rounded-2xl bg-[#2B2A4C]">
@@ -88,7 +88,7 @@
                     <div>
                         <p class="flex text-xl text-white">Jumlah Surat Masuk Hari Ini
                         </p>
-                        <h1 class="text-4xl font-bold text-white">2</h1>
+                        <h1 class="text-4xl font-bold text-white">{{$data['surat_masuk']}}</h1>
                     </div>
                 </div>
             </div>

@@ -130,7 +130,13 @@
                                             </svg>
                                         </a>
                                     @endif
-                                    <x-pop-up-hapus action="{{ route('akun.destroy', ['id' => 1]) }}" />
+                                    @if ($item->kategori == 'Surat Masuk')
+                                        <x-pop-up-hapus
+                                            action="{{ route('delete-surat-masuk', ['id' => $item->id]) }}" />
+                                    @else
+                                        <x-pop-up-hapus
+                                            action="{{ route('delete-surat', ['id' => $item->id, 'jenis' => $item->jenis]) }}" />
+                                    @endif
                                     <a href="#" class="mr-2">
                                         <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
