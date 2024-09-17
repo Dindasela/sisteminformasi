@@ -238,6 +238,8 @@ Route::controller(GeneralPage::class)->group(function () {
     // Akhir Pengajuan Surat
     // Akhir Admin
 
+    Route::post('/download-laporan/{id}',[LaporanController::class, 'downloadPDF'])->name('download-laporan');
+
     //Test
     Route::get('/test', [SuratKeluarController::class, 'generateQR']);
 
