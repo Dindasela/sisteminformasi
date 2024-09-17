@@ -41,7 +41,15 @@
                     </div>
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4">
                         <div class="m-auto justify-center">
-                            <img src="/image/dokumen.svg" alt="">
+                            <div class="w-full  object-cover ">
+                                <h1 class="text-xl font-light mb-4 text-center">Tampilan Dokumen</h1>
+                                @if (request('jenis_surat'))
+                                    <embed src="{{ asset('storage/Surat/' . request('jenis_surat') . '/pdf/' . request('id_surat') . '.pdf') }}"
+                                        type="" width="100%" height="600px">
+                                @else
+                                    <img class="mx-auto h-full object-cover" src="/image/dokumen.svg" />
+                                @endif
+                            </div>
                         </div>
                         <div class="m-auto justify-center">
                             <div class="grid grid-cols-2 gap-2 text-center">
