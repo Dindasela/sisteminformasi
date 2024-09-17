@@ -25,7 +25,12 @@
             <div class="flex items-center   ">
                 <div class="w-full  object-cover ">
                     <h1 class="text-xl font-light mb-4 text-center">Tampilan Dokumen</h1>
-                    <img class="mx-auto h-full object-cover" src="image/preview.png" />
+                    @if (request('jenis'))
+                        <embed src="{{ asset('storage/Surat/' . request('jenis') . '/pdf/' . request('id') . '.pdf') }}"
+                            type="" width="100%" height="600px">
+                    @else
+                        <img class="mx-auto h-full object-cover" src="image/preview.png" />
+                    @endif
                 </div>
             </div>
             <div class="overflow-x-auto ">
@@ -59,12 +64,12 @@
                                         Pemohon</label>
                                     <input type="text" id="nama_pemohon" name="nama_pemohon"
                                         class="bg-[#F5F3F3] mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                        placeholder="">
+                                        value="{{ request('nama') }}" placeholder="">
                                 </div>
                                 <div class="flex gap-24">
                                     <label for="nik"
                                         class="flex items-center block text-sm font-medium text-gray-700 w-52">NIK</label>
-                                    <input type="text" id="nik" name="nik"
+                                    <input type="text" id="nik" name="nik" value="{{ request('nik') }}"
                                         class="bg-[#F5F3F3] mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                         placeholder="">
                                 </div>
@@ -85,7 +90,8 @@
                                 </div>
                                 <div class="flex">
                                     <label for="file"
-                                        class="flex items-center block text-sm font-medium text-gray-700 w-52">Perlu TTD Lurah ?</label>
+                                        class="flex items-center block text-sm font-medium text-gray-700 w-52">Perlu TTD
+                                        Lurah ?</label>
                                     <div class="mx-auto flex items-center space-x-4">
                                         <label
                                             class="py-1 flex items-center border border-gray-600 rounded-md rounded-md pl-2 w-[50%]">
@@ -111,7 +117,8 @@
                         </div> --}}
                         <div class="pt-4 ">
                             <button type="submit"
-                                class="bg-[#5B5B5B] text-white px-4 py-2 rounded-md hover:bg-[#414066]">Selesai dan Generate
+                                class="bg-[#5B5B5B] text-white px-4 py-2 rounded-md hover:bg-[#414066]">Selesai dan
+                                Generate
                                 QR</button>
                         </div>
                     </div>

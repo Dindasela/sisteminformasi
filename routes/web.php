@@ -94,7 +94,7 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/logout-user', [AuthController::class, 'logoutUser'])->name('logout-user');
     Route::get('/dashboard', 'dashboard')->name('dashboard')->middleware('auth');
-    Route::get('/manajemen-surat', 'manajemensurat');
+    // Route::get('/manajemen-surat', 'manajemensurat');
 
     // Start Surat Masuk
     Route::get('/surat-masuk', [SuratMasukController::class, 'index'])->name('surat-masuk.index');
@@ -113,6 +113,7 @@ Route::controller(GeneralPage::class)->group(function () {
     Route::get('/lihat-surat-keluar', 'lihatsuratkeluar');
     Route::get('/laporan-masuk', [LaporanController::class, 'index'])->name('laporan-masuk.index');
     Route::get('/lihat-laporan/{id}', [LaporanController::class, 'edit'])->name('laporan-masuk.edit');
+    Route::delete('/laporan-masuk/{id}', [LaporanController::class, 'destroy'])->name('laporan-masuk.destroy');
     Route::get('/informasi', 'informasi');
 
     //Start Berita

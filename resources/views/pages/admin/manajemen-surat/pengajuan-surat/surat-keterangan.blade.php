@@ -95,7 +95,7 @@
                                 class="mx-auto h-full object-cover"src="{{ asset('storage/' . $datas->foto_surat_pengantar) }}" />
                         </div>
                     </div>
-                    @if ($datas->status != 'Ditolak')
+                    @if ($datas->status == 'Perlu Tindakan')
                         <div class="flex justify-between mt-6 mx-auto w-[100%] pb-4">
                             <x-pop-up-tolak />
                             <form action="{{ route('verif.sk', $datas->id) }}" method="POST">
