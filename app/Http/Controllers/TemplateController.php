@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Laporan;
 use App\Models\SuratKeteranganDomisiliUsaha;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -80,6 +81,17 @@ class TemplateController extends Controller
 
         // To stream the PDF in the browser
         return $pdf->stream('surat_keterangan_domisili-tempat.pdf');
+    }
+
+    public function testLaporan()
+    {
+        $data = Laporan::find(2);
+
+        // Generate PDF with the correct facade usage
+        $pdf = Pdf::loadView('surat.pengaduan', ['dataArray' => $data]);
+
+        // To stream the PDF in the browser
+        return $pdf->stream('laporan.pdf');
     }
 
     public function surat_keterangan_domisili()

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Laporan;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class LaporanController extends Controller
@@ -12,14 +14,15 @@ class LaporanController extends Controller
     {
         $search = request()->query('search');
         $data = Laporan::where(function ($query) use ($search) {
-            if($search){
+            if ($search) {
                 $query->where('nama', 'LIKE', '%' . $search . '%')->orWhere('jenis', 'LIKE', '%' . $search . '%');
             }
         })->paginate(10);
         return view('pages.admin.pelaporan.laporan-masuk', compact('data'));
     }
 
-    public function create(){
+    public function create()
+    {
         if (auth()->check()) {
             return view('pages/user/layanan/form-pelaporan');
         }
@@ -63,6 +66,17 @@ class LaporanController extends Controller
         $laporan->lokasi = $validateData['lokasi'];
         $laporan->file = $file_path;
         $laporan->save();
+
+        $dataArray = $laporan->toArray();
+        $directoryPath = public_path('storage/laporan/pdf/');
+
+        if (!File::exists($directoryPath)) {
+            File::makeDirectory($directoryPath, 0755, true);
+        }
+
+        $pdf = Pdf::loadView('surat.pengaduan', ['dataArray' => $dataArray]);
+
+        $pdf->save($directoryPath . $laporan->id . '.pdf');
 
         return redirect()->route('layanan-form-pelaporan');
     }
@@ -113,5 +127,11 @@ class LaporanController extends Controller
 
         return redirect()->route('laporan.index');
     }
-    
+
+    public function downloadPDF($id)
+    {
+        $laporan = Laporan::find($id);
+        $file = Storage::disk('public')->get($laporan->file);
+        return response($file, 200)->header('Content-Type', 'application/pdf');
+    }
 }

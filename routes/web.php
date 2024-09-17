@@ -244,4 +244,5 @@ Route::controller(GeneralPage::class)->group(function () {
     //Test Template
     Route::get('/skd', [TemplateController::class, 'surat_keterangan_domisili']);
     Route::get('/skdu', [TemplateController::class, 'surat_keterangan_domisili_tempat']);
+    Route::get('/laporan-test', [TemplateController::class, 'testLaporan']);
 });
