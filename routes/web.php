@@ -239,10 +239,13 @@ Route::controller(GeneralPage::class)->group(function () {
     // Akhir Pengajuan Surat
     // Akhir Admin
 
+    Route::post('/download-laporan/{id}',[LaporanController::class, 'downloadPDF'])->name('download-laporan');
+
     //Test
     Route::get('/test', [SuratKeluarController::class, 'generateQR']);
 
     //Test Template
     Route::get('/skd', [TemplateController::class, 'surat_keterangan_domisili']);
     Route::get('/skdu', [TemplateController::class, 'surat_keterangan_domisili_tempat']);
+    Route::get('/laporan-test', [TemplateController::class, 'testLaporan']);
 });
