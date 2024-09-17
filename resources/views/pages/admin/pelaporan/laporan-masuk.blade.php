@@ -78,7 +78,7 @@
                                                 stroke-linejoin="round" />
                                         </svg>
                                     </a>
-                                    <x-pop-up-hapus action="{{ route('akun.destroy', ['id' => 1]) }}" />
+                                    <x-pop-up-hapus action="{{ route('laporan-masuk.destroy', ['id' => $item->id]) }}" />
                                     <form action="{{ route('download-laporan', $item->id) }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf

@@ -75,20 +75,18 @@
                                     class="block px-4 py-2 hover:bg-[#2B2A4C]">Verifikasi Dokumen</a>
                             </li>
                             <li>
-                                <a href="{{route('layanan-form-pelaporan')}}" class="block px-4 py-2 hover:bg-[#2B2A4C]">Pelaporan</a>
+                                <a href="{{ route('layanan-form-pelaporan') }}"
+                                    class="block px-4 py-2 hover:bg-[#2B2A4C]">Pelaporan</a>
                             </li>
-                            @if (Auth::check() && Auth::user()->role == 'user')
-                                <li>
-                                    <a href="/layanan-pengajuan-dokumen"
-                                        class="block px-4 py-2 hover:bg-[#2B2A4C]">Pengajuan
-                                        Dokumen</a>
-                                </li>
-                                <li>
-                                    <a href="/layanan-status-permohonan"
-                                        class="block px-4 py-2 hover:bg-[#2B2A4C]">Status
-                                        Permohonan</a>
-                                </li>
-                            @endif
+                            <li>
+                                <a href="/layanan-pengajuan-dokumen"
+                                    class="block px-4 py-2 hover:bg-[#2B2A4C]">Pengajuan
+                                    Dokumen</a>
+                            </li>
+                            <li>
+                                <a href="/layanan-status-permohonan" class="block px-4 py-2 hover:bg-[#2B2A4C]">Status
+                                    Permohonan</a>
+                            </li>
                         </ul>
                     </div>
                 </li>

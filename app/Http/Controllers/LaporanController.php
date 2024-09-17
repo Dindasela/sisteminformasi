@@ -124,8 +124,8 @@ class LaporanController extends Controller
             Storage::disk('public')->delete($laporan->file);
         }
         $laporan->delete();
-
-        return redirect()->route('laporan.index');
+ 
+        return redirect()->route('layanan-form-pelaporan');
     }
 
     public function downloadPDF($id)

@@ -22,7 +22,7 @@
         </div>
         <ul class="space-y-2 font-medium">
             <li>
-                <a href="dashboard"
+                <a href="/dashboard"
                     class="bg-[#B2ACAC] flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <span class="flex-1 text-center">Dashboard</span>
                 </a>
@@ -35,7 +35,7 @@
                 </button>
                 <ul id="dropdown-example" class="hidden py-2 space-y-2 flex flex-col items-end">
                     <li>
-                        <a href="/manajemen-surat" class="bg-[#D72323] flex items-center w-[150px] justify-center p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Pengajuan Surat</a>
+                        <a href="{{route('manajemen-surat.index')}}" class="bg-[#D72323] flex items-center w-[150px] justify-center p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Pengajuan Surat</a>
                     </li>
                     <li>
                         <a href="/tambah-surat-keluar" class="bg-[#D72323] flex items-center w-[150px] justify-center p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Surat Keluar</a>
